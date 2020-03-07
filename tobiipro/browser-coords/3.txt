@@ -1,0 +1,135 @@
+
+make throttling optional and configurable. fix #2 #3
+
+   cfg-throttle
+
+   master cfg-throttle
+   @andreineculau
+   [45]andreineculau opened this pull request
+   over 2 years ago
+
+   Labels
+   [46]enhancement
+
+   NOTE: I ran the performance checks again, and the numbers seem much
+   better than before. We could try using no throttling and see the
+   performance 💣
+
+   andreineculau added the [47]enhancement label [48]over 2 years ago
+
+   andreineculau requested a review from IanSavchenko [49]over 2 years ago
+
+   @IanSavchenko
+   [50]IanSavchenko reviewed [51]over 2 years ago
+   (BUTTON) Show outdated (BUTTON) Hide outdated [52]src/util.js
+   ((6 lines not shown))
+   throttledFn.now = fn;
+   return throttledFn;
+   export let maybeThrottle = function(fn) {
+   fn.maybeThrottle = true;
+   return fn;
+   };
+   export let deeply = function(fn) {
+   return function(obj, iteratee) {
+   return fn(_.mapValues(obj, function(v) {
+   return _.isPlainObject(v) ? _.deeply(fn)(v, iteratee) : v;
+   }), iteratee);
+   };
+   };
+   export let throttleDeeply = function(obj, wait) {
+   [53]@IanSavchenko [54]IanSavchenko • [55]over 2 years ago
+   Copy link
+
+   Would be great if we can avoid throttling!
+
+   But I don't understand why it can't be done simpler? Check in throttle
+   if cfg.throttle is 0 or undefined and return function as it is.
+   Otherwise, wrap it into throttle. 3 extra lines and that's all or am I
+   missing something?
+
+   It took me half an hour to understand what is going on here and another
+   half an hour to test it and find couple bugs. Don't know how much time
+   it took you to rename all the usages...
+   [56]@andreineculau [57]andreineculau • [58]over 2 years ago
+   Copy link
+
+   The answer to your question is a question: when? when should throttle
+   check? because as it is now (pre-PR) throttle is called whenever the
+   module is parsed (i.e. today the cfg.throttle is "broken", or to be
+   politically correct can only be changed in code, not at runtime).
+
+   @IanSavchenko
+   [59]IanSavchenko reviewed [60]over 2 years ago
+   (BUTTON) Show outdated (BUTTON) Hide outdated [61]src/util.js
+   @@ -23,8 +22,25 @@ export let roundRect = function(obj, precision) {
+   return obj;
+   };
+   export let throttle = function(fn) {
+   let throttledFn = _.throttle(fn, cfg.throttle);
+   throttledFn.now = fn;
+   return throttledFn;
+   export let maybeThrottle = function(fn) {
+   fn.maybeThrottle = true;
+   return fn;
+   };
+   export let deeply = function(fn) {
+   [62]@IanSavchenko [63]IanSavchenko • [64]over 2 years ago
+   Copy link
+
+   Couple things:
+    1. There is no function _.deeply
+    2. fn is invoked for array of values, not a single plain object value.
+
+   Something like this works for me:
+let deeply = function(fn) {
+  return function(obj, iteratee) {
+    return _.mapValues(obj, function(v, _name) {
+      return _.isPlainObject(v) ? deeply(fn)(v, iteratee) : fn(v, iteratee);
+    });
+  };
+};
+
+   @IanSavchenko
+   [65]IanSavchenko suggested changes [66]over 2 years ago
+
+   Generally, I support this initiative, but this solution looks to me as
+   too complicated and error-prone.
+
+   [67]andreineculau added a commit [68]over 2 years ago
+   [69]@andreineculau [70]make throttling optional and configurable.
+   [71]fix [72]#2
+
+   andreineculau force pushed changes to this branch [73]over 2 years ago
+
+   Copy link
+   @andreineculau
+   [74]andreineculau
+   commented [75]over 2 years ago
+
+   Fixed deeply and updated the PR. Thanks for the input! FWIW I didn't
+   test it when I opened the PR :) I wanted to discuss it on the next
+   working day, which never happened...
+
+   Copy link
+   @andreineculau
+   [76]andreineculau
+   commented [77]over 2 years ago
+
+   TBD we test without any throttling, and if all is still fine, we just
+   remove the throttling altogether in an updated version of this PR
+
+   [78]andreineculau added some commits [79]over 2 years ago
+   [80]@andreineculau [81]sort
+   [82]@andreineculau [83]add top level toJSON function
+
+   Copy link
+   @andreineculau
+   [84]andreineculau
+   commented [85]over 1 year ago
+
+   🤷‍♂️
+
+   andreineculau closed this pull request [86]over 1 year ago
+
+   andreineculau deleted the cfg-throttle branch [87]about 1 month ago
+

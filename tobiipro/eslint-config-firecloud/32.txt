@@ -1,0 +1,60 @@
+
+breaking: enforce standalone (above) comments #32
+
+   f/anu-standalone-comments
+
+   master f/anu-standalone-comments
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   [51]andreineculau added a commit [52]about 1 year ago
+   [53]@andreineculau [54]breaking: enforce standalone (above) comments
+
+   andreineculau force pushed changes to this branch [55]about 1 year ago
+
+   Copy link
+   @IanSavchenko
+   [56]IanSavchenko
+   commented [57]about 1 year ago
+
+   Sorry, but I don't really agree with this. Of course, there should not
+   be long comments on the same line (I'm guessing, you saw it in code by
+   me :D), but sometimes a short comment on the same line is exactly what
+   is needed. Like it was in configs/firecloud.js, before this change,
+   where you have a list of options and now in the middle of them you have
+   a comment and it's not really obvious which option this comment belongs
+   to, so it would be better to pad it with empty lines like
+ OnlyParam: {
+        multiline: true,
+
+        // 0 aka disable
+        minProperties: 0,
+
+        consistent: true
+      },
+},
+
+   And then the number of lines has grown by +3.
+
+   If you want it really bad, we can turn it on as a warning.
+   👍 1
+   andreineculau reacted with thumbs up emoji
+
+   andreineculau closed this pull request [58]about 1 year ago
+
+   andreineculau deleted the f/anu-standalone-comments branch [59]about 1
+   month ago
+

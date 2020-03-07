@@ -1,0 +1,97 @@
+
+enforce fast-forward pull-requests #60
+
+   Closed
+   [57]andreineculau opened this issue Dec 17, 2018 · 2 comments
+   Closed
+
+[58]enforce fast-forward pull-requests #60
+
+   [59]andreineculau opened this issue Dec 17, 2018 · 2 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Dec 17, 2018
+
+   i.e. check if PR commit is fast-forward from PR destination branch
+
+   part of a travis run (maybe in after_script phase), check if PR
+   (feature) branch is rebased on current destination branch (e.g. master)
+
+   if not, fail the build.
+
+   easy to implement, and fairly big benefit to make sure merging PRs
+   works on a pretty recent master commit (it can be that the PR becomes
+   outdated though i.e. last push on PR branch is 1 month ago, and
+   meanwhile there are new commits on master branch -> PR shows green,
+   ready to merge, but the committer still needs to make a manual decision
+   to merge or not given that the new commits might actually make the PR
+   red after rebasing)
+
+   cc [65]@tobiiasl
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Dec 17, 2018
+   [70]@andreineculau
+
+This comment has been minimized.
+
+   [71]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[72]@andreineculau [73]andreineculau commented [74]Dec 17, 2018 •
+
+   edited
+
+   alternatives:
+     * curl github api and request-changes in a review via
+       [75]https://developer.github.com/v3/pulls/reviews/#create-a-pull-re
+       quest-review --- not possible because the github api token is not
+       available in a PR travis run
+     * implement a github hook (the easiest deployment for this might be
+       via [76]https://zeit.co/now)
+     * implement a github action (unsure about it)
+
+   [77]andreineculau added a commit that referenced this issue [78]Dec 17,
+   2018
+   [79]@andreineculau
+   [80]enforce fast-forward PRs. [81]fix [82]#60
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [83]Learn about signing commits
+   [84]778c34c
+   [85]@andreineculau [86]andreineculau mentioned this issue [87]Dec 17,
+   2018
+   [88]enforce fast-forward PRs #61
+   Closed
+   [89]andreineculau added a commit that referenced this issue [90]Dec 18,
+   2018
+   [91]@andreineculau
+   [92]enforce fast-forward PRs. [93]fix [94]#60
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [95]Learn about signing commits
+   [96]c0ecda2
+   [97]@andreineculau [98]andreineculau mentioned this issue [99]Jan 9,
+   2019
+   [100]stop requiring github branches to be up to date - not up to par in
+   it… #71
+   Merged
+   [101]@andreineculau
+
+This comment has been minimized.
+
+   [102]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[103]@andreineculau [104]andreineculau commented [105]Jan 9, 2019
+
+   wontfix
+   [106]@andreineculau [107]andreineculau closed this [108]Jan 9, 2019

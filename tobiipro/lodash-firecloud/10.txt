@@ -1,0 +1,39 @@
+
+load all mixins dynamically #10
+
+   f/anu-dynamic-loading
+
+   master f/anu-dynamic-loading
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   raison d'être: adding new mixins becomes as simple as adding a new
+   module in the mixins folder
+
+   [47]andreineculau added a commit [48]about 1 year ago
+   [49]@andreineculau [50]load all mixins dynamically
+
+   andreineculau added the [51]enhancement label [52]about 1 year ago
+
+   andreineculau self-assigned this [53]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [54]about 1 year ago
+
+   [55]andreineculau added a commit [56]about 1 year ago
+   [57]@andreineculau [58]add comment on prevaled map of mixins
+
+   andreineculau referenced this pull request from commit [59]fe251d3
+   [60]about 1 year ago
+
+   andreineculau merged commit fe251d3 into master [61]about 1 year ago
+
+   andreineculau deleted the f/anu-dynamic-loading branch [62]about 1 year
+   ago
+

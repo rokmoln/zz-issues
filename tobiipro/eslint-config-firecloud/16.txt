@@ -1,0 +1,58 @@
+
+add eslint-plugin-eslint-comments #16
+
+   f/anu-eslint-comments
+
+   master f/anu-eslint-comments
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+   No description given.
+
+   [47]andreineculau added a commit [48]about 1 year ago
+   [49]@andreineculau [50]add eslint-plugin-eslint-comments
+
+   andreineculau added the [51]enhancement label [52]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [53]about 1 year ago
+
+   @IanSavchenko
+   [54]IanSavchenko approved these changes [55]about 1 year ago
+   [56]configs/eslint-comments.js
+   @@ -0,0 +1,31 @@
+   module.exports = {
+   plugins: [
+   'eslint-comments'
+   ],
+   rules: {
+   'eslint-comments/disable-enable-pair': ['error', {
+   [57]@IanSavchenko [58]IanSavchenko • [59]about 1 year ago
+   Copy link
+
+   oh, if I'm guessing right, this will fail in atex-web-ext where we
+   disable order-imports in places where the order of import is important.
+   I guess may be worth rewriting that part.
+   [60]@andreineculau [61]andreineculau • [62]about 1 year ago
+   Copy link
+
+   hmm, I think it should be fine
+   [63]https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/di
+   sable-enable-pair.html
+   but if not, we can just turn off the offending rule, at least
+   temporarily
+   [64]@andreineculau [65]andreineculau • [66]about 1 year ago
+   Copy link
+
+   FYI looks fine
+
+   andreineculau referenced this pull request from commit [67]7f08fb0
+   [68]about 1 year ago
+
+   andreineculau merged commit 7f08fb0 into master [69]about 1 year ago
+
+   andreineculau deleted the f/anu-eslint-comments branch [70]about 1
+   month ago
+

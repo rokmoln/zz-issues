@@ -1,0 +1,32 @@
+
+eslint-plugin-protractor needs to be updated for eslint@6 #46
+
+   Closed
+   [57]andreineculau opened this issue Dec 9, 2019 · 0 comments
+   Closed
+
+[58]eslint-plugin-protractor needs to be updated for eslint@6 #46
+
+   [59]andreineculau opened this issue Dec 9, 2019 · 0 comments
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Dec 9, 2019
+
+   stopped working after eslint-config-firecloud@0.10
+   [65]@andreineculau [66]andreineculau added the [67]bug label [68]Dec 9,
+   2019
+   [69]@andreineculau [70]andreineculau added this to To do in [71]Public
+   (Open Source) via automation [72]Dec 9, 2019
+   [73]@andreineculau [74]andreineculau closed this in [75]fd23de4 [76]Dec
+   10, 2019
+   [77]Public (Open Source) automation moved this from To do to Done
+   [78]Dec 10, 2019
+   [79]@ankitmth [80]ankitmth removed this from Done in [81]Public (Open
+   Source) [82]Feb 19, 2020

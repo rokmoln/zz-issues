@@ -1,0 +1,147 @@
+
+test for travis ticket 2003 #64
+
+   f/anu-travis-run-terminate
+
+   master f/anu-travis-run-terminate
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+   No description given.
+
+   andreineculau force pushed changes to this branch [46]about 1 year ago
+
+   andreineculau force pushed changes to this branch [47]about 1 year ago
+
+   [48]andreineculau added a commit [49]about 1 year ago
+   [50]@andreineculau [51]test for travis ticket 2003
+
+   andreineculau force pushed changes to this branch [52]about 1 year ago
+
+   [53]andreineculau added some commits [54]about 1 year ago
+   [55]@andreineculau [56]test exit with zero
+   [57]@andreineculau [58]barebone .travis.yml
+   [59]@andreineculau [60]rm anything not relevant
+
+   andreineculau force pushed changes to this branch [61]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [62]andreineculau
+   commented [63]10 months ago
+
+   smth tells me that travis will not be looking into this anytime soon.
+   am I right [64]@cotsog ?
+
+   FWIW this is a excerpt of ticket no 2003:
+     __________________________________________________________________
+
+   Hi guys!
+
+   when I debug a build, and maybe run travis_run_before_install
+   if my before_install script/s fail
+   then the ssh session is simply terminated
+
+   I can see why that happens -- ~/.travis/job_stages :
+   travis_terminate_unix function
+
+   In that sense it becomes impossible to debug a failure, so we always go
+   back to just running our before_install script manually (luckily we
+   have a pattern where we have only one script per phase).
+
+   What's your take on this?
+     __________________________________________________________________
+
+   It is the ~/.travis/job_stages script where the
+   travis_run_before_install function originates which runs my command and
+   then says "if this fails then terminate all the processes and exit".
+   Since this is a shell function, exit means terminate the shell session.
+   The expected behavior would be to use "return" instead of "exit"
+     __________________________________________________________________
+
+   Hi again!
+
+   I have simplified to the bare bone the scenario, see
+   [65]https://github.com/tobiipro/support-firecloud/tree/f/anu-travis-run
+   -terminate
+   in order to highlight that this has nothing to do with me using "set
+   -e" or calling "exit" etc
+   You have there a ".travis.yml" that on "before_install" runs the
+   "./test" script, which will call "false" (thus will have non-zero exit
+   code). I'm thus simulating a failure.
+
+   Debugging this build, and running "$ travis_run_before_install" as my
+   first command in the ssh session will completely log me out of the
+   session, thus leaving me unable to debug why my beautiful "./test"
+   script has failed.
+
+   Running "$ ./test" directly instead of "$ travis_run_before_install"
+   will fail as well, but will NOT log me out, so I will be able to debug.
+   Take away - the difference is in how "travis_run_before_install" wraps
+   the call to "./test"
+
+   The TL;DR sounds like this
+   since "travis_run_before_install" is a shell function which ends up
+   calling "_travis_terminate_unix"
+   and since "_travis_terminate_unix" is also a shell function which calls
+   "exit" on the last line
+   ---> YOU (TravisCI) WILL KILL THE SHELL SESSION in which I'm supposed
+   to debug.
+
+   The rationalé for the TL;DR above follows below.
+   Thanks for reading! ;)
+
+   For this particular setup, ~/.travis/job_stages shows this
+
+   function travis_run_before_install() {
+
+   travis_fold start before_install
+   travis_cmd ./test --assert --echo --timing
+   travis_fold end before_install
+
+   :
+   }
+
+   and then "travis_cmd" function will show that the "--assert" flag
+   will eventually lead to calling the "travis_assert" function on the
+   exit code of "./test"
+   which will lead to calling the "travis_terminate 2" function because
+   the exit code of "./test" is not zero.
+   which will lead to calling the "travis_terminate_linux 2" function
+
+   travis_terminate_unix() {
+   set +e
+   [[ "${TRAVIS_FILTERED}" == redirect_io && -e /dev/fd/9 ]] &&
+   sync &&
+   command exec 1>&9 2>&9 9>&- &&
+   sync
+   pgrep -u "${USER}" | grep -v -w "${$}" >"${TRAVIS_TMPDIR}/pids_after"
+   awk 'NR==FNR{a[$1]++;next};!($1 in a)'
+   "${TRAVIS_TMPDIR}"/pids{before,after} |
+   xargs kill &>/dev/null || true
+   pkill -9 -P "${$}" &>/dev/null || true
+   exit "${1}"
+   }
+
+   since "travis_run_before_install" is a shell function which ends up
+   calling "_travis_terminate_unix"
+   and since "_travis_terminate_unix" is also a shell function which calls
+   "exit" on the last line
+   ---> YOU (TravisCI) WILL KILL THE SHELL SESSION in which I'm debugging
+
+   andreineculau closed this pull request [66]10 months ago
+
+   Copy link
+   @cotsog
+   [67]cotsog
+   commented [68]10 months ago
+
+   [69]@andreineculau I'm afraid this issue hasn't been prioritized yet
+   but I confirm it's still tracked on our side. Sorry for the
+   inconvenience.
+   ❤️ 1
+   andreineculau reacted with heart emoji
+
+   andreineculau deleted the f/anu-travis-run-terminate branch [70]about 1
+   month ago
+

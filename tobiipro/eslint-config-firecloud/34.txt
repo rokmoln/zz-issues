@@ -1,0 +1,57 @@
+
+move to eslint-plugin-firecloud ?! #34
+
+   Closed
+   [57]andreineculau opened this issue Apr 14, 2019 · 1 comment
+   Closed
+
+[58]move to eslint-plugin-firecloud ?! #34
+
+   [59]andreineculau opened this issue Apr 14, 2019 · 1 comment
+   Labels
+   [60]enhancement [61]wontfix
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Apr 14, 2019
+
+   not saying that we should, but just FYI: eslint (now?) supports having
+   configs in a plugin package
+   [66]https://eslint.org/docs/user-guide/configuring#using-the-configurat
+   ion-from-a-plugin . The reverse of what we do with the peerDependencies
+   trick.
+
+   i'm mentioning this because i didn't know about this until the past
+   weeks, and because one could see this as a supported "standard" vs the
+   "hack" that we use today.
+
+   I'm personally happy to keep things as they are until they stop
+   working.
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Apr 14, 2019
+   [71]@andreineculau [72]andreineculau added this to To do in [73]Public
+   (Open Source) [74]May 20, 2019
+   [75]@andreineculau [76]andreineculau added the [77]wontfix label
+   [78]May 20, 2019
+   [79]@andreineculau
+
+This comment has been minimized.
+
+   [80]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[81]@andreineculau [82]andreineculau commented [83]May 20, 2019
+
+     If it ain't broke, don't fix it.
+
+   closing out of lack of time/prio
+   [84]@andreineculau [85]andreineculau closed this [86]May 20, 2019
+   [87]Public (Open Source) automation moved this from To do to Done
+   [88]May 20, 2019
+   [89]@ankitmth [90]ankitmth removed this from Done in [91]Public (Open
+   Source) [92]Feb 19, 2020

@@ -1,0 +1,40 @@
+
+order properties when destructuring #23
+
+   Closed
+   [57]andreineculau opened this issue Jan 17, 2019 · 0 comments
+   Closed
+
+[58]order properties when destructuring #23
+
+   [59]andreineculau opened this issue Jan 17, 2019 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Jan 17, 2019
+
+// prefer
+
+let {
+  a,
+  b
+} = obj;
+
+// versus
+
+let {
+  b,
+  a
+} = obj;
+
+   goal: easier to spot in a long list of object properties/array items
+   [65]@andreineculau [66]andreineculau added the [67]enhancement label
+   [68]Jan 17, 2019
+   [69]@andreineculau [70]andreineculau closed this in [71]7ab1e02 [72]Jan
+   28, 2019

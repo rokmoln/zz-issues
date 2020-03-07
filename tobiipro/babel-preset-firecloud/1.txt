@@ -1,0 +1,33 @@
+
+maybe enable babel-plugin-firecloud-src-arg by default #1
+
+   Closed
+   [57]andreineculau opened this issue Feb 23, 2018 · 0 comments
+   Closed
+
+[58]maybe enable babel-plugin-firecloud-src-arg by default #1
+
+   [59]andreineculau opened this issue Feb 23, 2018 · 0 comments
+   Labels
+   [60]question
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Feb 23, 2018
+
+   in its current form
+   [65]https://github.com/tobiipro/babel-preset-firecloud/blob/7d4447cd3bf
+   4aad4857c346a8c794f72be0485ca/plugins/babel-plugin-firecloud-src-arg.js
+   this plugin can work even when no srcFuns are given in the config.
+
+   One could argue though that you anyway have to provide srcFuns in order
+   to make this plugin useful, so it's not a big deal to provide also
+   disabled: false.
+   [66]@andreineculau [67]andreineculau added the [68]question label
+   [69]Feb 23, 2018
+   [70]@andreineculau [71]andreineculau closed this in [72]adfce97 [73]Mar
+   23, 2018

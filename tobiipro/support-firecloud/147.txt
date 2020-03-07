@@ -1,0 +1,38 @@
+
+fun tool: alternative to npm-ci #147
+
+   Closed
+   [57]andreineculau opened this issue Feb 7, 2020 · 0 comments
+   Closed
+
+[58]fun tool: alternative to npm-ci #147
+
+   [59]andreineculau opened this issue Feb 7, 2020 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Feb 7, 2020
+
+   npm ci is very buggy, and same is npm install # with a
+   package-lock.json
+
+   it should be fairly easy™️ to
+     * snapshot a node_modules folder as a zip of only package.json files
+       maintaining the folder hierarchy
+     * restore node_modules folder based on the zip above + downloading
+       the tarballs from the npm registry and unpacking
+
+   NOTE: this doesn't take handle postinstall scripts
+   [65]@andreineculau [66]andreineculau added the [67]enhancement label
+   [68]Feb 7, 2020
+   [69]@andreineculau [70]andreineculau added this to To do in [71]Public
+   (Open Source) via automation [72]Feb 7, 2020
+   [73]@ankitmth [74]ankitmth removed this from To do in [75]Public (Open
+   Source) [76]Feb 19, 2020
+   [77]@andreineculau [78]andreineculau closed this [79]Feb 26, 2020

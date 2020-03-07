@@ -1,0 +1,41 @@
+
+simplify `src/lambda.js:_setupLogging` #13
+
+   Closed
+   [57]andreineculau opened this issue Dec 10, 2018 · 0 comments
+   Closed
+
+[58]simplify `src/lambda.js:_setupLogging` #13
+
+   [59]andreineculau opened this issue Dec 10, 2018 · 0 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Dec 10, 2018 •
+
+   edited
+
+   by removing the heavy bunyan (and bunyan-slack), and replacing with
+   [66]https://github.com/tobiipro/minlog
+
+   Why? I see webpack.config.jsfiles having exceptions for bunyan's
+   dtrace-provider dependency, plus dtrace-provider has native bindings,
+   thus heavy on its own.
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Dec 10, 2018
+   [71]@andreineculau [72]andreineculau self-assigned this [73]Dec 10,
+   2018
+   [74]@andreineculau [75]andreineculau mentioned this issue [76]Feb 4,
+   2019
+   [77]break up lambda module, replace bunyan with minlog #16
+   Merged
+   1 of 1 task complete
+   [78]@andreineculau [79]andreineculau closed this [80]Feb 4, 2019

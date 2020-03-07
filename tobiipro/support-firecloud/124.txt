@@ -1,0 +1,59 @@
+
+Remove Ian Savchenko #124
+
+   Closed
+   [57]IanSavchenko opened this issue Jul 31, 2019 · 1 comment
+   Closed
+
+[58]Remove Ian Savchenko #124
+
+   [59]IanSavchenko opened this issue Jul 31, 2019 · 1 comment
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Jul 31, 2019 •
+
+   edited by andreineculau
+
+   Further actions must be done by another team members.
+     * [X] Remove from the [64]list of Auth0 admins.
+     * [X] Remove on [65]DataDog. Probably, only [66]@alsmyr can do this.
+     * [X] When awsatex-devprod infra stack is deployed, remove user in
+       [67]AWS console in atexdev account.
+     * [X] [DEL: Remove from repos with transcrypt and updated transcrypt
+       passwords. :DEL]
+       EDIT: Too extreme. Cutting off access to the repos is good enough.
+       Changing all passwords every single time a team member leaves is
+       unsustainable. And deleting the encrypted password in each repo
+       will happen in time. /Andrei
+     * [X] [DEL: Update all secrets in the secrets repo. :DEL]
+       EDIT: Too extreme. Cutting off access to the repos is good enough.
+       Changing all passwords every single time a team member leaves is
+       unsustainable. /Andrei
+
+   [68]@IanSavchenko [69]IanSavchenko assigned [70]andreineculau and
+   [71]alsmyr [72]Jul 31, 2019
+   [73]@andreineculau
+
+This comment has been minimized.
+
+   [74]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[75]@andreineculau [76]andreineculau commented [77]Aug 1, 2019
+
+   THANKS, Ian!
+
+   Will have a look at offboarding doc next week. I've checked what I
+   could on this ticket, datadog as you say is on [78]@alsmyr
+
+   Au revoir [79]Simone 👋
+   [80]@andreineculau [81]andreineculau removed their assignment [82]Aug
+   5, 2019
+   [83]@andreineculau [84]andreineculau closed this [85]Aug 26, 2019
+   [86]@ankitmth [87]ankitmth unassigned [88]alsmyr [89]Feb 19, 2020

@@ -1,0 +1,38 @@
+
+SF_LOG_BOOTSTRAP=true in 'make docker-ci' #161
+
+   Closed
+   [57]andreineculau opened this issue Mar 6, 2020 · 1 comment
+   Closed
+
+[58]SF_LOG_BOOTSTRAP=true in 'make docker-ci' #161
+
+   [59]andreineculau opened this issue Mar 6, 2020 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 6, 2020
+
+   we hide the bootstrap log in travis, due to travis limits around logs,
+   but when running the docker-ci locally, it is better to show the log as
+   is
+   [65]@andreineculau [66]andreineculau added the [67]enhancement label
+   [68]Mar 6, 2020
+   [69]@andreineculau
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[71]@andreineculau [72]andreineculau commented [73]Mar 6, 2020
+
+   fixed in [74]2307d71
+   [75]@andreineculau [76]andreineculau closed this [77]Mar 6, 2020

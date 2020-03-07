@@ -1,0 +1,29 @@
+
+remove sort-object-pattern #29
+
+   f/anu-rm-sort-object-pattern
+
+   master f/anu-rm-sort-object-pattern
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   just tested it out, and it's really annoying without a fixer
+
+   @IanSavchenko
+   [46]IanSavchenko approved these changes [47]about 1 year ago
+
+   [48]andreineculau added a commit [49]about 1 year ago
+   [50]@andreineculau [51]Revert "Merge pull request [52]#28 [53]from
+   tobiipro/f/anu-sort-object-pattern"
+
+   andreineculau force pushed changes to this branch [54]about 1 year ago
+
+   andreineculau referenced this pull request from commit [55]8248c29
+   [56]about 1 year ago
+
+   andreineculau merged commit 8248c29 into master [57]about 1 year ago
+
+   andreineculau deleted the f/anu-rm-sort-object-pattern branch [58]about
+   1 month ago
+

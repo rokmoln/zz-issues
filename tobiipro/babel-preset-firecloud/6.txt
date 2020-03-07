@@ -1,0 +1,32 @@
+
+export-all should not mark `export` variables that have 'require' call in
+right-hand-value #6
+
+   Closed
+   [57]IanSavchenko opened this issue Oct 5, 2018 · 0 comments
+   Closed
+
+[58]export-all should not mark `export` variables that have 'require' call in
+right-hand-value #6
+
+   [59]IanSavchenko opened this issue Oct 5, 2018 · 0 comments
+   Assignees
+   [60]@IanSavchenko
+   Labels
+   [61]bug
+
+Comments
+
+   [62]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[63]@IanSavchenko [64]IanSavchenko commented [65]Oct 5, 2018
+
+   Case like let _ = require('lodash-firecloud');
+   Otherwise, we can get in the end exports._.merge(...
+   [66]@IanSavchenko [67]IanSavchenko added the [68]bug label [69]Oct 5,
+   2018
+   [70]@IanSavchenko [71]IanSavchenko self-assigned this [72]Oct 5, 2018
+   [73]@IanSavchenko [74]IanSavchenko closed this in [75]e06cee3 [76]Oct
+   8, 2018

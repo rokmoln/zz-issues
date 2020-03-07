@@ -1,0 +1,337 @@
+
+keep only typescript specific rules #1
+
+   f/anu-keep-only-ts-specifics
+
+   master f/anu-keep-only-ts-specifics
+   @andreineculau
+   [45]andreineculau opened this pull request
+   11 months ago
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   goal is to remove any other rule that is generic to javascript. all
+   those rules can or will be handled by eslint
+
+   only rules related to types or formatting of types should be kept
+
+   dear reviewers, could you just do a cursory check for rules that you
+   bump into that are typescript-specific, and see that they are still
+   there?
+
+   [46]andreineculau added a commit [47]11 months ago
+   [48]@andreineculau [49]keep only typescript specific rules
+
+   andreineculau requested a review from fredrikj [50]11 months ago
+
+   andreineculau requested a review from jobackman [51]11 months ago
+
+   andreineculau requested a review from tobiiasl [52]11 months ago
+
+   andreineculau self-assigned this [53]11 months ago
+
+   Copy link
+   @andreineculau
+   [54]andreineculau
+   commented [55]11 months ago
+
+   [56]@tobiiasl which rule(s) you wanted to have in drive, but didn't?
+
+   @andreineculau
+   [57]andreineculau reviewed [58]11 months ago
+   [59]configs/basic.js
+   ((6 lines not shown))
+   rules: {
+   align: [
+   true,
+   'parameters',
+   'statements'
+   ],
+   'array-type': [
+   true,
+   'array'
+   [60]@andreineculau [61]andreineculau • [62]11 months ago
+   Copy link
+
+   off-topic:
+
+   can someone explain to me why one is preferred over the other?
+   [63]https://palantir.github.io/tslint/rules/array-type/
+   i'm confused by the array-simple option, for instance... makes it sound
+   like there's a problem with Array<T> if T is not simple
+   [64]@tobiiasl [65]tobiiasl • [66]11 months ago • edited 11 months ago
+   Copy link
+
+   I interpret array-simple this way:
+   Use T[] if T is a "simple" type, e.g.:
+  foo: number[];
+  bar: User[];
+
+   but for a non-simple type you must use Array unless you first declare a
+   type for the non-simpe type, e.g.:
+  foo: Array<number | string | User>
+
+   would be ok with array-simple but with array you must do:
+  type NumberStringOrUser = number | string | User;
+  foo: NumberStringOrUser[];
+
+   I have not tried this out so guessing a bit here...
+   [67]@andreineculau [68]andreineculau • [69]11 months ago
+   Copy link
+
+   jaha, maybe. I read simple as primitive/built-in not "declared"
+   your guess makes sense, making "array" as a way to enforce declaration
+   of types, which i see as a benefit
+   [70]@tobiiasl [71]tobiiasl • [72]11 months ago
+   Copy link
+
+   Agreed.
+
+   @fredrikj
+   [73]fredrikj approved these changes [74]11 months ago
+   (BUTTON) Show outdated (BUTTON) Hide outdated [75]configs/basic.js
+   ((77 lines not shown))
+   'no-debugger': true,
+   'no-default-export': false,
+   'no-dynamic-delete': false,
+   'no-duplicate-super': true,
+   'no-duplicate-variable': true,
+   'no-empty': true,
+   'no-eval': true,
+   'no-floating-promises': true,
+   'no-inferrable-types': false,
+   'no-internal-module': true,
+   'no-import-side-effect': false, // true, // FIXME
+   'no-magic-numbers': false,
+   'no-misused-new': true,
+   'no-non-null-assertion': true,
+   'no-null-keyword': false,
+   'no-parameter-properties': false,
+   [76]@fredrikj [77]fredrikj • [78]11 months ago
+   Copy link
+
+   I think this is the typescript rule to not allow properties in
+   constructor arguments: constructor(private name: string) {}
+   So it's typescript, but I think we all hate it. So should remain and be
+   false?
+   [79]@andreineculau [80]andreineculau • [81]11 months ago • edited 11
+   months ago
+   Copy link
+
+   good catch.
+   obviously the tslint docs are crap
+   [82]https://palantir.github.io/tslint/rules/no-parameter-properties/
+   but the port to eslint comes with examples
+   [83]https://github.com/bradzacher/eslint-plugin-typescript/blob/master/
+   docs/rules/no-parameter-properties.md
+
+   do I read this correctly that in typescript, when you mark an argument
+   to the constructor function as public/readonly/etc it automatically
+   becomes a property of the instance?
+
+   e.g. class Foo {constructor(public readonly foo, bar) {...}} means that
+   new Foo(123) will have a property foo === 123, but no bar ?
+
+   and furthermore, do I read you correctly in that you want this ? as
+   opposed to class Foo {public readonly foo; constructor(foo,bar)
+   {this.foo = foo; ...}}
+   [84]@fredrikj [85]fredrikj • [86]11 months ago
+   Copy link
+
+   Well, yes... I prefer to state at one place "set this property when
+   constructing", rather than "i have this property, give that argument
+   when constructing, oh and by the way, assign this property to that
+   argument when constructing". Less verbose is good, simply.
+
+   I guess the rationale of the rule is that it might be surprising that
+   something didn't become a property while another did. But then, if you
+   don't know a language, anything could surprise you, right?
+   [87]@andreineculau [88]andreineculau • [89]11 months ago
+   Copy link
+
+   Thanks for clarifying that my understanding is correct! I was honestly
+   not sure at all.
+
+   Since I have all of you 3 devs from the Sprint team in this review,
+   coming from typescript/tslint to eslint, I will take the opportunity to
+   ask you to read a short wall of text to know precisely my take on this
+   and similar topics so there are no surprises/annoyances later and to
+   know that it's not a matter of "my preference wins over yours, next
+   time I let you win".
+     __________________________________________________________________
+
+   re: your preference --- you said it yourself, it is surprising, and to
+   no objective gain. "I wrote a few chars less while I'm now confusing x
+   people, to which I now have to explain this subtle syntax sugar" is not
+   an objective gain by no means. And typescript is NOT a language, no
+   matter how much you squint :). For it to be one, it would have to have
+   more than just sprinkled syntactic sugar. Typescript is 99% ecmascript,
+   types aside. By comparison coffeescript was much more of a language
+   than typescript. Typescript's sell is that it adds types, the rest is
+   fluff while they keep up supporting the new things brought into
+   ecmascript.
+
+   FYI such a rule "no-parameter-properties" would surely be enforced in
+   eslint-config-firecloud as it falls under principle 3 to reduce
+   cognitive load
+   ([90]https://github.com/tobiipro/eslint-config-firecloud#3-reduce-cogni
+   tive-load-via-explicit-code) --- disclaimer, I wrote those principles,
+   but at least one other person [91]@IanSavchenko has vouched for them. I
+   should highlight also why we have those principles:
+
+     "I (don't) like/want ..." is no argument in this codebase
+
+   NOTE that I'm not going to make a fuss about you/others having custom
+   rules in the repos you own (commit often), but I'm not going to condone
+   it either :). By that I mean, do not expect me/others to help out
+   debugging smth. We won't be able to, because our brains might not be
+   molded to react to subtle syntactic sugar like this and spot a bug.
+
+   Whatever I "impose" via rules/code style, I try hard to back up by
+   highlighting objective gains that make others and me more productive.
+
+   One example is why I use variables in the Makefiles for each executable
+   we call, although in 9/10 cases everything works just the same, but not
+   in 1/10 cases and that's when the default reply might go like "it's a
+   bug in support-firecloud" :) and it turns out to be Tobias having alias
+   which=smth.
+
+   Another example is that most of the eslint rules that we enforce have
+   fixers, so if your mental muscle wants to write i++ that's totally
+   fine, especially if your code editor can lint-and-fix-on-save, because
+   your code will be transformed into i = i + 1 for future readers. A few
+   chars extra (which you did NOT type yourself!), but infinitely clearer
+   and more stable (e.g. if you decide to +2 or +n).
+
+   thanks a bunch for reading 👋
+   [92]@tobiiasl [93]tobiiasl • [94]11 months ago
+   Copy link
+
+   I perfectly understand if eyebrows are raised. I remember Janne and I
+   being very skeptical. But it seems like everyone is using this (ie all
+   samples/tutorials) AND it is also very convenient. And as with many
+   convenient things you don't want to turn back. It does save a lot of
+   typing and you sort of get used to also look in the constructor.
+
+   An interesting thought (not sure if good) would be to only allow
+   readonly properties in the constructor (I see that is possible). I
+   would say that >95% of our constructor properties are/can be readonly
+   and for those few that should be mutable we might have to do the extra
+   work of declaring it. Most of our constructor parameters are just
+   dependency injection parameters.
+   [95]@andreineculau [96]andreineculau • [97]11 months ago
+   Copy link
+
+   The simple fact that you have this "interesting thought" makes my case.
+   Let's enforce an exception to the rule we enforce without an actual
+   lint rule. Because if I write this.foo = foo in a constructor, and you
+   want it as an argument, you should have an linting rule that detects
+   that, and better yet that fixes that automatically. Otherwise it's a
+   stylistic issue that has no place in a PR (anymore)
+   [98]https://github.com/tobiipro/support-firecloud/blob/master/doc/worki
+   ng-with-git-pr.md#miscellaneous
+
+   "everyone is using this" - ever heard of a guy called Karl Popper
+   [99]https://en.wikipedia.org/wiki/Falsifiability ?
+   This is not a popularity contest, but I guess I failed to be clear on
+   that. 😞
+   [100]@fredrikj [101]fredrikj • [102]11 months ago
+   Copy link
+
+   I have to learn to mind my words. :) I didn't mean to claim that
+   typescript is its own language. Should we call it a dialect?
+   Syntactic sugar tastes good, but I guess I'll have to give it up if it
+   comes with the risk of misunderstanding.
+   👍 1
+   andreineculau reacted with thumbs up emoji
+   😄 1
+   andreineculau reacted with laugh emoji
+   [103]@tobiiasl [104]tobiiasl • [105]11 months ago
+   Copy link
+
+   I think this is a good rule:
+   [106]https://palantir.github.io/tslint/rules/prefer-readonly/ which
+   will take us a bit on the way.
+
+   But stuff like this we can fine tune later I think.
+   [107]@tobiiasl [108]tobiiasl • [109]11 months ago
+   Copy link
+
+   [110]@andreineculau Not sure what your take is on the
+   no-parameter-properties? Is it
+   A) I don't agree but I will disable it since you prefer it that way OR
+   B) I don't agree so I will enable it but you can disable it in your
+   repos if you want to OR
+   C) I don't agree and I want us to come to an agreement before moving on
+   [111]@tobiiasl [112]tobiiasl • [113]11 months ago
+   Copy link
+
+   Fredrik, there is at least two more people in the world that would say
+   TypeScript is a language so you are not alone. From Wikipedia:
+   "TypeScript is an open-source programming language" (unless you were
+   the one writing that on Wikipedia).
+
+   :-)
+
+   [114]andreineculau added some commits [115]11 months ago
+   [116]@andreineculau [117]no-parameter-properties is also typescript
+   specific
+            [118]@andreineculau [119]ban-ts-ignore is also typescript specific
+            [120]@andreineculau [121]0.2.0-eslint.0
+
+   Copy link
+   @andreineculau
+   [122]andreineculau
+   commented [123]11 months ago
+
+   didn't know that tslint actually marks rules that are typescriptOnly,
+   so I will use that
+adjacentOverloadSignatures
+arrayType
+awaitPromise
+banTsIgnore
+banTypes
+callableTypes
+interfaceName
+interfaceOverTypeLiteral
+matchDefaultExportName
+memberAccess
+noAngleBracketTypeAssertion
+noAny
+noBooleanLiteralCompare
+noEmptyInterface
+noFloatingPromises
+noInferrableTypes
+noInferredEmptyObjectType
+noInternalModule
+noMergeableNamespace
+noMisusedNew
+noNamespace
+noNonNullAssertion
+noObjectLiteralTypeAssertion
+noParameterProperties
+noRedundantJsdoc
+noReferenceImport
+noUnboundMethod
+noUnnecessaryQualifier
+noUnnecessaryTypeAssertion
+noUnsafeAny
+noUnusedVariable
+noVarRequires
+preferReadonly
+strictBooleanExpressions
+strictTypePredicates
+typeLiteralDelimiter
+typedef
+typedefWhitespace
+unifiedSignatures
+useDefaultTypeParameter
+
+   👍 1
+   fredrikj reacted with thumbs up emoji
+   🎉 1
+   tobiiasl reacted with hooray emoji
+
+   andreineculau closed this pull request [124]11 months ago
+

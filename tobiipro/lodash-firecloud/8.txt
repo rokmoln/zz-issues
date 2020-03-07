@@ -1,0 +1,39 @@
+
+use a brewfile for faster travis runs #8
+
+   f/anu-brewfile
+
+   master f/anu-brewfile
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   see [47]tobiipro/support-firecloud@53e1cbf
+     __________________________________________________________________
+
+   This change is [48] Reviewable
+
+   andreineculau added the [49]enhancement label [50]about 1 year ago
+
+   andreineculau force pushed changes to this branch [51]about 1 year ago
+
+   andreineculau force pushed changes to this branch [52]about 1 year ago
+
+   andreineculau force pushed changes to this branch [53]about 1 year ago
+
+   [54]andreineculau added a commit [55]about 1 year ago
+   [56]@andreineculau [57]use a brewfile for faster travis runs
+
+   andreineculau force pushed changes to this branch [58]about 1 year ago
+
+   [59]andreineculau referenced this pull request from another issue
+   [60]#54 should a Brewfile.inc.sh be made mandatory in
+   tobiipro/support-firecloud
+
+   andreineculau merged commit 18a1950 into master [61]about 1 year ago
+
+   andreineculau deleted the f/anu-brewfile branch [62]about 1 year ago
+

@@ -1,0 +1,36 @@
+
+Move Stack Policies for Retained resources to SF #107
+
+   Closed
+   [57]IanSavchenko opened this issue Apr 30, 2019 · 1 comment
+   Closed
+
+[58]Move Stack Policies for Retained resources to SF #107
+
+   [59]IanSavchenko opened this issue Apr 30, 2019 · 1 comment
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Apr 30, 2019
+
+   No description provided.
+   [64]@andreineculau [65]andreineculau mentioned this issue [66]May 15,
+   2019
+   [67]Add CFN Policy Support #108
+   Merged
+   [68]@IanSavchenko
+
+This comment has been minimized.
+
+   [69]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[70]@IanSavchenko [71]IanSavchenko commented [72]May 16, 2019
+
+   Closed by [73]#108
+   [74]@IanSavchenko [75]IanSavchenko closed this [76]May 16, 2019

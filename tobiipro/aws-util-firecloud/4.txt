@@ -1,0 +1,38 @@
+
+Athena: convert query result to object using column type information #4
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 12, 2018 · 1 comment
+   Closed
+
+[58]Athena: convert query result to object using column type information #4
+
+   [59]IanSavchenko opened this issue Mar 12, 2018 · 1 comment
+   Assignees
+   [60]@IanSavchenko
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Mar 12, 2018 •
+
+   edited
+
+   [65]https://docs.aws.amazon.com/athena/latest/ug/data-types.html
+   [66]https://prestodb.io/docs/current/language/types.html
+   [67]@IanSavchenko [68]IanSavchenko self-assigned this [69]Mar 12, 2018
+   [70]@IanSavchenko
+
+This comment has been minimized.
+
+   [71]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[72]@IanSavchenko [73]IanSavchenko commented [74]Mar 14, 2018
+
+   Fixed with [75]efd1013
+   [76]@IanSavchenko [77]IanSavchenko closed this [78]Mar 14, 2018

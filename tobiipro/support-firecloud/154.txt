@@ -1,0 +1,46 @@
+
+automatically maintain a changelog when creating a release #154
+
+   Open
+   [57]andreineculau opened this issue Feb 16, 2020 · 0 comments
+   Open
+
+[58]automatically maintain a changelog when creating a release #154
+
+   [59]andreineculau opened this issue Feb 16, 2020 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Feb 16, 2020 •
+
+   edited
+
+     * [65]https://github.com/git-chglog/git-chglog - does the job, needs
+       some new files getting committed into each repo, primary worry is
+       that it has some long standing issues, and not many users
+     * make unreleased
+       [66]https://github.com/tobiipro/support-firecloud/blob/ba2f2fc/repo
+       /mk/core.misc.release.mk#L116-L142 - super simple, no dependencies
+
+   Two other alternatives are got a hell no:
+     * [67]https://github.com/conventional-changelog/conventional-changelo
+       g/tree/master/packages/conventional-changelog-cli - is an npm
+       package, both heavy and dynamic, not a good choice for smth
+       language agnostic like support-firecloud
+     * [68]https://github.com/github-changelog-generator/github-changelog-
+       generator - it's a ruby gem, alternatively running inside a docker
+       container, but needs a github personal access token, and didn't run
+       out of the box
+
+   [69]@andreineculau [70]andreineculau added the [71]enhancement label
+   [72]Feb 16, 2020
+   [73]@andreineculau [74]andreineculau added this to To do in [75]Public
+   (Open Source) via automation [76]Feb 16, 2020
+   [77]@ankitmth [78]ankitmth removed this from To do in [79]Public (Open
+   Source) [80]Feb 19, 2020

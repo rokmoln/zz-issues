@@ -1,0 +1,71 @@
+
+stringify also in the browser #21
+
+   Open
+   [57]andreineculau opened this issue Aug 8, 2019 · 0 comments
+   Open
+
+[58]stringify also in the browser #21
+
+   [59]andreineculau opened this issue Aug 8, 2019 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Aug 8, 2019 •
+
+   edited
+
+   when logging in the browser, you log references, which in turns means
+   that anything that is folded may not accurate when you unfold. see
+   [65]https://stackoverflow.com/questions/5223513/why-doesnt-console-log-
+   take-a-snapshot-of-the-passed-variables
+
+   this is only possible in the browser, and the benefit of logging
+   references versus snapshots are closer to corner cases, as in it
+   happens seldom, and when you do it you do not expect that log entry to
+   ever change
+
+   a suggestion would be that minlog could be configurable to log
+   snapshots instead, and MinLog::ref(variable) would be a function that
+   returns a MinLog.Ref instance, that when logged would make MinLog to
+   log the variable instead of the snapshot.
+minlog.info(window); // log a snapshot of window, probably not performant at all
+minlog.info(minlog.ref(window)); // log a reference of window, just like console
+.log does
+
+   relevant code:
+
+   [66]minlog/src/listeners/log-to-console.js
+
+   Line 219 in [67]24541e1
+   extraArgs.push(value);
+   could be changed to say extraArgs.push(value instanceOf MinLog.Ref ?
+   value : JSON.parse(fastSafeStringify(value)));
+
+   // cc [68]@tobiiasl
+   [69]@andreineculau [70]andreineculau added the [71]enhancement label
+   [72]Aug 8, 2019
+   [73]@andreineculau [74]andreineculau added this to To do in [75]Public
+   (Open Source) via automation [76]Aug 8, 2019
+   [77]@andreineculau [78]andreineculau moved this from To do to Next in
+   [79]Public (Open Source) [80]Aug 27, 2019
+   [81]@ankitmth [82]ankitmth removed this from Next in [83]Public (Open
+   Source) [84]Feb 19, 2020
+   [85]andreineculau added a commit that referenced this issue [86]Mar 2,
+   2020
+   [87]@andreineculau
+   [88]breaking: stringify values in the browser as well, unless behind
+   MinL… (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [89]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [90]Learn about signing commits
+   [91]8d28a69
+…ogRef. fix [92]#21
+

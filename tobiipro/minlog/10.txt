@@ -1,0 +1,43 @@
+
+fix console formatting #10
+
+   Closed
+   [57]andreineculau opened this issue Feb 18, 2019 · 0 comments
+   Closed
+
+[58]fix console formatting #10
+
+   [59]andreineculau opened this issue Feb 18, 2019 · 0 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]bug
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Feb 18, 2019
+
+     * indentation
+     * references, see [Object]
+
+2019-02-18T15:30:30.204Z        9e0091ed-1e7c-4ad4-a8ea-8681870c616a    2019-02-
+18T15:30:30.182Z TRACE in the ? context:
+Logger started. TRACE
+{ _arg0: 'Logger started. TRACE' }
+{ _arg1:
+{ e:
+{ resource: '/sql',
+path: '/sql',
+httpMethod: 'POST',
+headers: [Object],
+
+   [66]@andreineculau [67]andreineculau added the [68]bug label [69]Feb
+   18, 2019
+   [70]@andreineculau [71]andreineculau self-assigned this [72]Feb 18,
+   2019
+   [73]@andreineculau [74]andreineculau closed this in [75]1cc2b5b [76]Feb
+   18, 2019

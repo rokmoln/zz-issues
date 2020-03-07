@@ -1,0 +1,37 @@
+
+use mixin names as defined in the modules #13
+
+   f/anu-assume-less
+
+   master f/anu-assume-less
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   [51]andreineculau added a commit [52]about 1 year ago
+   [53]@andreineculau [54]use mixin names as defined in the modules
+
+   andreineculau force pushed changes to this branch [55]about 1 year ago
+
+   @IanSavchenko
+   [56]IanSavchenko approved these changes [57]about 1 year ago
+
+   andreineculau referenced this pull request from commit [58]3a4b09a
+   [59]about 1 year ago
+
+   andreineculau merged commit 3a4b09a into master [60]about 1 year ago
+
+   andreineculau deleted the f/anu-assume-less branch [61]about 1 year ago
+

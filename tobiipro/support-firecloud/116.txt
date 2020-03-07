@@ -1,0 +1,298 @@
+
+Npm audit #116
+
+   npm-audit
+
+   master npm-audit
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]enhancement
+
+   Linked issues
+   [47]implement `npm audit` in repo/mk
+     * Fixes: [48]#55
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [49]andreineculau added some commits [50]10 months ago
+   [51]@andreineculau [52]remove old retry of 'npm install'. possibly not
+   necessary anymore
+   [53]@andreineculau [54]test if package-lock.json is checked in, not if
+   it exists on fs
+   [55]@andreineculau [56]audit package.json [57]fix [58]#55
+
+   andreineculau added the [59]enhancement label [60]10 months ago
+
+   andreineculau requested a review from IanSavchenko [61]10 months ago
+
+   andreineculau self-assigned this [62]10 months ago
+
+   andreineculau added this to Review in progress in [63]Public (Open
+   Source) [64]10 months ago
+
+   @IanSavchenko
+   [65]IanSavchenko reviewed [66]10 months ago
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [67]repo/mk/js.deps.npm.mk
+   @@ -79,3 +76,22 @@ deps-npm-prod:
+   $(NPM) update --no-save --production; \
+   }
+   $(NPM) list --depth=0 || $(MAKE) deps-npm-unmet-peer
+   # the audit can be ignored by adding to the Makefile:
+   # SF_DEPS_TARGETS := $(filter-out deps-npm-audit,$(SF_DEPS_TARGETS))
+   .PHONY: deps-npm-audit
+   deps-npm-audit:
+   $(ECHO_DO) "Auditing package.json..."
+   $(GIT) ls-files --error-unmatch "package-lock.json" || {
+   [68]@IanSavchenko [69]IanSavchenko • [70]10 months ago
+   Copy link
+
+   What's the idea behind this line?
+   [71]@andreineculau [72]andreineculau • [73]10 months ago
+   Copy link
+
+   it's a way to check if package-lock.json is checked in
+   we generally do not check it in (due to the .npmrc and .gitignore
+   config), but there's nothing stopping someone from doing so
+
+   thing is that npm audit can only be run if there is a
+   package-lock.json. the longer story is that it is actually run
+   automatically by npm install (but it doesn't exit with a non-zero code)
+
+   so what we need to do is first create a package-lock.json, if one isn't
+   checked-in
+   then we run npm audit and maybe npm audit --fix
+   and then we maybe clean up the intermediary package-lock.json artifact
+   [74]@IanSavchenko [75]IanSavchenko • [76]10 months ago
+   Copy link
+
+   Thanks for explanation!
+   [77]@andreineculau [78]andreineculau • [79]10 months ago • edited 10
+   months ago
+   Copy link
+
+   added a bit of info on that as visual cues in a new commit
+
+   Copy link
+   @IanSavchenko
+   [80]IanSavchenko
+   commented [81]10 months ago
+
+   Shouldn't other affected teams be invited for the review? Just for the
+   sake of visibility of the change.
+
+   andreineculau requested a review from tobiiasl [82]10 months ago
+
+   [83]andreineculau added a commit [84]10 months ago
+   [85]@andreineculau [86]add visual helpers for npm-audit
+
+   @IanSavchenko
+   [87]IanSavchenko reviewed [88]10 months ago
+
+   Do we want to tweak this setting?
+   [89]https://docs.npmjs.com/misc/config#audit-level
+   [90]repo/mk/js.deps.npm.mk
+   ((4 lines not shown))
+   # the audit can be ignored by adding to the Makefile:
+   # SF_DEPS_TARGETS := $(filter-out deps-npm-audit,$(SF_DEPS_TARGETS))
+   .PHONY: deps-npm-audit
+   deps-npm-audit:
+   $(ECHO_DO) "Auditing package.json..."
+   $(GIT) ls-files --error-unmatch "package-lock.json" || {
+   $(RM) package-lock.json
+   $(NPM) install --package-lock-only
+   }
+   $(NPM) audit || { \
+   $(NPM) audit fix; \
+   $(GIT) ls-files --error-unmatch "package-lock.json" || $(RM)
+   package-lock.json; \
+   exit 1; \
+   [91]@IanSavchenko [92]IanSavchenko • [93]10 months ago
+   Copy link
+
+   Do we need to exit with error here? As I understand it, if npm audit
+   fix succeeds, we should happily continue, right? Or no?
+   [94]@andreineculau [95]andreineculau • [96]10 months ago
+   Copy link
+
+   it is actually the same pattern as we use for the linters, see
+   [97]https://github.com/tobiipro/support-firecloud/blob/master/repo/mk/j
+   s.check.eslint.mk#L28-L30
+
+   it fails, because at least the CI should fail on this one, as the audit
+   fixes should be checked in.
+
+   there are 3 situations to handle with npm audit failing, all requiring
+   a commit:
+    1. package-lock.json is checked-in, then after npm audit fix would
+       modify it and maybe package.json too, and you should check them in
+    2. package-lock.json is NOT checked-in, npm audit fix might modify
+       package.json, and you should check it in
+    3. package-lock.json is NOT checked-in, npm audit fix cannot fix the
+       security by upgrading some top-level dependency in package.json,
+       and basically you have 2 options, either don't run deps-npm-audit,
+       or commit a package-lock.json (smth which I don't mention on
+       purpose because). If you don't do any of these 2 things, then there
+       is no way to get passed this check.
+
+   [98]@IanSavchenko [99]IanSavchenko • [100]10 months ago
+   Copy link
+
+   I agree with these points. More worried about CI and development
+   experience on branches. It can be so that a feature branch is suddenly
+   starting to fail without no apparent reason and then it has to include
+   changes that are not related to the feature.
+   My suggestion is to run audit only on master. So we have such cases:
+    1. Master - has audits, runs on cron and fails early, always gets
+       fixed ASAP by someone from the team.
+    2. Feature branches - don't run audit, it will be run on master after
+       merge.
+    3. Provision branches (env/X) - don't run the audit, install whatever
+       dependencies specified in a given tag. We make deploy more
+       reliable.
+
+   WDYT?
+   [101]@andreineculau [102]andreineculau • [103]10 months ago • edited 10
+   months ago
+   Copy link
+
+     It can be so that a feature branch is suddenly starting to fail
+     without no apparent reason and then it has to include changes that
+     are not related to the feature.
+
+   That is the case for plenty of other things. That is not to say that +1
+   doesn't matter, but that it's a risk that is taken as a development
+   feature - fail early.
+
+     My suggestion is to run audit only on master.
+
+   There a few issues with that.
+   First - a practicality. The Makefiles in support-firecloud should not
+   have such exceptions, so that leaves having an if in each project's
+   Makefile to filter-out (or if we decide this is an opt-in target, add)
+   the deps-npm-audit target.
+   Secondly - it opens the door for surprises after merging the PR. You
+   add packages for your feature, get the PR accepted, and then master
+   fails. The purpose of PRs is to keep master as clean as possible for a
+   variety of reasons, but we've just hijacked that feature now. And on
+   top of it, maybe it is not possible to make a fix so that npm audit is
+   green, maybe you need to exchange a whole package with another, etc,
+   etc maybe it takes time, so you need to revert your PR merge, etc
+
+     Provision branches (env/X) - don't run the audit, install whatever
+     dependencies specified in a given tag. We make deploy more reliable.
+
+   I don't think we run this there. We take the snapshots. Or?
+   [104]@IanSavchenko [105]IanSavchenko • [106]10 months ago
+   Copy link
+
+     That is the case for plenty of other things.
+
+   And all of them are annoying and disruptive when you have to figure out
+   why the hell your branch starts to fail because someone pushed some
+   release in a dependency :) I wouldn't want there to be one more.
+
+     First - a practicality. The Makefiles in support-firecloud should
+     not have such exceptions, so that leaves having an if in each
+     project's Makefile to filter-out (or if we decide this is an opt-in
+     target, add) the deps-npm-audit target.
+
+   Another way: put it in the ci script and create a top level target make
+   audit that will be run only on master. There is a number of ways to do
+   it and you know it much better.
+
+     Secondly - it opens the door for surprises after merging the PR. You
+     add packages for your feature, get the PR accepted, and then master
+     fails. The purpose of PRs is to keep master as clean as possible for
+     a variety of reasons, but we've just hijacked that feature now. And
+     on top of it, maybe it is not possible to make a fix so that npm
+     audit is green, maybe you need to exchange a whole package with
+     another, etc, etc maybe it takes time, so you need to revert your PR
+     merge, etc
+
+   That's not such a surprise, actually, since Github runs PR checks
+   against a potential merge commit with the master, so we will fail
+   before the actual merge. Another option: to do the audit on make deps
+   as we do now without failure. I pay attention to those warnings and
+   would be even more attentive if I knew that it will break master after
+   merging in my branch.
+
+     I don't think we run this there. We take the snapshots. Or?
+
+   You are probably right 👍
+
+   [107]andreineculau added a commit [108]10 months ago
+   [109]@andreineculau [110]fixup! audit package.json [111]fix [112]#55
+
+   Copy link
+   @andreineculau
+   [113]andreineculau commented [114]10 months ago • edited 10 months ago
+
+     [115]https://docs.npmjs.com/misc/config#audit-level
+
+   In that case, maybe use [116]https://www.npmjs.com/package/audit-ci or
+   [117]https://www.npmjs.com/package/npm-audit-ci to specify audit level
+   via a CLI arg
+
+   UPDATE: running some audits on our bigger repos to get a feel for
+   needing or not a way to tweak the level
+   👍 1
+   IanSavchenko reacted with thumbs up emoji
+
+   [118]andreineculau added some commits [119]10 months ago
+   [120]@andreineculau [121]fixup! audit package.json [122]fix [123]#55
+   [124]@andreineculau [125]npm install with --no-audit
+
+   @andreineculau
+   [126]andreineculau reviewed [127]10 months ago
+   [128]repo/mk/js.deps.npm.mk
+   @@ -79,3 +76,30 @@ deps-npm-prod:
+   $(NPM) update --no-save --production; \
+   }
+   $(NPM) list --depth=0 || $(MAKE) deps-npm-unmet-peer
+   .PHONY: deps-npm-audit
+   deps-npm-audit:
+   $(ECHO_DO) "Auditing package.json..."
+   $(GIT) ls-files --error-unmatch "package-lock.json" 2>/dev/null || { \
+   $(ECHO_INFO) "Creating intermediary package-lock.json needed by 'npm
+   audit'..."; \
+   $(RM) package-lock.json; \
+   $(NPM) install --no-audit --package-lock-only 2>/dev/null; \
+   }
+   $(NPM) audit || { \
+   [129]@andreineculau [130]andreineculau • [131]10 months ago
+   Copy link
+
+   made a discovery: apparently you cannot audit a "private" package i.e.
+   if package.json has private: true (which was supposed to be a good way
+   to stop someone from erroneously publishing the package to an npm
+   registry...)
+
+   might be a BLOCKER to move forward on this, and might need to back down
+   to having this audit as optional
+   😕 1
+   IanSavchenko reacted with confused emoji
+
+   Copy link
+   @andreineculau
+   [132]andreineculau
+   commented [133]10 months ago
+
+   pausing the effort:
+    1. private field should be removed
+    2. need to consider a better way of ignoring advisories e.g.
+       [134]https://github.com/jeemok/better-npm-audit
+
+   andreineculau closed this pull request [135]10 months ago
+
+   Public (Open Source) automation moved this from Review in progress to
+   Done [136]10 months ago
+
+   andreineculau deleted the npm-audit branch [137]about 1 month ago
+
+   ankitmth removed this from Done in [138]Public (Open Source) [139]17
+   days ago
+

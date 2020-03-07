@@ -1,0 +1,225 @@
+
+remove .vscode/settings.json symlinking #96
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 25, 2019 · 7 comments
+   Closed
+
+[58]remove .vscode/settings.json symlinking #96
+
+   [59]IanSavchenko opened this issue Mar 25, 2019 · 7 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Mar 25, 2019
+
+   There are certain aspects of VS Code configuration, which I would like
+   to have per repo basis and this requires modification of
+   .vscode/settings.json, which is tracked by git. So this eventually
+   makes SF and a client repo "dirty".
+
+   I suggest that we remove this file to be tracked by git (in client
+   repos) and let people configure VS Code as they want.
+
+   This problem could be solved by this feature request
+   [65]microsoft/vscode#40233, but it does not look like it is happening.
+   (LAUGH react) 😄 1
+   [66]@IanSavchenko [67]IanSavchenko added the [68]enhancement label
+   [69]Mar 25, 2019
+   [70]@andreineculau
+
+This comment has been minimized.
+
+   [71]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[72]@andreineculau [73]andreineculau commented [74]Mar 25, 2019 •
+
+   edited
+
+   There is nothing stopping you from changing the symlink to a regular
+   file in each repo that needs thia, as we talked many times... But sure,
+   make the change "global" in sf. For consistency though, all tobiipro
+   repos should be updated to reflect this change imho. I leave it to you
+   if it's worth it.
+
+   PS: maybe the changes you're making to settings.json can actually be
+   pushed to sf
+   [75]@IanSavchenko
+
+This comment has been minimized.
+
+   [76]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[77]@IanSavchenko [78]IanSavchenko commented [79]Mar 25, 2019
+
+     There is nothing stopping you from changing the symlink to a regular
+     file in each repo that needs thia, as we talked many times...
+
+   This we discussed, but I want to stop tracking the file and even ignore
+   it, so the local changes are not committed.
+
+     PS: maybe the changes you're making to settings.json can actually be
+     pushed to sf
+
+   I want the font to be pink (almost). I don't think this has to be
+   shared.
+
+   I will proceed then with removing the symlink and adding
+   .vscode/settings.json to .gitignore.
+   [80]@andreineculau
+
+This comment has been minimized.
+
+   [81]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[82]@andreineculau [83]andreineculau commented [84]Mar 25, 2019
+
+     I want to stop tracking the file and even ignore it, so the local
+     changes are not committed.
+
+   I somehow read past your original
+
+     I suggest that we remove this file to be tracked by git (in client
+     repos) and let people configure VS Code as they want.
+     __________________________________________________________________
+
+   me, personally, I'm couldn't care less (not a hard-core VSCode user,
+   and I'll most probably set the same common-sense settings myself
+   anyway), EXCEPT
+    1. what you're suggesting i.e. "let people configure as they want"
+       should be possible today. You can set your font to be pink at a
+       user level. We do not configure fonts in a repo's
+       .vscode/settings.json but functional stuff.
+    2. I think [85]@tobiiasl has a better view in his team, if he thinks
+       it's reasonable that every team member when onboarded or when
+       setting up a new computer with vscode should go through setting
+       stuff like:
+
+     * format on save
+     * rules
+     * transpiled files to exclude from the tree
+     * trim final newlines
+     * etc, see
+       [86]https://github.com/tobiipro/support-firecloud/blob/master/.vsco
+       de/settings.json
+
+   PS: having these common-sense vscode settings was to get passed the
+   situation where people use vscode as a text editor (without enabling
+   certain settings) and thus saving, pushing, linter failed, go back.
+   Imho you're barking at this file symlinking, but instead you want to
+   bark at vscode's inability to handle your desire :)
+   [87]@IanSavchenko
+
+This comment has been minimized.
+
+   [88]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[89]@IanSavchenko [90]IanSavchenko commented [91]Mar 25, 2019
+
+     I think [92]@tobiiasl has a better view in his team, if he thinks
+     it's reasonable that every team member when onboarded or when
+     setting up a new computer with vscode should go through setting
+     stuff like:
+
+   Totally agree with this.
+
+   Ok, there is a difference between a) not having .vscode/settings.json
+   in the committed codebase and .gitignoring it or b) having it in the
+   codebase, but .gitignoring, so all the local changes are not committed
+   by default. I'm all for the second option, this will give reasonable
+   defaults to all the team members, but will make it possible to do local
+   customizations.
+
+     what you're suggesting i.e. "let people configure as they want"
+     should be possible today. You can set your font to be pink at a user
+     level. We do not configure fonts in a repo's .vscode/settings.json
+     but functional stuff.
+
+   It is possible, but right now it will make the repo "dirty". I'm
+   talking now NOT about user settings (which are machine-global), but
+   about workspace settings, which are per repo and which we commit. So I
+   want the font color to be different based on the repo, but I guess you
+   don't want me to commit that.
+
+   I'm making a small PR, we can discuss it there.
+   [93]@IanSavchenko [94]IanSavchenko mentioned this issue [95]Mar 25,
+   2019
+   [96]F/ian vscode update #97
+   Closed
+   [97]@andreineculau
+
+This comment has been minimized.
+
+   [98]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[99]@andreineculau [100]andreineculau commented [101]Mar 25, 2019
+
+     but .gitignoring, so all the local changes are not committed by
+     default.
+
+   Once you commit smth, no matter if it's gitignored, you will still have
+   it marked as changed, thus risking to be committed. So b is not an
+   option as per your goal.
+
+   PS: reading too much johnpapa I see 😜 [102]microsoft/vscode#40233
+   (comment) . If the setting is somehow not arbitrary (e.g. some colors
+   are set based on the repo name á la
+   [103]http://randomstringtocsscolor.com) and that's how we say we derive
+   the color attribute, it can still be checked in.
+   [104]@IanSavchenko
+
+This comment has been minimized.
+
+   [105]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[106]@IanSavchenko [107]IanSavchenko commented [108]Mar 26, 2019
+
+   In my defense, I came up with the coloring solution and felt this pain
+   around December, before John Papa made his plugin ;)
+
+   It seems that there is a way to do this (you can do everything with
+   git), but it's so-so, so I can use it myself locally
+   [109]https://stackoverflow.com/questions/3319479/can-i-git-commit-a-fil
+   e-and-ignore-its-content-changes.
+
+   Ok, let's skip .gitignoring settings.json, but I would still want
+   .vscode config files to be not symlinks. Will update PR.
+   [110]@IanSavchenko
+
+This comment has been minimized.
+
+   [111]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[112]@IanSavchenko [113]IanSavchenko commented [114]Mar 26, 2019
+
+   Ok, even with skip-worktree git complains when I want to switch between
+   branches.
+
+   Another way to tackle this would be to .gitignore
+   .vscode/settings.json, clean it from all the repos and import "the
+   recommended settings from support-firecloud" into VS Code user-settings
+   on the machine bootstrap step. Then those reasonable settings will be
+   there, repo customizations can be made and they are not committed.
+
+   But it's all not worth it, took too much time, so I'm closing this.
+   [115]@IanSavchenko [116]IanSavchenko closed this [117]Mar 26, 2019

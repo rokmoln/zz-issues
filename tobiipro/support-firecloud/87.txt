@@ -1,0 +1,48 @@
+
+`make nuke` does not clean submodules #87
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 1, 2019 · 0 comments
+   Closed
+
+[58]`make nuke` does not clean submodules #87
+
+   [59]IanSavchenko opened this issue Mar 1, 2019 · 0 comments
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Mar 1, 2019
+
+   An issue was with katt submodule, where it could not get to work with
+   make deps after update without removing katt/deps folder.
+   [64]andreineculau added a commit that referenced this issue [65]Mar 1,
+   2019
+   [66]@andreineculau
+   [67]nuking should also happen in submodules. [68]fix [69]#87
+   Verified
+   This commit was signed with a verified signature.
+   [70]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [71]Learn about signing commits
+   [72]fd8d68b
+   [73]@andreineculau [74]andreineculau mentioned this issue [75]Mar 1,
+   2019
+   [76]nuking should also happen in submodules. fix #87 #88
+   Merged
+   [77]@andreineculau [78]andreineculau closed this in [79]#88 [80]Mar 2,
+   2019
+   [81]andreineculau added a commit that referenced this issue [82]Mar 2,
+   2019
+   [83]@andreineculau
+   [84]Merge pull request [85]#88 [86]from tobiipro/f/anu-nuke-submodules
+   (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [87]Learn about signing commits
+   [88]31ab63b
+nuking should also happen in submodules. fix [89]#87
+

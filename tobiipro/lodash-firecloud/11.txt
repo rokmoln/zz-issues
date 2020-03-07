@@ -1,0 +1,44 @@
+
+F/anu callbackify #11
+
+   f/anu-callbackify
+
+   master f/anu-callbackify
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   add a callbackify mixin that turns a promise into callback-signature
+   function, which will replace asyncHandler in aws-util-firecloud
+
+   i followed closely node's util.callbackify, while adding options in
+   sync with our promisify mixin
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   andreineculau force pushed changes to this branch [51]about 1 year ago
+
+   [52]andreineculau added some commits [53]about 1 year ago
+   [54]@andreineculau [55]sync promisify with node.js util.promisify
+   [56]@andreineculau [57]add callbackify, following node.js
+   util.callbackify
+
+   andreineculau force pushed changes to this branch [58]about 1 year ago
+
+   andreineculau referenced this pull request from commit [59]cd148e5
+   [60]about 1 year ago
+
+   andreineculau merged commit cd148e5 into master [61]about 1 year ago
+
+   andreineculau deleted the f/anu-callbackify branch [62]about 1 year ago
+

@@ -1,0 +1,30 @@
+
+Match exact content (so that e.g. staging does not match prod-staging) #27
+
+   better_env_check
+
+   master better_env_check
+   @tobiiasl
+   [45]tobiiasl opened this pull request
+   almost 2 years ago
+   No description given.
+
+   [46]tobiiasl added a commit [47]almost 2 years ago
+   [48]@tobiiasl [49]Match exact content (so that e.g. staging does not
+   match prod-staging)
+
+   tobiiasl requested a review from andreineculau [50]almost 2 years ago
+
+   Copy link
+   @tobiiasl
+   [51]tobiiasl
+   commented [52]almost 2 years ago
+
+   Realizing that this will not work (due to whitespace before the env
+   names). New try on Monday.
+
+   andreineculau closed this pull request in [53]7848b24 [54]almost 2
+   years ago
+
+   andreineculau deleted the better_env_check branch [55]over 1 year ago
+

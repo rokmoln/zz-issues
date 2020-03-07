@@ -1,0 +1,60 @@
+
+Moved out getCallerInfo #1
+
+   ian-getCallerInfo-utils
+
+   master ian-getCallerInfo-utils
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request
+   over 2 years ago
+   No description given.
+
+   Ian Savchenk... added a commit [46]over 2 years ago
+   [47]Moved out getCallerInfo
+
+   @andreineculau
+   [48]andreineculau requested changes [49]over 2 years ago
+
+   ready to merge otherwise
+   (BUTTON) Show outdated (BUTTON) Hide outdated [50]src/minlog.js
+   ((22 lines not shown))
+   }
+   info = {
+   file: caller.getFileName(),
+   line: caller.getLineNumber(),
+   function: caller.getFunctionName()
+   };
+   };
+   // eslint-disable-next-line no-unused-expressions
+   Error().stack;
+   Error.stackTraceLimit = origLimit;
+   Error.prepareStackTrace = origPrepare;
+   return info;
+   };
+   import {getCallerInfo} from './util';
+   [51]@andreineculau [52]andreineculau • [53]over 2 years ago
+   Copy link
+
+   newlines
+
+   Ian Savchenk... added a commit [54]over 2 years ago
+   [55]New lines
+
+   @andreineculau
+   [56]andreineculau approved these changes [57]over 2 years ago
+
+   andreineculau referenced this pull request from commit [58]c3f2bed
+   [59]over 2 years ago
+
+   andreineculau merged commit c3f2bed into master [60]over 2 years ago
+
+   IanSavchenko deleted the ian-getCallerInfo-utils branch [61]over 2
+   years ago
+
+   Copy link
+   @andreineculau
+   [62]andreineculau
+   commented [63]over 2 years ago
+
+   👏
+

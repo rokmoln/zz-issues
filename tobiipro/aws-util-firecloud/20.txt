@@ -1,0 +1,63 @@
+
+maybe simplify access to e, ctx, ctx.log #20
+
+   Closed
+   [57]andreineculau opened this issue Feb 20, 2019 · 2 comments
+   Closed
+
+[58]maybe simplify access to e, ctx, ctx.log #20
+
+   [59]andreineculau opened this issue Feb 20, 2019 · 2 comments
+   Labels
+   [60]question [61]wontfix
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Feb 20, 2019
+
+   rather than passing e.g. ctx around, just to able to call
+   ctx.log.error, given the lambda's serial execution flow (one event at a
+   time), maybe we could do
+import {e, ctx, log} from 'aws-util-firecloud/lib/lambda';
+
+log.error(...)
+
+   wdyt [66]@IanSavchenko ?
+   [67]@andreineculau [68]andreineculau added the [69]question label
+   [70]Feb 20, 2019
+   [71]@IanSavchenko
+
+This comment has been minimized.
+
+   [72]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[73]@IanSavchenko [74]IanSavchenko commented [75]Feb 20, 2019
+
+   I would not do this, looks like not a good pattern to me. And it will
+   make it harder to test.
+   [76]@andreineculau
+
+This comment has been minimized.
+
+   [77]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[78]@andreineculau [79]andreineculau commented [80]Feb 21, 2019
+
+   decided IRL to only do it for log, and as a global var
+   [81]@andreineculau [82]andreineculau added this to To do in [83]Public
+   (Open Source) [84]May 20, 2019
+   [85]@andreineculau [86]andreineculau added the [87]wontfix label
+   [88]Jul 9, 2019
+   [89]@andreineculau [90]andreineculau closed this [91]Jul 9, 2019
+   [92]Public (Open Source) automation moved this from To do to Done
+   [93]Jul 9, 2019
+   [94]@ankitmth [95]ankitmth removed this from Done in [96]Public (Open
+   Source) [97]Feb 19, 2020

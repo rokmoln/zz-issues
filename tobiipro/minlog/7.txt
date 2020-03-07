@@ -1,0 +1,23 @@
+
+Replace `iframeId` with `context` #7
+
+   Closed
+   [57]IanSavchenko opened this issue Jan 21, 2019 · 0 comments
+   Closed
+
+[58]Replace `iframeId` with `context` #7
+
+   [59]IanSavchenko opened this issue Jan 21, 2019 · 0 comments
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Jan 21, 2019
+
+   I think that iframeId is atex-web-ext-specific thing. Suggesting to
+   replace it with some kind of generic context.
+   [64]@andreineculau [65]andreineculau closed this in [66]16440bf [67]Jan
+   25, 2019

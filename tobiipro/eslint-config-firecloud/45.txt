@@ -1,0 +1,253 @@
+
+add a first version for a typescript guideline #45
+
+   typescript-guideline
+
+   master typescript-guideline
+   @andreineculau
+   [45]andreineculau opened this pull request 4 months ago • edited 9 days
+   ago
+
+   Labels
+   [46]enhancement [47]help wanted
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+     * [X] add reference to [48]https://basarat.gitbooks.io/typescript/
+     * [X] add reference to interface equivalents for classes
+     * [X] add reference for interface equivalents for tuples
+     * [X] prefer leading & or | in multiline intersection or union types
+       [49]microsoft/TypeScript#12386
+     * [X] indentation issues for multiline generics
+       [50]typescript-eslint/typescript-eslint#455 (comment)
+
+   andreineculau added the [51]enhancement label [52]4 months ago
+
+   andreineculau added the [53]help wanted label [54]4 months ago
+
+   andreineculau self-assigned this [55]4 months ago
+
+   andreineculau added this to In progress in [56]Public (Open Source) via
+   automation [57]4 months ago
+
+   andreineculau force pushed changes to this branch [58]4 months ago
+
+   andreineculau force pushed changes to this branch [59]4 months ago
+
+   andreineculau force pushed changes to this branch [60]4 months ago
+
+   @tobiiasl
+   [61]tobiiasl reviewed [62]4 months ago
+
+   Great work! A very nice introduction for developers at all levels. I
+   have only read part of it so far (will continue with "Amend modules and
+   interfaces" next time).
+
+   I mostly had suggestions for possible improvements on how to make the
+   text easier to grasp.
+   (BUTTON) Show resolved (BUTTON) Hide resolved [63]typescript.md
+   ((5 lines not shown))
+   When types are shared between modules and used sparsely, create a
+   `src/types.ts` file
+   as per TypeScript's conventions, where you will pile up all the common
+   types.
+   Presumably you will also build a declaration at `lib/types.d.ts`.
+   If your repository hosts a library, then it will be useful to have
+   those types easily imported into parent modules.
+   Consider adding `types.d.ts` in the root of your repository with the
+   content `export * from './lib/types.d.ts';`,
+   since this will make parent modules be able to write `import
+   {FunkyType} from 'funky-module/types';`.
+   ## Casting and guards
+   At times, you may need to clarify to typescript that a variable is
+   certainly of a specific type within a block.
+   ```typescript
+   let fn = function(a: boolean | string): boolean {
+   if ((a as string).match) {
+   [64]@tobiiasl [65]tobiiasl • [66]4 months ago
+   Copy link
+
+   I found this example/pattern confusing. It took me a while just to
+   understand the intention of the first check (perhaps because my first
+   thought was that the match function did some magical thing using
+   regexps to see if the type of a matched 'string'). But anyway, I don't
+   think I like this pattern. Afaics it does not check if the variable is
+   of a certain type, just that it has a specific function. Using this
+   pattern here would not work:
+let foo = [ 2, 3];
+
+if ((foo as string).length) {
+  console.log(`foo is a string of length ${foo.length);
+}
+
+   (BUTTON) Show resolved (BUTTON) Hide resolved [67]typescript.md
+   ((29 lines not shown))
+   * the `in` operator e.g. `if ('match' in a)`
+   * the `typeof` guard e.g. `if (typeof a === 'string')`
+   * the `instanceof` guard e.g. `let a = new String('foo'); if (a
+   instanceof String`
+   * `if ((a as any).match) { a = a as string; ...`
+   * `if ((a as any).match) { a = a as unknown as string; ...` (in extreme
+   cases)
+   [Read more about
+   this.](https://www.typescriptlang.org/docs/handbook/advanced-types.html
+   #type-guards-and-differentiating-types)
+   ## Use type assertions to `unknown` when the going gets tough
+   At times, you may hit issues because of type mismatching.
+   If you are certain that the implementation is correct (but maybe the
+   typing is only partially correct),
+   rather than fall back to `// @ts-ignore`, use a type assertion to
+   unknown and then to the intended type.
+   [68]@tobiiasl [69]tobiiasl • [70]4 months ago
+   Copy link
+
+   Perhaps mention what the benefit is over type asserting to any which
+   would be the default for most developers (I think).
+   [71]@tobiiasl [72]tobiiasl • [73]4 months ago
+   Copy link
+
+   Ok. Reading on I saw that you explain that further down. Perhaps
+   refer/link to it here? Or reverse the order.
+   (BUTTON) Show resolved (BUTTON) Hide resolved [74]typescript.md
+   ((38 lines not shown))
+   ## Use type assertions to `unknown` when the going gets tough
+   At times, you may hit issues because of type mismatching.
+   If you are certain that the implementation is correct (but maybe the
+   typing is only partially correct),
+   rather than fall back to `// @ts-ignore`, use a type assertion to
+   unknown and then to the intended type.
+   ```typescript
+   type Person = {
+   name: string;
+   gender: string;
+   };
+   let fn = function(): Person {
+   let p = {} as Partial<Person>;
+   [75]@tobiiasl [76]tobiiasl • [77]4 months ago
+   Copy link
+
+   Room for improvement? Using Partial is a good example but might miss
+   the point if the reader is not familiar with Partial. Simpler example?
+   Explaining Partial before this section?
+   (BUTTON) Show resolved (BUTTON) Hide resolved [78]typescript.md
+   ((46 lines not shown))
+   ```typescript
+   type Person = {
+   name: string;
+   gender: string;
+   };
+   let fn = function(): Person {
+   let p = {} as Partial<Person>;
+   p.name = 'Luiza';
+   p.gender = 'unspecified';
+   // will complain that Partial<Person> does not match Person
+   // return p;
+   // since you are certain that p will actually have all the required
+   properties, you can
+   // return p as unknown as Person;
+   [79]@tobiiasl [80]tobiiasl • [81]4 months ago • edited 4 months ago
+   Copy link
+
+   Minor: At least right now I think a couple of extra parentheses will
+   make it clearer to non-experts what is happening. Ie return (p as
+   unknown) as Person.
+   (BUTTON) Show resolved (BUTTON) Hide resolved [82]typescript.md
+   ((52 lines not shown))
+   let fn = function(): Person {
+   let p = {} as Partial<Person>;
+   p.name = 'Luiza';
+   p.gender = 'unspecified';
+   // will complain that Partial<Person> does not match Person
+   // return p;
+   // since you are certain that p will actually have all the required
+   properties, you can
+   // return p as unknown as Person;
+   };
+   ```
+   ## Don't forget mapped types generics
+   Generics are a good for mapping types
+   [83]@tobiiasl [84]tobiiasl • [85]4 months ago
+   Copy link
+
+   s/a //
+
+   @tobiiasl
+   [86]tobiiasl reviewed [87]4 months ago
+   (BUTTON) Show resolved (BUTTON) Hide resolved [88]typescript.md
+   ((87 lines not shown))
+   [Read more about the unknown
+   type.](https://mariusschulz.com/blog/the-unknown-type-in-typescript)
+   ## Use utility types
+   Newer versions of TypeScript have opened up the possibility for
+   so-called utility types e.g.
+   * `Partial<T>` would be a type for a partial object of type T
+   * `ReturnType<T>` would be the type of the return value of a function
+   of type T
+   Similarly to the built-in types, more utility-types exist as external
+   packages:
+   * our own collection:
+   https://github.com/tobiipro/lodash-firecloud/blob/master/src/types.ts
+   * built-in utility types:
+   https://codewithstyle.info/Comprehensive-list-of-useful-built-in-types-
+   in-TypeScript/
+   * extension of utility types:
+   https://github.com/piotrwitek/utility-types
+   * **comprehensive** but can easily through TypeScript errors because of
+   high complexity: https://github.com/pirix-gh/ts-toolbelt
+   [89]@tobiiasl [90]tobiiasl • [91]4 months ago
+   Copy link
+
+   "through"?? I cannot parse the sentence.
+
+   @tobiiasl
+   [92]tobiiasl reviewed [93]4 months ago
+   (BUTTON) Show resolved (BUTTON) Hide resolved [94]typescript.md
+   ((105 lines not shown))
+   ## Amend modules and interfaces (and classes)
+   Sometimes external modules have incorrect types, and you need to amend
+   their interfaces
+   or to amend classes e.g.
+   ```typescript
+   interface ClockInterface {
+   currentTime: Date;
+   }
+   class Clock implements ClockInterface {
+   currentTime: Date = new Date();
+   constructor(h: number, m: number) { }
+   [95]@tobiiasl [96]tobiiasl • [97]4 months ago
+   Copy link
+
+   Sorry. I don't get what this code should show and thus not why we amend
+   the prototype. The constructor does nothing??
+
+   Perhaps the hour is too late...
+   [98]@andreineculau [99]andreineculau • [100]4 months ago
+   Copy link
+
+   note: add ellipsis
+
+   ankitmth removed this from In progress in [101]Public (Open Source)
+   [102]17 days ago
+
+   [103]andreineculau added a commit [104]9 days ago
+   [105]@andreineculau [106]add a first version for a typescript guideline
+
+   andreineculau force pushed changes to this branch [107]9 days ago
+
+   andreineculau modified this pull request [108]9 days ago
+
+   Copy link
+   @andreineculau
+   [109]andreineculau
+   commented [110]9 days ago
+
+   [111]@tobiiasl thanks!
+
+   andreineculau referenced this pull request from commit [112]9118da7
+   [113]9 days ago
+
+   andreineculau merged commit 9118da7 into master [114]9 days ago
+
+   andreineculau deleted the typescript-guideline branch [115]9 days ago
+

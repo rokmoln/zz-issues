@@ -1,0 +1,41 @@
+
+eslint also executables with a node shebang #113
+
+   f/anu-eslint-shebang
+
+   master f/anu-eslint-shebang
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]bug
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [47]andreineculau added a commit [48]10 months ago
+   [49]@andreineculau [50]eslint also executables with a node shebang
+
+   andreineculau added the [51]bug label [52]10 months ago
+
+   andreineculau requested a review from IanSavchenko [53]10 months ago
+
+   andreineculau self-assigned this [54]10 months ago
+
+   andreineculau added this to Review in progress in [55]Public (Open
+   Source) [56]10 months ago
+
+   andreineculau referenced this pull request from commit [57]9f45d53
+   [58]10 months ago
+
+   andreineculau merged commit 9f45d53 into master [59]10 months ago
+
+   Public (Open Source) automation moved this from Review in progress to
+   Done [60]10 months ago
+
+   andreineculau deleted the f/anu-eslint-shebang branch [61]10 months ago
+
+   ankitmth removed this from Done in [62]Public (Open Source) [63]17 days
+   ago
+

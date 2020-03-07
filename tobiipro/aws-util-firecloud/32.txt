@@ -1,0 +1,31 @@
+
+aws-sdk logger: handle possible regexp exception #32
+
+   fix-logger-regexp
+
+   master fix-logger-regexp
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request
+   9 months ago
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   Ian Savchenko added a commit [46]9 months ago
+   [47]aws-sdk logger: handle possible regexp exception
+
+   IanSavchenko requested a review from andreineculau [48]9 months ago
+
+   @andreineculau
+   [49]andreineculau approved these changes [50]9 months ago
+
+   andreineculau referenced this pull request from commit [51]1af484d
+   [52]9 months ago
+
+   andreineculau merged commit 1af484d into master [53]9 months ago
+
+   IanSavchenko deleted the fix-logger-regexp branch [54]9 months ago
+
+   andreineculau referenced this pull request from commit [55]0853afc
+   [56]7 months ago
+

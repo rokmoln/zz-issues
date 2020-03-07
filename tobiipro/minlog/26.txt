@@ -1,0 +1,81 @@
+
+Flush #26
+
+   flush
+
+   master flush
+   @andreineculau
+   [45]andreineculau opened this pull request
+   4 months ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [x]
+     __________________________________________________________________
+
+   log functions are currently async, but in certain situations these
+   functions cannot be awaited e.g. you can only do it inside an async
+   function
+
+   in order to normalize the situation, the logging functions are made
+   sync and they actually become queue pushers.
+
+   a secondary method is introduced to flush the queue to serializers and
+   listeners. wherever needed, the parent code can await minlog.flush();
+   at t0 if it wants to make sure that log entries reached pushed before
+   t0 reached all listeners
+
+   andreineculau added the [47]enhancement label [48]4 months ago
+
+   andreineculau requested a review from tobiiasl [49]4 months ago
+
+   andreineculau self-assigned this [50]4 months ago
+
+   andreineculau force pushed changes to this branch [51]4 months ago
+
+   andreineculau force pushed changes to this branch [52]4 months ago
+
+   [53]andreineculau added a commit [54]4 months ago
+   [55]@andreineculau [56]breaking: sync log functions, add async flush()
+
+   andreineculau force pushed changes to this branch [57]4 months ago
+
+   @tobiiasl
+   [58]tobiiasl approved these changes [59]4 months ago
+
+   Great solution!
+   [60]src/minlog.ts
+   @@ -115,7 +128,30 @@ export class MinLog {
+   return maxLevelCode;
+   }
+   async log(levelCodeOrName: MinLogLevel, ...args: MinLogArg[]):
+   Promise<void> {
+   async flush(): Promise<void> {
+   await this._queueFlushing;
+   let deferred = _.deferred<void>();
+   this._queueFlushing = deferred.promise;
+   let flushed = false;
+   this._queue.push(async function() {
+   flushed = true;
+   });
+   // eslint-disable-next-line no-unmodified-loop-condition,
+   @typescript-eslint/no-unnecessary-condition
+   while (!flushed) {
+   [61]@tobiiasl [62]tobiiasl • [63]4 months ago
+   Copy link
+
+   Nice solution. This looks totally weird at first. Is this a common
+   pattern?
+   [64]@andreineculau [65]andreineculau • [66]4 months ago
+   Copy link
+
+   ?
+
+   andreineculau referenced this pull request from commit [67]1bda259
+   [68]4 months ago
+
+   andreineculau merged commit 1bda259 into master [69]4 months ago
+
+   andreineculau deleted the flush branch [70]about 1 month ago
+

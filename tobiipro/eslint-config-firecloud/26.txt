@@ -1,0 +1,85 @@
+
+new object-curly-newline that handles only-param #26
+
+   f/anu-object-curly-newline
+
+   f/anu-reapply f/anu-object-curly-newline
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]bug
+   No description given.
+
+   andreineculau added the [47]bug label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   [51]andreineculau added some commits [52]about 1 year ago
+   [53]@andreineculau [54]bring in vanilla object-curly-newline
+   [55]@andreineculau [56]new object-curly-newline that handles
+   only-param. [57]fix [58]#8
+
+   andreineculau force pushed changes to this branch [59]about 1 year ago
+
+   @IanSavchenko
+   [60]IanSavchenko reviewed [61]about 1 year ago
+
+   Somehow I also expected OnlyParam to handle a case of the only
+   parameter in the function definition, not only function invocation.
+   Like this:
+let func = function({a, b, c}) {
+}
+
+   Or is it out of scope of this rule?
+
+   [62]andreineculau added some commits [63]about 1 year ago
+   [64]@andreineculau [65]handle function definitions
+   [66]@andreineculau [67]refactor
+
+   Copy link
+   @andreineculau
+   [68]andreineculau
+   commented [69]about 1 year ago
+
+   ok. the new commits should handle those too
+
+   [70]andreineculau added a commit [71]about 1 year ago
+   [72]@andreineculau [73]breaking: object-curly-newline
+
+   @IanSavchenko
+   [74]IanSavchenko approved these changes [75]about 1 year ago
+
+   Nice!
+
+   Copy link
+   @IanSavchenko
+   [76]IanSavchenko
+   commented [77]about 1 year ago
+
+   But how do you know that it works? Any tests for function definition
+   case?
+
+   [78]andreineculau added a commit [79]about 1 year ago
+   [80]@andreineculau [81]object-curly-newline: add tests for
+   ObjectPattern
+
+   Copy link
+   @andreineculau
+   [82]andreineculau
+   commented [83]about 1 year ago
+
+   tests added
+
+   andreineculau referenced this pull request from commit [84]333a37a
+   [85]about 1 year ago
+
+   andreineculau merged commit 333a37a into f/anu-reapply [86]about 1 year
+   ago
+
+   andreineculau deleted the f/anu-object-curly-newline branch [87]about 1
+   month ago
+

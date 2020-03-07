@@ -1,0 +1,43 @@
+
+util to request SSL certificates in multiple regions #47
+
+   Open
+   [57]andreineculau opened this issue Nov 19, 2018 · 0 comments
+   Open
+
+[58]util to request SSL certificates in multiple regions #47
+
+   [59]andreineculau opened this issue Nov 19, 2018 · 0 comments
+   Assignees
+   [60]@andreineculau
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Nov 19, 2018
+
+   cloudfront and api-gateway (edge-optimized) require certificates to be
+   placed in n.virginia
+
+   but other scenarios (e.g. api-gateway regional) require regional
+   certificates e.g. an api-gateway in ireland will only be able to use
+   certificates from the ireland certificate manager
+
+   in order to skip a few manual hops, a utility could read the necessary
+   details, request the SSL certificates (and if DNS is the validation
+   method, it can print out the required DNS entries)
+
+   another util could read the output from the first util, and make the
+   necessary dns changes. Two utils are needed, not just from the
+   perspective of the KISS principle, but also because requesting SSL
+   certificates may happen in a different account than the one that
+   manages the DNS
+   [65]@andreineculau [66]andreineculau self-assigned this [67]Nov 19,
+   2018
+   [68]@andreineculau [69]andreineculau added this to To do in [70]Public
+   (Open Source) [71]May 20, 2019
+   [72]@ankitmth [73]ankitmth removed this from To do in [74]Public (Open
+   Source) [75]Feb 19, 2020

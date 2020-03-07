@@ -1,0 +1,26 @@
+
+no point in having rules that work without known bugs/exceptions as warnings
+#13
+
+   f/anu-remove-warn
+
+   master f/anu-remove-warn
+   @andreineculau
+   [45]andreineculau opened this pull request
+   almost 2 years ago
+   No description given.
+
+   [46]andreineculau added a commit [47]almost 2 years ago
+   [48]@andreineculau [49]no point in having rules that work without known
+   bugs/exceptions as w…
+
+   andreineculau requested a review from IanSavchenko [50]almost 2 years
+   ago
+
+   andreineculau referenced this pull request from commit [51]654a6b3
+   [52]almost 2 years ago
+
+   andreineculau merged commit 654a6b3 into master [53]almost 2 years ago
+
+   andreineculau deleted the f/anu-remove-warn branch [54]over 1 year ago
+

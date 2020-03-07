@@ -1,0 +1,52 @@
+
+breaking: our defer mixin overrides builtin #27
+
+   Closed
+   [57]andreineculau opened this issue Oct 11, 2019 · 0 comments
+   Closed
+
+[58]breaking: our defer mixin overrides builtin #27
+
+   [59]andreineculau opened this issue Oct 11, 2019 · 0 comments
+   Labels
+   [60]bug
+   Milestone
+   [61]breaking
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Oct 11, 2019 •
+
+   edited
+
+   new name needs to be chosen - deferred ?
+
+   PS: a test should be added making sure we don't override builtin mixins
+   [66]@andreineculau [67]andreineculau added the [68]bug label [69]Oct
+   11, 2019
+   [70]@andreineculau [71]andreineculau added this to the [72]breaking
+   milestone [73]Oct 11, 2019
+   [74]@andreineculau [75]andreineculau added this to To do in [76]Public
+   (Open Source) via automation [77]Oct 11, 2019
+   [78]@andreineculau [79]andreineculau changed the title [DEL: breaking:
+   our defer mixins overrides builtin :DEL] [INS: breaking: our defer
+   mixin overrides builtin :INS] [80]Oct 11, 2019
+   [81]andreineculau added a commit that referenced this issue [82]Oct 19,
+   2019
+   [83]@andreineculau
+   [84]deprecate defer in favour of deferred. see [85]#27
+   Verified
+   This commit was signed with a verified signature.
+   [86]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [87]Learn about signing commits
+   [88]05ab1da
+   [89]@andreineculau [90]andreineculau closed this in [91]e29bf17 [92]Nov
+   6, 2019
+   [93]Public (Open Source) automation moved this from To do to Done
+   [94]Nov 6, 2019
+   [95]@ankitmth [96]ankitmth removed this from Done in [97]Public (Open
+   Source) [98]Feb 19, 2020

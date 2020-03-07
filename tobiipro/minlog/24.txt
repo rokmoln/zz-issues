@@ -1,0 +1,64 @@
+
+Typescript #24
+
+   new-typescript
+
+   master new-typescript
+   @andreineculau
+   [45]andreineculau opened this pull request 4 months ago • edited 4
+   months ago
+
+   Labels
+   [46]enhancement
+
+   Linked issues
+   [47]add typescript definition
+     * Fixes: [48]#19
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   FYI [49]@tobiiasl this commit is what enables typescript [50]943d057 .
+   Should be pretty straightforward.
+
+   [51]@tobiiasl where would you put (maintain and export) common types
+   e.g. src/types.ts? lodash-firecloud?
+
+   andreineculau added the [52]enhancement label [53]4 months ago
+
+   andreineculau requested a review from tobiiasl [54]4 months ago
+
+   andreineculau self-assigned this [55]4 months ago
+
+   andreineculau added this to In progress in [56]Public (Open Source) via
+   automation [57]4 months ago
+
+   [58]andreineculau added some commits [59]4 months ago
+   [60]@andreineculau [61]rename .js to .ts
+   [62]@andreineculau [63]enable typescript
+   [64]@andreineculau [65]typescript
+
+   andreineculau force pushed changes to this branch [66]4 months ago
+
+   andreineculau referenced this pull request from commit [67]7f66b75
+   [68]4 months ago
+
+   andreineculau merged commit 7f66b75 into master [69]4 months ago
+
+   Public (Open Source) automation moved this from In progress to Done
+   [70]4 months ago
+
+   Copy link
+   @tobiiasl
+   [71]tobiiasl
+   commented [72]4 months ago
+
+   Late to the game. But it sounds like a good start to have them in
+   lodash-firecloud.
+   👍 1
+   andreineculau reacted with thumbs up emoji
+
+   andreineculau deleted the new-typescript branch [73]about 1 month ago
+
+   ankitmth removed this from Done in [74]Public (Open Source) [75]17 days
+   ago
+

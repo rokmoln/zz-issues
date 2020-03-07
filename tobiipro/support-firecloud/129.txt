@@ -1,0 +1,89 @@
+
+decrease dependency on json (npm) in favour of jq #129
+
+   Closed
+   [57]andreineculau opened this issue Sep 18, 2019 · 0 comments
+   Closed
+
+[58]decrease dependency on json (npm) in favour of jq #129
+
+   [59]andreineculau opened this issue Sep 18, 2019 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Sep 18, 2019 •
+
+   edited
+
+   since jq is not dependent on nodejs (thus not susceptible to nvm
+   usage), and since jq is, i think, more powerful than json anyway
+
+   cc [65]@pedrotari7
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Sep 18, 2019
+   [70]@andreineculau [71]andreineculau added this to To do in [72]Public
+   (Open Source) via automation [73]Sep 18, 2019
+   [74]@andreineculau [75]andreineculau closed this in [76]4e79eec [77]Sep
+   18, 2019
+   [78]andreineculau added a commit that referenced this issue [79]Sep 18,
+   2019
+   [80]@andreineculau
+   [81]breaking: stop installing json (npm) as global dep. see [82]#129
+   Verified
+   This commit was signed with a verified signature.
+   [83]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [84]Learn about signing commits
+   [85]8172970
+   [86]Public (Open Source) automation moved this from To do to Done
+   [87]Sep 18, 2019
+   [88]andreineculau added a commit that referenced this issue [89]Sep 18,
+   2019
+   [90]@andreineculau
+   [91]fixup! use jq instead of json. [92]fix [93]#129
+   Verified
+   This commit was signed with a verified signature.
+   [94]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [95]Learn about signing commits
+   [96]1c4acbf
+   [97]andreineculau added a commit that referenced this issue [98]Sep 18,
+   2019
+   [99]@andreineculau
+   [100]Revert "breaking: stop installing json (npm) as global dep. see
+   [101]#129[102]" (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [103]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [104]Learn about signing commits
+   [105]829ca99
+This reverts commit [106]8172970.
+
+   [107]@andreineculau [108]andreineculau mentioned this issue [109]Sep
+   18, 2019
+   [110]remove dependency on json (npm) in favour of jq #130
+   Closed
+   [111]andreineculau added a commit that referenced this issue [112]Sep
+   21, 2019
+   [113]@andreineculau
+   [114]use jq instead of json. follow up on [115]#129
+   Verified
+   This commit was signed with a verified signature.
+   [116]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [117]Learn about signing commits
+   [118]daa2c58
+   [119]andreineculau added a commit that referenced this issue [120]Nov
+   17, 2019
+   [121]@andreineculau
+   [122]fixup! use jq instead of json. [123]fix [124]#129
+   Verified
+   This commit was signed with a verified signature.
+   [125]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [126]Learn about signing commits
+   [127]cb32cb2
+   [128]@ankitmth [129]ankitmth removed this from Done in [130]Public
+   (Open Source) [131]Feb 19, 2020

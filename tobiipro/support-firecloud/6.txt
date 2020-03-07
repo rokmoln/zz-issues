@@ -1,0 +1,49 @@
+
+problem with package-json-prepare ? #6
+
+   Closed
+   [57]andreineculau opened this issue Feb 25, 2018 · 1 comment
+   Closed
+
+[58]problem with package-json-prepare ? #6
+
+   [59]andreineculau opened this issue Feb 25, 2018 · 1 comment
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]bug
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Feb 25, 2018
+
+   uncertain but
+   [66]https://github.com/tobiipro/support-firecloud/blob/master/repo/mk/j
+   s.publish.npg.mk#L19 check may not be working with npm 5.7.1 (the
+   prepare is not executed e.g. no lib folder of babel-transpiled src
+   folder)
+
+   i.e. install a git dep with a "git url + hash" (not a dist tag) as
+   version specifier
+
+   smth changed in npm? a bug in npm? a bug with the package-json-prepare
+   makefile target?
+   [67]@andreineculau [68]andreineculau self-assigned this [69]Apr 4, 2018
+   [70]@andreineculau [71]andreineculau added the [72]bug label [73]Dec 3,
+   2018
+   [74]@andreineculau
+
+This comment has been minimized.
+
+   [75]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[76]@andreineculau [77]andreineculau commented [78]Dec 3, 2018
+
+   fixed in [79]98e1bb4
+   [80]@andreineculau [81]andreineculau closed this [82]Dec 3, 2018

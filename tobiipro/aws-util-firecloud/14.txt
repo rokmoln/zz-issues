@@ -1,0 +1,43 @@
+
+better errors for cases when Lambda build artifacts not found #14
+
+   ian-addLambda-notFound
+
+   master ian-addLambda-notFound
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request
+   about 1 year ago
+   No description given.
+
+   Ian Savchenk... added a commit [46]about 1 year ago
+   [47]better errors for cases when build artifacts not found
+
+   IanSavchenko requested a review from andreineculau [48]about 1 year ago
+
+   @andreineculau
+   [49]andreineculau approved these changes [50]about 1 year ago
+
+   andreineculau referenced this pull request from commit [51]2f3babb
+   [52]about 1 year ago
+
+   andreineculau merged commit 2f3babb into master [53]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [54]andreineculau
+   commented [55]about 1 year ago
+
+   technically there's no reason to hide the getCodeChecksum function,
+   right?
+
+   IanSavchenko deleted the ian-addLambda-notFound branch [56]about 1 year
+   ago
+
+   Copy link
+   @IanSavchenko
+   [57]IanSavchenko
+   commented [58]about 1 year ago
+
+   I saw it is not used anywhere outside, so having it private puts less
+   responsibility on backward compatibility.
+

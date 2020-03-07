@@ -1,0 +1,46 @@
+
+consider pull.ff=only #133
+
+   Closed
+   [57]andreineculau opened this issue Jan 7, 2020 · 1 comment
+   Closed
+
+[58]consider pull.ff=only #133
+
+   [59]andreineculau opened this issue Jan 7, 2020 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Jan 7, 2020
+
+$ git config --global --unset pull.rebase
+$ git config --global pull.ff only
+
+   in order to clarify that when the local and remote branches have
+   diverged, a merge/rebase is needed
+   [65]@andreineculau [66]andreineculau added the [67]enhancement label
+   [68]Jan 7, 2020
+   [69]@andreineculau [70]andreineculau added this to To do in [71]Public
+   (Open Source) via automation [72]Jan 7, 2020
+   [73]@andreineculau
+
+This comment has been minimized.
+
+   [74]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[75]@andreineculau [76]andreineculau commented [77]Jan 8, 2020
+
+   doesn't work as intended
+   [78]@andreineculau [79]andreineculau closed this [80]Jan 8, 2020
+   [81]Public (Open Source) automation moved this from To do to Done
+   [82]Jan 8, 2020
+   [83]@ankitmth [84]ankitmth removed this from Done in [85]Public (Open
+   Source) [86]Feb 19, 2020

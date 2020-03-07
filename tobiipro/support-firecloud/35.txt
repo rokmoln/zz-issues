@@ -1,0 +1,31 @@
+
+upgrade pacote forcefully. ref #17 #35
+
+   f/upgrade-pacote-forcefully
+
+   master f/upgrade-pacote-forcefully
+   @andreineculau
+   [45]andreineculau opened this pull request
+   almost 2 years ago
+   No description given.
+
+   andreineculau force pushed changes to this branch [46]almost 2 years
+   ago
+
+   andreineculau force pushed changes to this branch [47]almost 2 years
+   ago
+
+   [48]andreineculau added a commit [49]almost 2 years ago
+   [50]@andreineculau [51]upgrade pacote forcefully. ref [52]#17
+
+   andreineculau force pushed changes to this branch [53]almost 2 years
+   ago
+
+   andreineculau referenced this pull request from commit [54]2569600
+   [55]almost 2 years ago
+
+   andreineculau merged commit 2569600 into master [56]almost 2 years ago
+
+   andreineculau deleted the f/upgrade-pacote-forcefully branch [57]over 1
+   year ago
+

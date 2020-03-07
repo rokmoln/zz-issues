@@ -1,0 +1,38 @@
+
+make this repo pass its own eslint rules #10
+
+   f/anu-self-check
+
+   master f/anu-self-check
+   @andreineculau
+   [45]andreineculau opened this pull request
+   almost 2 years ago
+
+   PS: it includes the commit from [46]#9
+   👍 2
+   IanSavchenko and alsmyr reacted with thumbs up emoji
+   🎉 1
+   IanSavchenko reacted with hooray emoji
+
+   [47]andreineculau added some commits [48]almost 2 years ago
+   [49]@andreineculau [50]remove import-specifier-curly-newline. part of
+   [51]#4
+          [52]@andreineculau [53]add self-check
+          [54]@andreineculau [55]lint
+          [56]@andreineculau [57]prettify tests
+          [58]@andreineculau [59]allow null
+
+   @IanSavchenko
+   [60]IanSavchenko approved these changes [61]almost 2 years ago
+
+   andreineculau force pushed changes to the base branch [62]almost 2
+   years ago
+
+   andreineculau referenced this pull request from commit [63]396d05f
+   [64]almost 2 years ago
+
+   andreineculau merged commit 396d05f into master [65]almost 2 years ago
+
+   andreineculau deleted the f/anu-self-check branch [66]almost 2 years
+   ago
+

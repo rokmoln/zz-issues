@@ -1,0 +1,63 @@
+
+fix order imports #25
+
+   f/anu-order-imports
+
+   f/anu-reapply f/anu-order-imports
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]bug
+   No description given.
+
+   [47]andreineculau added some commits [48]about 1 year ago
+   [49]@andreineculau [50]order-imports handles default imports
+   [51]@andreineculau [52]order-imports handles single/multiple as named
+   [53]@andreineculau [54]order-imports handles source. [55]fix [56]#21
+
+   andreineculau added the [57]bug label [58]about 1 year ago
+
+   andreineculau self-assigned this [59]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [60]about 1 year ago
+
+   @IanSavchenko
+   [61]IanSavchenko approved these changes [62]about 1 year ago
+
+   It is a breaking change, let's release it properly so it does not start
+   failing builds.
+
+   The rules become pretty complicated now. Should we write them down
+   somewhere?
+    1. First of all, import specifiers are ordered by groups in the order
+       all, default, named.
+    2. In the all and default groups of import statements, they are sorted
+       by the import specifier local variable in alphabetical order.
+    3. In the case of named group, import statements are sorted by the
+       import source.
+    4. Inside the curly braces in every named import, they are sorted in
+       alphabetical order by the import specifier local variable.
+
+   [63]andreineculau added some commits [64]about 1 year ago
+   [65]@andreineculau [66]note down the intention of order-imports
+   [67]@andreineculau [68]breaking: order-imports
+
+   Copy link
+   @andreineculau
+   [69]andreineculau
+   commented [70]about 1 year ago
+
+   👍 added your comments ad-litteram in the rule's header, and added a
+   "breaking" commit
+
+   andreineculau referenced this pull request from commit [71]f9024a0
+   [72]about 1 year ago
+
+   andreineculau merged commit f9024a0 into f/anu-reapply [73]about 1 year
+   ago
+
+   andreineculau deleted the f/anu-order-imports branch [74]about 1 month
+   ago
+

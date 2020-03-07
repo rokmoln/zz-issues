@@ -1,0 +1,94 @@
+
+add isDefined #22
+
+   f/anu-defined
+
+   master f/anu-defined
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   implement [47]lodash/lodash#137
+
+   [48]andreineculau added a commit [49]10 months ago
+   [50]@andreineculau [51]add isDefined
+
+   andreineculau added the [52]enhancement label [53]10 months ago
+
+   andreineculau requested a review from IanSavchenko [54]10 months ago
+
+   andreineculau self-assigned this [55]10 months ago
+
+   @IanSavchenko
+   [56]IanSavchenko reviewed [57]10 months ago
+
+   Are you sure we need this? :)
+   [58]src/index.d.ts
+   @@ -85,6 +85,16 @@ declare module 'lodash' {
+   reject: () => void
+   };
+   /**
+   * Part of `lodash-firecloud`.
+   *
+   * Checks if value is defined.
+   *
+   * @param value The value to check.
+   * @return Returns true if value is defined, else false.
+   */
+   isDefined(value: T | undefined): value is T;
+   [59]@IanSavchenko [60]IanSavchenko • [61]10 months ago
+   Copy link
+
+   What does value is T mean? I would expect Boolean here.
+   [62]@andreineculau [63]andreineculau • [64]10 months ago
+   Copy link
+
+   as per my (limited) understanding:
+     * T is a generic
+     * you return true (not just Boolean) if value is T and thus not value
+       is undefined
+
+   original isUndefined for instance is defined similarly
+   [65]https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/type
+   s/lodash/common/lang.d.ts#L1504
+
+   similar pattern can be found here
+   [66]https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/type
+   s/lodash/fp.d.ts#L1908
+   [67]@IanSavchenko [68]IanSavchenko • [69]10 months ago
+   Copy link
+
+   ok, I see now
+
+   Copy link
+   @andreineculau
+   [70]andreineculau
+   commented [71]10 months ago
+
+     Are you sure we need this? :)
+
+   I count 15 occurrences of !_.isUndefined in our OSS repos, and they are
+   all error-prone due to 1. !_. and 2. the apparent double negation (it
+   is not, since undefined is a "type", but it reads as "if not not
+   defined")
+
+   @IanSavchenko
+   [72]IanSavchenko approved these changes [73]10 months ago
+
+   Ok
+   ❤️ 1
+   andreineculau reacted with heart emoji
+
+   andreineculau referenced this pull request from commit [74]af728bf
+   [75]10 months ago
+
+   andreineculau merged commit af728bf into master [76]10 months ago
+
+   andreineculau deleted the f/anu-defined branch [77]about 1 month ago
+

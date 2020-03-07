@@ -1,0 +1,209 @@
+
+Athena pagination #30
+
+   athena-pagination
+
+   master athena-pagination
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request
+   10 months ago
+
+   Linked issues
+   [46]Add pagination support for athena module
+     * Fixes: [47]#29
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   Added pagination for high-level function executeQuery. By default, it
+   will allow 10000 rows, but configurable.
+
+   SIDENOTE: Also, I would like to improve a bit the API for athena
+   functions, make it tighter, but it will be a breaking change.
+
+   Ian Savchenko added a commit [48]10 months ago
+   [49]athena utils: add pagination
+
+   IanSavchenko requested a review from andreineculau [50]10 months ago
+
+   IanSavchenko requested a review from fraser-campbell [51]10 months ago
+
+   Ian Savchenko added a commit [52]10 months ago
+   [53]handle column types more safely
+
+   IanSavchenko force pushed changes to this branch [54]10 months ago
+
+   @andreineculau
+   [55]andreineculau reviewed [56]10 months ago
+
+   since you have anyway introduced the concept of maxRows, I would say
+   just add a breakCb argument, and let the caller decide when to stop
+function(rows) {
+  if (rows.length > 10000) return true;
+}
+
+   (BUTTON) Show outdated (BUTTON) Hide outdated [57]src/athena.js
+   ((18 lines not shown))
+   try {
+   if (_.isDefined(value)) {
+   switch (_.toLower(column.Type)) {
+   case ('integer'):
+   case ('tinyint'):
+   case ('smallint'):
+   case ('bigint'):
+   case ('double'):
+   value = Number(value);
+   break;
+   case ('boolean'):
+   value = Boolean(value);
+   break;
+   default:
+   break;
+   }
+   [58]@andreineculau [59]andreineculau • [60]10 months ago
+   Copy link
+
+   why try catch?
+   not enough to use _.toNumber ?
+
+   granted I don't know what you get when 'boolean' . there's no
+   _.toBoolean [61]lodash/lodash#2066
+   [62]@IanSavchenko [63]IanSavchenko • [64]10 months ago
+   Copy link
+
+   The reason I added this is primarily for column names, which will
+   always be strings in the first row (while column values could be
+   something else, but we haven't had such examples on practice). To fix
+   it more properly, I would have to drop column names row before passing
+   it into this function and then it would require change of the API,
+   because right now queryResultToObjectsArray is not the best with
+   accepting queryResult, while it's better to accept
+   queryResult.ResultSet (which I would like to do, but separately, I
+   guess).
+
+   That's why I decided to make a safe fallback to strings.
+   (BUTTON) Show outdated (BUTTON) Hide outdated [65]src/athena.js
+   @@ -139,7 +143,8 @@ export let executeQuery = async function({
+   }
+   },
+   pollingDelay = 1000,
+   initPollingDelay = pollingDelay
+   initPollingDelay = pollingDelay,
+   maxRows = 10000
+   [66]@andreineculau [67]andreineculau • [68]10 months ago
+   Copy link
+
+   shouldn't we start with a really low max (like 10), so as to force
+   users to understand what they're doing?
+   [69]@IanSavchenko [70]IanSavchenko • [71]10 months ago
+   Copy link
+
+   Giving a very low number would be a breaking change. I guess a more
+   safe option would be to use Athena's default (1000 and they decided
+   that it's fine). As I said, I want this function to be very simple for
+   the user, so I would give a safely big number and only if you need
+   more, you can tweak it.
+   (BUTTON) Show resolved (BUTTON) Hide resolved [72]src/athena.js
+   ((10 lines not shown))
+   if (queryResultIsShowResult(queryResult)) {
+   return queryResultToText(queryResult);
+   }
+   // checking if the query is a result of SHOW query
+   // returing just text in this case, not trying to parse columns and
+   rows
+   if (queryResultIsShowResult(queryResult)) {
+   return queryResultToText(queryResult);
+   }
+   nextToken = queryResult.NextToken;
+   [73]@andreineculau [74]andreineculau • [75]10 months ago
+   Copy link
+
+   why not treat pagination as separate case?
+     * get results
+     * is this SHOW? then return
+     * are there more rows? then get those as well
+
+   [76]@IanSavchenko [77]IanSavchenko • [78]10 months ago
+   Copy link
+
+   It could be done like that, but then it will be a bit of code
+   duplication. I don't have much preference with that, so if you
+   insist...
+   (BUTTON) Show outdated (BUTTON) Hide outdated [79]src/athena.js
+   ((10 lines not shown))
+   if (queryResultIsShowResult(queryResult)) {
+   return queryResultToText(queryResult);
+   }
+   // checking if the query is a result of SHOW query
+   // returing just text in this case, not trying to parse columns and
+   rows
+   if (queryResultIsShowResult(queryResult)) {
+   return queryResultToText(queryResult);
+   }
+   nextToken = queryResult.NextToken;
+   rows = rows.concat(queryResultToObjectsArray(queryResult));
+   } while (nextToken && rows.length <= maxRows);
+   [80]@andreineculau [81]andreineculau • [82]10 months ago
+   Copy link
+
+   don't you mean maxRows + 1 (column names) ?
+   [83]@andreineculau [84]andreineculau • [85]10 months ago
+   Copy link
+
+   or actually to _.drop(rows, 1) immediately after getting the first page
+   (if you split the code like I wrote above)
+   [86]@IanSavchenko [87]IanSavchenko • [88]10 months ago
+   Copy link
+
+     maxRows + 1
+
+   that's why there is rows.length <= maxRows instead of rows.length <
+   maxRows + 1. But I agree that it could be cleaner.
+
+   andreineculau added this to Review in progress in [89]Public (Open
+   Source) [90]10 months ago
+
+   IanSavchenko was assigned by andreineculau [91]10 months ago
+
+   Copy link
+   @IanSavchenko
+   [92]IanSavchenko
+   commented [93]10 months ago
+
+     since you have anyway introduced the concept of maxRows, I would say
+     just add a breakCb argument, and let the caller decide when to stop
+
+function(rows) {
+  if (rows.length > 10000) return true;
+}
+
+   I want to make it super simple: here is a query, give me results. I see
+   as the user for this, for example, someone like Cory and while I don't
+   hesitate that she can master callbacks (or maybe she already has),
+   passing a callback is quite advanced (as to me), and maxRows on a
+   contrary is a clear and common way to work with such APIs.
+
+   Ian Savchenko added some commits [94]10 months ago
+   [95]Revert "handle column types more safely"
+   [96]remove maxRows param
+
+   IanSavchenko requested a review from andreineculau [97]10 months ago
+
+   @andreineculau
+   [98]andreineculau approved these changes [99]10 months ago
+
+   Public (Open Source) automation moved this from Review in progress to
+   Reviewer approved [100]10 months ago
+
+   IanSavchenko referenced this pull request from commit [101]8cf1bda
+   [102]10 months ago
+
+   IanSavchenko merged commit 8cf1bda into master [103]10 months ago
+
+   Public (Open Source) automation moved this from Reviewer approved to
+   Done [104]10 months ago
+
+   IanSavchenko deleted the athena-pagination branch [105]10 months ago
+
+   ankitmth removed this from Done in [106]Public (Open Source) [107]17
+   days ago
+

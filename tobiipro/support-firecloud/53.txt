@@ -1,0 +1,220 @@
+
+slow bootstrapping on travis containers #53
+
+   Closed
+   [57]andreineculau opened this issue Dec 3, 2018 · 2 comments
+   Closed
+
+[58]slow bootstrapping on travis containers #53
+
+   [59]andreineculau opened this issue Dec 3, 2018 · 2 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Dec 3, 2018 •
+
+   edited
+
+   after [66]#51 , the first run on a travis containers (with no sudo)
+   takes 30+ minutes. Thanks to aggressive caching, the following runs go
+   down 10 times, to 3+ minutes.
+
+   I wrote TravisCI a feature request that should substantially decrease
+   the first-time runs, and also the cache sizes.
+     __________________________________________________________________
+
+     Hi!
+
+     We love the quick-to-spin no-sudo containers, yet there's a BUT :)
+     We run on macos when developing, but we deploy to linux. And
+     homebrew is king on macos for package management.
+     Rather than finding the equivalent apt packages, or
+     configure-make-etc ourselves, or finding out quirks with
+     platform-dependent python2 pip2 python3 pip3 etc, we have recently
+     switched our bootstrapping to [67]http://linuxbrew.sh
+
+     You can actually see how on the first run (no cache) it is 4 times
+     faster to spin up a sudo-VM and install more packages
+     than it is to spin up a no-sudo-containers and install less packages
+     via linuxbrew
+     [68]https://travis-ci.com/tobiipro/support-firecloud/builds/93344821
+
+     It's only thanks to aggressive caching that we manage to go down to
+     3-4 minutes on following runs on no-sudo-containers...
+
+     The background of this behaviour is that
+     just like homebrew builds bottles assuming that HOMEBREW_PREFIX is
+     /usr/local,
+     linuxbrew assumes HOMEBREW_PREFIX is /home/linuxbrew/.linuxbrew
+
+     On no-sudo travis containers /home/linuxbrew is not writable, so
+     linuxbrew then defaults to ~/.linuxbrew i.e. /home/travis/.linuxbrew
+     but many bottles are prefix-dependent so linuxbrew cannot use those
+     bottles, and instead compiles locally. Which can take forever even
+     for simple packages like git, bash and make.
+
+     So here's a feature request - allow /home/linuxbrew/to be writable
+     on travis containers
+     as per the linuxbrew's install script
+     [69]https://github.com/Linuxbrew/install/blob/master/install#L236
+     and then all bottles would be poured in a zippy.
+
+     Thank you in advance,
+     Andrei
+
+   ref: ticket number 1340
+   [70]@andreineculau [71]andreineculau added the [72]enhancement label
+   [73]Dec 3, 2018
+   [74]@andreineculau [75]andreineculau self-assigned this [76]Dec 3, 2018
+   [77]@andreineculau
+
+This comment has been minimized.
+
+   [78]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[79]@andreineculau [80]andreineculau commented [81]Dec 4, 2018
+
+   a reply from travis referenced a recent blog post
+   [82]https://blog.travis-ci.com/2018-11-19-required-linux-infrastructure
+   -migration
+
+   TL;DR remove sudo-false because containers will go away (in 3 days from
+   today actually)
+
+   PS: no idea who received this "service mail" they talk about though .
+   do you [83]@alsmyr ?
+
+     28 November, 2018 - We will send a service email to remind folks
+     still using sudo: false on recent builds to remind you to migrate.
+
+   [84]@alsmyr
+
+This comment has been minimized.
+
+   [85]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[86]@alsmyr [87]alsmyr commented [88]Dec 4, 2018
+
+   Not seen any "service mail". Our billing email have nothing of that
+   either.
+   (HEART react) ❤️ 1
+   [89]andreineculau added a commit that referenced this issue [90]Dec 4,
+   2018
+   [91]@andreineculau
+   [92]remove linux-nosudo; travis switches to vms only. ref [93]#53
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [94]Learn about signing commits
+   [95]3632785
+   [96]andreineculau added a commit to tobiipro/aws-lambda-proxy that
+   referenced this issue [97]Dec 4, 2018
+   [98]@andreineculau
+   [99]remove sudo:false [100]tobiipro/support-firecloud#53
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [101]Learn about signing commits
+   [102]ff87c74
+   [103]andreineculau added a commit to tobiipro/aws-util-firecloud that
+   referenced this issue [104]Dec 4, 2018
+   [105]@andreineculau
+   [106]remove sudo:false [107]tobiipro/support-firecloud#53 (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [108]Learn about signing commits
+   [109]279e8f1
+Signed-off-by: Andrei Neculau <andrei.neculau@gmail.com>
+
+   [110]andreineculau added a commit to tobiipro/babel-preset-firecloud
+   that referenced this issue [111]Dec 4, 2018
+   [112]@andreineculau
+   [113]remove sudo:false [114]tobiipro/support-firecloud#53 (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [115]Learn about signing commits
+   [116]9ef2554
+Signed-off-by: Andrei Neculau <andrei.neculau@gmail.com>
+
+   [117]andreineculau added a commit to tobiipro/browser-coords that
+   referenced this issue [118]Dec 4, 2018
+   [119]@andreineculau
+   [120]remove sudo:false [121]tobiipro/support-firecloud#53 (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [122]Learn about signing commits
+   [123]4a83037
+Signed-off-by: Andrei Neculau <andrei.neculau@gmail.com>
+
+   [124]andreineculau added a commit to tobiipro/eslint-config-firecloud
+   that referenced this issue [125]Dec 4, 2018
+   [126]@andreineculau
+   [127]remove sudo:false [128]tobiipro/support-firecloud#53 (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [129]Learn about signing commits
+   [130]e29e54f
+Signed-off-by: Andrei Neculau <andrei.neculau@gmail.com>
+
+   [131]andreineculau added a commit to tobiipro/http-lambda that
+   referenced this issue [132]Dec 4, 2018
+   [133]@andreineculau
+   [134]remove sudo:false [135]tobiipro/support-firecloud#53 (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [136]Learn about signing commits
+   [137]4f003cc
+Signed-off-by: Andrei Neculau <andrei.neculau@gmail.com>
+
+   [138]andreineculau added a commit to tobiipro/lodash-firecloud that
+   referenced this issue [139]Dec 4, 2018
+   [140]@andreineculau
+   [141]remove sudo:false [142]tobiipro/support-firecloud#53 (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [143]Learn about signing commits
+   [144]779664b
+Signed-off-by: Andrei Neculau <andrei.neculau@gmail.com>
+
+   [145]andreineculau added a commit to tobiipro/minlog that referenced
+   this issue [146]Dec 4, 2018
+   [147]@andreineculau
+   [148]remove sudo:false [149]tobiipro/support-firecloud#53 (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [150]Learn about signing commits
+   [151]7034ec5
+Signed-off-by: Andrei Neculau <andrei.neculau@gmail.com>
+
+   [152]andreineculau added a commit to
+   tobiipro/sass-lint-config-firecloud that referenced this issue [153]Dec
+   4, 2018
+   [154]@andreineculau
+   [155]remove sudo:false [156]tobiipro/support-firecloud#53 (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [157]Learn about signing commits
+   [158]87e5936
+Signed-off-by: Andrei Neculau <andrei.neculau@gmail.com>
+
+   [159]andreineculau added a commit to tobiipro/tslint-config-firecloud
+   that referenced this issue [160]Dec 4, 2018
+   [161]@andreineculau
+   [162]remove sudo:false [163]tobiipro/support-firecloud#53 (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [164]Learn about signing commits
+   [165]f1c78b8
+Signed-off-by: Andrei Neculau <andrei.neculau@gmail.com>
+
+   [166]@andreineculau [167]andreineculau closed this [168]Dec 4, 2018

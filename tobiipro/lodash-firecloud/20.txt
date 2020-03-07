@@ -1,0 +1,41 @@
+
+add hardRejection #20
+
+   f/anu-hard-rejection
+
+   master f/anu-hard-rejection
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   used the same name as the lib in the end
+
+   [47]andreineculau added some commits [48]10 months ago
+   [49]@andreineculau [50]fix babel peer deps
+   [51]@andreineculau [52]add hardRejection
+
+   andreineculau added the [53]enhancement label [54]10 months ago
+
+   andreineculau requested a review from IanSavchenko [55]10 months ago
+
+   andreineculau self-assigned this [56]10 months ago
+
+   @IanSavchenko
+   [57]IanSavchenko approved these changes [58]10 months ago
+
+   Good!
+
+   andreineculau referenced this pull request from commit [59]c56306e
+   [60]10 months ago
+
+   andreineculau merged commit c56306e into master [61]10 months ago
+
+   andreineculau deleted the f/anu-hard-rejection branch [62]about 1 month
+   ago
+

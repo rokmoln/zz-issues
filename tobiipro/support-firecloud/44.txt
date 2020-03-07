@@ -1,0 +1,51 @@
+
+revert pacote upgrade on next node lts #44
+
+   Closed
+   [57]andreineculau opened this issue Nov 12, 2018 · 1 comment
+   Closed
+
+[58]revert pacote upgrade on next node lts #44
+
+   [59]andreineculau opened this issue Nov 12, 2018 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Nov 12, 2018
+
+   it should be ok to revert
+   [65]2569600
+   when a new node LTS version pops up (sometime in 2019 Q4)
+
+   ref [66]#17
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Nov 12, 2018
+   [71]@andreineculau
+
+This comment has been minimized.
+
+   [72]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[73]@andreineculau [74]andreineculau commented [75]May 15, 2019
+
+   clarification: when a new LTS version pops up on AWS. It did.
+   nodejs10.x
+
+   so after all repos building on node 8 are switched to node 10, the
+   commit could be reverted
+   [76]@andreineculau [77]andreineculau added this to To do in [78]Public
+   (Open Source) [79]May 20, 2019
+   [80]@andreineculau [81]andreineculau closed this in [82]fce3f2e [83]Jul
+   11, 2019
+   [84]Public (Open Source) automation moved this from To do to Done
+   [85]Jul 11, 2019
+   [86]@ankitmth [87]ankitmth removed this from Done in [88]Public (Open
+   Source) [89]Feb 19, 2020

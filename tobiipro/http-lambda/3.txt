@@ -1,0 +1,119 @@
+
+add basic tests #3
+
+   f/anu-test
+
+   master f/anu-test
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   in order not to be surprised by upcoming nodejs upgrades like in
+   [47]tobiipro/aws-util-firecloud@0e4f9b0
+
+   [48]andreineculau added a commit [49]about 1 year ago
+   [50]@andreineculau [51]add basic tests
+
+   andreineculau added the [52]enhancement label [53]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [54]about 1 year ago
+
+   [55]andreineculau added some commits [56]about 1 year ago
+   [57]@andreineculau [58]add test for merging ctx.env
+   [59]@andreineculau [60]add test for requestContext
+   [61]@andreineculau [62]add test for exposed methods and status codes
+
+   @IanSavchenko
+   [63]IanSavchenko reviewed [64]about 1 year ago
+
+   Regarding linter comments:
+    1. In the places where you are disabling jest/prefer-strict-equal
+       couldn't you use toMatch and toMatchObject?
+    2. Had this question before: why do we have the rule
+       jest/no-test-callback? What's wrong with that? I read the rule
+       description, which says that people forget to call done in
+       scenarios when test fails. But if that happens test will fail
+       anyway with timeout. Otherwise, I see no harm using done when you
+       are testing callback-based APIs and don't want to convert to
+       promises (like you have here)
+
+   Copy link
+   @andreineculau
+   [65]andreineculau
+   commented [66]about 1 year ago
+    1. good that you ask, because i was going to ask you if we should turn
+       the rule off. i didn't know about toMatchObject but reading the
+       docs [67]https://jestjs.io/docs/en/expect.html#tomatchobjectobject
+       it's not equivalent. because toEqual will fail if you have more
+       props than what you expect, or so i think. i think we should have
+       it off in the preset, at least based on the experience these days,
+       since you cannot use toBe for non-primitives most of the times
+    2. i took it as "we prefer async-await pattern vs callback" on top of
+       what the rule description says. with async taking over cb, i think
+       it makes sense to keep it. wdys?
+
+   Copy link
+   @IanSavchenko
+   [68]IanSavchenko
+   commented [69]about 1 year ago
+    1. I also didn't know about toEqual gotcha with extra keys not
+       considered a difference. I thought that it was your intention to
+       use this and have matching behavior instead of strict equality and
+       you didn't know about toMatchObject. This rule makes some sense, so
+       I would probably keep it. But I don't understand why you had to
+       disable it in these cases? Because there were keys with undefined
+       values in resulting objects?
+    2. Ok, let's keep it.
+
+   Copy link
+   @andreineculau
+   [70]andreineculau
+   commented [71]about 1 year ago
+
+     I also didn't know about toEqual gotcha with extra keys not
+     considered a difference.
+
+   just for clarity:
+     * toEqual: exact deep structure
+     * toMatchObject: subset deep structure
+
+   It's toMatchObject that will not fail on extra keys.
+     __________________________________________________________________
+
+   the rest,... I'm <insert not so nice word>... I didn't know about
+   toStrictEqual. I guess I didn't read the rule description, because I
+   thought it's telling me to use toBe thus my previous comment:
+
+     since you cannot use toBe for non-primitives most of the times
+
+   [72]andreineculau added a commit [73]about 1 year ago
+   [74]@andreineculau [75]use toStrictEqual
+
+   Copy link
+   @andreineculau
+   [76]andreineculau
+   commented [77]about 1 year ago
+
+   Done. THANKS!
+   👍 1
+   IanSavchenko reacted with thumbs up emoji
+
+   andreineculau self-assigned this [78]about 1 year ago
+
+   [79]andreineculau added some commits [80]about 1 year ago
+   [81]@andreineculau [82]travis builds only master and PRs
+   [83]@andreineculau [84]travis: build also version tags
+   [85]@andreineculau [86]updated support-firecloud
+   [87]@andreineculau [88]updated support-firecloud
+
+   @IanSavchenko
+   [89]IanSavchenko approved these changes [90]about 1 year ago
+
+   andreineculau referenced this pull request from commit [91]b3fca7d
+   [92]about 1 year ago
+
+   andreineculau merged commit b3fca7d into master [93]about 1 year ago
+

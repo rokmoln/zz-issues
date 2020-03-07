@@ -1,0 +1,78 @@
+
+MinLog lambda does not log constructed objects (i.e. created with classes)
+#15
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 1, 2019 · 1 comment
+   Closed
+
+[58]MinLog lambda does not log constructed objects (i.e. created with
+classes) #15
+
+   [59]IanSavchenko opened this issue Mar 1, 2019 · 1 comment
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Mar 1, 2019
+
+   Repro example:
+let {
+  MinLog,
+  logToConsole,
+  serializeTime
+} = require('./src/index');
+
+let logger = new MinLog({
+  listeners: [
+    logToConsole({
+      level: 'INFO'
+    })
+  ],
+  serializers: [
+    serializeTime
+  ]
+});
+
+let A = class {
+  constructor() {
+    this.test = 'test';
+  }
+};
+
+logger.info('test', new A());
+
+   Receiving:
+2019-03-01T15:54:36.047Z  INFO
+test
+
+   Expected: probably, MinLog should call toString of the object.
+   [65]@IanSavchenko [66]IanSavchenko added the [67]bug label [68]Mar 1,
+   2019
+   [69]andreineculau added a commit that referenced this issue [70]Mar 2,
+   2019
+   [71]@andreineculau
+   [72]do not duplicate first err/msg args. see [73]#15
+   Verified
+   This commit was signed with a verified signature.
+   [74]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [75]Learn about signing commits
+   [76]abcc02c
+   [77]@andreineculau [78]andreineculau closed this in [79]c81efba [80]Mar
+   2, 2019
+   [81]@andreineculau
+
+This comment has been minimized.
+
+   [82]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[83]@andreineculau [84]andreineculau commented [85]Mar 2, 2019
+
+   good find!

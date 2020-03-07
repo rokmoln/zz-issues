@@ -1,0 +1,131 @@
+
+start using tags #138
+
+   Closed
+   [57]andreineculau opened this issue Jan 22, 2020 · 0 comments
+   Closed
+
+[58]start using tags #138
+
+   [59]andreineculau opened this issue Jan 22, 2020 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Jan 22, 2020
+
+     * make support-firecloud/update should update to the latest tag
+     * deploy docker images only on tag
+
+   why?
+     * commits to master might be broken
+     * you might not want to update docker images on every commit to
+       master branch for reliability purposes
+
+   [65]@andreineculau [66]andreineculau added the [67]enhancement label
+   [68]Jan 22, 2020
+   [69]@andreineculau [70]andreineculau added this to To do in [71]Public
+   (Open Source) via automation [72]Jan 22, 2020
+   [73]andreineculau added a commit that referenced this issue [74]Jan 22,
+   2020
+   [75]@andreineculau
+   [76]release support-firecloud as tags. ref [77]#138
+   Verified
+   This commit was signed with a verified signature.
+   [78]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [79]Learn about signing commits
+   [80]7bb74ed
+   [81]andreineculau added a commit that referenced this issue [82]Jan 22,
+   2020
+   [83]@andreineculau
+   [84]change 'make support-firecloud/update' to update to the latest
+   versio… (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [85]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [86]Learn about signing commits
+   [87]bddd673
+…n, instead of latest commit on master. ref [88]#138
+
+   [89]andreineculau added a commit that referenced this issue [90]Jan 22,
+   2020
+   [91]@andreineculau
+   [92]deploy on tags only. ref [93]#138
+   Verified
+   This commit was signed with a verified signature.
+   [94]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [95]Learn about signing commits
+   [96]958348b
+   [97]andreineculau added a commit that referenced this issue [98]Jan 22,
+   2020
+   [99]@andreineculau
+   [100]fixup! deploy on tags only. ref [101]#138
+   Verified
+   This commit was signed with a verified signature.
+   [102]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [103]Learn about signing commits
+   [104]7464496
+   [105]andreineculau added a commit that referenced this issue [106]Jan
+   22, 2020
+   [107]@andreineculau
+   [108]build version tags. ref [109]#138
+   Verified
+   This commit was signed with a verified signature.
+   [110]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [111]Learn about signing commits
+   [112]e156704
+   [113]andreineculau added a commit that referenced this issue [114]Jan
+   22, 2020
+   [115]@andreineculau
+   [116]forgot to remove old checks for deploy stage. refs [117]#138
+   Verified
+   This commit was signed with a verified signature.
+   [118]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [119]Learn about signing commits
+   [120]c061da7
+   [121]@andreineculau [122]andreineculau closed this [123]Jan 22, 2020
+   [124]Public (Open Source) automation moved this from To do to Done
+   [125]Jan 22, 2020
+   [126]andreineculau added a commit that referenced this issue [127]Jan
+   23, 2020
+   [128]@andreineculau
+   [129]fixup! deploy on tags only. ref [130]#138
+   Verified
+   This commit was signed with a verified signature.
+   [131]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [132]Learn about signing commits
+   [133]e0647a4
+   [134]andreineculau added a commit that referenced this issue [135]Jan
+   23, 2020
+   [136]@andreineculau
+   [137]build version tags. ref [138]#138
+   Verified
+   This commit was signed with a verified signature.
+   [139]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [140]Learn about signing commits
+   [141]34a14c2
+   [142]andreineculau added a commit that referenced this issue [143]Jan
+   23, 2020
+   [144]@andreineculau
+   [145]forgot to remove old checks for deploy stage. refs [146]#138
+   Verified
+   This commit was signed with a verified signature.
+   [147]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [148]Learn about signing commits
+   [149]83c0fb2
+   [150]andreineculau added a commit that referenced this issue [151]Jan
+   23, 2020
+   [152]@andreineculau
+   [153]fix 'make support-firecloud/update'. ref [154]#138
+   Verified
+   This commit was signed with a verified signature.
+   [155]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [156]Learn about signing commits
+   [157]574cb49
+   [158]@ankitmth [159]ankitmth removed this from Done in [160]Public
+   (Open Source) [161]Feb 19, 2020

@@ -1,0 +1,52 @@
+
+refactor .travis.yml #9
+
+   f/anu-refactor-travis-yml
+
+   master f/anu-refactor-travis-yml
+   @andreineculau
+   [45]andreineculau opened this pull request about 2 years ago • edited
+   about 2 years ago
+
+   with the goal of
+     * having .travis.yml steps easily written and extensible via
+       .travis.sh
+     * having .travis.yml self-documented (root properties included even
+       if empty)
+     * one day having our growing .travis.yml extensible
+       [46]travis-ci/travis-ci#9266
+
+   PS: removed tracks/teamcity on the side too
+
+   andreineculau force pushed changes to this branch [47]about 2 years ago
+
+   andreineculau force pushed changes to this branch [48]about 2 years ago
+
+   andreineculau force pushed changes to this branch [49]about 2 years ago
+
+   andreineculau force pushed changes to this branch [50]about 2 years ago
+
+   andreineculau force pushed changes to this branch [51]about 2 years ago
+
+   andreineculau force pushed changes to this branch [52]about 2 years ago
+
+   andreineculau force pushed changes to this branch [53]about 2 years ago
+
+   [54]andreineculau added some commits [55]about 2 years ago
+   [56]@andreineculau [57]refactor .travis.yml
+   [58]@andreineculau [59]use symlinks as if support-firecloud is a
+   submodule
+   [60]@andreineculau [61]use symlinks as if support-firecloud is a
+   submodule - not for .travis…
+   [62]@andreineculau [63]remove tracks/teamcity
+
+   andreineculau force pushed changes to this branch [64]about 2 years ago
+
+   andreineculau referenced this pull request from commit [65]cb70c48
+   [66]about 2 years ago
+
+   andreineculau merged commit cb70c48 into master [67]about 2 years ago
+
+   andreineculau deleted the f/anu-refactor-travis-yml branch [68]about 2
+   years ago
+

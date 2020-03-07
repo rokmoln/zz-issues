@@ -1,0 +1,61 @@
+
+upgrade to eslint5 + deps #15
+
+   f/anu-eslint5
+
+   master f/anu-eslint5
+   @andreineculau
+   [45]andreineculau opened this pull request
+   over 1 year ago
+
+   Labels
+   [46]enhancement
+
+   [47]https://github.com/eslint/eslint/blob/master/docs/user-guide/migrat
+   ing-to-5.0.0.md
+
+   [48]andreineculau added a commit [49]over 1 year ago
+   [50]@andreineculau
+   [51]https://github.com/eslint/eslint/blob/master/docs/user-guide/migrat
+   in…
+
+   andreineculau added the [52]enhancement label [53]over 1 year ago
+
+   andreineculau requested a review from IanSavchenko [54]over 1 year ago
+
+   Copy link
+   @andreineculau
+   [55]andreineculau
+   commented [56]over 1 year ago
+
+   smth to consider: bump "minor" (our major) version when releasing this,
+   despite not seeing any backward incompat issues
+
+   [57]andreineculau referenced this pull request from another pull
+   request
+   [58]#7 upgrade to babel7 + deps in tobiipro/babel-preset-firecloud
+
+   [59]andreineculau added a commit [60]over 1 year ago
+   [61]@andreineculau
+   [62]https://github.com/[63]wix/eslint-plugin-lodash/issues/191
+
+   [64]andreineculau referenced this pull request from another pull
+   request
+   [65]#8 upgrade to babel7 + deps in tobiipro/babel-preset-firecloud
+
+   @IanSavchenko
+   [66]IanSavchenko approved these changes [67]about 1 year ago
+
+   Can't say yet that I agree with all the changes before I see them live,
+   but looks good so far.
+
+   andreineculau referenced this pull request from commit [68]7db9ac0
+   [69]about 1 year ago
+
+   andreineculau merged commit 7db9ac0 into master [70]about 1 year ago
+
+   andreineculau referenced this pull request from commit [71]31ac0f1
+   [72]about 1 year ago
+
+   andreineculau deleted the f/anu-eslint5 branch [73]about 1 month ago
+

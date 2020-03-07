@@ -1,0 +1,43 @@
+
+consistent exports/underscore-private #3
+
+   Closed
+   [57]andreineculau opened this issue Mar 15, 2018 · 1 comment
+   Closed
+
+[58]consistent exports/underscore-private #3
+
+   [59]andreineculau opened this issue Mar 15, 2018 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 15, 2018
+
+   regardless of the state of [65]#2 , we should be consistent with
+     * exporting or not non-api vars in a module
+     * marking non-api vars with an underscore prefix or not
+
+   PS: this is a TODO for all the repos we now have on github, not a real
+   issue for this repo
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Mar 15, 2018
+   [70]@andreineculau
+
+This comment has been minimized.
+
+   [71]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[72]@andreineculau [73]andreineculau commented [74]Mar 23, 2018 •
+
+   edited
+
+   tracked in [75]tobiipro/eslint-config-firecloud#6
+   [76]@andreineculau [77]andreineculau closed this [78]Mar 23, 2018

@@ -1,0 +1,40 @@
+
+missing docs/usage #1
+
+   Open
+   [57]andreineculau opened this issue Mar 7, 2018 · 0 comments
+   Open
+
+[58]missing docs/usage #1
+
+   [59]andreineculau opened this issue Mar 7, 2018 · 0 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]bug [62]wontfix
+
+Comments
+
+   [63]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[64]@andreineculau [65]andreineculau commented [66]Mar 7, 2018 •
+
+   edited
+
+     * [ ] readme/docs needed
+     * [ ] example based on atex-platform
+
+   [67]@andreineculau [68]andreineculau added the [69]bug label [70]Mar 7,
+   2018
+   [71]@andreineculau [72]andreineculau self-assigned this [73]Mar 7, 2018
+   [74]@andreineculau [75]andreineculau changed the title [DEL:
+   private-to-public requirements :DEL] [INS: missing docs/usage :INS]
+   [76]Mar 7, 2018
+   [77]@andreineculau [78]andreineculau added this to To do in [79]Public
+   (Open Source) via automation [80]May 20, 2019
+   [81]@andreineculau [82]andreineculau added the [83]wontfix label
+   [84]Jul 11, 2019
+   [85]@andreineculau [86]andreineculau removed this from To do in
+   [87]Public (Open Source) [88]Jul 11, 2019

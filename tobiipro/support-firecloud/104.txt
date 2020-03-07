@@ -1,0 +1,64 @@
+
+`make release` may "remove" commits #104
+
+   Closed
+   [57]andreineculau opened this issue Apr 9, 2019 · 1 comment
+   Closed
+
+[58]`make release` may "remove" commits #104
+
+   [59]andreineculau opened this issue Apr 9, 2019 · 1 comment
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]bug
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Apr 9, 2019
+
+   if not up to date with upstream branch 😞
+
+   lines to investigate in repo/mk/publish.*.mk
+                $(ECHO_INFO) "Merging in tag $${GIT_TAG} instead of fast-forward
+ing..."; \
+                GIT_MERGE_COMMIT=`$(GIT) commit-tree -p @{u} -p HEAD -m "Merge t
+ag $${GIT_TAG}" "HEAD^{tree}"`; \
+
+   // context [66]@afogelberg discovered this in atex-dashboard. cc
+   [67]@IanSavchenko [68]@tobiiasl
+   [69]@andreineculau [70]andreineculau added the [71]bug label [72]Apr 9,
+   2019
+   [73]@andreineculau [74]andreineculau self-assigned this [75]Apr 9, 2019
+   [76]@andreineculau
+
+This comment has been minimized.
+
+   [77]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[78]@andreineculau [79]andreineculau commented [80]Apr 9, 2019
+
+   for reference, there's also this
+   [81]https://github.com/schuyler1d/git-forward-merge/blob/master/git-for
+   ward-merge.sh
+   [82]andreineculau added a commit that referenced this issue [83]Apr 9,
+   2019
+   [84]@andreineculau
+   [85]fix 'make release' undoing changes. [86]fixes [87]#104
+   Verified
+   This commit was signed with a verified signature.
+   [88]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [89]Learn about signing commits
+   [90]1fc0b59
+   [91]@andreineculau [92]andreineculau mentioned this issue [93]Apr 9,
+   2019
+   [94]fix 'make release' undoing changes #105
+   Merged
+   [95]@andreineculau [96]andreineculau closed this in [97]#105 [98]Apr 9,
+   2019

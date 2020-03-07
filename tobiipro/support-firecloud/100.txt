@@ -1,0 +1,108 @@
+
+travis-ci docs updates #100
+
+   Closed
+   [57]IanSavchenko opened this issue Apr 2, 2019 · 3 comments
+   Closed
+
+[58]travis-ci docs updates #100
+
+   [59]IanSavchenko opened this issue Apr 2, 2019 · 3 comments
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Apr 2, 2019 •
+
+   edited
+
+   Very good docs, [64]@andreineculau! Make me want to contribute :)
+
+   I will submit a PR with updates later on, here are the issues I found.
+   Please, review and let me know if my assumptions are correct, so I will
+   proceed with PR.
+    1. The very first step to setup integration should be to go to
+       [65]https://github.com/organizations/tobiipro/settings/installation
+       s, press Configure on Travis CI and give it access to the new repo
+       in Repository access dropdown.
+    2. enable Build only if .travis.yml is present does not seem to be
+       there anymore, so can be removed, I guess.
+    3. Do we need to add TRANSCRYPT_PASSWORD as Travis-encrypted variable
+       or use Travis web-UI? In the current docs, it says the first one,
+       but apparently, it's not a requirement anymore.
+    4. Clarify the deploy section. Apparently, one has to do travis
+       encrypt "<GH_TOKEN>" and it to deploy -> api_key. Or no?
+    5. (ADDED) Migrate env vars
+    6. (ADDED) Replace default SSH key
+
+   [66]@andreineculau
+
+This comment has been minimized.
+
+   [67]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[68]@andreineculau [69]andreineculau commented [70]Apr 2, 2019
+
+    1. 👍
+    2. 👍
+    3. webui, the "requirement" has shifted to having only webui vars
+       (both easier process and more convenient for changes)
+    4. deploy: if you can copy the deploy section from another repo, then
+       yes travis encrypt "<GH_TOKEN>" -> api_key AND change the condition
+       to match the repo's name
+
+   THANKS!
+
+   Note2self: also document how to migrate other env vars from an
+   already-integrated repo
+   [71]@IanSavchenko
+
+This comment has been minimized.
+
+   [72]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[73]@IanSavchenko [74]IanSavchenko commented [75]Apr 2, 2019
+
+     Note2self: also document how to migrate other env vars from an
+     already-integrated repo
+
+   can do that too. Strangely, printenv didn't print properly everything
+   for me, looked like the output was cut off from the top, so not all the
+   variables were visible. In the end, had to echo every secret variable,
+   but suspecting that printenv <variables list> should also do.
+
+   One more thing to mention: replace SSH key with tobiiprotools.
+   [76]@andreineculau
+
+This comment has been minimized.
+
+   [77]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[78]@andreineculau [79]andreineculau commented [80]Apr 2, 2019
+
+   I do printenv | grep DEV_, etc
+
+   Yes, key too!
+   [81]@IanSavchenko [82]IanSavchenko closed this in [83]e7cd606 [84]Apr
+   3, 2019
+   [85]IanSavchenko added a commit that referenced this issue [86]Apr 3,
+   2019
+   [87]@IanSavchenko
+   [88]Merge pull request [89]#101 [90]from tobiipro/f/ian-travis-docs
+   (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [91]Learn about signing commits
+   [92]9330f51
+update on travis-ci docs. Fixes [93]#100
+

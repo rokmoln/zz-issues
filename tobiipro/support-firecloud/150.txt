@@ -1,0 +1,62 @@
+
+aws-cli v2 was released #150
+
+   Closed
+   [57]andreineculau opened this issue Feb 13, 2020 · 0 comments · Fixed
+   by [58]#151
+   Closed
+
+[59]aws-cli v2 was released #150
+
+   [60]andreineculau opened this issue Feb 13, 2020 · 0 comments · Fixed
+   by [61]#151
+   Assignees
+   [62]@tobiiasl
+   Labels
+   [63]bug
+
+Comments
+
+   [64]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[65]@andreineculau [66]andreineculau commented [67]Feb 13, 2020 •
+
+   edited
+
+   3 days ago, and a few hours ago it reached homebrew
+
+   and we currently expect v1 to be installed
+   [68]https://github.com/tobiipro/support-firecloud/blob/master/ci/brew-i
+   nstall-aws.inc.sh#L16
+     * release v2 notes with breaking changes
+       [69]https://github.com/aws/aws-cli/blob/v2/CHANGELOG.rst#200
+     * migration path
+       [70]https://docs.aws.amazon.com/cli/latest/userguide/cliv2-migratio
+       n.html
+
+   [71]@andreineculau [72]andreineculau added the [73]bug label [74]Feb
+   13, 2020
+   [75]@andreineculau [76]andreineculau assigned [77]tobiiasl [78]Feb 13,
+   2020
+   [79]@andreineculau [80]andreineculau added this to To do in [81]Public
+   (Open Source) via automation [82]Feb 13, 2020
+   [83]andreineculau added a commit that referenced this issue [84]Feb 13,
+   2020
+   [85]@andreineculau
+   [86]allow awscli v2, in addition to v1. ref [87]#150
+   Verified
+   This commit was signed with a verified signature.
+   [88]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [89]Learn about signing commits
+   [90]add692b
+   [91]@andreineculau [92]andreineculau mentioned this issue [93]Feb 13,
+   2020
+   [94]allow awscli v2, in addition to v1 #151
+   Merged
+   [95]@tobiiasl [96]tobiiasl closed this in [97]#151 [98]Feb 17, 2020
+   [99]Public (Open Source) automation moved this from To do to Done
+   [100]Feb 17, 2020
+   [101]@ankitmth [102]ankitmth removed this from Done in [103]Public
+   (Open Source) [104]Feb 19, 2020

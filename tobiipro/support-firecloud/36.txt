@@ -1,0 +1,113 @@
+
+move public repos to travis-ci.com ? #36
+
+   Closed
+   [57]andreineculau opened this issue May 2, 2018 · 6 comments
+   Closed
+
+[58]move public repos to travis-ci.com ? #36
+
+   [59]andreineculau opened this issue May 2, 2018 · 6 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]May 2, 2018
+
+   Travis CI seems to have an ongoing unification effort for public and
+   private repos
+
+   Received this by mail
+   [66]https://blog.travis-ci.com/2018-05-02-open-source-projects-on-travi
+   s-ci-com-with-github-apps
+   (THUMBS_UP react) 👍 1
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]May 2, 2018
+   [71]@alsmyr
+
+This comment has been minimized.
+
+   [72]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[73]@alsmyr [74]alsmyr commented [75]May 2, 2018
+
+   I think it's a good idea to be on one
+   [76]@IanSavchenko
+
+This comment has been minimized.
+
+   [77]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[78]@IanSavchenko [79]IanSavchenko commented [80]May 3, 2018
+
+   looks good to me, it was not cool at all to have them separate. I can
+   do that
+   [81]@IanSavchenko [82]IanSavchenko self-assigned this [83]May 3, 2018
+   [84]@alsmyr
+
+This comment has been minimized.
+
+   [85]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[86]@alsmyr [87]alsmyr commented [88]May 3, 2018
+
+   I suppose the build history is lost with moving over but I see no issue
+   with that. Do you?
+   [89]@andreineculau [90]andreineculau assigned [91]andreineculau and
+   unassigned [92]IanSavchenko [93]Dec 3, 2018
+   [94]@andreineculau
+
+This comment has been minimized.
+
+   [95]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[96]@andreineculau [97]andreineculau commented [98]Dec 3, 2018
+
+   ongoing. sent an email to travis
+   [99]@IanSavchenko
+
+This comment has been minimized.
+
+   [100]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[101]@IanSavchenko [102]IanSavchenko commented [103]Dec 3, 2018
+
+   Earlier I set up a new integration between GH and Travis and Travis
+   were supposed to migrate .org repos to .com some time during autumn
+   automatically. I guess it didn't happen (:
+   (THUMBS_UP react) 👍 1
+   [104]@andreineculau
+
+This comment has been minimized.
+
+   [105]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[106]@andreineculau [107]andreineculau commented [108]Dec 3, 2018 •
+
+   edited
+
+   should be done-done. some noise on the slack channels might follow
+   saying the travis-ci.com build is now green (the builds have no
+   history, so status changed from unknown to green)
+
+   docs/etc in support-firecloud were updated in [109]9b5c5b5
+   [110]@andreineculau [111]andreineculau closed this [112]Dec 3, 2018

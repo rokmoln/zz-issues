@@ -1,0 +1,138 @@
+
+handle semver #65
+
+   f/anu-versioning
+
+   master f/anu-versioning
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   stemming from
+   [47]tobiipro/schemata-firecloud@2cd5932#commitcomment-31730130
+
+   I guess at least the first part in the "Semantic Versioning" should
+   stay, even if the rest doesn't get merged in.
+
+   PS: we could have convenience targets instead, and NOT mess up with
+   changing the levels e.g.
+     * make release/bugfix would always do make release/patch
+     * make release/feat would do patch or minor, depending on pre/public
+     * make release/break would do minor or major, depending on pre/public
+
+   andreineculau added the [48]enhancement label [49]about 1 year ago
+
+   andreineculau self-assigned this [50]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [51]about 1 year ago
+
+   @IanSavchenko
+   [52]IanSavchenko reviewed [53]about 1 year ago
+   [54]doc/how-to-release.md
+   ((6 lines not shown))
+   See https://semver.org/spec/v2.0.0.html .
+   **TL;DR** :
+   * pre-public versions
+   * `0.0.1` initial version
+   * `0.0.2` minor version with **bugfixes, new features**
+   * `0.1.0` major version with bugfixes, new features, **breaking
+   changes**
+   * public versions
+   * `1.0.0` initial public version
+   * `1.0.1` patch version with **bugfixes**
+   * `1.1.0` minor version with bugfixes, **new features**
+   * `2.0.0` major version with bugfixes, new features, **breaking
+   changes**
+   **You don't need to remember all of these if you use the `make
+   release/*` targets below.**
+   [55]@IanSavchenko [56]IanSavchenko • [57]about 1 year ago
+   Copy link
+
+   Need to add "just don't forget to use make release/*" 😆
+
+   Copy link
+   @andreineculau
+   [58]andreineculau commented [59]about 1 year ago • edited about 1 year
+   ago
+   Well, if you don't then you have TL;DR table above :) Just had a crazy
+   thought á la Erik: you could just get prompts about the release. Who
+   the hell cares about semver anyway $ make release git log --oneline
+   <last tag>..HEAD Did you introduce breaking changes? yn Did you
+   introduce new features? yn Given this is a pre/public version, the
+   <level> version will be bumped
+
+   Copy link
+   @andreineculau
+   [60]andreineculau
+   commented [61]about 1 year ago
+
+   so not only replying by email these doesn't collapse the original
+   content, but I hit reply, and it added a comment to the issue, not to
+   your review comment... 🤦‍♂️
+
+   Copy link
+   @IanSavchenko
+   [62]IanSavchenko
+   commented [63]about 1 year ago
+
+   Looks impressive! What I think:
+    1. We should definitely leave the docs update, super helpful!
+    2. New targets look pretty complicated.
+
+   Here we have two options:
+    1. Remove them. Pros and cons:
+          + Less code
+          + Less bugs
+          + Requires more understanding of the process (but we have docs
+            now!)
+          + Possible human mistakes
+    2. Go with the suggestion with "convenience targets". I kind of like
+       it, makes it abstract from semver and unified across the repos. I
+       would only suggest having a way to verify that a version you will
+       get is what you expect. Something like prompt 0.5.2 => 0.6.0.
+       Proceed? or 0.5.2 => 0.6.0. Proceeding in 10 seconds. Press Ctrl+C
+       to cancel.
+
+   Copy link
+   @andreineculau
+   [64]andreineculau
+   commented [65]about 1 year ago
+
+   ❤️
+
+   i vote for option 2. i will see what options we have to dryrun a
+   version bump so that we present the outcome. nice with the timeout
+   idea!
+
+   andreineculau force pushed changes to this branch [66]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [67]andreineculau
+   commented [68]about 1 year ago
+
+   smth like this?
+
+   [69]screenshot 2018-12-19 at 18 38 02
+   ❤️ 1
+   IanSavchenko reacted with heart emoji
+
+   [70]andreineculau added some commits [71]about 1 year ago
+   [72]@andreineculau [73]document and handle semver
+   [74]@andreineculau [75]fix linting
+
+   andreineculau force pushed changes to this branch [76]about 1 year ago
+
+   @IanSavchenko
+   [77]IanSavchenko approved these changes [78]about 1 year ago
+
+   andreineculau referenced this pull request from commit [79]cd5be32
+   [80]about 1 year ago
+
+   andreineculau merged commit cd5be32 into master [81]about 1 year ago
+
+   andreineculau deleted the f/anu-versioning branch [82]about 1 year ago
+

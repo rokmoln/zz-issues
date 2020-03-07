@@ -1,0 +1,58 @@
+
+bin/chrome-web-store-publish #3
+
+   f/anu-chrome-store
+
+   master f/anu-chrome-store
+   @andreineculau
+   [45]andreineculau opened this pull request about 2 years ago • edited
+   about 1 year ago
+
+   a bash script to upload to the chrome web store
+
+   PS: needs manual testing before merging
+     __________________________________________________________________
+
+   This change is [46] Reviewable
+
+   [47]andreineculau added a commit [48]about 2 years ago
+   [49]@andreineculau [50]updated bin/chrome-web-store-publish
+
+   andreineculau force pushed changes to the base branch [51]about 2 years
+   ago
+
+   andreineculau force pushed changes to the base branch [52]about 2 years
+   ago
+
+   andreineculau force pushed changes to the base branch [53]almost 2
+   years ago
+
+   andreineculau force pushed changes to the base branch [54]almost 2
+   years ago
+
+   andreineculau force pushed changes to the base branch [55]almost 2
+   years ago
+
+   andreineculau force pushed changes to the base branch [56]over 1 year
+   ago
+
+   Copy link
+   @andreineculau
+   [57]andreineculau
+   commented [58]10 months ago
+
+   what this is missing is the ability to publish to testers
+
+   but we're not going to be adding more functionality and maintain this.
+   we anyway decided that we actually want to keep the current behaviour
+   of doing manual publishing - higher control with low risk of errors
+
+   if at somepoint we want to do automate this, we can reopen this or we
+   could probably use smth like
+   [59]https://github.com/DrewML/chrome-webstore-upload-cli
+
+   andreineculau closed this pull request [60]10 months ago
+
+   andreineculau deleted the f/anu-chrome-store branch [61]about 1 month
+   ago
+

@@ -1,0 +1,45 @@
+
+try removing gc on demand #19
+
+   Closed
+   [57]andreineculau opened this issue Feb 5, 2019 · 1 comment
+   Closed
+
+[58]try removing gc on demand #19
+
+   [59]andreineculau opened this issue Feb 5, 2019 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Feb 5, 2019
+
+   [65]https://github.com/tobiipro/aws-util-firecloud/blob/master/src/lamb
+   da.js#L59-L66
+
+   I believe node 8 has some gc changes, so maybe, just maybe we don't
+   need to spend time running garbage collection on demand.
+
+   I suggest we try removing it, and then see the behaviour. We could also
+   add a flag, but I don't particularly see the point in it.
+
+   // cc [66]@tobiiasl
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Feb 5, 2019
+   [71]@andreineculau
+
+This comment has been minimized.
+
+   [72]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[73]@andreineculau [74]andreineculau commented [75]Mar 14, 2019
+
+   Leave as is for now
+   [76]@andreineculau [77]andreineculau closed this [78]Mar 14, 2019

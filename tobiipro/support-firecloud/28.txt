@@ -1,0 +1,44 @@
+
+create a merge commit when upstream diverges before/during release #28
+
+   f/anu-fix-push-release
+
+   master f/anu-fix-push-release
+   @andreineculau
+   [45]andreineculau opened this pull request almost 2 years ago • edited
+   over 1 year ago
+
+   Labels
+   [46]bug
+
+   [DEL: NOT TESTED :DEL]
+
+   tested manually
+
+   [47]andreineculau referenced this pull request from another issue
+   [48]#26 "make release" should fail early if local repo is not
+   up-to-date
+
+   andreineculau force pushed changes to the base branch [49]over 1 year
+   ago
+
+   andreineculau force pushed changes to this branch [50]over 1 year ago
+
+   andreineculau added the [51]bug label [52]over 1 year ago
+
+   andreineculau self-assigned this [53]over 1 year ago
+
+   [54]andreineculau added a commit [55]over 1 year ago
+   [56]@andreineculau [57]create a merge commit when upstream diverges
+   before/during release. fix
+
+   andreineculau force pushed changes to this branch [58]over 1 year ago
+
+   andreineculau referenced this pull request from commit [59]b98c423
+   [60]over 1 year ago
+
+   andreineculau merged commit b98c423 into master [61]over 1 year ago
+
+   andreineculau deleted the f/anu-fix-push-release branch [62]about 1
+   year ago
+

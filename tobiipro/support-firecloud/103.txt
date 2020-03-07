@@ -1,0 +1,28 @@
+
+move teardown check to *-env case #103
+
+   f/ian-fix-teardown
+
+   master f/ian-fix-teardown
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request
+   11 months ago
+     * Fixes: [46]https://github.com/tobiipro/atex-platform/issues/111
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   IanSavchenko requested a review from andreineculau [47]11 months ago
+
+   Ian Savchenk... added some commits [48]11 months ago
+   [49]move teardown check to *-env case
+   [50]make it possible to run teardown on any env
+
+   IanSavchenko force pushed changes to this branch [51]11 months ago
+
+   IanSavchenko referenced this pull request from commit [52]3a0ae59
+   [53]11 months ago
+
+   IanSavchenko merged commit 3a0ae59 into master [54]11 months ago
+
+   IanSavchenko deleted the f/ian-fix-teardown branch [55]11 months ago
+

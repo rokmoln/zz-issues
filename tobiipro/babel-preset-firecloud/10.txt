@@ -1,0 +1,86 @@
+
+support __filename in src-arg plugin #10
+
+   Closed
+   [57]andreineculau opened this issue Feb 24, 2019 · 1 comment
+   Closed
+
+[58]support __filename in src-arg plugin #10
+
+   [59]andreineculau opened this issue Feb 24, 2019 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Feb 24, 2019
+
+   __filename is available in node and webpack, and it would provide an
+   absolute path, instead of a scoped one
+   [65]@andreineculau [66]andreineculau added the [67]enhancement label
+   [68]Feb 24, 2019
+   [69]@andreineculau
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[71]@andreineculau [72]andreineculau commented [73]Feb 24, 2019 •
+
+   edited
+
+   actually maybe it should switch to supporting only __filename, if it
+   exists - as it will be less confusing, and always right
+   [74]andreineculau added a commit that referenced this issue [75]Feb 24,
+   2019
+   [76]@andreineculau
+   [77]use __filename in src-arg plugin. [78]fix [79]#10
+   Verified
+   This commit was signed with a verified signature.
+   [80]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [81]Learn about signing commits
+   [82]ce50b6b
+   [83]andreineculau added a commit that referenced this issue [84]Feb 25,
+   2019
+   [85]@andreineculau
+   [86]use __filename in src-arg plugin. [87]fix [88]#10 (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [89]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [90]Learn about signing commits
+   [91]5bc88ee
+# Conflicts:
+#       plugins/babel-plugin-firecloud-src-arg.js
+
+   [92]@andreineculau [93]andreineculau closed this in [94]5071fa3 [95]Feb
+   25, 2019
+   [96]andreineculau added a commit that referenced this issue [97]Feb 25,
+   2019
+   [98]@andreineculau
+   [99]Merge pull request [100]#11 [101]from tobiipro/f/anu-filename-src
+   (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [102]Learn about signing commits
+   [103]bae52ee
+use __filename in src-arg plugin. fix [104]#10
+
+   [105]andreineculau added a commit that referenced this issue [106]Feb
+   25, 2019
+   [107]@andreineculau
+   [108]use __filename in src-arg plugin. [109]fix [110]#10 (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [111]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [112]Learn about signing commits
+   [113]8d7b873
+# Conflicts:
+#       plugins/babel-plugin-firecloud-src-arg.js
+

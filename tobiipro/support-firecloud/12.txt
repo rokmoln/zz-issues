@@ -1,0 +1,51 @@
+
+Move aws-iam.inc.sh and other AWS IAM utils to support-firecloud from
+atex-platform (and probably old firecloud repo) #12
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 2, 2018 · 0 comments
+   Closed
+
+[58]Move aws-iam.inc.sh and other AWS IAM utils to support-firecloud from
+atex-platform (and probably old firecloud repo) #12
+
+   [59]IanSavchenko opened this issue Mar 2, 2018 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Mar 2, 2018
+
+   No description provided.
+   (THUMBS_UP react) 👍 1
+   [65]andreineculau added a commit that referenced this issue [66]Mar 5,
+   2018
+   [67]@andreineculau
+   [68]add aws-iam-bootstrap&co. [69]fix [70]#12
+   [71]c7bff42
+   [72]andreineculau added a commit that referenced this issue [73]Mar 5,
+   2018
+   [74]@andreineculau
+   [75]add aws-iam-bootstrap&co. [76]fix [77]#12
+   [78]9e35eeb
+   [79]@andreineculau [80]andreineculau added the [81]enhancement label
+   [82]Mar 5, 2018
+   [83]@andreineculau [84]andreineculau closed this in [85]570f841 [86]Mar
+   9, 2018
+   [87]andreineculau added a commit that referenced this issue [88]Mar 9,
+   2018
+   [89]@andreineculau
+   [90]Merge pull request [91]#14 [92]from tobiipro/f/anu-aws-iam (BUTTON)
+   …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [93]Learn about signing commits
+   [94]62ee88e
+add aws-iam-bootstrap&co. fix [95]#12
+

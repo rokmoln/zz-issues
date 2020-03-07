@@ -1,0 +1,33 @@
+
+mk check targets should ignore non-transcrypted files #25
+
+   Closed
+   [57]andreineculau opened this issue Apr 13, 2018 · 0 comments
+   Closed
+
+[58]mk check targets should ignore non-transcrypted files #25
+
+   [59]andreineculau opened this issue Apr 13, 2018 · 0 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]bug
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Apr 13, 2018
+
+   if a file is encrypted via transcrypt, and it is not checked out as
+   unencrypted,
+   then its contents should be ignored by e.g. linters or else encrypted
+   content is linted, ending up with errors
+   [66]@andreineculau [67]andreineculau added the [68]bug label [69]Apr
+   13, 2018
+   [70]@andreineculau [71]andreineculau self-assigned this [72]Apr 13,
+   2018
+   [73]@andreineculau [74]andreineculau closed this in [75]9b69cfe [76]Apr
+   17, 2018

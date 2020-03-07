@@ -1,0 +1,56 @@
+
+F/ian vscode update #97
+
+   f/ian-vscode-update
+
+   master f/ian-vscode-update
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request 12 months ago • edited 12
+   months ago
+     * Fixes: [46]#96
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   Two things changed:
+    1. Do not track changes on .vscode/settings.json by adding it to
+       .gitignore_global. Reason: people (me) want to do local
+       customizations of settings per repo that should not be committed
+       and should not be even visible to git.
+
+   Problems:
+   a) on the repo init need to commit the .vscode/settings.json forcefully
+   (and every time you want to push any changes).
+   b) make nuke will reset local changes. So probably, need to add some
+   kind of exception.
+    2. On the repo init, copy .vscode boilerplate files, instead of
+       symlinking them.
+       I believe it will be better in the long run, because it will remove
+       a barrier for their modification ("Oh, I'm changing
+       support-firecloud! Does my change really apply for everyone?").
+
+   Right now we have there:
+     * .editorconfig - probably, won't change ever.
+     * extensions.json - has only extensions recommendations, which are
+       actually useful and would be good to be updated on per-repo basis
+     * settings.json - should be repo specific too, even not tracked, see
+       more above
+     * tasks.json - also, usually specific for each repo. I would like to
+       leverage more of them, especially to launch debugger faster.
+
+   Ofc, as we discussed this many times, symlinks can be unsymlinked any
+   time, but again - it's a barrier.
+   Another argument for this change: these files were not changed in SF
+   for a year or more, so it means that they are pretty stable. And when
+   we make the changing process easier, maybe, we will start using more
+   customizations to those files and find new cool stuff to be included in
+   the boilerplate.
+
+   Ian Savchenk... added some commits [47]12 months ago
+   [48]do not track .vscode/settings.json
+   [49]Do not symlink, but copy .vscode/*
+
+   IanSavchenko closed this pull request [50]12 months ago
+
+   andreineculau deleted the f/ian-vscode-update branch [51]about 1 month
+   ago
+

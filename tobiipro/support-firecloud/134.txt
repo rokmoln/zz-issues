@@ -1,0 +1,119 @@
+
+Placeholder for Github Workflows (aka Github Actions) #134
+
+   Closed
+   [57]andreineculau opened this issue Jan 7, 2020 · 0 comments
+   Closed
+
+[58]Placeholder for Github Workflows (aka Github Actions) #134
+
+   [59]andreineculau opened this issue Jan 7, 2020 · 0 comments
+   Labels
+   [60]question
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Jan 7, 2020
+
+   as an alternative for TravisCI/CircleCI/etc
+
+   The workflow configuration
+     * [65]at the time of opening this issue
+     * [66]latest
+     __________________________________________________________________
+
+   Pros
+     * able to build on linux and mac (windows support as well, but didn't
+       test it)
+     * easy to build a pipeline: make sure job A succeeds, then run job B,
+       otherwise skip job B
+     * native docker support
+     * fast
+     * seems to be fast at catching up with the known suspects
+     * too early to say but it looks like people are not complaining about
+       intermittent errors, thus it's a stable product
+
+   Cons
+     * spread docs, examples, there's no "take my hand" official and
+       comprehensive tutorial with hyperlinks into docs
+     * overall it does not look nor behave as a CI/CD solution. instead it
+       has to be molded into one, from a platform that triggers "lambdas"
+       when things happen on a github.com repository. Not important but as
+       a symbolic thing, there is not even a CI=true environment variable
+       [67]issue
+     * no auto-cancellation feature
+       [68]https://docs.travis-ci.com/user/customizing-the-build/#building
+       -only-the-latest-commit
+     * no builtin functionality for checking out code - need to use an
+       "action" plugin [69]https://github.com/actions/checkout for that.
+       Similarly no builtin functionality for checkout out git submodules,
+       needs shell commands
+     * no builtin functionality for slack notifications - need to use one
+       of the many, non-official "action" plugins, but it is IMPOSSIBLE to
+       get the job id ([70]issue) or a job URL, so that one can click the
+       slack message and see the respective job logs, and it's also
+       IMPOSSIBLE to get the status of the previous job to minimize noise
+       (notify only when job failed previously and now it's fixed, or new
+       tag is pushed, etc) which are all builtins on Travis
+     * no builtin functionality for caching although given the possibility
+       of using docker images, it is not so critical. An official "action"
+       plugin is available [71]https://github.com/actions/cache but it is
+       cumbersome and duplicative to use, and thus would require new code
+       in support-firecloud to optimize for using such a plugin
+     * given that the "actions" plugins are git repos as node modules,
+       unless you use a commit hash instead of a semver reference, you are
+       prone to [72]injection attacks, and they defeat the purpose of
+       high-quality almost-atomic builds (e.g. use custom bootstrapped
+       docker containers, use lock files, etc will still given you a
+       dynamic environment), therefore the suggestion is to use no
+       actions, unless it's your own or an official one from
+       [73]https://github.com/actions
+     * no builtin support for global environment variables set in the GUI.
+       Even secrets (which are set in the GUI) are not automatically
+       expanded into global environment variables. While the goal is noble
+       (allowing access to secrets only to the steps that need those
+       secrets), the reality is that it is more of a nuisance than a
+       benefit
+     * unable to have exclusions to a build matrix (build 1-2 * a-b but
+       without the 2a combination) [74]issue
+     * confusing mix of yaml variables e.g. ${{ foo.bar }} and a subset of
+       them available as builtin environment variables
+     * confusing access to event details - a json file that needs jq or
+       similar for parsing at runtime
+     * can't get undocumented folding to work [75]issue
+     * yaml anchors/references are not supported leading to duplication in
+       workflow configuration [76]issue
+
+   Quite a few basic CI/CD features are either not available on github
+   actions, or they can be instrumented via shell commands or action
+   plugins, but it is very much a wild wild west with many developers
+   fighting for the spotlight (a bit á la NPM).
+
+   One way to summarize the experience around Github Actions comes from
+   [77]a blog post around generating and using a unique job id:
+
+     In conclusion; this is a lot of effort and quite a unique method to
+     generate a build number for your workflow run. However; if you are
+     excited to use GitHub Actions and you are restricted by this missing
+     feature, then there is a way to get around it. It may not be the
+     most elegant solution, but it works™️.
+
+   Refs:
+     * [78]https://github.community/t5/forums/searchpage/tab/message?q=tra
+       vis&sort_by=-replies&collapse_discussion=true
+     * [79]https://bravelab.io/blog/migrating-from-travisci-to-github-acti
+       ons-1/
+
+   [80]@andreineculau [81]andreineculau added the [82]question label
+   [83]Jan 7, 2020
+   [84]@andreineculau [85]andreineculau added this to To do in [86]Public
+   (Open Source) via automation [87]Jan 7, 2020
+   [88]@andreineculau [89]andreineculau closed this [90]Feb 7, 2020
+   [91]Public (Open Source) automation moved this from To do to Done
+   [92]Feb 7, 2020
+   [93]@ankitmth [94]ankitmth removed this from Done in [95]Public (Open
+   Source) [96]Feb 19, 2020

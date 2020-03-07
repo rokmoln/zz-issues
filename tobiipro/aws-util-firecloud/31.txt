@@ -1,0 +1,38 @@
+
+add typescript definition #31
+
+   Closed
+   [57]andreineculau opened this issue May 20, 2019 · 0 comments · Fixed
+   by [58]#35
+   Closed
+
+[59]add typescript definition #31
+
+   [60]andreineculau opened this issue May 20, 2019 · 0 comments · Fixed
+   by [61]#35
+   Labels
+   [62]enhancement
+
+Comments
+
+   [63]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[64]@andreineculau [65]andreineculau commented [66]May 20, 2019
+
+   see lodash-firecloud setup
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]May 20, 2019
+   [71]@andreineculau [72]andreineculau added this to To do in [73]Public
+   (Open Source) via automation [74]May 20, 2019
+   [75]@andreineculau [76]andreineculau mentioned this issue [77]Nov 21,
+   2019
+   [78]Typescript #35
+   Merged
+   [79]@andreineculau [80]andreineculau closed this in [81]#35 [82]Jan 18,
+   2020
+   [83]Public (Open Source) automation moved this from To do to Done
+   [84]Jan 18, 2020
+   [85]@ankitmth [86]ankitmth removed this from Done in [87]Public (Open
+   Source) [88]Feb 19, 2020

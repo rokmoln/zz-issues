@@ -1,0 +1,75 @@
+
+move CFN artifacts into a separate folder #98
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 26, 2019 · 2 comments
+   Closed
+
+[58]move CFN artifacts into a separate folder #98
+
+   [59]IanSavchenko opened this issue Mar 26, 2019 · 2 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Mar 26, 2019
+
+   As we discussed before, it would be cool to have all the generated
+   *.cfn.json, *.change-set.json files to be in some other folder, not
+   among the sources.
+   [65]@IanSavchenko [66]IanSavchenko added the [67]enhancement label
+   [68]Mar 26, 2019
+   [69]andreineculau added a commit that referenced this issue [70]May 15,
+   2019
+   [71]@andreineculau
+   [72]make it easy to clean cfn artifacts. ref [73]#98
+   Verified
+   This commit was signed with a verified signature.
+   [74]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [75]Learn about signing commits
+   [76]511f73c
+   [77]@andreineculau [78]andreineculau mentioned this issue [79]May 15,
+   2019
+   [80]make it easy to clean cfn artifacts. ref #98 #114
+   Merged
+   [81]@andreineculau
+
+This comment has been minimized.
+
+   [82]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[83]@andreineculau [84]andreineculau commented [85]May 15, 2019
+
+   closing. I'll be honest, I'll probably not be putting effort into this
+   in the foreseeable future :(
+   [86]@andreineculau [87]andreineculau closed this [88]May 15, 2019
+   [89]@IanSavchenko
+
+This comment has been minimized.
+
+   [90]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[91]@IanSavchenko [92]IanSavchenko commented [93]May 16, 2019
+
+   ;(
+   [94]andreineculau added a commit that referenced this issue [95]May 17,
+   2019
+   [96]@andreineculau
+   [97]Merge pull request [98]#114 [99]from tobiipro/cfn-clean-targets
+   (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [100]Learn about signing commits
+   [101]1dba736
+make it easy to clean cfn artifacts. ref [102]#98
+

@@ -1,0 +1,75 @@
+
+lodash #1
+
+   Closed
+   [57]andreineculau opened this issue Feb 23, 2018 · 3 comments
+   Closed
+
+[58]lodash #1
+
+   [59]andreineculau opened this issue Feb 23, 2018 · 3 comments
+   Labels
+   [60]enhancement [61]help wanted
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Feb 23, 2018
+
+   given the size of lodash, and given the tiny size of the http-lambda
+   package,
+    1. lodash could actually become a peer dependency, and decrease the
+       bundle size in projects where lodash is a dependency anyway
+    2. remove the dependency on lodash, which would have effects on load
+       time as well (less js to parse)
+
+   My suggestion is to do it in two steps, as listed above
+   [66]@andreineculau [67]andreineculau added [68]enhancement [69]help
+   wanted labels [70]Feb 23, 2018
+   [71]@IanSavchenko
+
+This comment has been minimized.
+
+   [72]Sign in to view
+   Copy link (BUTTON) Quote reply
+
+[73]@IanSavchenko [74]IanSavchenko commented [75]Feb 23, 2018
+
+   I agree.
+   But a question here: if we specify lodash dependency as a regular one
+   (not peer) something like "^4.0.0", it still won't reuse a project
+   top-level lodash, because we use "global-style" node_modules checkout
+   in some repos?
+   [76]@andreineculau
+
+This comment has been minimized.
+
+   [77]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[78]@andreineculau [79]andreineculau commented [80]Feb 23, 2018
+
+   yup. every global-style dep will have its own lodash, plus maybe
+   another lodash (the root package needs lodash)
+   [81]andreineculau added a commit that referenced this issue [82]Feb 23,
+   2018
+   [83]@andreineculau
+   [84]turn lodash into a peer dependency. ref [85]#1
+   [86]0b67d80
+   [87]@andreineculau
+
+This comment has been minimized.
+
+   [88]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[89]@andreineculau [90]andreineculau commented [91]Feb 16, 2019
+
+   should be less of a problem now with semver ranges in place, and with a
+   slightly optimized lambda dist (i.e. npm dedupe). closing
+   [92]@andreineculau [93]andreineculau closed this [94]Feb 16, 2019

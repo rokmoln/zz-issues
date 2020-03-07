@@ -1,0 +1,62 @@
+
+Logging large objects messes up AWS CloudWatch console #25
+
+   Closed
+   [57]tobiiasl opened this issue Nov 7, 2019 · 2 comments
+   Closed
+
+[58]Logging large objects messes up AWS CloudWatch console #25
+
+   [59]tobiiasl opened this issue Nov 7, 2019 · 2 comments
+
+Comments
+
+   [60]@tobiiasl
+   Copy link (BUTTON) Quote reply
+
+[61]@tobiiasl [62]tobiiasl commented [63]Nov 7, 2019
+
+   Logging a return value from a call to axios in an AWS lambda function
+   using minlog messed up the CloudWatch console so that log entries was
+   not shown and the ones that were shown were incomplete and difficult to
+   read. Probably because the stringified version of the object got very
+   long.
+
+   Logging it with console.log worked fine and did not have that effect.
+   [64]@andreineculau
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[66]@andreineculau [67]andreineculau commented [68]Nov 7, 2019
+
+   notes2self:
+     * we could limit the JSON depth, but that wouldn't fix e.g. a
+       top-level Buffer from being stringified to potentially a really
+       long output
+     * could limit the size of strings, array, objects values
+     * could limit (truncate) the size of of the entire output - means
+       truncated invalid JSON, but maybe it's still better than today's
+       scenario
+     * could limit the size of the entire output, and if bigger than a
+       threshold, stick to using util.inspect (console.log behavior)
+       rather than JSON.stringify values
+
+   the last alternative seems to be the cleanest
+   [69]@andreineculau
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[71]@andreineculau [72]andreineculau commented [73]Nov 22, 2019
+
+   i believe this has been addressed by implementing the
+   jsonStringifyReplacer in
+   [74]b8283e5#diff-8cd4968b81985f0efc2053eabc37db6d
+   [75]@andreineculau [76]andreineculau closed this [77]Nov 22, 2019

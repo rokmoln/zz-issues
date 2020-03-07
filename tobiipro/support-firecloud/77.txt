@@ -1,0 +1,41 @@
+
+JSON Lint is trying to run against transcrypted files and fails #77
+
+   Closed
+   [57]IanSavchenko opened this issue Jan 25, 2019 · 0 comments
+   Closed
+
+[58]JSON Lint is trying to run against transcrypted files and fails #77
+
+   [59]IanSavchenko opened this issue Jan 25, 2019 · 0 comments
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Jan 25, 2019
+
+   Seen on atex-platform, in Fraser's branch. SF submodule is on
+   [65]142eb86
+
+   I saw that you, Andrei, wrote some smart code that should handle it,
+   but it's failing for me.
+
+   Steps to reproduce:
+    1. Open root atex-platform directory.
+    2. ./transcrypt -y -f
+    3. make check
+
+   (HEART react) ❤️ 1
+   [66]@IanSavchenko [67]IanSavchenko added the [68]bug label [69]Jan 25,
+   2019
+   [70]@IanSavchenko [71]IanSavchenko assigned [72]andreineculau [73]Jan
+   25, 2019
+   [74]@andreineculau [75]andreineculau closed this in [76]507b65d [77]Jan
+   25, 2019
+   [78]@ankitmth [79]ankitmth unassigned [80]andreineculau [81]Feb 19,
+   2020

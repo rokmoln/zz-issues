@@ -1,0 +1,169 @@
+
+refactor express to handle ResponseErrors #15
+
+   f/anu-api-bootstrap
+
+   master f/anu-api-bootstrap
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   long road to basically remove the need for api-handler-bootstrap.js
+   from atex-platform
+   so the core of this review is in express/res-error.js, otherwise it's
+   just breaking up express.js
+
+   [47]andreineculau added a commit [48]about 1 year ago
+   [49]@andreineculau [50]refactor express to handle ResponseErrors
+
+   andreineculau added the [51]enhancement label [52]about 1 year ago
+
+   andreineculau self-assigned this [53]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [54]about 1 year ago
+
+   @IanSavchenko
+   [55]IanSavchenko approved these changes [56]about 1 year ago
+
+   The code needs restructuring, but maybe next time.
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [57]src/express/middlewares.js
+   ((6 lines not shown))
+   asyncHandler,
+   getRequestInstance
+   } from '../lambda';
+   import {
+   bootstrap as bootstrapResponseError
+   } from './res-error';
+   export let bootstrap = function(fn) {
+   return asyncHandler(async function(req, res, next) {
+   bootstrapResponseError(await _.alwaysPromise(fn(req, res, next)), res);
+   });
+   };
+   export let init = function(req, res, next) {
+   res.instance = getRequestInstance(req);
+   [58]@IanSavchenko [59]IanSavchenko • [60]about 1 year ago
+   Copy link
+
+   I understand that this is not part of this PR, but this line is
+   misleading if you are out of context. We assign a property instance for
+   the response which is an instance of request according to the
+   right-hand value 🤔
+   But in fact it's much easier: that's just a request id from AWS. So why
+   not calling things what they are?
+   [61]@andreineculau [62]andreineculau • [63]about 1 year ago
+   Copy link
+
+   some history was erased when publishing this repo, but
+   getRequestInstance will return
+   ${ctx.invokedFunctionArn}#request:${ctx.awsRequestId}, so not just the
+   request id. Basically it makes it easier to check lambda's logs in
+   cloudwatch.
+
+   I made a subtle change that maybe makes it less misleading, because the
+   code in question is more contextualized now
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [64]src/express/res-mixins.js
+   ((17 lines not shown))
+   this.setHeader('link', linkHeader);
+   };
+   export let send = function(body, mediaType) {
+   this.send = this.oldSend;
+   if (mediaType) {
+   this.set('content-type', mediaType);
+   }
+   if (!_.isUndefined(this.validate) &&
+   _.startsWith(this.get('content-type'), this.validate.schema.mediaType)
+   ) {
+   let valid = this.validate(body);
+   if (!valid) {
+   this.log.error({
+   [65]@IanSavchenko [66]IanSavchenko • [67]about 1 year ago
+   Copy link
+
+   I think it's misleading when we spit error but continue working. I
+   would change this to warn.
+
+   Copy link
+   @andreineculau
+   [68]andreineculau
+   commented [69]about 1 year ago
+
+     The code needs restructuring,
+
+   Forgot to ask what did you mean
+
+   Copy link
+   @IanSavchenko
+   [70]IanSavchenko
+   commented [71]about 1 year ago
+
+     The code needs restructuring,
+
+     Forgot to ask what did you mean
+
+   I can explain. For example, middlewares.js could be broken down further
+   to 3 separate parts:
+    1. Method middlewares.bootstrap is actually our wrapper for all
+       middlewares which is used in our redefined app.use. So the code can
+       be moved out there since it's the only place where we use it. So it
+       will be like
+
+app.oldUse = app.use;
+app.use = function(fn) {
+    // not the best name surely
+    let wrappedFn = asyncHandler(async function(req, res, next) {
+      bootstrapResponseError(await _.alwaysPromise(fn(req, res, next)), res);
+    });
+    app.oldUse(wrappedFn);
+};
+
+    2. Method middlewares.init is used like a middleware, but it's unclear
+       from it's name what is the purpose. Why not call it
+       mixins-middleware and then put it aside next to modules
+       mixins-req.js and mixins-res.js. Would be nice.
+    3. Method middlewares.xForward is just a plain middleware by itself,
+       not a service-wrapper-function (like bootstrap), not a complex
+       meta-middleware with some extra modules (like init/mixins).
+
+   So, for me all three of these methods are serving completely different
+   purposes and should be split into separate files.
+
+   Also, I would move out bootstrap from res-error.js, but that's not
+   super important.
+   👍 1
+   andreineculau reacted with thumbs up emoji
+
+   Copy link
+   @andreineculau
+   [72]andreineculau
+   commented [73]about 1 year ago
+    1. 👏 pushed a change (and fix along with it)
+    2. renamed init to applyMixins
+
+   [74]andreineculau added some commits [75]about 1 year ago
+   [76]@andreineculau [77]warn instead of error
+   [78]@andreineculau [79]get request instance only in case of sending
+   errors
+   [80]@andreineculau [81]refactor bootstrapMiddleware
+   [82]@andreineculau [83]rename init middleware to applyMixins
+   [84]@andreineculau [85]break up lambda module, replace bunyan with
+   minlog
+   [86]@andreineculau [87]fixup! break up lambda module, replace bunyan
+   with minlog
+   [88]@andreineculau [89]use minlog's levelIsBeyondGroup convenience
+   function
+   [90]@andreineculau [91]Merge pull request [92]#16 [93]from
+   tobiipro/f/anu-minlog
+
+   andreineculau referenced this pull request from commit [94]2b60c4e
+   [95]about 1 year ago
+
+   andreineculau merged commit 2b60c4e into master [96]about 1 year ago
+
+   andreineculau deleted the f/anu-api-bootstrap branch [97]about 1 year
+   ago
+

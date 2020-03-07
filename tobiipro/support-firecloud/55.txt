@@ -1,0 +1,134 @@
+
+implement `npm audit` in repo/mk #55
+
+   Closed
+   [57]andreineculau opened this issue Dec 10, 2018 · 4 comments
+   Closed
+
+[58]implement `npm audit` in repo/mk #55
+
+   [59]andreineculau opened this issue Dec 10, 2018 · 4 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Dec 10, 2018
+
+   npm audit --json or npm audit --parseable actually
+
+   don't know if I feel brave enough to run npm audit --fix though, but it
+   might be necessary
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Dec 10, 2018
+   [70]@andreineculau [71]andreineculau self-assigned this [72]Dec 10,
+   2018
+   [73]@alsmyr
+
+This comment has been minimized.
+
+   [74]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[75]@alsmyr [76]alsmyr commented [77]Dec 10, 2018
+
+   What happens if we make CI fail on audit failures and then we have to
+   manually --fix?
+   [78]@andreineculau
+
+This comment has been minimized.
+
+   [79]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[80]@andreineculau [81]andreineculau commented [82]Dec 10, 2018
+
+   it's complicated :) that's what i wrote "it might be necessary"
+
+   because it's not just an audit over top-level dependencies, but
+   everything, so it can very well be that there's a
+   sub-sub-sub-dependency that we cannot "fix" (via a new commit), and
+   instead we might just call npm audit --fix which will replace the
+   sub-sub-sub-dependency wherever it may hide in the dependency tree
+   [83]@alsmyr
+
+This comment has been minimized.
+
+   [84]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[85]@alsmyr [86]alsmyr commented [87]Dec 10, 2018 •
+
+   edited
+
+   I see. It a nice piece of functionality but can be hard to put into
+   use.
+
+   I got a hard question from a customer about a month ago:
+
+     how to you do vendor assessment on 3rd party dependencies?
+
+   It has some implications on npm strategy
+   [88]andreineculau added a commit that referenced this issue [89]May 17,
+   2019
+   [90]@andreineculau
+   [91]audit package.json [92]fix [93]#55
+   Verified
+   This commit was signed with a verified signature.
+   [94]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [95]Learn about signing commits
+   [96]b99da68
+   [97]@andreineculau [98]andreineculau mentioned this issue [99]May 17,
+   2019
+   [100]Npm audit #116
+   Closed
+   [101]@andreineculau [102]andreineculau added this to In progress in
+   [103]Public (Open Source) [104]May 20, 2019
+   [105]andreineculau added a commit that referenced this issue [106]May
+   20, 2019
+   [107]@andreineculau
+   [108]fixup! audit package.json [109]fix [110]#55
+   Verified
+   This commit was signed with a verified signature.
+   [111]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [112]Learn about signing commits
+   [113]9f5ac43
+   [114]andreineculau added a commit that referenced this issue [115]May
+   20, 2019
+   [116]@andreineculau
+   [117]fixup! audit package.json [118]fix [119]#55
+   Verified
+   This commit was signed with a verified signature.
+   [120]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [121]Learn about signing commits
+   [122]3dd655a
+   [123]@andreineculau [124]andreineculau moved this from In progress to
+   To do in [125]Public (Open Source) [126]May 21, 2019
+   [127]@andreineculau
+
+This comment has been minimized.
+
+   [128]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[129]@andreineculau [130]andreineculau commented [131]Jul 12, 2019
+
+   closing this in the light of [132]#121 but also articles like
+   [133]https://www.nearform.com/blog/comparing-npm-audit-with-snyk/
+
+   recommendation: use specific services that do one thing well
+   [134]@andreineculau [135]andreineculau closed this [136]Jul 12, 2019
+   [137]Public (Open Source) automation moved this from To do to Done
+   [138]Jul 12, 2019
+   [139]@ankitmth [140]ankitmth removed this from Done in [141]Public
+   (Open Source) [142]Feb 19, 2020

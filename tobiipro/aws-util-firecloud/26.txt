@@ -1,0 +1,46 @@
+
+remove url #26
+
+   Closed
+   [57]andreineculau opened this issue Mar 14, 2019 · 1 comment
+   Closed
+
+[58]remove url #26
+
+   [59]andreineculau opened this issue Mar 14, 2019 · 1 comment
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Mar 14, 2019
+
+   i.e. revert the [66]96889a2 revert (emergency fix)
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Mar 14, 2019
+   [71]@andreineculau [72]andreineculau self-assigned this [73]Mar 14,
+   2019
+   [74]@andreineculau [75]andreineculau added this to To do in [76]Public
+   (Open Source) [77]May 20, 2019
+   [78]@andreineculau
+
+This comment has been minimized.
+
+   [79]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[80]@andreineculau [81]andreineculau commented [82]Jul 12, 2019
+
+   done in [83]cca3f39
+   [84]@andreineculau [85]andreineculau closed this [86]Jul 12, 2019
+   [87]Public (Open Source) automation moved this from To do to Done
+   [88]Jul 12, 2019
+   [89]@ankitmth [90]ankitmth removed this from Done in [91]Public (Open
+   Source) [92]Feb 19, 2020

@@ -1,0 +1,44 @@
+
+Lodash-firecloud has peer deps, but no install-peer-deps script like other
+subrepos #4
+
+   Closed
+   [57]IanSavchenko opened this issue Apr 9, 2018 · 1 comment
+   Closed
+
+[58]Lodash-firecloud has peer deps, but no install-peer-deps script like
+other subrepos #4
+
+   [59]IanSavchenko opened this issue Apr 9, 2018 · 1 comment
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Apr 9, 2018
+
+   No description provided.
+   [64]@andreineculau
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[66]@andreineculau [67]andreineculau commented [68]Apr 10, 2018
+
+   i don't see the need for one. the other ones - a babel-preset and a
+   eslint-config - have the npm-install-peer-dependencies script as a
+   convenience, not as a necessity
+
+   what should happen is to have bluebird as a prod dependency, until we
+   can actually bump to nodejs 8 and remove it altogether
+   [69]@andreineculau [70]andreineculau mentioned this issue [71]Apr 10,
+   2018
+   [72]bluebird is needed in prod #5
+   Merged
+   [73]@andreineculau [74]andreineculau closed this in [75]#5 [76]Apr 10,
+   2018

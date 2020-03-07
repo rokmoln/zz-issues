@@ -1,0 +1,21 @@
+
+test #52
+
+   f/anu-linuxbrew2
+
+   master f/anu-linuxbrew2
+   @andreineculau
+   [45]andreineculau opened this pull request
+   over 1 year ago
+   No description given.
+
+   [46]andreineculau added some commits [47]over 1 year ago
+   [48]@andreineculau [49]support python
+   [50]@andreineculau [51]refactor ci bootstrap; use linuxbrew
+   [52]@andreineculau [53]add future fixme note
+   [54]@andreineculau [55]remove forced linking to python@2
+
+   andreineculau closed this pull request [56]over 1 year ago
+
+   andreineculau deleted the f/anu-linuxbrew2 branch [57]over 1 year ago
+

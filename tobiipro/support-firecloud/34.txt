@@ -1,0 +1,58 @@
+
+make target to compile native npm packages for aws lambda #34
+
+   Open
+   [57]andreineculau opened this issue Apr 17, 2018 · 1 comment
+   Open
+
+[58]make target to compile native npm packages for aws lambda #34
+
+   [59]andreineculau opened this issue Apr 17, 2018 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Apr 17, 2018
+
+   goal: have make node_modules_aws create a node_modules_aws with npm
+   dependencies but with native code compiled for the aws lambda
+   architecture. This way, a repository/folder could switch out the
+   node_modules folder for the contents of node_modules_aws in its make
+   dist step, and deliver a distribution artifact that can run on aws
+   lambda.
+
+   how: use [65]https://github.com/iopipe/awslambda-npm-install as
+   inspiration
+
+   steps:
+     * [ ] add docker to bootstrapping procedures
+     * [ ] modify the dockerfile in awslambda-npm-install to produce
+       instead a node_modules_aws folder
+     * [ ] 🎉
+
+   cc [66]@IanSavchenko keyword: heatmaps 👻
+   (HOORAY react) 🎉 1
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Apr 17, 2018
+   [71]@andreineculau
+
+This comment has been minimized.
+
+   [72]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[73]@andreineculau [74]andreineculau commented [75]Dec 3, 2018
+
+   docker might not be necessary. use aws codebuild instead - ref
+   [76]https://medium.com/@haydnjmorris/aws-lambda-node-modules-no-docker-
+   required-76443a0f6c4e
+   [77]@andreineculau [78]andreineculau added this to To do in [79]Public
+   (Open Source) [80]May 20, 2019
+   [81]@ankitmth [82]ankitmth removed this from To do in [83]Public (Open
+   Source) [84]Feb 19, 2020

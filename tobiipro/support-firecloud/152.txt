@@ -1,0 +1,99 @@
+
+make it easy to start a local docker-ci #152
+
+   Closed
+   [57]andreineculau opened this issue Feb 14, 2020 · 0 comments · Fixed
+   by [58]#157
+   Closed
+
+[59]make it easy to start a local docker-ci #152
+
+   [60]andreineculau opened this issue Feb 14, 2020 · 0 comments · Fixed
+   by [61]#157
+   Labels
+   [62]enhancement
+
+Comments
+
+   [63]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[64]@andreineculau [65]andreineculau commented [66]Feb 14, 2020
+
+   we currently have means to start a docker container within travis to
+   run our pipelines,
+   but it is not as easy as "run this make target" in order run a docker
+   ci locally (on a dev machine) to get quick feedback.
+
+   // cc [67]@spschlegel (I said I can share some commands, but it is
+   simply not as easy as that)
+   [68]@andreineculau [69]andreineculau added the [70]enhancement label
+   [71]Feb 14, 2020
+   [72]@andreineculau [73]andreineculau added this to To do in [74]Public
+   (Open Source) via automation [75]Feb 14, 2020
+   [76]andreineculau added a commit that referenced this issue [77]Feb 16,
+   2020
+   [78]@andreineculau
+   [79]add docker-ci target. ref [80]#152
+   Verified
+   This commit was signed with a verified signature.
+   [81]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [82]Learn about signing commits
+   [83]558e7c1
+   [84]andreineculau added a commit that referenced this issue [85]Feb 17,
+   2020
+   [86]@andreineculau
+   [87]add docker-ci target. ref [88]#152
+   Verified
+   This commit was signed with a verified signature.
+   [89]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [90]Learn about signing commits
+   [91]84e6316
+   [92]@andreineculau [93]andreineculau mentioned this issue [94]Feb 17,
+   2020
+   [95]add docker-ci target. ref #152 #157
+   Merged
+   [96]andreineculau added a commit that referenced this issue [97]Feb 17,
+   2020
+   [98]@andreineculau
+   [99]add docker-ci target. ref [100]#152
+   Verified
+   This commit was signed with a verified signature.
+   [101]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [102]Learn about signing commits
+   [103]a6f7eea
+   [104]@ankitmth [105]ankitmth removed this from To do in [106]Public
+   (Open Source) [107]Feb 19, 2020
+   [108]andreineculau added a commit that referenced this issue [109]Feb
+   24, 2020
+   [110]@andreineculau
+   [111]add docker-ci target. ref [112]#152
+   Verified
+   This commit was signed with a verified signature.
+   [113]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [114]Learn about signing commits
+   [115]909f7e8
+   [116]andreineculau added a commit that referenced this issue [117]Feb
+   24, 2020
+   [118]@andreineculau
+   [119]add docker-ci target. ref [120]#152
+   Verified
+   This commit was signed with a verified signature.
+   [121]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [122]Learn about signing commits
+   [123]be2ca37
+   [124]@andreineculau [125]andreineculau closed this in [126]#157
+   [127]Feb 26, 2020
+   [128]andreineculau added a commit that referenced this issue [129]Feb
+   26, 2020
+   [130]@andreineculau
+   [131]Merge pull request [132]#157 [133]from tobiipro/local-docker-ci
+   (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [134]Learn about signing commits
+   [135]f65b89c
+add docker-ci target. ref [136]#152
+

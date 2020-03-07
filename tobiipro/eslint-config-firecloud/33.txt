@@ -1,0 +1,47 @@
+
+enforce empty lines for multiline statements #33
+
+   more-padding-lines-for-multiline
+
+   master more-padding-lines-for-multiline
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request
+   12 months ago
+
+   Adds a bit more space between complex statements, so it is easier to
+   read code. Tried it out in atex-dashboard and it looked well.
+
+   Ian Savchenk... added a commit [46]12 months ago
+   [47]enforce empty lines for multiline statements
+
+   IanSavchenko requested a review from andreineculau [48]12 months ago
+
+   Ian Savchenk... added some commits [49]12 months ago
+   [50]remove accidential dup
+   [51]fix according to new rules
+
+   @andreineculau
+   [52]andreineculau requested changes [53]12 months ago
+
+   sure, let's try it out
+   i'd suggest though to add also multiline-var and multiline-const (even
+   if we don't allow them)
+
+   [54]andreineculau added a commit [55]12 months ago
+   [56]@andreineculau [57]consistency: add padding for all multiline
+   (const and var)
+
+   Copy link
+   @andreineculau
+   [58]andreineculau
+   commented [59]12 months ago
+
+   I take back what I said. I ran this config in atex-platform, and didn't
+   like what I saw. One example is that sometimes you do lots of
+   transforms to a var and you'd like them grouped.
+
+   IanSavchenko closed this pull request [60]10 months ago
+
+   andreineculau deleted the more-padding-lines-for-multiline branch
+   [61]about 1 month ago
+

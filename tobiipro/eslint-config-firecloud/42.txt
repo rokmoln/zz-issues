@@ -1,0 +1,33 @@
+
+consider adding unicorn #42
+
+   Open
+   [57]andreineculau opened this issue Oct 7, 2019 · 0 comments
+   Open
+
+[58]consider adding unicorn #42
+
+   [59]andreineculau opened this issue Oct 7, 2019 · 0 comments
+   Labels
+   [60]enhancement
+   Milestone
+   [61]breaking
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Oct 7, 2019
+
+   [66]https://github.com/sindresorhus/eslint-plugin-unicorn
+   on next milestone
+   [67]@andreineculau [68]andreineculau added this to To do in [69]Public
+   (Open Source) via automation [70]Oct 7, 2019
+   [71]@andreineculau [72]andreineculau added the [73]enhancement label
+   [74]Oct 7, 2019
+   [75]@andreineculau [76]andreineculau added this to the [77]breaking
+   milestone [78]Oct 7, 2019
+   [79]@ankitmth [80]ankitmth removed this from To do in [81]Public (Open
+   Source) [82]Feb 19, 2020

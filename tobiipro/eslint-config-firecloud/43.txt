@@ -1,0 +1,76 @@
+
+Upgrade deps #43
+
+   upgrade-deps
+
+   master upgrade-deps
+   @andreineculau
+   [45]andreineculau opened this pull request
+   5 months ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [x]
+     __________________________________________________________________
+
+   andreineculau added the [47]enhancement label [48]5 months ago
+
+   andreineculau added this to the breaking milestone [49]5 months ago
+
+   andreineculau added this to In progress in [50]Public (Open Source) via
+   automation [51]5 months ago
+
+   [52]andreineculau added some commits [53]4 months ago
+   [54]@andreineculau [55]add eslint-plugin-jsdoc. [56]fix [57]#44
+   [58]@andreineculau [59]updated support-firecloud
+
+   andreineculau force pushed changes to this branch [60]4 months ago
+
+   [61]andreineculau added a commit [62]4 months ago
+   [63]@andreineculau [64]fix @typescript-eslint/indent signature
+
+   andreineculau force pushed changes to this branch [65]4 months ago
+
+   [66]andreineculau added some commits [67]4 months ago
+   [68]@andreineculau [69]why did we have prefer-rest-params:off ?
+   [70]@andreineculau [71]should we really have
+   no-unused-vars:ignoreRestSiblings=true ?
+   [72]@andreineculau [73]breaking: upgrade deps, eslint 6. [74]fix
+   [75]#38
+   [76]@andreineculau [77]upgrade jest plugin
+   [78]@andreineculau [79]upgrade mocha plugin
+   [80]@andreineculau [81]breaking: no need for makeTsConfig with eslint@6
+
+   andreineculau force pushed changes to this branch [82]4 months ago
+
+   [83]andreineculau added some commits [84]5 months ago
+   [85]@andreineculau [86]upgrade typescript plugin
+   [87]@andreineculau [88]upgrade typescript plugin@2
+   [89]@andreineculau [90]fix typescript rules
+   [91]@andreineculau [92]@typescript-eslint/no-type-alias:off
+   [93]@andreineculau [94]remove deprecated rules
+   [95]@andreineculau [96]don't allow typescript-eslint 'recommended'
+   config to set defaults on…
+   [97]@andreineculau [98]'@typescript-eslint/await-thenable': 'off'
+
+   andreineculau force pushed changes to this branch [99]4 months ago
+
+   [100]andreineculau added a commit [101]4 months ago
+   [102]@andreineculau [103]'jsdoc/require-return-type': 'off'
+
+   andreineculau force pushed changes to this branch [104]4 months ago
+
+   andreineculau referenced this pull request from commit [105]6d6ae51
+   [106]4 months ago
+
+   andreineculau merged commit 6d6ae51 into master [107]4 months ago
+
+   Public (Open Source) automation moved this from In progress to Done
+   [108]4 months ago
+
+   andreineculau deleted the upgrade-deps branch [109]4 months ago
+
+   ankitmth removed this from Done in [110]Public (Open Source) [111]17
+   days ago
+

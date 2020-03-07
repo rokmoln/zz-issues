@@ -1,0 +1,85 @@
+
+set the same semver-range when installing peer deps. #9
+
+   f/anu-fix-semver-range
+
+   master f/anu-fix-semver-range
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]bug
+
+   ref [47]tobiipro/eslint-config-firecloud#19
+
+   [48]andreineculau added a commit [49]about 1 year ago
+   [50]@andreineculau [51]set the same semver-range when installing peer
+   deps. ref [52]tobiipro/esl…
+
+   andreineculau added the [53]bug label [54]about 1 year ago
+
+   andreineculau self-assigned this [55]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [56]about 1 year ago
+
+   @IanSavchenko
+   [57]IanSavchenko reviewed [58]about 1 year ago
+   [59]npm-install-peer-dependencies
+   @@ -55,6 +55,10 @@ node -e " \
+   continue
+   }
+   # cat <<< "$(jq ".devDependencies += {\"${NAME}\": \"${VSN}\"}" <
+   package.json)" > package.json
+   cat <<< "$(npx json "this.devDependencies = this.devDependencies || {}"
+   < package.json)" > package.json
+   [60]@IanSavchenko [61]IanSavchenko • [62]about 1 year ago
+   Copy link
+
+   I can guess what it does, but you gonna need to explain to me how it
+   actually works 😄
+   [63]@andreineculau [64]andreineculau • [65]about 1 year ago
+   Copy link
+
+   here goes some "bashsplaining" 😂
+
+   if you simplify the command : cat <<< "$(foo < bar)" > bar, you have
+     * > bar - write stdout to file
+     * < bar - read stdin from file
+     * cat - is cat
+     * <<< "" - is a oneline heredoc into stdin
+
+   in plain english:
+     * output to stdout (via cat) the contents of the heredoc, and the
+       heredoc is actually a command, and then into bar
+     * the key is the heredoc, because it doesn't stream, thus you buffer
+       the command output, and only after you process the entire
+       package.json, you start writing back to package.json
+
+   ❤️ 1
+   IanSavchenko reacted with heart emoji
+   [66]@IanSavchenko [67]IanSavchenko • [68]about 1 year ago
+   Copy link
+
+   Thank you a lot!
+   👍 1
+   andreineculau reacted with thumbs up emoji
+   [69]@andreineculau [70]andreineculau • [71]about 1 year ago
+   Copy link
+
+   actually json has an in-place flag. jq has a beard and knows better.
+   went for the less cryptic in-place version
+
+   [72]tobiipro/eslint-config-firecloud@12310e5
+
+   @IanSavchenko
+   [73]IanSavchenko approved these changes [74]about 1 year ago
+
+   andreineculau referenced this pull request from commit [75]6856ff4
+   [76]about 1 year ago
+
+   andreineculau merged commit 6856ff4 into master [77]about 1 year ago
+
+   andreineculau deleted the f/anu-fix-semver-range branch [78]about 1
+   year ago
+

@@ -1,0 +1,78 @@
+
+Refactor and tests #3
+
+   refactor-and-tests
+
+   master refactor-and-tests
+   @andreineculau
+   [45]andreineculau opened this pull request
+   over 2 years ago
+
+   alternative to [46]#2
+
+   [47]andreineculau and others added some commits [48]over 2 years ago
+   [49]@andreineculau [50]move out levelToConsoleFun to log-to-console
+   listener
+   [51]@andreineculau [52]Added jest
+   [53]@andreineculau [54]levelToLevelName: don't default to trace on an
+   unknown level name
+   [55]@andreineculau [56]allow no cfg in constructor
+   [57]@andreineculau [58]clarify that default levels are to be amended,
+   not overriden
+   [59]@andreineculau [60]remove special-case in levelToLevelName
+   [61]@andreineculau [62]Added tests
+
+   andreineculau requested a review from IanSavchenko [63]over 2 years ago
+
+   [64]andreineculau added a commit [65]over 2 years ago
+   [66]@andreineculau [67]add Ian Savchenko to AUTHORS
+
+   andreineculau force pushed changes to this branch [68]over 2 years ago
+
+   andreineculau force pushed changes to this branch [69]over 2 years ago
+
+   [70]andreineculau added a commit [71]over 2 years ago
+   [72]@andreineculau [73]fixup! Added jest
+
+   IanSavchenko referenced this pull request from commit [74]13a0692
+   [75]over 2 years ago
+
+   IanSavchenko merged commit 13a0692 into master [76]over 2 years ago
+
+   Copy link
+   @andreineculau
+   [77]andreineculau commented [78]over 2 years ago • edited over 2 years
+   ago
+
+   [79]@IanSavchenko the pull request branch had a "fixup" commit, I was
+   going to rebase after you a would approve the review -- it still looks
+   pending (yellow circle)
+
+   I'll push force to master now
+
+   Reference:
+   [80]http://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-
+   autosquash.html
+
+   Copy link
+   @IanSavchenko
+   [81]IanSavchenko
+   commented [82]over 2 years ago
+
+   [83]@andreineculau Sorry, didn't see that. Strange that my circle is
+   still yellow
+
+   @IanSavchenko
+   [84]IanSavchenko reviewed [85]over 2 years ago
+
+   All good
+
+   Copy link
+   @IanSavchenko
+   [86]IanSavchenko
+   commented [87]over 2 years ago
+
+   Ok, got it now.
+
+   andreineculau deleted the refactor-and-tests branch [88]over 1 year ago
+

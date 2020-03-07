@@ -1,0 +1,28 @@
+
+page coordinates should be relative to client, not window #5
+
+   Closed
+   [57]andreineculau opened this issue Aug 22, 2019 · 0 comments
+   Closed
+
+[58]page coordinates should be relative to client, not window #5
+
+   [59]andreineculau opened this issue Aug 22, 2019 · 0 comments
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Aug 22, 2019
+
+   this is more inline with calling
+   [65]https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundin
+   gClientRect on a HTML element
+   [66]@andreineculau [67]andreineculau added the [68]bug label [69]Aug
+   22, 2019
+   [70]@andreineculau [71]andreineculau closed this in [72]47a2166 [73]Aug
+   22, 2019

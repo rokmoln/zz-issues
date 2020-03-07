@@ -1,0 +1,39 @@
+
+Failure of pre/post and other hooks in CFN do not cause make to fail #117
+
+   Closed
+   [57]IanSavchenko opened this issue May 24, 2019 · 0 comments
+   Closed
+
+[58]Failure of pre/post and other hooks in CFN do not cause make to fail #117
+
+   [59]IanSavchenko opened this issue May 24, 2019 · 0 comments
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]May 24, 2019 •
+
+   edited
+
+   For example, there was a mistake in Athena query that was creating
+   tables in atex-platform. Thus, aws-athena-setup.js script was exiting
+   with code 1, but make continued working and returned with exit code 0.
+   So the CI build was successful. This does not seem right to me.
+
+   I could reproduce the situation locally.
+   [65]@andreineculau [66]andreineculau closed this in [67]5f4c5d1 [68]May
+   27, 2019
+   [69]@andreineculau [70]andreineculau added the [71]bug label [72]May
+   27, 2019
+   [73]@andreineculau [74]andreineculau added this to To do in [75]Public
+   (Open Source) via automation [76]May 27, 2019
+   [77]@andreineculau [78]andreineculau moved this from To do to Done in
+   [79]Public (Open Source) [80]May 27, 2019
+   [81]@ankitmth [82]ankitmth removed this from Done in [83]Public (Open
+   Source) [84]Feb 19, 2020

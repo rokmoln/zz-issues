@@ -1,0 +1,241 @@
+
+new: array-bracket-newline that handles objectsInArrays #27
+
+   f/anu-array-bracket-newline
+
+   f/anu-reapply f/anu-array-bracket-newline
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]bug
+   No description given.
+
+   andreineculau added the [47]bug label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   andreineculau force pushed changes to this branch [51]about 1 year ago
+
+   andreineculau force pushed changes to this branch [52]about 1 year ago
+
+   @IanSavchenko
+   [53]IanSavchenko suggested changes [54]about 1 year ago
+
+   Name objectsInArrays does not say anything to me, I don't really
+   understand what true or false would mean for this param and I don't see
+   any usage comment.
+
+   Also, it would be nice to see a couple more tests with several objects
+   in the array.
+
+   Copy link
+   @andreineculau
+   [55]andreineculau
+   commented [56]about 1 year ago
+
+   naming is taken from
+   [57]https://eslint.org/docs/rules/array-bracket-spacing . I don't have
+   a preference, come up with smth and I change it.
+
+   Copy link
+   @andreineculau
+   [58]andreineculau
+   commented [59]about 1 year ago
+
+   more tests coming
+
+   Copy link
+   @IanSavchenko
+   [60]IanSavchenko
+   commented [61]about 1 year ago
+
+     naming is taken from
+     [62]https://eslint.org/docs/rules/array-bracket-spacing . I don't
+     have a preference, come up with smth and I change it.
+
+   Leaving the hardest problem for me? 😆 In the case of that rule,
+   objectsInArrays acts as an exception to whatever main param is set
+   (always or never). Here I would say it's allowObjectCurly (logic has to
+   be reversed too).
+
+   And I also can't understand (too tired to think, tbh) if your rule is
+   handling cases when you have objects and non-objects mixed and what
+   will happen with the array bracket that is not next to an object.
+
+   A case like:
+let arr = [{
+    a: 'b'
+  },
+  'string'
+];
+
+   andreineculau force pushed changes to this branch [63]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [64]andreineculau
+   commented [65]about 1 year ago
+
+   changed the logic a bit to focus only on the last item, handling cases
+   where last item is an options blob like in a eslint-rule pattern
+   ['error', {option1: true}]
+
+   to be all strict, i should check that all but last item are objects, or
+   anything but objects, but that made the naming even harder.
+
+   [66]andreineculau added some commits [67]about 1 year ago
+   [68]@andreineculau [69]bring in vanilla array-bracket-newline
+   [70]@andreineculau [71]add objectInArrays:true test
+   [72]@andreineculau [73]add objectInArrays:false test with multiple
+   items
+   [74]@andreineculau [75]array-bracket-newline: rename objectsInArrays to
+   notIfLastItemIsAnObject
+   [76]@andreineculau [77]new: array-bracket-newline that handles
+   objectsInArrays. [78]fix [79]#7
+   [80]@andreineculau [81]bring in vanilla array-element-newline
+   [82]@andreineculau [83]new: array-element-newline that handles
+   notLastItemIsAnObject. [84]fix [85]#7
+   [86]@andreineculau [87]lint
+
+   andreineculau force pushed changes to this branch [88]about 1 year ago
+
+   Copy link
+   @IanSavchenko
+   [89]IanSavchenko
+   commented [90]about 1 year ago
+
+   But why did you abandon first array item which can be an object? We
+   don't care what is inside the array, but if we have the discussed flag
+   enabled (objectsInArrays or allowObjectCurly or whatever we call it in
+   the end) then if
+    1. we have first array item as object, it should preserve curly on the
+       same line as opening array bracket
+    2. we have last array item as object, it should preserve curly on the
+       same line as closing array bracket
+
+   And these conditions a) work independently, b) don't care about items
+   in the middle of the array, whatever they are, objects or not..
+
+   Copy link
+   @andreineculau
+   [91]andreineculau
+   commented [92]about 1 year ago
+
+   if i understand correctly, you would also want to support
+let foo = [{
+  a: 1
+}, 123, 'something']
+
+   rather than be forced to do
+let foo = [
+  {
+    a: 1
+  },
+  123,
+  'something'
+];
+
+   fair enough. I just didn't see this case happening (as in it's an
+   anti-pattern), but 🤷‍♂️
+
+   And you think allowObjectCurly is best?
+
+   [93]andreineculau added some commits [94]about 1 year ago
+   [95]@andreineculau [96]fixup! bring in vanilla array-element-newline
+   [97]@andreineculau [98]array-bracket-newline: rename
+   notIfLastItemIsAnObject to allowObjectC…
+   [99]@andreineculau [100]array-element-newline: rename
+   notIfLastItemIsAnObject to allowObjectC…
+
+   Copy link
+   @andreineculau
+   [101]andreineculau
+   commented [102]about 1 year ago
+
+   updating the naming to allowObjectCurly and it also handles the first
+   array item now
+
+   Copy link
+   @IanSavchenko
+   [103]IanSavchenko
+   commented [104]about 1 year ago
+
+     And you think allowObjectCurly is best?
+
+   Can be something even more verbose, but I think it's a bit more precise
+   than objectsInArrays.
+
+   You can skip reading what is below and go straight to the last
+   paragraph.
+
+   I don't want to support anti-patterns, just want it this rule to be
+   simple and allow curly of an object to be on the same line as array
+   bracket, that's all. But maybe it's not that simple at all.
+
+   Okay, let's look into what I consider the right examples and what I
+   consider wrong because I think we have different views on that. And
+   then we decide.
+
+   With {allowObjectCurly: true, minItems: 0} I think that it's correct to
+   have a code like this.
+// start and end with objects, curly on the same line as brackets
+let arr = [{
+  a: 'a'
+}, 'b', {
+  c: 'c'
+}];
+
+   or
+// start or end with an object
+// starting or ending object's curly is on the same line as bracket
+// starting or ending non-object is on a separate line
+let arr = [{
+  a: 'a'
+},
+  'b'
+];
+
+   or (similar to one above)
+// start or end with an object
+// starting or ending object's curly is on the same line as bracket
+// starting or ending non-object is on a separate line
+let arr = [
+  'a', {
+  b: 'b'
+}];
+
+   Just to note: the question if array items between each other should be
+   on different lines is not governed by this rule, right?
+     __________________________________________________________________
+
+   After writing all this, I feel like I wasted too much time on this. I
+   will still leave it here, but you don't have to answer. I would say
+   let's go on with what you have now and we revisit it if it does not
+   feel right in practice.
+
+   @IanSavchenko
+   [105]IanSavchenko approved these changes [106]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [107]andreineculau
+   commented [108]about 1 year ago
+
+   Sorry, not my intention 😞
+   We run with this and if life throws lemons at us we make lemonade 👍
+   👍 1
+   IanSavchenko reacted with thumbs up emoji
+
+   andreineculau referenced this pull request from commit [109]9429d29
+   [110]about 1 year ago
+
+   andreineculau merged commit 9429d29 into f/anu-reapply [111]about 1
+   year ago
+
+   andreineculau deleted the f/anu-array-bracket-newline branch [112]about
+   1 month ago
+

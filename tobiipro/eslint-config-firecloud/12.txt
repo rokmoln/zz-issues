@@ -1,0 +1,64 @@
+
+underscore prefix only in files with "export" syntax #12
+
+   Closed
+   [57]andreineculau opened this issue Mar 27, 2018 · 2 comments
+   Closed
+
+[58]underscore prefix only in files with "export" syntax #12
+
+   [59]andreineculau opened this issue Mar 27, 2018 · 2 comments
+   Assignees
+   [60]@IanSavchenko
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Mar 27, 2018 •
+
+   edited
+
+   if a file is not a module, but a "global"=script, then the 2 rules
+   should not require the existence or the lack of underscore prefix
+
+   PS: only the export keyword, not the exports/module.exports variable
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Mar 27, 2018
+   [70]@andreineculau [71]andreineculau assigned [72]IanSavchenko [73]Mar
+   27, 2018
+   [74]IanSavchenko pushed a commit that referenced this issue [75]Mar 27,
+   2018
+   Ian Savchenko (isao)
+   [76]Allowing to have not _prefixed vars in files without ‘export’
+   syntax ([77]#… (BUTTON) …
+   [78]f46157b
+[79]…12)
+
+   [80]@IanSavchenko
+
+This comment has been minimized.
+
+   [81]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[82]@IanSavchenko [83]IanSavchenko commented [84]Mar 27, 2018
+
+   Fixed with [85]f46157b
+   [86]@IanSavchenko [87]IanSavchenko closed this [88]Mar 27, 2018
+   [89]@andreineculau
+
+This comment has been minimized.
+
+   [90]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[91]@andreineculau [92]andreineculau commented [93]Mar 29, 2018
+
+   fyi [94]https://help.github.com/articles/closing-issues-using-keywords/

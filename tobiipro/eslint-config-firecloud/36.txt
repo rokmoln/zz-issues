@@ -1,0 +1,46 @@
+
+add @getify/eslint-plugin-proper-arrows #36
+
+   f/anu-proper-arrows
+
+   master f/anu-proper-arrows
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [47]andreineculau added a commit [48]10 months ago
+   [49]@andreineculau [50]add @getify/eslint-plugin-proper-arrows
+
+   andreineculau added the [51]enhancement label [52]10 months ago
+
+   andreineculau requested a review from IanSavchenko [53]10 months ago
+
+   andreineculau self-assigned this [54]10 months ago
+
+   @IanSavchenko
+   [55]IanSavchenko approved these changes [56]10 months ago
+
+   Nice!
+
+   Copy link
+   @andreineculau
+   [57]andreineculau
+   commented [58]10 months ago
+
+   another nice plugin from him
+   [59]https://github.com/getify/eslint-plugin-proper-ternary 😈
+
+   andreineculau referenced this pull request from commit [60]ab056fc
+   [61]10 months ago
+
+   andreineculau merged commit ab056fc into master [62]10 months ago
+
+   andreineculau deleted the f/anu-proper-arrows branch [63]about 1 month
+   ago
+

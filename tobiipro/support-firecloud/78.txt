@@ -1,0 +1,194 @@
+
+Placeholder for CircleCI #78
+
+   f/anu-circleci
+
+   master f/anu-circleci
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   Concluding some minimum exploration of CircleCI as an alternative for
+   the current TravisCI. Here's some random minuses
+
+   Caches: CircleCI caches are "immutable", and there seems to be no easy
+   way to go around that i.e. to make job n restore the cache of job n-1
+   of the same workflow&branch. Clearing caches is also not a feature at
+   the moment, so the only thing to do is bump up a "version" marker in
+   the cache name.
+
+   UI: maybe it's a matter of getting used to it, but clicking through the
+   UI just for the purpose of browsing the workflow-to-job-and-back info
+   is not optimized
+
+   Logs: no way to download raw logs from UI. I guess there's an API for
+   it?! Also there is no code folding feature, so the logs could be
+   sometimes hard to parse visually.
+
+   Config: rather duplicative and hard to follow. While
+   support-firecloud's config is an outlier, overusing yaml references was
+   a must, and just for the purpose of having a PR flow and a nightly
+   flow, they will still be needed. No support for encrypted variables,
+   but not a biggie.
+
+   Docs: I would say low-to-medium quality, a mix of info from CircleCI
+   1.0 and 2.0 and 2.1. The configuration I wrote for support-firecloud is
+   half baked by googling the "CircleCI Discuss" platform.
+
+   Features/Community: it looks like there are core features that people
+   see in other CI services, which are lingering to be implemented/ported
+   to CircleCI, while at the same time some "features" (e.g. immutable
+   caches) exist without having public support.
+
+   Debug: SSH debugging is available, but CircleCI triggers another run of
+   the job to debug, and only afterwards it prints the SSH info. Also, it
+   looks like the machine is available for 2 hours, allowing for multiple
+   SSH sessions (a minus for security).
+
+   EDIT PR: one cannot have different workflows for PRs without shell
+   hacks
+   [47]https://discuss.circleci.com/t/workflows-pull-request-filter/14396
+     __________________________________________________________________
+
+   My 2penny: good alternative, but might be bumpy.
+
+   PS: nice to see so few Travis specifics. I just needed to export some
+   env vars, and everything worked. So porting to another CI is mainly
+   equivalent to rewriting the configuration around what to run, when to
+   run and cache.
+   👍 1
+   IanSavchenko reacted with thumbs up emoji
+
+   andreineculau added the [48]enhancement label [49]about 1 year ago
+
+   andreineculau self-assigned this [50]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [51]andreineculau
+   commented [52]about 1 year ago
+
+   FYI [53]@IanSavchenko [54]@alsmyr
+
+   Copy link
+   @IanSavchenko
+   [55]IanSavchenko
+   commented [56]about 1 year ago
+
+     UI: maybe it's a matter of getting used to it, but clicking through
+     the UI just for the purpose of browsing the workflow-to-job-and-back
+     info is not optimized
+
+   Had the same impression. Some UI workflows are somewhat broken and
+   non-linear.
+
+     Logs: no way to download raw logs from UI. I guess there's an API
+     for it?! Also there is no code folding feature, so the logs could be
+     sometimes hard to parse visually.
+
+   Yes, but not stupid log size limitation.
+
+     Config: rather duplicative and hard to follow. While
+     support-firecloud's config is an outlier, overusing yaml references
+     was a must, and just for the purpose of having a PR flow and a
+     nightly flow, they will still be needed. No support for encrypted
+     variables, but not a biggie.
+
+   Tried it on a smaller project and didn't see much difference with
+   Travis.
+
+     Docs: I would say low-to-medium quality, a mix of info from CircleCI
+     1.0 and 2.0 and 2.1. The configuration I wrote for support-firecloud
+     is half baked by googling the "CircleCI Discuss" platform.
+
+   Yes, I also found the mix to be confusing. But everything seemed to be
+   googlable.
+
+   As I understand, we can also leverage our own docker images for the
+   builds, which is not possible on Travis.
+
+   Copy link
+   @andreineculau
+   [57]andreineculau
+   commented [58]about 1 year ago
+
+     Yes, but not stupid log size limitation.
+
+   AFAICS, it's not without problems in this area
+     * [59]https://discuss.circleci.com/t/view-or-download-full-output-log
+       s/247
+     * [60]https://discuss.circleci.com/t/uncapped-logging-output/3367
+
+   andreineculau force pushed changes to this branch [61]about 1 year ago
+
+   [62]andreineculau added some commits [63]about 1 year ago
+   [64]@andreineculau [65]initial circleci config
+   [66]@andreineculau [67]circleci cannot filter PRs
+
+   andreineculau force pushed changes to this branch [68]about 1 year ago
+
+   andreineculau referenced this pull request from commit [69]3c1b3f9
+   [70]about 1 year ago
+
+   andreineculau merged commit 3c1b3f9 into master [71]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [72]andreineculau
+   commented [73]about 1 year ago
+
+   new negative discovery: circleci only supports notifying one slack room
+
+   [74]https://discuss.circleci.com/t/can-i-enable-slack-notifications-to-
+   multiple-rooms/453
+
+   Copy link
+   @andreineculau
+   [75]andreineculau
+   commented [76]about 1 year ago
+
+   other alternatives:
+     * [77]https://buildkite.com/features
+     * [78]https://drone.io
+     * [79]https://buddy.works
+
+   Copy link
+   @andreineculau
+   [80]andreineculau
+   commented [81]about 1 year ago
+
+   On circleci: I subscribed to [82]https://status.circleci.com
+   notifications (exactly a month ago), and they are many. One could argue
+   that maybe they are better, more meticulous, at monitoring than others,
+   or that they monitor also side-things (like npm for instance), I don't
+   know what it's the cause, but the feeling that I have is of "regular
+   hiccups".
+
+   Copy link
+   @andreineculau
+   [83]andreineculau
+   commented [84]11 months ago
+
+   random find [85]https://cirrus-ci.org supports linux, macos, win32,
+   freebsd, docker containers...
+
+   Copy link
+   @alsmyr
+   [86]alsmyr
+   commented [87]11 months ago
+
+   Is it possible to see how much time to utilize Travis? In order to
+   assess the cost on a pay per %time% model like Cirrus
+
+   Copy link
+   @andreineculau
+   [88]andreineculau
+   commented [89]11 months ago
+
+   sent on private channel
+
+   andreineculau deleted the f/anu-circleci branch [90]10 months ago
+

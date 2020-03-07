@@ -1,0 +1,65 @@
+
+feat: allow sampling serializers #16
+
+   Closed
+   [57]andreineculau opened this issue May 18, 2019 · 0 comments · Fixed
+   by [58]#17
+   Closed
+
+[59]feat: allow sampling serializers #16
+
+   [60]andreineculau opened this issue May 18, 2019 · 0 comments · Fixed
+   by [61]#17
+   Assignees
+   [62]@andreineculau
+   Labels
+   [63]enhancement
+
+Comments
+
+   [64]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[65]@andreineculau [66]andreineculau commented [67]May 18, 2019
+
+   basically if a serializer returns undefined, shortcircuit the logging
+   (don't call the rest of the serializers, and don't call the listeners)
+   [68]@andreineculau [69]andreineculau added the [70]enhancement label
+   [71]May 18, 2019
+   [72]andreineculau added a commit that referenced this issue [73]May 19,
+   2019
+   [74]@andreineculau
+   [75]support sampling serializers. [76]fix [77]#16
+   Verified
+   This commit was signed with a verified signature.
+   [78]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [79]Learn about signing commits
+   [80]0374564
+   [81]@andreineculau [82]andreineculau mentioned this issue [83]May 19,
+   2019
+   [84]support sampling serializers. fix #16 #17
+   Merged
+   [85]@andreineculau [86]andreineculau added this to To do in [87]Public
+   (Open Source) via automation [88]May 20, 2019
+   [89]@andreineculau [90]andreineculau moved this from To do to In
+   progress in [91]Public (Open Source) [92]May 20, 2019
+   [93]@andreineculau [94]andreineculau self-assigned this [95]May 20,
+   2019
+   [96]@andreineculau [97]andreineculau closed this in [98]#17 [99]May 21,
+   2019
+   [100]Public (Open Source) automation moved this from In progress to
+   Done [101]May 21, 2019
+   [102]andreineculau added a commit that referenced this issue [103]May
+   21, 2019
+   [104]@andreineculau
+   [105]Merge pull request [106]#17 [107]from tobiipro/sampling (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [108]Learn about signing commits
+   [109]6644fba
+support sampling serializers. fix [110]#16
+
+   [111]@ankitmth [112]ankitmth removed this from Done in [113]Public
+   (Open Source) [114]Feb 19, 2020

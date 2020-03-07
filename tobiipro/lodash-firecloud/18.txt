@@ -1,0 +1,108 @@
+
+Functions undefined when importing from commonjs #18
+
+   Closed
+   [57]jobackman opened this issue Mar 19, 2019 · 3 comments · Fixed by
+   [58]#21
+   Closed
+
+[59]Functions undefined when importing from commonjs #18
+
+   [60]jobackman opened this issue Mar 19, 2019 · 3 comments · Fixed by
+   [61]#21
+
+Comments
+
+   [62]@jobackman
+   Copy link (BUTTON) Quote reply
+
+[63]@jobackman [64]jobackman commented [65]Mar 19, 2019
+
+   Doing imports from commonjs seems to import undefined:
+let _ = require('lodash-firecloud');
+
+   Was throwing errors like:
+[14:32:55] E/configParser - TypeError: _.defaultsDeep is not a function
+    at Object.<anonymous> (/Users/jban/git/tobii/drive/e2e/conf-local.js:36:20)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at ConfigParser.addFileConfig (/Users/jban/git/tobii/drive/node_modules/prot
+ractor/built/configParser.js:135:26)
+    at Object.initFn [as init] (/Users/jban/git/tobii/drive/node_modules/protrac
+tor/built/launcher.js:93:22)
+
+   Adding .default to the import looks to fix it:
+let _ = require('lodash-firecloud').default;
+
+   Intended or not?
+
+   The commit in question:
+   [66]tobiipro/drive@37b7a11#diff-8ec2d066d74463a18a844d487e7537a6
+   [67]@IanSavchenko
+
+This comment has been minimized.
+
+   [68]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[69]@IanSavchenko [70]IanSavchenko commented [71]May 7, 2019
+
+   I think it would be nice to fix. Is it a problem only with
+   lodash-firecloud and not with lodash?
+   [72]@andreineculau
+
+This comment has been minimized.
+
+   [73]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[74]@andreineculau [75]andreineculau commented [76]May 8, 2019
+
+   lodash is not an esm module, so no.
+
+   changing the root index.js to the following would fix the issue
+   (backward compat optional)
+let _ = require('./lib/index');
+// FIXME backward compat. remove on next breaking version
+_.default.default = _.default;
+
+module.exports = _;
+
+   but I didn't digest fully where I stand on this issue. The problem is
+   not just related to lodash-firecloud but to any package that presents
+   itself as an esm module, and it required (not esm imported) from node.
+
+   so in other words: do we want to keep it as is, or do we want our root
+   index.js in all our packages to be go from module.exports =
+   require('./lib/index'); to module.exports =
+   require('./lib/index').default;
+
+   PS: the /index is redundant. Will clean up sometime all repos...
+   [77]@IanSavchenko
+
+This comment has been minimized.
+
+   [78]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[79]@IanSavchenko [80]IanSavchenko commented [81]May 8, 2019
+
+   What I would want is to have a matching behavior. For lodash doing let
+   _ = require('lodash'); gives you a working instance, for
+   lodash-firecloud - no. Why should it be different? it does not have to
+   happen for all the packages, but in this case it would be fair.
+   [82]@andreineculau [83]andreineculau closed this in [84]#21 [85]May 8,
+   2019
+   [86]@andreineculau [87]andreineculau mentioned this issue [88]May 8,
+   2019
+   [89]breaking: main module is commonjs, reference esm module via
+   package.json #21
+   Merged

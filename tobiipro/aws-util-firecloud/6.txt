@@ -1,0 +1,88 @@
+
+kinesis put records #6
+
+   f/kinesis-put-records
+
+   master f/kinesis-put-records
+   @andreineculau
+   [45]andreineculau opened this pull request
+   almost 2 years ago
+
+   wip. needs tests
+   don't know if it's worth trying to make this and firehose.putRecords
+   abstract
+
+   Copy link
+   @IanSavchenko
+   [46]IanSavchenko
+   commented [47]almost 2 years ago
+
+   Abstract in a sense to be reused between these two? I don't think it
+   should, it's just a coincidence that they have same (or just similar?)
+   API and there might be more differences later.
+   ❤️ 1
+   andreineculau reacted with heart emoji
+
+   andreineculau force pushed changes to this branch [48]over 1 year ago
+
+   [49]andreineculau added some commits [50]over 1 year ago
+   [51]@andreineculau [52]less assumptions about firehose in test
+   [53]@andreineculau [54]add putRecords functionality to kinesis
+
+   andreineculau force pushed changes to this branch [55]over 1 year ago
+
+   Copy link
+   @andreineculau
+   [56]andreineculau
+   commented [57]over 1 year ago
+
+   [58]@IanSavchenko refreshed the PR, just in case you're ok merging it
+
+   @IanSavchenko
+   [59]IanSavchenko reviewed [60]about 1 year ago
+
+   Nice! Sorry, it took so long to review it, but I wanted to be focused
+   when doing it.
+   [61]src/kinesis.js
+   ((38 lines not shown))
+   Records: [],
+   byteSize: 0
+   };
+   let toProcessCount = records.length;
+   _.forEach(records, function(record) {
+   let Data = JSON.stringify(record);
+   let dataLength = Buffer.byteLength(JSON.stringify({
+   Data: record,
+   ExplicitHashKey,
+   PartitionKey
+   }));
+   if (dataLength > limits.recordByteSize) {
+   ctx.log.error(`Skipping record larger than ${limits.recordByteSize /
+   1024} KB: \
+   [62]@IanSavchenko [63]IanSavchenko • [64]about 1 year ago
+   Copy link
+
+   I'm questioning now this approach where a lib function almost silently
+   fails to send records. I know we have it in the firehose too, but
+   still. I would say it's up to the app to decide how to deal with such
+   records.
+
+   Should we maybe just expose a helper function that checks a record size
+   and allows a client to decide what to do with non-conforming records?
+   [65]@andreineculau [66]andreineculau • [67]about 1 year ago
+   Copy link
+
+   Sounds good! But as part of another PR
+
+   andreineculau referenced this pull request from commit [68]2f76e70
+   [69]about 1 year ago
+
+   andreineculau merged commit 2f76e70 into master [70]about 1 year ago
+
+   [71]andreineculau referenced this pull request from another pull
+   request
+   [72]#11 allow control over large records on kinesis/firehose
+
+   andreineculau deleted the f/kinesis-put-records branch [73]about 1 year
+   ago
+

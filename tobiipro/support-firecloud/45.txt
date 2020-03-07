@@ -1,0 +1,36 @@
+
+random improvements #45
+
+   f/less-cfn-magic
+
+   master f/less-cfn-magic
+   @andreineculau
+   [45]andreineculau opened this pull request
+   over 1 year ago
+
+   Labels
+   [46]enhancement
+
+   each commit is an atomic improvement
+
+   [47]andreineculau added some commits [48]over 1 year ago
+   [49]@andreineculau [50]make all cfn.json files on default target
+   [51]@andreineculau [52]breaking: cfn/stack.cfn.js needs to be in
+   cfn/stack/index.cfn.js
+   [53]@andreineculau [54]print/store URLs for AWS Console's Switch-Role
+   functionality instead...
+
+   andreineculau added the [55]enhancement label [56]over 1 year ago
+
+   andreineculau requested a review from IanSavchenko [57]over 1 year ago
+
+   @IanSavchenko
+   [58]IanSavchenko approved these changes [59]over 1 year ago
+
+   IanSavchenko referenced this pull request from commit [60]3519487
+   [61]over 1 year ago
+
+   IanSavchenko merged commit 3519487 into master [62]over 1 year ago
+
+   andreineculau deleted the f/less-cfn-magic branch [63]over 1 year ago
+

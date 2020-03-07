@@ -1,0 +1,39 @@
+
+add mixins around stacktrace and open handles #25
+
+   node-open-handles
+
+   master node-open-handles
+   @andreineculau
+   [45]andreineculau opened this pull request
+   7 months ago
+
+   Labels
+   [46]enhancement
+
+   …firecloud#25
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   andreineculau added the [47]enhancement label [48]7 months ago
+
+   andreineculau self-assigned this [49]7 months ago
+
+   [50]andreineculau added a commit [51]7 months ago
+   [52]@andreineculau [53]add mixins around stacktrace and open handles.
+   ref [54]tobiipro/aws-util-…
+
+   andreineculau force pushed changes to this branch [55]7 months ago
+
+   [56]andreineculau added some commits [57]7 months ago
+   [58]@andreineculau [59]add a trick for webpack to ignore async_hooks
+   [60]@andreineculau [61]fix
+
+   andreineculau referenced this pull request from commit [62]fb6c223
+   [63]7 months ago
+
+   andreineculau merged commit fb6c223 into master [64]7 months ago
+
+   andreineculau deleted the node-open-handles branch [65]7 months ago
+

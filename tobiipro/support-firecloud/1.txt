@@ -1,0 +1,78 @@
+
+add flow for managing repo secrets #1
+
+   anu-manage-secrets
+
+   master anu-manage-secrets
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 2 years ago
+
+   Solution: [46]https://github.com/elasticdog/transcrypt
+
+   Resolution:
+     * added docs - gpg, transcrypt, travis-encrypt
+     * added transcrypt and travis-encrypt helper to the repo for
+       consistency
+
+   andreineculau requested a review from IanSavchenko [47]about 2 years
+   ago
+
+   andreineculau force pushed changes to this branch [48]about 2 years ago
+
+   andreineculau force pushed changes to this branch [49]about 2 years ago
+
+   andreineculau force pushed changes to this branch [50]about 2 years ago
+
+   andreineculau force pushed changes to this branch [51]about 2 years ago
+
+   andreineculau force pushed changes to this branch [52]about 2 years ago
+
+   andreineculau force pushed changes to this branch [53]about 2 years ago
+
+   andreineculau force pushed changes to this branch [54]about 2 years ago
+
+   andreineculau force pushed changes to this branch [55]about 2 years ago
+
+   [56]andreineculau added some commits [57]about 2 years ago
+   [58]@andreineculau [59]add original 1.0.3 transcrypt
+   [60]@andreineculau [61]bug: remove git-crypt filters
+   [62]@andreineculau [63]add simplified travis-encrypt executable
+   [64]@andreineculau [65]add working-with-gpg docs
+   [66]@andreineculau [67]add manage-secret docs
+   [68]@andreineculau [69]add links to travis ci docs around encryption
+   [70]@andreineculau [71]use gnu sed in transcrypt
+   [72]@andreineculau [73]fix command to show transcrypt configuration
+   [74]@andreineculau [75]add transcrypt test
+   [76]@andreineculau [77]add transcrypt test (content)
+   [78]@andreineculau [79]add info on .gitattributes for transcrypt
+   [80]@andreineculau [81]link to .travis.yml as an example of decrypting
+   the repo before_insta…
+   [82]@andreineculau [83]use git config's travis.slug as the official
+   client [84]https://docs.trav…
+   [85]@andreineculau [86]give travis access to transcrypt
+   [87]@andreineculau [88]not possible to have encrypted commands in
+   travis?
+   [89]@andreineculau [90]update example of gitattributes with an actual
+   template
+   [91]@andreineculau [92]instruct to copy latest transcrypt gpg export,
+   not all
+   [93]@andreineculau [94]add transcypt symlink to increase consistency
+   with docs
+
+   andreineculau force pushed changes to this branch [95]about 2 years ago
+
+   [96]andreineculau added a commit [97]about 2 years ago
+   [98]@andreineculau [99]added transcrypt recipients
+
+   andreineculau force pushed changes to this branch [100]about 2 years
+   ago
+
+   andreineculau referenced this pull request from commit [101]e0df6ba
+   [102]about 2 years ago
+
+   andreineculau merged commit e0df6ba into master [103]about 2 years ago
+
+   andreineculau deleted the anu-manage-secrets branch [104]about 2 years
+   ago
+

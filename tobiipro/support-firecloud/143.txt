@@ -1,0 +1,57 @@
+
+makefile and shell scripts could check for SF_DEV_INC_SH=true #143
+
+   Open
+   [57]andreineculau opened this issue Jan 27, 2020 · 0 comments
+   Open
+
+[58]makefile and shell scripts could check for SF_DEV_INC_SH=true #143
+
+   [59]andreineculau opened this issue Jan 27, 2020 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Jan 27, 2020
+
+   this variable is set in
+   [65]https://github.com/tobiipro/support-firecloud/blob/master/sh/dev.in
+   c.sh#L24 in order to signal that the shell session is adequately set
+   up.
+
+   when running make in a repository set up with support-firecloud or call
+   a support-firecloud script like
+   [66]https://github.com/tobiipro/support-firecloud/tree/master/bin , we
+   could see if SF_DEV_INC_SH=true and crash early if it's not.
+
+   this would be a quick feedback loop that major things are not set up
+   adequately on the development machine and thus the execution may have
+   unexpected side-effects
+
+   PS: a solution is needed for the CI flow (where there's no
+   SF_DEV_INC_SH environment variable). Solutions range
+     * from just exporting SF_DEV_INC_SH=true
+     * to implement the check as SF_DEV_INC_SH=true || CI=true,
+     * to implement a new environment variable in repo/dot.ci.sh.sf like
+       SF_CI_SH and implement the check as SF_DEV_INC_SH=true ||
+       SF_CI_SH=true
+
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Jan 27, 2020
+   [71]@andreineculau [72]andreineculau added this to To do in [73]Public
+   (Open Source) via automation [74]Jan 27, 2020
+   [75]@ankitmth [76]ankitmth removed this from To do in [77]Public (Open
+   Source) [78]Feb 19, 2020
+   [79]@andreineculau [80]andreineculau changed the title [DEL: makefile
+   and shell scripts should check for SF_DEV_INC_SH=true :DEL] [INS:
+   makefile and shell scripts chould check for SF_DEV_INC_SH=true :INS]
+   [81]Feb 26, 2020
+   [82]@andreineculau [83]andreineculau changed the title [DEL: makefile
+   and shell scripts chould check for SF_DEV_INC_SH=true :DEL] [INS:
+   makefile and shell scripts could check for SF_DEV_INC_SH=true :INS]
+   [84]Feb 26, 2020

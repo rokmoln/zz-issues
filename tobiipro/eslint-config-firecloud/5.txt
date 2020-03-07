@@ -1,0 +1,62 @@
+
+Discuss import/exports-last #5
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 21, 2018 · 2 comments
+   Closed
+
+[58]Discuss import/exports-last #5
+
+   [59]IanSavchenko opened this issue Mar 21, 2018 · 2 comments
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Mar 21, 2018
+
+   Quite annoying rule, considering how we like to wrap top-level
+   functions with throttle or bootstrap (in case of atex-platform). I
+   don't think the situation is that bad that we abuse breaking the rule
+   sometimes for a better readability.
+   (THUMBS_UP react) 👍 1
+   [64]@andreineculau
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[66]@andreineculau [67]andreineculau commented [68]Mar 21, 2018
+
+   I was also thinking about this rule :)
+   But you're not thinking of having a private or _prefixed exported fun
+   that is non-throttled ?
+export let _fun = function() {...};
+
+export let fun = _.throttle(_fun, ...);
+
+   [69]@IanSavchenko
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[71]@IanSavchenko [72]IanSavchenko commented [73]Mar 21, 2018
+
+   That's an option, but we plan to stop marking _private with export
+   keyword. So then throttled version declaration will be separated
+   somewhere at the bottom of the file. Not that it's impossible, but
+   that's a considerable refactoring :)
+   I'm ok with either solution of keeping the rule or not, but if we keep
+   it, then it's good to agree on a new style. Just to mention, I would
+   like to avoid "cabbages" like export let func =
+   _.throttle(bootstrap(function { ...}));
+   (LAUGH react) 😄 1
+   [74]@andreineculau [75]andreineculau closed this in [76]790efd3 [77]Mar
+   23, 2018

@@ -1,0 +1,45 @@
+
+upgrade to babel7 + deps #7
+
+   f/anu-babel7
+
+   master f/anu-babel7
+   @andreineculau
+   [45]andreineculau opened this pull request over 1 year ago • edited
+   over 1 year ago
+
+   Labels
+   [46]enhancement
+
+   [47]https://babeljs.io/docs/en/v7-migration
+
+   smth to consider: bump "minor" (our major) version when releasing this,
+   despite not seeing any backward incompat issues
+
+   TODO:
+     * [ ] wait for [48]tobiipro/eslint-config-firecloud#15 to be release
+     * [ ] update package.json reference for eslint-config-firecloud
+
+   andreineculau requested a review from IanSavchenko [49]over 1 year ago
+
+   andreineculau added the [50]enhancement label [51]over 1 year ago
+
+   andreineculau force pushed changes to this branch [52]over 1 year ago
+
+   [53]andreineculau added a commit [54]over 1 year ago
+   [55]@andreineculau [56]babel7
+
+   andreineculau force pushed changes to this branch [57]over 1 year ago
+
+   andreineculau removed their request for review from IanSavchenko
+   [58]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [59]andreineculau
+   commented [60]about 1 year ago
+
+   needs more work
+
+   andreineculau closed this pull request [61]about 1 year ago
+

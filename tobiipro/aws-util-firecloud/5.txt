@@ -1,0 +1,30 @@
+
+replace bunyan with minlog #5
+
+   Closed
+   [57]andreineculau opened this issue Mar 14, 2018 · 0 comments
+   Closed
+
+[58]replace bunyan with minlog #5
+
+   [59]andreineculau opened this issue Mar 14, 2018 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 14, 2018
+
+   No description provided.
+   [65]@andreineculau [66]andreineculau added the [67]enhancement label
+   [68]Mar 14, 2018
+   [69]@andreineculau [70]andreineculau mentioned this issue [71]Feb 4,
+   2019
+   [72]break up lambda module, replace bunyan with minlog #16
+   Merged
+   1 of 1 task complete
+   [73]@andreineculau [74]andreineculau closed this [75]Feb 4, 2019

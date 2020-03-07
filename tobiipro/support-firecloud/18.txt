@@ -1,0 +1,60 @@
+
+'make release' creates empty git stash which is not removed #18
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 28, 2018 · 2 comments
+   Closed
+
+[58]'make release' creates empty git stash which is not removed #18
+
+   [59]IanSavchenko opened this issue Mar 28, 2018 · 2 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]bug
+
+Comments
+
+   [62]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[63]@IanSavchenko [64]IanSavchenko commented [65]Mar 28, 2018
+
+   Reproduced couple times on eslint-config-firecloud, I think.
+   [66]@IanSavchenko [67]IanSavchenko added the [68]bug label [69]Mar 28,
+   2018
+   [70]@IanSavchenko [71]IanSavchenko assigned [72]andreineculau [73]Mar
+   28, 2018
+   [74]@IanSavchenko [75]IanSavchenko changed the title [DEL: 'make
+   release' creates empty stash which is not removed :DEL] [INS: 'make
+   release' creates empty git stash which is not removed :INS] [76]Mar 28,
+   2018
+   [77]@andreineculau
+
+This comment has been minimized.
+
+   [78]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[79]@andreineculau [80]andreineculau commented [81]Mar 28, 2018
+
+   "empty git stash" as in your repo is squicky clean, you get a "stash
+   which is empty", it goes forward with the release, and then fails to
+   pop the last (empty) stash?
+
+   do I read you correctly?
+   [82]@IanSavchenko
+
+This comment has been minimized.
+
+   [83]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[84]@IanSavchenko [85]IanSavchenko commented [86]Mar 28, 2018
+
+   Yes. I didn't see any actual fail, but then stash "WIP..." keeps
+   hanging.
+   [87]@andreineculau [88]andreineculau closed this [89]Mar 28, 2018

@@ -1,0 +1,36 @@
+
+Move _.throttleExp from atex-web-ext #23
+
+   Closed
+   [57]IanSavchenko opened this issue May 23, 2019 · 0 comments · Fixed by
+   [58]#24
+   Closed
+
+[59]Move _.throttleExp from atex-web-ext #23
+
+   [60]IanSavchenko opened this issue May 23, 2019 · 0 comments · Fixed by
+   [61]#24
+
+Comments
+
+   [62]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[63]@IanSavchenko [64]IanSavchenko commented [65]May 23, 2019
+
+   No description provided.
+   [66]@IanSavchenko [67]IanSavchenko self-assigned this [68]May 23, 2019
+   [69]IanSavchenko pushed a commit that referenced this issue [70]May 23,
+   2019
+   Ian Savchenko
+   [71]add throttleExp. [72]Fixes [73]#23
+   [74]ff6aba7
+   [75]@IanSavchenko [76]IanSavchenko mentioned this issue [77]May 23,
+   2019
+   [78]add throttleExp #24
+   Merged
+   [79]@IanSavchenko [80]IanSavchenko closed this in [81]#24 [82]May 24,
+   2019
+   [83]@IanSavchenko [84]IanSavchenko removed their assignment [85]Jul 3,
+   2019

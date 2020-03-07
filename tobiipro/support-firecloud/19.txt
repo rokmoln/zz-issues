@@ -1,0 +1,61 @@
+
+[feat] github-create-release #19
+
+   Closed
+   [57]andreineculau opened this issue Apr 4, 2018 · 0 comments
+   Closed
+
+[58][feat] github-create-release #19
+
+   [59]andreineculau opened this issue Apr 4, 2018 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Apr 4, 2018 •
+
+   edited
+
+   with a script github-create-release --name X --tag X --target-commitish
+   X ... --asset X --asset Y, similar to
+   [65]https://github.com/tobiipro/support-firecloud/blob/master/bin/githu
+   b-get-asset,
+   we can remove the deploy config in some .travis.yml that uploads
+   artifacts to github
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Apr 4, 2018
+   [70]@andreineculau [71]andreineculau self-assigned this [72]Apr 4, 2018
+   [73]@andreineculau [74]andreineculau removed their assignment [75]Apr
+   20, 2018
+   [76]andreineculau added a commit that referenced this issue [77]Feb 7,
+   2019
+   [78]@andreineculau
+   [79]add create-github-release script. [80]fixes [81]#19
+   Verified
+   This commit was signed with a verified signature.
+   [82]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [83]Learn about signing commits
+   [84]bd5532b
+   [85]@andreineculau [86]andreineculau mentioned this issue [87]Feb 7,
+   2019
+   [88]add create-github-release script. fixes #19 #81
+   Merged
+   [89]@andreineculau [90]andreineculau closed this in [91]#81 [92]Feb 8,
+   2019
+   [93]andreineculau added a commit that referenced this issue [94]Feb 8,
+   2019
+   [95]@andreineculau
+   [96]Merge pull request [97]#81 [98]from tobiipro/f/anu-github-release
+   (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [99]Learn about signing commits
+   [100]3993d13
+add create-github-release script. fixes [101]#19
+

@@ -1,0 +1,43 @@
+
+Better feedback when bootstrapping and a package is already installed… #22
+
+   f/ear-bootstrap-feedback
+
+   master f/ear-bootstrap-feedback
+   @alsmyr
+   [45]alsmyr opened this pull request
+   almost 2 years ago
+
+   Fixed [46]#21
+
+   [47]alsmyr added a commit [48]almost 2 years ago
+   [49]@alsmyr [50]Better feedback when bootstrapping and a package is
+   already installed…
+
+   alsmyr requested a review from andreineculau [51]almost 2 years ago
+
+   alsmyr requested a review from IanSavchenko [52]almost 2 years ago
+
+   @andreineculau
+   [53]andreineculau approved these changes [54]almost 2 years ago
+
+   Copy link
+   @andreineculau
+   [55]andreineculau
+   commented [56]almost 2 years ago
+
+   [57]@IanSavchenko we're testing github, so no need to wait for you.
+   You'll get plenty of chance of exercising review-approvals very soon 😉
+   👍 1
+   IanSavchenko reacted with thumbs up emoji
+   😄 1
+   alsmyr reacted with laugh emoji
+
+   andreineculau referenced this pull request from commit [58]9a5df13
+   [59]almost 2 years ago
+
+   andreineculau merged commit 9a5df13 into master [60]almost 2 years ago
+
+   alsmyr deleted the f/ear-bootstrap-feedback branch [61]almost 2 years
+   ago
+

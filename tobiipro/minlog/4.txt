@@ -1,0 +1,84 @@
+
+add levelToLevelCode #4
+
+   f/anu-namings
+
+   master f/anu-namings
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   [DEL: EDIT: also adding a levelToLevelCode function (needed in
+   aws-util-firecloud) :DEL]
+
+   (pushed the no-brainer "naming" diffs to master)
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   [51]andreineculau referenced this pull request from another pull
+   request
+   [52]#6 add trackTime functionality
+
+   andreineculau force pushed changes to this branch [53]about 1 year ago
+
+   andreineculau modified this pull request [54]about 1 year ago
+
+   [55]andreineculau added some commits [56]about 1 year ago
+   [57]@andreineculau [58]add mirror function levelToLevelCode
+   [59]@andreineculau [60]use levelToLevelCode in log-to-console
+
+   andreineculau force pushed changes to this branch [61]about 1 year ago
+
+   @IanSavchenko
+   [62]IanSavchenko approved these changes [63]about 1 year ago
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [64]src/listeners/log-to-console.js
+   @@ -53,10 +53,9 @@ export let logToConsole = function(cfg = {}) {
+   return;
+   }
+   let maxLevelName = cfg.level;
+   let maxLevel = logger.levels[maxLevelName];
+   maxLevel = _.floor(maxLevel / 10) * 10 + 10 - 1; // round up to next
+   level, not inclusive
+   if (entry._level > maxLevel) {
+   let maxLevelCode = logger.levelToLevelCode(cfg.level);
+   maxLevelCode = _.floor(maxLevelCode / 10) * 10 + 10 - 1; // round up to
+   next level, not inclusive
+   [65]@IanSavchenko [66]IanSavchenko • [67]about 1 year ago
+   Copy link
+
+   why not (_.floor(maxLevelCode / 10) + 1) * 10 - 1;
+   or just™ _.floor(maxLevelCode / 10) * 10 + 9?
+   [68]@andreineculau [69]andreineculau • [70]about 1 year ago
+   Copy link
+
+   or _.ceil(maxLevelCode / 10) * 10 - 1 maybe
+
+   the "- 1" comes the "not inclusive" in the comment.
+   I cannot think how I'd translate "+ 9" into plain English
+   [71]@IanSavchenko [72]IanSavchenko • [73]about 1 year ago
+   Copy link
+
+     or _.ceil(maxLevelCode / 10) * 10 - 1 maybe
+
+   won't work for an already rounded level like 60, which will become 59
+   as a result
+   [74]@andreineculau [75]andreineculau • [76]about 1 year ago
+   Copy link
+
+   to be continued in [77]#8
+
+   andreineculau referenced this pull request from commit [78]40c6e59
+   [79]about 1 year ago
+
+   andreineculau merged commit 40c6e59 into master [80]about 1 year ago
+
+   andreineculau deleted the f/anu-namings branch [81]about 1 year ago
+

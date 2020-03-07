@@ -1,0 +1,41 @@
+
+try to use travis_time markers #63
+
+   f/anu-travis-time
+
+   master f/anu-travis-time
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+   No description given.
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau force pushed changes to this branch [49]about 1 year ago
+
+   andreineculau force pushed changes to this branch [50]about 1 year ago
+
+   andreineculau force pushed changes to this branch [51]about 1 year ago
+
+   andreineculau force pushed changes to this branch [52]about 1 year ago
+
+   andreineculau force pushed changes to this branch [53]about 1 year ago
+
+   [54]andreineculau added some commits [55]about 1 year ago
+   [56]@andreineculau [57]try to use travis_time markers
+   [58]@andreineculau [59]travis run_all should stop at script
+
+   andreineculau force pushed changes to this branch [60]about 1 year ago
+
+   andreineculau force pushed changes to this branch [61]about 1 year ago
+
+   andreineculau referenced this pull request from commit [62]298e913
+   [63]about 1 year ago
+
+   andreineculau merged commit 298e913 into master [64]about 1 year ago
+
+   andreineculau deleted the f/anu-travis-time branch [65]about 1 year ago
+

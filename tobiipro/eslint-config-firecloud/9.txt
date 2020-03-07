@@ -1,0 +1,38 @@
+
+import-specifier-curly-newline was removed in #4 #9
+
+   f/anu-iscn-was-removed
+
+   master f/anu-iscn-was-removed
+   @andreineculau
+   [45]andreineculau opened this pull request
+   almost 2 years ago
+
+   or better phrased as: it was disabled in [46]#4, but not properly
+   removed
+
+   [47]andreineculau added a commit [48]almost 2 years ago
+   [49]@andreineculau [50]import-specifier-curly-newline was removed in
+   [51]#4
+
+   andreineculau requested a review from IanSavchenko [52]almost 2 years
+   ago
+
+   [53]andreineculau referenced this pull request from another pull
+   request
+   [54]#10 make this repo pass its own eslint rules
+
+   @IanSavchenko
+   [55]IanSavchenko approved these changes [56]almost 2 years ago
+
+   andreineculau force pushed changes to the base branch [57]almost 2
+   years ago
+
+   andreineculau referenced this pull request from commit [58]4ca7bbd
+   [59]almost 2 years ago
+
+   andreineculau merged commit 4ca7bbd into master [60]almost 2 years ago
+
+   andreineculau deleted the f/anu-iscn-was-removed branch [61]almost 2
+   years ago
+

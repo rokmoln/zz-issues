@@ -1,0 +1,79 @@
+
+rule: enable properties sort (and see what happens) #11
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 26, 2018 · 2 comments
+   Closed
+
+[58]rule: enable properties sort (and see what happens) #11
+
+   [59]IanSavchenko opened this issue Mar 26, 2018 · 2 comments
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Mar 26, 2018
+
+   No description provided.
+   (THUMBS_DOWN react) 👎 1
+   [64]@andreineculau
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[66]@andreineculau [67]andreineculau commented [68]Apr 1, 2018 •
+
+   edited
+
+   I veto this.
+
+   LATER EDIT: Such an exercise should be done in a repo, with a local
+   rule, not in this repo. I still 👎 on the idea, but 👍 the exercise so
+   that it becomes clear why not.
+   [69]@IanSavchenko
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[71]@IanSavchenko [72]IanSavchenko commented [73]Apr 9, 2018
+
+   Ok, I tried it out. Nothing really bad (except for 300+ vioations in
+   atex alone 😄), but I see why it is not so good. Sometimes, the order
+   matters when you want to put some properties higher than others like
+request({
+ headers: [..],
+ body: myBody
+})
+
+   What I can imagine is to have a more "lightweight" version of the rule,
+   where it applies only in cases of plane object destruction and object
+   literal when no values are assigned like these:
+let {a, b, c} = d;
+let e = {
+ f,
+ g,
+ h
+}
+
+   (not apply for cases like)
+let { a: alias, b, c} = d;
+
+let e = {
+ n: name,
+ f: file,
+ a
+}
+
+   Also, just have it as a warning. So if there will be a "monotonous" set
+   of identifiers, it will be sorted. Maybe, I will get some inspiration
+   later.
+   [74]@IanSavchenko [75]IanSavchenko closed this [76]Apr 9, 2018

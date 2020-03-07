@@ -1,0 +1,40 @@
+
+set the same semver-range when installing peer deps #20
+
+   f/anu-fix-semver-range
+
+   master f/anu-fix-semver-range
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]bug
+
+   Linked issues
+   [47]npm-install-peer-dependencies changes package.json of the parent
+   package
+
+   fix [48]#19
+
+   [49]andreineculau added a commit [50]about 1 year ago
+   [51]@andreineculau [52]set the same semver-range when installing peer
+   deps. [53]fix [54]#19
+
+   andreineculau added the [55]bug label [56]about 1 year ago
+
+   andreineculau self-assigned this [57]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [58]about 1 year ago
+
+   @IanSavchenko
+   [59]IanSavchenko approved these changes [60]about 1 year ago
+
+   andreineculau referenced this pull request from commit [61]1e835b1
+   [62]about 1 year ago
+
+   andreineculau merged commit 1e835b1 into master [63]about 1 year ago
+
+   andreineculau deleted the f/anu-fix-semver-range branch [64]about 1
+   month ago
+

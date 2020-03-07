@@ -1,0 +1,40 @@
+
+handle (lack of) css suport #5
+
+   f/anu-handle-no-css
+
+   master f/anu-handle-no-css
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]bug
+   No description given.
+
+   andreineculau added the [47]bug label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   [51]andreineculau referenced this pull request from another pull
+   request
+   [52]#6 add trackTime functionality
+
+   [53]andreineculau added a commit [54]about 1 year ago
+   [55]@andreineculau [56]handle (lack of) css suport
+
+   andreineculau force pushed changes to this branch [57]about 1 year ago
+
+   @IanSavchenko
+   [58]IanSavchenko approved these changes [59]about 1 year ago
+
+   andreineculau referenced this pull request from commit [60]fc03b5d
+   [61]about 1 year ago
+
+   andreineculau merged commit fc03b5d into master [62]about 1 year ago
+
+   andreineculau deleted the f/anu-handle-no-css branch [63]about 1 year
+   ago
+

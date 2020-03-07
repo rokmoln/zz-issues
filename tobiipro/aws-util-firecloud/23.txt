@@ -1,0 +1,58 @@
+
+note: native async code has short stacktraces #23
+
+   Closed
+   [57]andreineculau opened this issue Feb 22, 2019 · 2 comments · Fixed
+   by [58]tobiipro/babel-preset-firecloud#13
+   Closed
+
+[59]note: native async code has short stacktraces #23
+
+   [60]andreineculau opened this issue Feb 22, 2019 · 2 comments · Fixed
+   by [61]tobiipro/babel-preset-firecloud#13
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Feb 22, 2019
+
+   apparently proper stack traces only come in node 12, and under a flag
+   (at least that's the current state)
+
+   maybe the babel-config-firecloud should go back to transforming
+   (generators or bluebird) at least for node :(
+   [66]@andreineculau
+
+This comment has been minimized.
+
+   [67]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[68]@andreineculau [69]andreineculau commented [70]Feb 22, 2019
+
+   or transform code to do smth like
+   [71]https://github.com/amio-io/await-trace
+   [72]@andreineculau [73]andreineculau mentioned this issue [74]Feb 25,
+   2019
+   [75]add await-trace plugin for async stacktraces #13
+   Merged
+   [76]@andreineculau
+
+This comment has been minimized.
+
+   [77]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[78]@andreineculau [79]andreineculau commented [80]May 13, 2019
+
+   node 12 has async stack traces without the flag
+
+   NOTE: we need to switch aws lambda to nodejs12 layer, if we want to ---
+   lambdaci layers [81]https://github.com/lambci/node-custom-lambda
+   [82]@andreineculau [83]andreineculau closed this in
+   [84]tobiipro/babel-preset-firecloud#13 [85]May 14, 2019

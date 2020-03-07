@@ -1,0 +1,38 @@
+
+update docs about preferred way to handle encrypted env vars in travis ci #89
+
+   f/anu-travis-secrets
+
+   master f/anu-travis-secrets
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [47]andreineculau added a commit [48]about 1 year ago
+   [49]@andreineculau [50]update docs about preferred way to handle
+   encrypted env vars in travi…
+
+   andreineculau added the [51]enhancement label [52]about 1 year ago
+
+   andreineculau self-assigned this [53]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [54]about 1 year ago
+
+   andreineculau requested a review from tobiiasl [55]about 1 year ago
+
+   @IanSavchenko
+   [56]IanSavchenko approved these changes [57]about 1 year ago
+
+   andreineculau referenced this pull request from commit [58]d245218
+   [59]about 1 year ago
+
+   andreineculau merged commit d245218 into master [60]about 1 year ago
+
+   andreineculau deleted the f/anu-travis-secrets branch [61]10 months ago
+

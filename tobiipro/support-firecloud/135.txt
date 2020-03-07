@@ -1,0 +1,46 @@
+
+Updated vscode settings.json file due to automatic migration change for
+eslint/Code #135
+
+   eslint_migration_fix
+
+   master eslint_migration_fix
+   @tobiiasl
+   [45]tobiiasl opened this pull request
+   about 2 months ago
+
+   VSCode (v 1.41.1) show this dialog when opening a repo with
+   support-firecloud
+
+   [46]image
+
+   [47]tobiiasl added a commit [48]about 2 months ago
+   [49]@tobiiasl [50]Updated due to automatic migration change for
+   eslint/Code
+
+   tobiiasl requested a review from andreineculau [51]about 2 months ago
+
+   Copy link
+   @andreineculau
+   [52]andreineculau
+   commented [53]about 2 months ago
+
+   it's not the vscode version that is important, but the vscode-eslint
+   plugin
+
+   a new major version 2 deprecated autofixOnSave
+   [54]https://github.com/microsoft/vscode-eslint
+
+   this means everyone needs to be update vscode and vscode-eslint
+
+   @andreineculau
+   [55]andreineculau approved these changes [56]about 2 months ago
+
+   andreineculau referenced this pull request from commit [57]989cd18
+   [58]about 2 months ago
+
+   andreineculau merged commit 989cd18 into master [59]about 2 months ago
+
+   andreineculau deleted the eslint_migration_fix branch [60]about 2
+   months ago
+

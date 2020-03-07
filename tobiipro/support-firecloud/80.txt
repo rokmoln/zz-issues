@@ -1,0 +1,86 @@
+
+F/anu pre release #80
+
+   f/anu-pre-release
+
+   master f/anu-pre-release
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   Check individual commit diffs for a clearer picture.
+
+   The goal is to be able to release prerelease versions by typing make
+   release/pre # type alpha/beta/rc, but I have also restricted the
+   version/release levels from "anything" to known ones
+   "patch/minor/major", and now also "pre".
+
+   [47]andreineculau added some commits [48]about 1 year ago
+   [49]@andreineculau [50]restrict version and release levesl
+   [51]@andreineculau [52]remove publish-directly-to-tag targets
+
+   andreineculau added the [53]enhancement label [54]about 1 year ago
+
+   andreineculau self-assigned this [55]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [56]about 1 year ago
+
+   @IanSavchenko
+   [57]IanSavchenko approved these changes [58]about 1 year ago
+
+   Not sure that we need this, but ok.
+   You don't want to include also premajor, preminor and prepatch to be
+   fully compliant with npm version?
+
+   andreineculau force pushed changes to this branch [59]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [60]andreineculau
+   commented [61]about 1 year ago
+
+   Good that you question this!
+   I didn't want to support prerelease per se, and I didn't notice the
+   quirky behavior (if current version has not -xxx.0 suffix, then
+   prerelease will bump patch version and add the suffix). I primarily
+   wanted to have a consistent way to release specific versions, no matter
+   if they are "pre releases", or just custom releases.
+
+   Changed the mechanism so that we can do make release/v* e.g. make
+   release/v1.2.3-rc.0 or make release/v1.2.3-ian. That was the goal.
+   (Long term goal not to support installing from a git hash, and remove
+   these lines
+   [62]https://github.com/tobiipro/support-firecloud/blob/master/repo/mk/j
+   s.publish.npg.mk#L40-L49 )
+
+   @IanSavchenko
+   [63]IanSavchenko approved these changes [64]about 1 year ago
+
+   andreineculau force pushed changes to this branch [65]about 1 year ago
+
+   [66]andreineculau added some commits [67]about 1 year ago
+   [68]@andreineculau [69]add specific v* version/release target
+   [70]@andreineculau [71]run 'nuke all test' also for tag releases
+
+   andreineculau force pushed changes to this branch [72]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [73]andreineculau
+   commented [74]about 1 year ago
+
+   and it works, against all odds - released aws-util-firecloud 1.4.6-rc.0
+
+   andreineculau referenced this pull request from commit [75]758d0f5
+   [76]about 1 year ago
+
+   andreineculau merged commit 758d0f5 into master [77]about 1 year ago
+
+   andreineculau deleted the f/anu-pre-release branch [78]10 months ago
+

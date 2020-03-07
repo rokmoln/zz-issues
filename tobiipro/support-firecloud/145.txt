@@ -1,0 +1,251 @@
+
+Add no sudo bootstrap #145
+
+   AddNoSudoBootstrap
+
+   master AddNoSudoBootstrap
+   @weetmuts
+   [45]weetmuts opened this pull request
+   about 1 month ago
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [46]weetmuts added some commits [47]about 1 month ago
+   [48]@weetmuts [49]Added support for SF_NO_SUDO to bootstrap.
+   [50]@weetmuts [51]Updated test.
+   [52]@weetmuts [53]Added bash version check.
+
+   weetmuts requested a review from andreineculau [54]about 1 month ago
+
+   [55]weetmuts added a commit [56]about 1 month ago
+   [57]@weetmuts [58]Merge master.
+
+   @andreineculau
+   [59]andreineculau reviewed [60]30 days ago
+
+   General feedback:
+     * have one PR per fix; at the very least fix seemingly related things
+     * have atomic commits. rewrite history if needed. makes it super
+       convenient to git revert --no-commit <bad_commit>
+     * I used the opportunity of this PR, to raise a few benign issues,
+       related to "this is how we do it", just FYI
+     * when it comes to coding style, we talked about things IRL, but I've
+       created an issue to document it for the sake of everyone else
+       [61]#146
+
+   On the main topic of "no sudo", I left a comment inline around what
+   defines the behaviour of "no sudo" - should it shortcircuit? should it
+   prompt the user to take action manually?
+   This PR shortcircuits once with exit 0 in ci/linux/bootstrap-sudo,
+   while another time it uses exit 1 in sh/core.inc.sh , which raised my
+   eyebrows around the goal.
+
+   I wrote inline that some code that I wrote was in vitro, and might be
+   junk. But if it isn't junk and it fulfills your goal of "please don't
+   run sudo behind my back", then we can close this PR without merging.
+   [62]bin/use-homebrew-bash
+   @@ -4,16 +4,20 @@ set -euo pipefail
+   SUPPORT_FIRECLOUD_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." &&
+   pwd)"
+   source ${SUPPORT_FIRECLOUD_DIR}/sh/common.inc.sh
+   HOMEBREW_BASH=$(brew --prefix)/bin/bash
+   echo " Your current shell is ${SHELL}."
+   echo "[Q ] Do you want to upgrade to homebrew's bash at
+   ${HOMEBREW_BASH} ?"
+   echo " Press ENTER to Continue."
+   echo " Press s to Skip."
+   read -p "" -n 1
+   if [[ "$BASH_VERSION" = 3.* ]]
+   [63]@andreineculau [64]andreineculau • [65]30 days ago
+   Copy link
+
+   lots of assumptions here:
+     * that a user can not have older bash than v3
+     * that the homebrew bash is v5
+
+   i had a different go at it in [66]3555101
+   [67]ci/brew-bootstrap.inc.sh
+   @@ -4,18 +4,34 @@ set -euo pipefail
+   SUPPORT_FIRECLOUD_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." &&
+   pwd)"
+   source ${SUPPORT_FIRECLOUD_DIR}/sh/common.inc.sh
+   HAS_BREW=$(brew info >/dev/null 2>&1 ; echo $?)
+   [68]@andreineculau [69]andreineculau • [70]30 days ago
+   Copy link
+$ time brew info
+267 kegs, 203,493 files, 9.3GB
+brew info  5.66s user 14.94s system 82% cpu 25.077 total
+
+   went with a brew --version instead in [71]5bc4f52
+   [72]@andreineculau [73]andreineculau • [74]30 days ago
+   Copy link
+
+   PS: went with "true" or "false", after reaching a consensus with the
+   others in the team
+   [75]ci/brew-bootstrap.inc.sh
+   ((17 lines not shown))
+   CI_CACHE_HOMEBREW_PREFIX=~/.homebrew
+   ;;
+   Linux)
+   echo_do "brew: Installing linuxbrew..."
+   </dev/null sh -c "$(curl -fsSL
+   https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+   echo_done
+   if [ "$HAS_BREW" != "0" ]
+   then
+   echo_do "brew: Installing linuxbrew..."
+   if [ "$SF_USE_SUDO" = "false" ]
+   then
+   echo_do "brew: Installing without sudo into $HOME/.linuxbrew"
+   [76]@andreineculau [77]andreineculau • [78]30 days ago
+   Copy link
+
+   you can look in the travis output, and in bin/ci-echo for the
+   implementation and behaviour of echo_do and echo_done but in short we
+   create log groups that travis and other CIs fold automatically
+
+   so if you use a echo_do, use a echo_done as well, otherwise the
+   folding, the automatic timing of a coding block, etc gets off
+   [79]ci/brew-bootstrap.inc.sh
+   ((14 lines not shown))
+   echo_do "brew: Restoring cache..."
+   if [[ -d "${CI_CACHE_HOMEBREW_PREFIX}/Homebrew" ]]; then
+   if [[ -d "${CI_CACHE_HOMEBREW_PREFIX}/Homebrew" ]]
+   then
+   [80]@andreineculau [81]andreineculau • [82]30 days ago
+   Copy link
+
+   perfectly fine syntax obviously, but for the sake of consistency if ;
+   then trumps if \n then
+   [83]ci/linux/bootstrap-sudo
+   ((15 lines not shown))
+   build-essential
+   curl
+   file
+   git
+   python-minimal
+   rsync
+   uuid-runtime
+   EOF
+   )"
+   if [ "${SF_USE_SUDO:-}" = "false" ]
+   then
+   echo Not using sudo, so please make sure these packages are installed
+   by executing:
+   echo sudo apt install $DPKGS
+   exit 0
+   fi
+   [84]@andreineculau [85]andreineculau • [86]30 days ago
+   Copy link
+
+   If I understand correctly, you wanted the "no sudo" version because for
+   various reasons one might not have sudo installed, or one might not
+   want to make it available to scripts (by passing a configuration
+   flag/variable).
+
+   If that's the case, it should be possible to have a consistent
+   behaviour of prompting the user "yo, i can't run sudo on this command,
+   please run it yourself" and waiting for confirmation. Or am i wrong?
+
+   This is what I ended up trying in [87]6ffa60d
+
+   I coded in vitro that commit, so now I need to test it.
+   [88]@andreineculau [89]andreineculau • [90]30 days ago
+   Copy link
+
+   Your choice to shortcircuit means that you consider everything else
+   unnecessary (and it might be that some things are related to CI
+   environments in general, or to Travis in specific), but it might not be
+   so with the existing commands or future commands that will get added.
+   So the current PR doesn't just handle the case of "no sudo", but also
+   introduces new execution branches.
+
+   There are many alternatives, but some more thought would be needed to
+   pick one.
+   [91]@andreineculau [92]andreineculau • [93]30 days ago
+   Copy link
+
+   PS: also, if you just exit 0, it means that the instructions are lost
+   in a pile of stdout text
+   [94]dev/bootstrap
+   ((29 lines not shown))
+   # Bootstrap OS
+   OS=$(uname | tr "[A-Z]" "[a-z]")
+   sudo true || {
+   >&2 echo "[ERROR] You need local admin rights to properly bootstrap." \
+   "If you don't have local admin rights, try contacting the IT
+   department."
+   exit 1
+   }
+   # Check sudo permissions if using sudo.
+   if [ "${SF_USE_SUDO:-true}" = "true" ]
+   then
+   echo "Enter your sudo password for bootstrap."
+   sudo true
+   [95]@andreineculau [96]andreineculau • [97]30 days ago
+   Copy link
+
+   this is not going to work I'm afraid
+   as we run "bash strict mode", meaning this
+   [98]http://redsymbol.net/articles/unofficial-bash-strict-mode/ except
+   we leave IFS alone
+
+   so if sudo true fails, it will just shortcircuit the entire script
+
+   which is why you see this pattern of
+this || that
+
+   which at times evolves into
+this || {
+  that
+  and_that
+}
+
+   and at times evolves into the less unreadable version 🙈 (which ofc
+   could be rewritten to an if)
+!this || !this_either || {
+  that
+  and that
+}
+
+   [99]sh/core.inc.sh
+   @@ -28,9 +53,14 @@ GIT_REMOTE=$(git config branch.${GIT_BRANCH}.remote
+   2>/dev/null || true)
+   GIT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || true)
+   GIT_TAGS=$(git describe --exact-match --tags HEAD 2>/dev/null || true)
+   [[ "${CI}" != "true" ]] || {
+   [[ -z "${TRAVIS_BRANCH:-}" ]] || {
+   if [ "${CI}" = "true" ]
+   then
+   [100]@andreineculau [101]andreineculau • [102]30 days ago
+   Copy link
+
+   for these small and benign changes, a separate PR that just flushes out
+   one style for another is preferred to keep the history clean
+
+   andreineculau referenced this pull request from commit [103]517e455
+   [104]30 days ago
+
+   andreineculau referenced this pull request from commit [105]f2a09cc
+   [106]30 days ago
+
+   andreineculau referenced this pull request from commit [107]a93f6a5
+   [108]30 days ago
+
+   andreineculau referenced this pull request from commit [109]b8e78ab
+   [110]30 days ago
+
+   andreineculau referenced this pull request from commit [111]c18d928
+   [112]30 days ago
+
+   andreineculau referenced this pull request from commit [113]5395b23
+   [114]30 days ago
+
+   andreineculau referenced this pull request from commit [115]7c26210
+   [116]30 days ago
+
+   weetmuts closed this pull request [117]24 days ago
+
+   andreineculau deleted the AddNoSudoBootstrap branch [118]24 days ago
+

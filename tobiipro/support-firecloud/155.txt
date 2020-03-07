@@ -1,0 +1,114 @@
+
+add editorconfig-checker. fix #149 #155
+
+   editorconfig-checker
+
+   master editorconfig-checker
+   @andreineculau
+   [45]andreineculau opened this pull request
+   19 days ago
+
+   Labels
+   [46]enhancement
+
+   Linked issues
+   [47]replace eclint with editorconfig-checker
+     * Fixes: [48]#149
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+    1. the reasons for this change are described in [49]#149
+    2. because devs will not bootstrap their machines immediately, and
+       install editorconfig-checker, we still defaultl to eclint
+       (installed as part of package.json)
+    3. editorconfig-checker is a golang binary, without a homebrew
+       formula, and without a standalone install script. Since we use
+       homebrew/linuxbrew, I created a local homebrew formula that is easy
+       to update via a template script, when someone wants to bump the
+       version of editorconfig-checker
+    4. TODO once this is merged, a new issue should be created - a
+       reminder to remove support for eclint, and expect
+       editorconfig-checker to be installed
+
+   // cc [50]@fredrikj this should take care of "missing eclint" after
+   running bin/repo-{generic,node}-bootstrap, since we don't mention
+   eclint in the repo/package.json template
+
+   andreineculau added the [51]enhancement label [52]19 days ago
+
+   andreineculau requested a review from fredrikj [53]19 days ago
+
+   andreineculau requested a review from weetmuts [54]19 days ago
+
+   andreineculau requested a review from tobiiasl [55]19 days ago
+
+   andreineculau self-assigned this [56]19 days ago
+
+   andreineculau added this to In progress in [57]Public (Open Source) via
+   automation [58]19 days ago
+
+   [59]andreineculau added a commit [60]19 days ago
+   [61]@andreineculau [62]add editorconfig-checker. [63]fix [64]#149
+
+   andreineculau force pushed changes to this branch [65]19 days ago
+
+   ankitmth removed this from In progress in [66]Public (Open Source)
+   [67]17 days ago
+
+   @fredrikj
+   [68]fredrikj approved these changes [69]11 days ago
+   [70]priv/editorconfig-checker.rb.tpl
+   ((80 lines not shown))
+   end
+   elsif Hardware::CPU.arm?
+   if Hardware::CPU.is_64_bit?
+   bin.install "$(get_bin linux arm64)" => "${BIN}"
+   else
+   bin.install "$(get_bin linux arm)" => "${BIN}"
+   end
+   end
+   end
+   end
+   test do
+   system "#{bin}/${BIN} -v"
+   end
+   end
+   EOF
+   [71]@fredrikj [72]fredrikj • [73]11 days ago
+   Copy link
+
+   When/how is this file run? brew something?
+   [74]@andreineculau [75]andreineculau • [76]11 days ago
+   Copy link
+
+   You run it manually whenever you want to bump the version and generate
+   a new .rb counterpart (will fetch the checksums).
+   [77]repo/mk/core.check.eclint.mk
+   ((5 lines not shown))
+   ECLINT = $(call npm-which,ECLINT,eclint)
+   $(foreach VAR,ECLINT,$(call make-lazy,$(VAR)))
+   $(foreach VAR,ECCHECKER ECLINT,$(call make-lazy,$(VAR)))
+   [78]@fredrikj [79]fredrikj • [80]11 days ago
+   Copy link
+
+   foreach is a function in support_firecloud? What's wrong with for x in
+   ...?
+   What is make-lazy and why didn't I find any definition of it when
+   grepping for it in support_firecloud?
+   [81]@andreineculau [82]andreineculau • [83]11 days ago
+   Copy link
+
+   This is a makefile. foreach is a make call
+
+   make-lazy def:
+   [84]https://github.com/andreineculau/core.inc.mk/blob/master/core.inc.m
+   k
+   Pretty sure that grepping from the terminal (not github ui) finds it ;)
+
+   andreineculau referenced this pull request from commit [85]ed0f5de
+   [86]10 days ago
+
+   andreineculau merged commit ed0f5de into master [87]10 days ago
+
+   andreineculau deleted the editorconfig-checker branch [88]10 days ago
+

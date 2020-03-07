@@ -1,0 +1,106 @@
+
+enforce fast-forward PRs #61
+
+   f/anu-only-ff-prs
+
+   master f/anu-only-ff-prs
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   Linked issues
+   [47]enforce fast-forward pull-requests
+
+   fix [48]#60
+
+   andreineculau added the [49]enhancement label [50]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [51]about 1 year ago
+
+   andreineculau requested a review from tobiiasl [52]about 1 year ago
+
+   [53]andreineculau added a commit [54]about 1 year ago
+   [55]@andreineculau [56]enforce fast-forward PRs. [57]fix [58]#60
+
+   andreineculau force pushed changes to this branch [59]about 1 year ago
+
+   Copy link
+   @IanSavchenko
+   [60]IanSavchenko
+   commented [61]about 1 year ago
+
+   I'm thinking that this may be a bit too strict requirement. Also, if
+   you have to rebase on every push into PR, it will outdate PR comments
+   even for things that didn't really change (because commits' hash will
+   change). Also, you will have to force-push in this situation, which has
+   some danger.
+
+   Also, I like that now we can easily revert merge, so I want merge
+   commits to stay. But that's not a question, right?
+
+   So how I see it: you should be able to work on your PR, get relevant
+   Travis status (that it works for the given PR branch and not if the
+   branch is up-to-date) and only before merge you need to make sure that
+   it will work with current master.
+
+   It seems like this is actually doing what we want:
+   [62]https://help.github.com/articles/enabling-required-status-checks/.
+   See point 5.
+
+   Also, it seems like a fail of after_success on Travis will not trigger
+   build to be failed, btw. See
+   [63]https://docs.travis-ci.com/user/job-lifecycle#breaking-the-build
+
+   Copy link
+   @andreineculau
+   [64]andreineculau
+   commented [65]about 1 year ago
+
+     Also, I like that now we can easily revert merge, so I want merge
+     commits to stay. But that's not a question, right?
+
+   No, that will still be doable. A merge commit will still be created.
+   It's not about a fast-forward merge.
+
+     It seems like this is actually doing what we want:
+     [66]https://help.github.com/articles/enabling-required-status-checks
+     /. See point 5.
+
+   Why the f did I not see that??? Yes! that's the one! Because I did look
+   for it. Both in their docs and random googling.
+
+     Also, it seems like a fail of after_success on Travis will not
+     trigger build to be failed, btw. See
+     [67]https://docs.travis-ci.com/user/job-lifecycle#breaking-the-build
+
+   👏
+
+   andreineculau closed this pull request [68]about 1 year ago
+
+   andreineculau referenced this pull request from commit [69]33edc42
+   [70]about 1 year ago
+
+   andreineculau referenced this pull request from commit [71]c806f44
+   [72]about 1 year ago
+
+   [73]andreineculau referenced this pull request from another pull
+   request
+   [74]#66 docs: increased protection for master branch
+
+   andreineculau referenced this pull request from commit [75]a16af25
+   [76]about 1 year ago
+
+   andreineculau referenced this pull request from commit [77]f44ba16
+   [78]about 1 year ago
+
+   andreineculau referenced this pull request from commit [79]09c47c6
+   [80]about 1 year ago
+
+   andreineculau referenced this pull request from commit [81]00e45ea
+   [82]about 1 year ago
+
+   andreineculau deleted the f/anu-only-ff-prs branch [83]about 1 year ago
+

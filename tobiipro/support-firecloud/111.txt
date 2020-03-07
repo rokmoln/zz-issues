@@ -1,0 +1,52 @@
+
+allow 'make deps-npm' to handle known unmet peer deps #111
+
+   f/anu-unmet-peer
+
+   master f/anu-unmet-peer
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]bug
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   with this change, a project using angular-cli that wants tslint@~5.11.0
+   but uses tslint-config-firecloud which wants tslint@^5.16.0 will be
+   able to run a successful make deps-npm while catching (failing) other
+   unmet peer deps
+
+   marked as bugfix since the current situation of allowing any unmet peer
+   deps is undesirable
+
+   andreineculau added the [47]bug label [48]10 months ago
+
+   andreineculau requested a review from IanSavchenko [49]10 months ago
+
+   andreineculau requested a review from tobiiasl [50]10 months ago
+
+   andreineculau self-assigned this [51]10 months ago
+
+   @tobiiasl
+   [52]tobiiasl approved these changes [53]10 months ago
+
+   Cool! Looks good :-). 👏
+
+   andreineculau force pushed changes to this branch [54]10 months ago
+
+   [55]andreineculau added a commit [56]10 months ago
+   [57]@andreineculau [58]allow 'make deps-npm' to handle known unmet peer
+   deps
+
+   andreineculau force pushed changes to this branch [59]10 months ago
+
+   andreineculau referenced this pull request from commit [60]b9486a2
+   [61]10 months ago
+
+   andreineculau merged commit b9486a2 into master [62]10 months ago
+
+   andreineculau deleted the f/anu-unmet-peer branch [63]10 months ago
+

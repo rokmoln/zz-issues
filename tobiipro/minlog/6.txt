@@ -1,0 +1,93 @@
+
+add trackTime functionality #6
+
+   f/anu-track-time
+
+   master f/anu-track-time
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   in order to obsolete
+   [47]https://github.com/tobiipro/aws-util-firecloud/blob/master/src/lamb
+   da.js#L9-L22
+     * depends on [48]#5 [ ]
+     * depends on [49]#4 [ ]
+
+   andreineculau added the [50]enhancement label [51]about 1 year ago
+
+   andreineculau self-assigned this [52]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [53]about 1 year ago
+
+   @IanSavchenko
+   [54]IanSavchenko reviewed [55]about 1 year ago
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [56]src/listeners/log-to-console.js
+   @@ -108,9 +108,14 @@ export let logToConsole = function(cfg = {}) {
+   let msgFormat = '';
+   let msgArgs = [];
+   if (entry.msg) {
+   let {msg} = entry;
+   [57]@IanSavchenko [58]IanSavchenko • [59]about 1 year ago
+   Copy link
+
+   why not destruct _duration?
+   (BUTTON) Show resolved (BUTTON) Hide resolved [60]src/minlog.js
+   @@ -103,4 +103,16 @@ export default class MinLog {
+   listener({entry, logger: this, rawEntry});
+   });
+   }
+   async trackTime(label, fn) {
+   let entry = {
+   _timeStart: new Date()
+   };
+   this.debug(label, entry);
+   [61]@IanSavchenko [62]IanSavchenko • [63]about 1 year ago
+   Copy link
+
+   Why specifically debug and not something else?
+   [64]@andreineculau [65]andreineculau • [66]about 1 year ago
+   Copy link
+
+   Want to send the logging fn as an arg?
+   [67]@IanSavchenko [68]IanSavchenko • [69]about 1 year ago
+   Copy link
+
+     Want to send the logging fn as an arg?
+
+   Naah. I would still leave a default value and then I would need to
+   override it on every usage - not nice.
+
+   I would choose out of two options:
+    1. Rename function to debugTrackTime and set it in stone (so-so).
+    2. Add a property to MinLog class like trackTimeLevelName with some
+       reasonable default like debug.
+
+   [70]@andreineculau [71]andreineculau • [72]about 1 year ago
+   Copy link
+
+   or, since it's a question of levels, I added a time level
+
+   andreineculau force pushed changes to this branch [73]about 1 year ago
+
+   @IanSavchenko
+   [74]IanSavchenko approved these changes [75]about 1 year ago
+
+   andreineculau force pushed changes to this branch [76]about 1 year ago
+
+   [77]andreineculau added a commit [78]about 1 year ago
+   [79]@andreineculau [80]add trackTime functionality
+
+   andreineculau force pushed changes to this branch [81]about 1 year ago
+
+   andreineculau referenced this pull request from commit [82]402235f
+   [83]about 1 year ago
+
+   andreineculau merged commit 402235f into master [84]about 1 year ago
+
+   andreineculau deleted the f/anu-track-time branch [85]about 1 year ago
+

@@ -1,0 +1,35 @@
+
+Avoid check-path error for files in python lambdas #125
+
+   f/python_mk_paths
+
+   master f/python_mk_paths
+   @fraser-campbell
+   [45]fraser-campbell opened this pull request
+   7 months ago
+   No description given.
+
+   [46]fraser-campbell added a commit [47]7 months ago
+   [48]@fraser-campbell [49]Avoid check-path error for files in python
+   lambdas
+
+   fraser-campbell referenced this pull request from commit [50]41b9ce0
+   [51]7 months ago
+
+   fraser-campbell merged commit 41b9ce0 into master [52]7 months ago
+
+   Copy link
+   @andreineculau
+   [53]andreineculau
+   commented [54]7 months ago
+
+   This doesn't make sense to me. Second regexp is very general and makes
+   the first one that you added redundant.
+   I don't know what files you want to ignore but maybe it's possible to
+   find some more specific regexps.
+
+   Alternatively you can ignore path-checks for each lambda, in the
+   lambda's Makefile.
+
+   andreineculau deleted the f/python_mk_paths branch [55]7 months ago
+

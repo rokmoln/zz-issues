@@ -1,0 +1,47 @@
+
+require await in async functions #35
+
+   f/anu-no-async-without-await
+
+   master f/anu-no-async-without-await
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]bug [47]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [48]andreineculau added a commit [49]10 months ago
+   [50]@andreineculau [51]require await in async functions
+
+   andreineculau added the [52]bug label [53]10 months ago
+
+   andreineculau added the [54]enhancement label [55]10 months ago
+
+   andreineculau requested a review from IanSavchenko [56]10 months ago
+
+   andreineculau self-assigned this [57]10 months ago
+
+   @IanSavchenko
+   [58]IanSavchenko approved these changes [59]10 months ago
+
+   I will just note that having one await still leaves a possibility for
+   another await to be missed...
+
+   Copy link
+   @andreineculau
+   [60]andreineculau
+   commented [61]10 months ago
+
+   not merging (for now). situation should improve with type checks
+
+   thanks [62]@IanSavchenko 👏
+
+   andreineculau closed this pull request [63]10 months ago
+
+   andreineculau deleted the f/anu-no-async-without-await branch [64]about
+   1 month ago
+

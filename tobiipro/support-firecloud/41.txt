@@ -1,0 +1,55 @@
+
+aws-iam-login does not work with zsh #41
+
+   Closed
+   [57]IanSavchenko opened this issue Oct 18, 2018 · 2 comments
+   Closed
+
+[58]aws-iam-login does not work with zsh #41
+
+   [59]IanSavchenko opened this issue Oct 18, 2018 · 2 comments
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Oct 18, 2018
+
+   No description provided.
+   [64]@morincl
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[66]@morincl [67]morincl commented [68]Oct 18, 2018 •
+
+   edited
+
+   Notes for bin/aws-iam-login.inc.sh:
+     * the equivalent to ${BASH_SOURCE[0]} in Zsh is ${(%):-%N} according
+       to [69]Stack Overflow
+     * complete is a Bash command. See [70]this
+
+   [71]@IanSavchenko
+
+This comment has been minimized.
+
+   [72]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[73]@IanSavchenko [74]IanSavchenko commented [75]Oct 18, 2018
+
+   [76]@morincl do you want to fix the script so it works both in bash and
+   zsh?
+   Can use something like this
+   [77]https://stackoverflow.com/a/9911082/2240053
+   [78]@morincl [79]morincl mentioned this issue [80]Oct 19, 2018
+   [81]Fix Zsh support in aws-iam-login.inc.sh #42
+   Merged
+   [82]@morincl [83]morincl closed this [84]Oct 23, 2018

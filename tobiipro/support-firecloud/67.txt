@@ -1,0 +1,65 @@
+
+change template for "travis branches" builds #67
+
+   f/anu-travis-branches
+
+   master f/anu-travis-branches
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   after [47]#66
+   trying to change a page via the Github UI, will actually create a new
+   branch
+   named - e.g. master-1 and then travis will start building
+
+   we also know that the f/ prefix is not followed by everyone,
+   so this is slightly more liberal for humans, while still restrictive
+   for the travis machines
+     __________________________________________________________________
+
+   the pattern suits gs-client, and we can make the other repos with
+   "environments" to follow the pattern of "-master" if you want an
+   environment, so that we don't have "-env" anymore. just a thought
+
+   andreineculau added the [48]enhancement label [49]about 1 year ago
+
+   andreineculau self-assigned this [50]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [51]about 1 year ago
+
+   andreineculau requested a review from tobiiasl [52]about 1 year ago
+
+   Copy link
+   @IanSavchenko
+   [53]IanSavchenko
+   commented [54]about 1 year ago
+    1. Approving removing f/ prefix 👍
+    2. insisting on keeping -env suffix ✋Reason: it's more clear (was very
+       confusing for me the first time I saw this multi-master setup we
+       had earlier) and shorter (so you can get longer safe env names in
+       AWS, remembering S3 bucket name length limit).
+
+   [55]andreineculau added a commit [56]about 1 year ago
+   [57]@andreineculau [58]change template for "travis branches" builds
+
+   andreineculau force pushed changes to this branch [59]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [60]andreineculau commented [61]about 1 year ago • edited about 1 year
+   ago
+
+   so you're saying "to each their own" 👍 - I removed the regex *-master
+
+   andreineculau referenced this pull request from commit [62]7001eab
+   [63]about 1 year ago
+
+   andreineculau merged commit 7001eab into master [64]about 1 year ago
+
+   andreineculau deleted the f/anu-travis-branches branch [65]about 1 year
+   ago
+

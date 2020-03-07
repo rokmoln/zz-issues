@@ -1,0 +1,175 @@
+
+npm installation is flimsy #17
+
+   Closed
+   [57]andreineculau opened this issue Mar 14, 2018 · 5 comments
+   Closed
+
+[58]npm installation is flimsy #17
+
+   [59]andreineculau opened this issue Mar 14, 2018 · 5 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]bug [62]help wanted
+
+Comments
+
+   [63]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[64]@andreineculau [65]andreineculau commented [66]Mar 14, 2018
+
+   moved from
+   [67]https://github.com/tobiipro/eslint-plugin-firecloud/issues/1 as it
+   is probably a bug in npm, not with eslint-plugin-firecloud
+     __________________________________________________________________
+
+   [68]https://travis-ci.org/tobiipro/lodash-firecloud/builds/351827184?ut
+   m_source=slack&utm_medium=notification
+
+   Reason is unknown as it does not seem deterministic (bug in npm?).
+   It happened before once or twice, but i took it as a glitch in the
+   matrix and restarting the build made it go green. Just like this build
+   [69]https://travis-ci.org/tobiipro/lodash-firecloud/builds/351921744?ut
+   m_source=slack&utm_medium=notification
+     __________________________________________________________________
+
+   fwiw I cannot replicate locally within the lodash-firecloud repo
+rm -rf ~/.npm; git clean -xdf .; npx npm@5.6.0 i # 10 times. 5.6.0 is what comes
+ with the latest nodejs 9.8.0
+rm -rf ~/.npm; git clean -xdf .; npx npm@5.7.1 i # 10 times. 5.7.1 is the latest
+ stable, which we use
+
+   [70]@andreineculau [71]andreineculau added [72]bug [73]help wanted
+   labels [74]Mar 14, 2018
+   [75]@andreineculau [76]andreineculau mentioned this issue [77]Mar 15,
+   2018
+   [78]spurious ENOVERSIONS on git dependencies #143
+   Closed
+   [79]@borestad
+
+This comment has been minimized.
+
+   [80]Sign in to view
+   Copy link (BUTTON) Quote reply
+
+[81]@borestad [82]borestad commented [83]Mar 31, 2018
+
+   [84]https://github.com/npm/registry/issues/276
+
+   Npm registry has been flaky lately.
+   [85]@andreineculau
+
+This comment has been minimized.
+
+   [86]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[87]@andreineculau [88]andreineculau commented [89]Apr 1, 2018
+
+   [90]@borestad hehe, surprise surprise😛
+   My issue is actually this one [91]zkat/pacote#143
+   [92]@andreineculau [93]andreineculau self-assigned this [94]Apr 6, 2018
+   [95]@alsmyr
+
+This comment has been minimized.
+
+   [96]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[97]@alsmyr [98]alsmyr commented [99]Apr 18, 2018
+
+   With [100]zkat/pacote#143 closed how to we integrate that change and in
+   turn close this issue?
+   [101]andreineculau added a commit that referenced this issue [102]Apr
+   19, 2018
+   [103]@andreineculau
+   [104]upgrade pacote forcefully. ref [105]#17
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [106]Learn about signing commits
+   [107]8c01193
+   [108]andreineculau added a commit that referenced this issue [109]Apr
+   19, 2018
+   [110]@andreineculau
+   [111]upgrade pacote forcefully. ref [112]#17
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [113]Learn about signing commits
+   [114]b2ba736
+   [115]andreineculau added a commit that referenced this issue [116]Apr
+   19, 2018
+   [117]@andreineculau
+   [118]upgrade pacote forcefully. ref [119]#17
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [120]Learn about signing commits
+   [121]1b9bf5e
+   [122]andreineculau added a commit that referenced this issue [123]Apr
+   19, 2018
+   [124]@andreineculau
+   [125]upgrade pacote forcefully. ref [126]#17
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [127]Learn about signing commits
+   [128]164df3e
+   [129]andreineculau added a commit that referenced this issue [130]Apr
+   19, 2018
+   [131]@andreineculau
+   [132]Merge pull request [133]#35 [134]from
+   tobiipro/f/upgrade-pacote-forcefully (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [135]Learn about signing commits
+   [136]2569600
+upgrade pacote forcefully. ref [137]#17
+
+   [138]@IanSavchenko
+
+This comment has been minimized.
+
+   [139]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[140]@IanSavchenko [141]IanSavchenko commented [142]Oct 15, 2018
+
+   Doesn't seem to happen anymore.
+   [143]@IanSavchenko [144]IanSavchenko closed this [145]Oct 15, 2018
+   [146]@andreineculau
+
+This comment has been minimized.
+
+   [147]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[148]@andreineculau [149]andreineculau commented [150]Nov 11, 2018 •
+
+   edited
+
+   [151]@IanSavchenko shouldn't we remove then the "upgrade pacote
+   forcefully" trick?
+   [152]2569600
+
+   EDIT: I talked to soon. Travis will install the latest LTS of node,
+   which may have an older pacote, which may be flimsy...
+   [153]@andreineculau [154]andreineculau mentioned this issue [155]Nov
+   12, 2018
+   [156]revert pacote upgrade on next node lts #44
+   Closed
+   [157]andreineculau added a commit that referenced this issue [158]Jul
+   11, 2019
+   [159]@andreineculau
+   [160]pacote shouldn't need to be upgraded anymore. [161]fix
+   [162]#44[163]. ref [164]#17
+   Verified
+   This commit was signed with a verified signature.
+   [165]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [166]Learn about signing commits
+   [167]fce3f2e

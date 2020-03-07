@@ -1,0 +1,80 @@
+
+Reenable termination protection for PROD stacks #106
+
+   Closed
+   [57]IanSavchenko opened this issue Apr 30, 2019 · 3 comments
+   Closed
+
+[58]Reenable termination protection for PROD stacks #106
+
+   [59]IanSavchenko opened this issue Apr 30, 2019 · 3 comments
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Apr 30, 2019
+
+   No description provided.
+   [65]@andreineculau [66]andreineculau added this to To do in [67]Public
+   (Open Source) [68]May 20, 2019
+   [69]@andreineculau [70]andreineculau added the [71]bug label [72]May
+   20, 2019
+   [73]@andreineculau [74]andreineculau closed this [75]May 20, 2019
+   [76]Public (Open Source) automation moved this from To do to Done
+   [77]May 20, 2019
+   [78]@andreineculau [79]andreineculau reopened this [80]May 20, 2019
+   [81]Public (Open Source) automation moved this from Done to In progress
+   [82]May 20, 2019
+   [83]@andreineculau [84]andreineculau closed this in [85]1c2a966 [86]May
+   20, 2019
+   [87]Public (Open Source) automation moved this from In progress to Done
+   [88]May 20, 2019
+   [89]@IanSavchenko
+
+This comment has been minimized.
+
+   [90]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[91]@IanSavchenko [92]IanSavchenko commented [93]May 20, 2019
+
+   Why did you decide not to have it in support-firecloud?
+   [94]@andreineculau
+
+This comment has been minimized.
+
+   [95]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[96]@andreineculau [97]andreineculau commented [98]May 21, 2019
+
+   The check itself is specific (ENV_NAME is prod).
+   The only thing i could do towards having the aws-cli call in one place
+   is to define the make function here and let the check happen in each
+   .inc.mk file
+
+   Or am i missing smth obvious?!
+   [99]@IanSavchenko
+
+This comment has been minimized.
+
+   [100]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[101]@IanSavchenko [102]IanSavchenko commented [103]May 21, 2019
+
+   No, nothing obvious :)
+   But it seems to me like a very repetitive pattern. You could check
+   PROD_NS from CONST.inc. For atex-platform it is
+   PROD_NS=prod,prod-staging. I guess it's fine to enable termination
+   protection for staging too.
+   [104]@ankitmth [105]ankitmth removed this from Done in [106]Public
+   (Open Source) [107]Feb 19, 2020

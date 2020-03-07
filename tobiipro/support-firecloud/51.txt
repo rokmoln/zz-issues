@@ -1,0 +1,187 @@
+
+refactor to use brew for all OSes #51
+
+   f/anu-linuxbrew
+
+   master f/anu-linuxbrew
+   @andreineculau
+   [45]andreineculau opened this pull request over 1 year ago • edited
+   over 1 year ago
+
+   Labels
+   [46]enhancement
+
+   i.e. use linuxbrew on linux, instead of aptitude
+
+   raison d'être:
+     * hoping to spend less time debugging dependency status on linux
+       (cough python)
+     * align travis nosudo-linux (no access to aptitude install) with sudo
+       linux and sudo darwin
+
+   PS: a homebrew optimization sneaked in. Using bottles on Travis, at the
+   expense of modifying the PATH to access GNU binaries without the g
+   prefix
+
+   NOTE: installation times after 1st run (after building a cache) remain
+   largely unaffected
+     * before this PR
+       [47]https://travis-ci.org/tobiipro/support-firecloud/builds/4597098
+       22
+     * after this PR
+       [48]https://travis-ci.org/tobiipro/support-firecloud/builds/4597166
+       17
+
+   andreineculau added the [49]enhancement label [50]over 1 year ago
+
+   andreineculau force pushed changes to this branch [51]over 1 year ago
+
+   andreineculau force pushed changes to this branch [52]over 1 year ago
+
+   andreineculau force pushed changes to this branch [53]over 1 year ago
+
+   andreineculau force pushed changes to this branch [54]over 1 year ago
+
+   andreineculau force pushed changes to this branch [55]over 1 year ago
+
+   andreineculau force pushed changes to this branch [56]over 1 year ago
+
+   andreineculau force pushed changes to this branch [57]over 1 year ago
+
+   andreineculau force pushed changes to this branch [58]over 1 year ago
+
+   andreineculau force pushed changes to the base branch [59]over 1 year
+   ago
+
+   andreineculau force pushed changes to the base branch [60]over 1 year
+   ago
+
+   andreineculau force pushed changes to this branch [61]over 1 year ago
+
+   andreineculau force pushed changes to this branch [62]over 1 year ago
+
+   andreineculau force pushed changes to this branch [63]over 1 year ago
+
+   andreineculau force pushed changes to this branch [64]over 1 year ago
+
+   andreineculau force pushed changes to this branch [65]over 1 year ago
+
+   andreineculau force pushed changes to this branch [66]over 1 year ago
+
+   andreineculau force pushed changes to this branch [67]over 1 year ago
+
+   andreineculau force pushed changes to this branch [68]over 1 year ago
+
+   andreineculau force pushed changes to this branch [69]over 1 year ago
+
+   andreineculau force pushed changes to this branch [70]over 1 year ago
+
+   andreineculau force pushed changes to this branch [71]over 1 year ago
+
+   [72]andreineculau added some commits [73]over 1 year ago
+   [74]@andreineculau [75]refactor ci bootstrap; use linuxbrew
+   [76]@andreineculau [77]add future fixme note
+   [78]@andreineculau [79]remove forced linking to python@2
+   [80]@andreineculau [81]remove fixme
+
+   andreineculau force pushed changes to this branch [82]over 1 year ago
+
+   andreineculau requested a review from IanSavchenko [83]over 1 year ago
+
+   @IanSavchenko
+   [84]IanSavchenko approved these changes [85]over 1 year ago
+
+   This is too advanced for me 😆
+   I hope you tested it.
+
+   Copy link
+   @andreineculau
+   [86]andreineculau
+   commented [87]over 1 year ago
+
+   I will actually add some 😉
+
+   [88]andreineculau added a commit [89]over 1 year ago
+   [90]@andreineculau [91]use python3 for aws utils
+
+   andreineculau force pushed changes to this branch [92]over 1 year ago
+
+   andreineculau force pushed changes to this branch [93]over 1 year ago
+
+   andreineculau force pushed changes to this branch [94]over 1 year ago
+
+   andreineculau force pushed changes to this branch [95]over 1 year ago
+
+   [96]andreineculau added a commit [97]over 1 year ago
+   [98]@andreineculau [99]refresh PATH settings, no .brew_env
+
+   andreineculau force pushed changes to this branch [100]over 1 year ago
+
+   andreineculau force pushed changes to this branch [101]over 1 year ago
+
+   andreineculau force pushed changes to this branch [102]over 1 year ago
+
+   [103]andreineculau added a commit [104]over 1 year ago
+   [105]@andreineculau [106]add quick tests for new executables
+
+   andreineculau force pushed changes to this branch [107]over 1 year ago
+
+   [108]andreineculau added some commits [109]over 1 year ago
+      [110]@andreineculau [111]fix path for unzip
+      [112]@andreineculau [113]remove redundant. path should already be set
+      [114]@andreineculau [115]try to use rsync --inplace to speed things up
+   [116]@andreineculau [117]try to use rsync --whole-file to speed things
+   up
+      [118]@andreineculau [119]style
+   [120]@andreineculau [121]no homebrew analytics and autoupdate only in
+   ci
+
+   andreineculau force pushed changes to this branch [122]over 1 year ago
+
+   [123]andreineculau added some commits [124]over 1 year ago
+   [125]@andreineculau [126]simplify PATH to homebrew
+   [127]@andreineculau [128]add sf_travis_run_all target; run as
+   './.travis.sh all' when debugging
+
+   andreineculau force pushed changes to this branch [129]over 1 year ago
+
+   [130]andreineculau added a commit [131]over 1 year ago
+   [132]@andreineculau [133]echo all exe_and_grep_q
+
+   andreineculau force pushed changes to this branch [134]over 1 year ago
+
+   andreineculau force pushed changes to this branch [135]over 1 year ago
+
+   andreineculau force pushed changes to this branch [136]over 1 year ago
+
+   andreineculau force pushed changes to this branch [137]over 1 year ago
+
+   andreineculau force pushed changes to this branch [138]over 1 year ago
+
+   andreineculau force pushed changes to this branch [139]over 1 year ago
+
+   andreineculau force pushed changes to this branch [140]over 1 year ago
+
+   [141]andreineculau added some commits [142]over 1 year ago
+   [143]@andreineculau [144]refactor sf_travis_run to allow for just
+   sourcing the script in debug…
+   [145]@andreineculau [146]fix missing gmake
+   [147]@andreineculau [148]stdout progress when running sf_os silently
+   [149]@andreineculau [150]fix travis-wait outputting last line of log
+   when it has travis_fold m…
+
+   andreineculau force pushed changes to this branch [151]over 1 year ago
+
+   andreineculau referenced this pull request from commit [152]93fe3ac
+   [153]over 1 year ago
+
+   andreineculau merged commit 93fe3ac into master [154]over 1 year ago
+
+   [155]andreineculau referenced this pull request from another issue
+   [156]#29 consider homebrew even for linux
+
+   andreineculau deleted the f/anu-linuxbrew branch [157]over 1 year ago
+
+   [158]andreineculau referenced this pull request from another issue
+   [159]#53 slow bootstrapping on travis containers
+

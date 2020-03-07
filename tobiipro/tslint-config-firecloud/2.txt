@@ -1,0 +1,34 @@
+
+Removed obsolete rules #2
+
+   fixobsolete
+
+   master fixobsolete
+   @tobiiasl
+   [45]tobiiasl opened this pull request
+   5 months ago
+
+   Removed/replaced three obsolete rules since tslint printed warnings
+   about them.
+
+   [46]tobiiasl added a commit [47]5 months ago
+   [48]@tobiiasl [49]Removed obsolete rules
+
+   tobiiasl requested a review from andreineculau [50]5 months ago
+
+   Copy link
+   @tobiiasl
+   [51]tobiiasl
+   commented [52]4 months ago
+
+   [53]image
+
+   Copy link
+   @andreineculau
+   [54]andreineculau
+   commented [55]4 months ago
+
+   closed by [56]a087bab
+
+   andreineculau closed this pull request [57]4 months ago
+

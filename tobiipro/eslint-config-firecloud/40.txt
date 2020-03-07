@@ -1,0 +1,62 @@
+
+allow TODO comments without a warning #40
+
+   allow-todo
+
+   master allow-todo
+   @andreineculau
+   [45]andreineculau opened this pull request
+   5 months ago
+
+   Labels
+   [46]enhancement
+
+   as a convention that they mark long-term nice-to-have fixes, rather
+   than immediate ones
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [47]andreineculau added a commit [48]5 months ago
+   [49]@andreineculau [50]allow TODO comments without a warning, as a
+   convention that they mark…
+
+   andreineculau added the [51]enhancement label [52]5 months ago
+
+   andreineculau requested a review from tobiiasl [53]5 months ago
+
+   andreineculau added this to In progress in [54]Public (Open Source) via
+   automation [55]5 months ago
+
+   @tobiiasl
+   [56]tobiiasl approved these changes [57]5 months ago
+
+   Great! Thanks.
+
+   (I think a warning is the appropriate action locally or on a dev
+   branch. Ideally, I think a 'fixme' should be an error on master (or
+   when making a release). But bringing down the level of such comments to
+   zero will allow us to handle it manually. Not important.)
+
+   Copy link
+   @andreineculau
+   [58]andreineculau
+   commented [59]5 months ago
+
+   currently we don't run make release or master branch with specific
+   warning levels, and since you don't want to error on a topic branch
+   (which is maybe wip), no can do 🤷‍♂
+
+   andreineculau referenced this pull request from commit [60]26bef19
+   [61]5 months ago
+
+   andreineculau merged commit 26bef19 into master [62]5 months ago
+
+   Public (Open Source) automation moved this from In progress to Done
+   [63]5 months ago
+
+   andreineculau deleted the allow-todo branch [64]5 months ago
+
+   ankitmth removed this from Done in [65]Public (Open Source) [66]17 days
+   ago
+

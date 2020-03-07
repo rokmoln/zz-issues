@@ -1,0 +1,112 @@
+
+check that changes via npm-install-peer-dependencies are committed #110
+
+   f/anu-package-json
+
+   master f/anu-package-json
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]bug
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [47]andreineculau added a commit [48]10 months ago
+   [49]@andreineculau [50]check that changes via
+   npm-install-peer-dependencies are committed
+
+   andreineculau added the [51]bug label [52]10 months ago
+
+   andreineculau requested a review from fredrikj [53]10 months ago
+
+   andreineculau self-assigned this [54]10 months ago
+
+   @fredrikj
+   [55]fredrikj approved these changes [56]10 months ago
+
+   Great! I didn't know there was a deps-npm target.
+
+   Copy link
+   @andreineculau
+   [57]andreineculau
+   commented [58]10 months ago
+
+   soon, you'll be able to do make help-all and see all intermediary
+   targets
+$ make help-all
+make: Entering directory '/Users/andrei/git/firecloud/support-firecloud'
+usage: make [targets]
+
+Available targets:
+  BUILD                      repo/mk/core.build.mk
+  _version                   repo/mk/js.misc.version.mk
+  all                        repo/mk/core.common.mk                      Fetch d
+ependencies, build and check.
+  build                      repo/mk/core.common.mk                      Build.
+  check                      repo/mk/core.common.mk                      Check.
+  check-eclint               repo/mk/core.check.eclint.mk
+  check-jsonlint             repo/mk/core.check.jsonlint.mk
+  check-path                 repo/mk/core.check.path.mk
+  clean                      repo/mk/core.common.mk                      Clean.
+  decrypt                    repo/mk/core.vendor.transcrypt.mk           Decrypt
+ this repository with transcrypt.
+  deps                       repo/mk/core.common.mk                      Fetch d
+ependencies.
+  deps-git                   repo/mk/core.common.mk
+  deps-npm                   repo/mk/js.deps.npm.mk
+  deps-npm-prod              repo/mk/js.deps.npm.mk
+  help                       repo/mk/core.inc.mk/target.help.inc.mk      Show th
+is help message.
+  help-all                   repo/mk/core.inc.mk/target.help.inc.mk      Show th
+is help message, including all intermediary targets.
+  noop                       repo/mk/core.inc.mk/target.noop.inc.mk
+  nuke                       repo/mk/core.common.mk                      Nuke al
+l files/changes not checked in.
+  printvar-%                 repo/mk/core.inc.mk/target.printvar.inc.mk  Print o
+ne Makefile variable.
+  printvars                  repo/mk/core.inc.mk/target.printvar.inc.mk  Print a
+ll Makefile variables.
+  release                    repo/mk/js.misc.release.mk                  Release
+ a new patch version.
+  release/breaking           repo/mk/js.misc.release.mk                  Release
+ a new semantic version with breaking level.
+  release/bugfix             repo/mk/js.misc.release.mk                  Release
+ a new semantic version with bugfix level.
+  release/feature            repo/mk/js.misc.release.mk                  Release
+ a new semantic version with feature level.
+  release/public             repo/mk/js.misc.release.mk                  Release
+ the first public version 1.0.0.
+  reset-to-snapshot          repo/mk/core.misc.snapshot.mk               Reset c
+odebase to the contents of the zip snapshot.
+  snapshot                   repo/mk/core.misc.snapshot.mk               Create
+a zip snapshot of all the git content that is not tracked.
+  support-firecloud/update   repo/mk/core.common.mk                      Update
+support-firecloud to latest master commit.
+  test                       repo/mk/core.common.mk                      Test.
+  test-secret                Makefile
+  test-upload-job-artifacts  Makefile
+  version                    repo/mk/js.misc.version.mk                  Bump pa
+tch version.
+  version/major              repo/mk/js.misc.version.mk                  Bump ma
+jor version.
+  version/minor              repo/mk/js.misc.version.mk                  Bump mi
+nor version.
+  version/patch              repo/mk/js.misc.version.mk                  Bump pa
+tch version.
+  version/v%                 repo/mk/js.misc.version.mk                  Bump to
+ specific version.
+make: Leaving directory '/Users/andrei/git/firecloud/support-firecloud'
+
+   pushed the change to support-firecloud, and it's a matter of each repo
+   to pull in the new support-firecloud
+
+   andreineculau referenced this pull request from commit [59]aba768f
+   [60]10 months ago
+
+   andreineculau merged commit aba768f into master [61]10 months ago
+
+   andreineculau deleted the f/anu-package-json branch [62]10 months ago
+

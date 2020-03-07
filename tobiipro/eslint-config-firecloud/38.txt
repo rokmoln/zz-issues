@@ -1,0 +1,63 @@
+
+upgrade to eslint v6 #38
+
+   Closed
+   [57]andreineculau opened this issue Jul 10, 2019 · 0 comments
+   Closed
+
+[58]upgrade to eslint v6 #38
+
+   [59]andreineculau opened this issue Jul 10, 2019 · 0 comments
+   Labels
+   [60]enhancement
+   Milestone
+   [61]breaking
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Jul 10, 2019
+
+   [66]https://eslint.org/docs/6.0.0/user-guide/migrating-to-6.0.0
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Jul 10, 2019
+   [71]@andreineculau [72]andreineculau added this to To do in [73]Public
+   (Open Source) via automation [74]Jul 10, 2019
+   [75]@andreineculau [76]andreineculau added this to the [77]breaking
+   milestone [78]Oct 7, 2019
+   [79]andreineculau added a commit that referenced this issue [80]Oct 7,
+   2019
+   [81]@andreineculau
+   [82]breaking: upgrade deps, eslint 6. [83]fix [84]#38
+   Verified
+   This commit was signed with a verified signature.
+   [85]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [86]Learn about signing commits
+   [87]140fb64
+   [88]andreineculau added a commit that referenced this issue [89]Nov 1,
+   2019
+   [90]@andreineculau
+   [91]breaking: upgrade deps, eslint 6. [92]fix [93]#38
+   Verified
+   This commit was signed with a verified signature.
+   [94]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [95]Learn about signing commits
+   [96]6527e12
+   [97]andreineculau added a commit that referenced this issue [98]Nov 4,
+   2019
+   [99]@andreineculau
+   [100]breaking: upgrade deps, eslint 6. [101]fix [102]#38
+   Verified
+   This commit was signed with a verified signature.
+   [103]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [104]Learn about signing commits
+   [105]758ecf2
+   [106]@andreineculau [107]andreineculau closed this in [108]b0398a9
+   [109]Nov 5, 2019
+   [110]Public (Open Source) automation moved this from To do to Done
+   [111]Nov 5, 2019
+   [112]@ankitmth [113]ankitmth removed this from Done in [114]Public
+   (Open Source) [115]Feb 19, 2020

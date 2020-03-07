@@ -1,0 +1,40 @@
+
+[WIP] clean up typescript-related rules #48
+
+   Open
+   [57]andreineculau opened this issue Feb 27, 2020 · 0 comments
+   Open
+
+[58][WIP] clean up typescript-related rules #48
+
+   [59]andreineculau opened this issue Feb 27, 2020 · 0 comments
+   Labels
+   [60]enhancement
+   Projects
+   [61]Public (Open Source)
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Feb 27, 2020
+
+   Collecting issues below
+     * turn off @typescript-eslint/explicit-function-return-type. At
+       times, it is both easier and natural to not create a type for the
+       return value. A function returning an object structure that is a
+       one-time structure benefits nothing from a type getting defined
+       standalone, plus it makes changes harder (if you want to add a
+       field, you need to add it in two places). The solution is to
+       temporarily disable the rule, which might not be the first thought
+       of a developer since the rule is enabled for a reason, right?
+       Turning off the rule globally though ends up hiding issues because
+       in other cases the object structure actually should be defined
+       standalone e.g. if used in many places.
+
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Feb 27, 2020
+   [70]@andreineculau [71]andreineculau added this to To do in [72]Public
+   (Open Source) via automation [73]Feb 27, 2020

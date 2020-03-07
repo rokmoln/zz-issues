@@ -1,0 +1,72 @@
+
+long-term: add greenkeeper target to js.common.mk #11
+
+   Closed
+   [57]andreineculau opened this issue Mar 1, 2018 · 2 comments
+   Closed
+
+[58]long-term: add greenkeeper target to js.common.mk #11
+
+   [59]andreineculau opened this issue Mar 1, 2018 · 2 comments
+   Labels
+   [60]enhancement [61]invalid
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Mar 1, 2018
+
+   if travis would have a cronjob to test newer minor/patch versions of
+   the dependencies,
+   then it could call a make greenkeeper target to do similar stuff like
+   greenkeeper.io
+     * upgrade deps to the latest minor/patch version (has to support git
+       urls)
+     * build, run tests
+
+   it could do more (i.e. update deps automatically and git push), but I'm
+   interested in the above alone as a first step because that would be
+   enough to run the target manually and aid the developer trying to
+   upgrade deps. I currently use npm-check-updates but it doesn't support
+   git urls
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Mar 1, 2018
+   [70]@andreineculau [71]andreineculau changed the title [DEL: long-term:
+   add greenkeeper target to js.common.node.mk :DEL] [INS: long-term: add
+   greenkeeper target to js.common.mk :INS] [72]Mar 2, 2018
+   [73]@andreineculau
+
+This comment has been minimized.
+
+   [74]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[75]@andreineculau [76]andreineculau commented [77]May 1, 2019
+
+   possible candidate
+   [78]https://github.com/bahmutov/simple-commit-message/blob/master/next-
+   update-travis.sh
+   [79]@andreineculau [80]andreineculau added this to To do in [81]Public
+   (Open Source) [82]May 20, 2019
+   [83]@andreineculau [84]andreineculau added the [85]invalid label
+   [86]Jul 10, 2019
+   [87]@andreineculau
+
+This comment has been minimized.
+
+   [88]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[89]@andreineculau [90]andreineculau commented [91]Jul 10, 2019
+
+   closing. we now switched to version ranges
+   [92]@andreineculau [93]andreineculau closed this [94]Jul 10, 2019
+   [95]Public (Open Source) automation moved this from To do to Done
+   [96]Jul 10, 2019
+   [97]@ankitmth [98]ankitmth removed this from Done in [99]Public (Open
+   Source) [100]Feb 19, 2020

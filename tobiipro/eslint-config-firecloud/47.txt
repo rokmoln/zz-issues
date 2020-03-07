@@ -1,0 +1,44 @@
+
+allow trivial arrow functions, useful for mapping functions where e.g… #47
+
+   allow-trivial-arrow
+
+   master allow-trivial-arrow
+   @andreineculau
+   [45]andreineculau opened this pull request
+   2 months ago
+
+   Labels
+   [46]enhancement
+
+   …. lodash shorthand cannot be used without missing type inference
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   🎉 1
+   tobiiasl reacted with hooray emoji
+
+   [47]andreineculau added a commit [48]2 months ago
+   [49]@andreineculau [50]allow trivial arrow functions, useful for
+   mapping functions where e.g…
+
+   andreineculau added the [51]enhancement label [52]2 months ago
+
+   andreineculau requested a review from tobiiasl [53]2 months ago
+
+   andreineculau self-assigned this [54]2 months ago
+
+   andreineculau added this to In progress in [55]Public (Open Source) via
+   automation [56]2 months ago
+
+   ankitmth removed this from In progress in [57]Public (Open Source)
+   [58]17 days ago
+
+   andreineculau referenced this pull request from commit [59]2a0ac0a
+   [60]9 days ago
+
+   andreineculau merged commit 2a0ac0a into master [61]9 days ago
+
+   andreineculau deleted the allow-trivial-arrow branch [62]9 days ago
+

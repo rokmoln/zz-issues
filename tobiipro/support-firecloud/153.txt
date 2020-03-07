@@ -1,0 +1,64 @@
+
+Improve bootstap message when brew is not found. #153
+
+   ImproveBrewDetection
+
+   master ImproveBrewDetection
+   @weetmuts
+   [45]weetmuts opened this pull request
+   22 days ago
+
+   Improve informational message when brew executable is not found during
+   bootstrap.
+
+   [46]weetmuts added a commit [47]22 days ago
+   [48]@weetmuts [49]Improve bootstap message when brew is not found.
+
+   weetmuts requested a review from andreineculau [50]22 days ago
+
+   andreineculau removed their request for review [51]22 days ago
+
+   andreineculau requested a review from tobiiasl [52]22 days ago
+
+   @tobiiasl
+   [53]tobiiasl approved these changes [54]19 days ago
+   (BUTTON) Show outdated (BUTTON) Hide outdated
+   [55]ci/brew-bootstrap.inc.sh
+   @@ -5,9 +5,16 @@ SUPPORT_FIRECLOUD_DIR="$(cd "$(dirname
+   "${BASH_SOURCE[0]}")/.." && pwd)"
+   source ${SUPPORT_FIRECLOUD_DIR}/sh/common.inc.sh
+   HAS_BREW_2=true
+   # using tail or else broken pipe. see
+   https://github.com/Homebrew/homebrew-cask/issues/36218
+   # exe_and_grep_q "brew --version | head -1" "^Homebrew 2." ||
+   HAS_BREW_2=false
+   exe_and_grep_q "brew --version | tail -n+1 | head -1" "^Homebrew 2." ||
+   HAS_BREW_2=false
+   if [ -x "$(command -v brew)" ]; then
+   # using tail or else broken pipe. see
+   https://github.com/Homebrew/homebrew-cask/issues/36218
+   # exe_and_grep_q "brew --version | head -1" "^Homebrew 2." ||
+   HAS_BREW_2=false
+   exe_and_grep_q "brew --version | tail -n+1 | head -1" "^Homebrew 2." ||
+   HAS_BREW_2=false
+   else
+   echo_do "brew: Executable brew not found."
+   [56]@tobiiasl [57]tobiiasl • [58]19 days ago
+   Copy link
+
+   In this case echo_warn is more appropriate.
+
+   And even if it was not a warning message then echo_info would be
+   better. do/done is for stuff that should get a "fold" or where we want
+   to log the time spent on the task.
+
+   [59]weetmuts added a commit [60]19 days ago
+   [61]@weetmuts [62]Use echo_info.
+
+   weetmuts referenced this pull request from commit [63]68a4cd2 [64]19
+   days ago
+
+   weetmuts merged commit 68a4cd2 into master [65]19 days ago
+
+   weetmuts deleted the ImproveBrewDetection branch [66]19 days ago
+

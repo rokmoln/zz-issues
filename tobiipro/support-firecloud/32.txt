@@ -1,0 +1,29 @@
+
+Fixed bug causing script to stop if not run inside a git repo #32
+
+   aws-iam-login-fix
+
+   master aws-iam-login-fix
+   @tobiiasl
+   [45]tobiiasl opened this pull request
+   almost 2 years ago
+   No description given.
+
+   [46]tobiiasl added a commit [47]almost 2 years ago
+   [48]@tobiiasl [49]Fixed bug causing script to stop if not run inside a
+   git repo
+
+   tobiiasl requested a review from andreineculau [50]almost 2 years ago
+
+   tobiiasl requested a review from IanSavchenko [51]almost 2 years ago
+
+   @andreineculau
+   [52]andreineculau approved these changes [53]almost 2 years ago
+
+   andreineculau referenced this pull request from commit [54]f8fc8fd
+   [55]almost 2 years ago
+
+   andreineculau merged commit f8fc8fd into master [56]almost 2 years ago
+
+   andreineculau deleted the aws-iam-login-fix branch [57]over 1 year ago
+

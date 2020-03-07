@@ -1,0 +1,100 @@
+
+F/anu object property newline #30
+
+   f/anu-object-property-newline
+
+   master f/anu-object-property-newline
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   realized we are missing actually a rule
+
+   EDIT: a complement to the custom object-curly-newline
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [51]andreineculau
+   commented [52]about 1 year ago
+
+   without this, I got
+export let makeLocalHandler = function({lambda: {mainFun, awsFunctionName}}) {
+
+   "fixed" into
+export let makeLocalHandler = function({
+  lambda: {
+    mainFun, awsFunctionName
+  }
+}) {
+
+   [53]andreineculau added a commit [54]about 1 year ago
+   [55]@andreineculau [56]move out function to test is-only-param
+
+   andreineculau force pushed changes to this branch [57]about 1 year ago
+
+   [58]andreineculau added some commits [59]about 1 year ago
+   [60]@andreineculau [61]bring in vanilla object-property-newline
+   [62]@andreineculau [63]breaking: new: object-property-newline that
+   handles ObjectPattern and…
+   [64]@andreineculau [65]handle function({a} = {}) cases
+
+   andreineculau force pushed changes to this branch [66]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [67]andreineculau
+   commented [68]about 1 year ago
+
+   more commits. we also didn't handle function({a} = {}) cases for
+   only-param...
+
+   Copy link
+   @andreineculau
+   [69]andreineculau
+   commented [70]about 1 year ago
+
+   examples of changes when jumping from 0.3 to future 0.5 (this branch
+   HEAD):
+   [71]https://github.com/tobiipro/aws-util-firecloud/compare/f/new-eslint
+   -config-firecloud
+
+   Copy link
+   @IanSavchenko
+   [72]IanSavchenko
+   commented [73]about 1 year ago
+
+   LGTM, though arrays spanned across several lines look weird. I would
+   allow up to 2 elements in array to be on the same line. Or maybe at
+   least 1.
+
+   Copy link
+   @andreineculau
+   [74]andreineculau
+   commented [75]about 1 year ago
+
+     LGTM, though arrays spanned across several lines look weird.
+
+   then we're not consistent imo. why allow 1 or 2 array elements, but not
+   1 or 2 object properties?
+
+   I'm merging since the comment it's not tied to this particular PR
+   (targeting objects), and we can see later how we want to address this,
+   ok?
+
+   andreineculau referenced this pull request from commit [76]ba19964
+   [77]about 1 year ago
+
+   andreineculau merged commit ba19964 into master [78]about 1 year ago
+
+   andreineculau deleted the f/anu-object-property-newline branch
+   [79]about 1 month ago
+

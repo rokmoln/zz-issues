@@ -1,0 +1,39 @@
+
+make it easy to clean cfn artifacts. ref #98 #114
+
+   cfn-clean-targets
+
+   master cfn-clean-targets
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]enhancement
+     * Refs: [47]#98
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   (some name cleaning sneaked in)
+
+   [48]andreineculau added a commit [49]10 months ago
+   [50]@andreineculau [51]make it easy to clean cfn artifacts. ref [52]#98
+
+   andreineculau added the [53]enhancement label [54]10 months ago
+
+   andreineculau requested a review from IanSavchenko [55]10 months ago
+
+   andreineculau self-assigned this [56]10 months ago
+
+   @IanSavchenko
+   [57]IanSavchenko approved these changes [58]10 months ago
+
+   Nice
+
+   andreineculau referenced this pull request from commit [59]1dba736
+   [60]10 months ago
+
+   andreineculau merged commit 1dba736 into master [61]10 months ago
+
+   andreineculau deleted the cfn-clean-targets branch [62]10 months ago
+

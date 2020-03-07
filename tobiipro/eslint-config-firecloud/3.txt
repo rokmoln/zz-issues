@@ -1,0 +1,42 @@
+
+remove no-ide? #3
+
+   Closed
+   [57]andreineculau opened this issue Feb 27, 2018 · 1 comment
+   Closed
+
+[58]remove no-ide? #3
+
+   [59]andreineculau opened this issue Feb 27, 2018 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Feb 27, 2018
+
+   I saw that eslint closed the feature request and since we don't
+   normally use the no-ide configs,
+   so we may want to decide to remove them, and see what we do with the
+   rules (some may be redundant now thanks to your nice local rules
+   [65]@IanSavchenko !)
+
+   [66]https://github.com/tobiipro/eslint-config-firecloud#no-ide-checks
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Feb 27, 2018
+   [71]@andreineculau
+
+This comment has been minimized.
+
+   [72]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[73]@andreineculau [74]andreineculau commented [75]Mar 25, 2018
+
+   done
+   [76]@andreineculau [77]andreineculau closed this [78]Mar 25, 2018

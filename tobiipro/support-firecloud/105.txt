@@ -1,0 +1,39 @@
+
+fix 'make release' undoing changes #105
+
+   f/anu-release
+
+   master f/anu-release
+   @andreineculau
+   [45]andreineculau opened this pull request
+   11 months ago
+
+   Labels
+   [46]bug
+     * Fixes: [47]#104
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   I don't understand why I made it so complex the first time with
+   commit-tree... 🤦‍♂️
+
+   [48]andreineculau added a commit [49]11 months ago
+   [50]@andreineculau [51]fix 'make release' undoing changes. [52]fixes
+   [53]#104
+
+   andreineculau added the [54]bug label [55]11 months ago
+
+   andreineculau self-assigned this [56]11 months ago
+
+   andreineculau requested a review from IanSavchenko [57]11 months ago
+
+   @IanSavchenko
+   [58]IanSavchenko approved these changes [59]11 months ago
+
+   andreineculau referenced this pull request from commit [60]8197b4d
+   [61]11 months ago
+
+   andreineculau merged commit 8197b4d into master [62]11 months ago
+
+   andreineculau deleted the f/anu-release branch [63]10 months ago
+

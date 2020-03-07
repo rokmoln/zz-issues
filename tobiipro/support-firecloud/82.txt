@@ -1,0 +1,45 @@
+
+add node-esm #82
+
+   f/anu-node-esm
+
+   master f/anu-node-esm
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   Since node only support import syntax behind a flag and only for .mjs
+   file extension, I made a script that uses esm
+   [47]https://github.com/standard-things/esm.
+
+   Slightly not performant because it uses npx, and it installs esm every
+   time, but with a limited scope, it's good enough.
+
+   Tested manually with an executable like
+#!/usr/bin/env node-esm
+
+import _ from 'lodash';
+_.forEach([1,2], _.bind(console.log, console));
+
+   [48]andreineculau added a commit [49]about 1 year ago
+   [50]@andreineculau [51]add node-esm
+
+   andreineculau added the [52]enhancement label [53]about 1 year ago
+
+   andreineculau self-assigned this [54]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [55]about 1 year ago
+
+   andreineculau referenced this pull request from commit [56]3e37774
+   [57]about 1 year ago
+
+   andreineculau merged commit 3e37774 into master [58]about 1 year ago
+
+   andreineculau deleted the f/anu-node-esm branch [59]10 months ago
+

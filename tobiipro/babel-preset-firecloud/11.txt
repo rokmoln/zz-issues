@@ -1,0 +1,34 @@
+
+use __filename in src-arg plugin. fix #10 #11
+
+   f/anu-filename-src
+
+   master f/anu-filename-src
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [47]andreineculau added a commit [48]about 1 year ago
+   [49]@andreineculau [50]use __filename in src-arg plugin. [51]fix
+   [52]#10
+
+   andreineculau added the [53]enhancement label [54]about 1 year ago
+
+   andreineculau self-assigned this [55]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [56]about 1 year ago
+
+   andreineculau referenced this pull request from commit [57]bae52ee
+   [58]about 1 year ago
+
+   andreineculau merged commit bae52ee into master [59]about 1 year ago
+
+   andreineculau deleted the f/anu-filename-src branch [60]about 1 year
+   ago
+

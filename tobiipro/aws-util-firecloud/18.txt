@@ -1,0 +1,40 @@
+
+handle errors in getLambdaConfiguration. refactor #18
+
+   f/anu-get-code
+
+   master f/anu-get-code
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]bug
+   No description given.
+
+   andreineculau added the [47]bug label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   [51]andreineculau added some commits [52]about 1 year ago
+            [53]@andreineculau [54]better error message
+   [55]@andreineculau [56]handle errors in getLambdaConfiguration.
+   refactor
+
+   andreineculau force pushed changes to this branch [57]about 1 year ago
+
+   @IanSavchenko
+   [58]IanSavchenko approved these changes [59]about 1 year ago
+
+   [60]andreineculau added a commit [61]about 1 year ago
+   [62]@andreineculau [63]1.4.5
+
+   andreineculau referenced this pull request from commit [64]a9e74e0
+   [65]about 1 year ago
+
+   andreineculau merged commit a9e74e0 into master [66]about 1 year ago
+
+   andreineculau deleted the f/anu-get-code branch [67]about 1 month ago
+

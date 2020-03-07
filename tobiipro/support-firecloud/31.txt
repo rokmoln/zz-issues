@@ -1,0 +1,24 @@
+
+Fixed bug in bootstrap with brew info #31
+
+   bootstrap_fix
+
+   master bootstrap_fix
+   @tobiiasl
+   [45]tobiiasl opened this pull request
+   almost 2 years ago
+
+   Fixes [46]#30
+
+   [47]tobiiasl added a commit [48]almost 2 years ago
+   [49]@tobiiasl [50]Fixed bug in bootstrap with brew info
+
+   tobiiasl requested a review from andreineculau [51]almost 2 years ago
+
+   tobiiasl referenced this pull request from commit [52]9e55ffe
+   [53]almost 2 years ago
+
+   tobiiasl merged commit 9e55ffe into master [54]almost 2 years ago
+
+   andreineculau deleted the bootstrap_fix branch [55]over 1 year ago
+

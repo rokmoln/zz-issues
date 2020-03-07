@@ -1,0 +1,57 @@
+
+add windows support #99
+
+   f/anu-windows
+
+   master f/anu-windows
+   @andreineculau
+   [45]andreineculau opened this pull request
+   11 months ago
+
+   Labels
+   [46]enhancement [47]wontfix
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   andreineculau self-assigned this [48]11 months ago
+
+   andreineculau modified this pull request [49]11 months ago
+
+   andreineculau force pushed changes to this branch [50]11 months ago
+
+   andreineculau force pushed changes to this branch [51]11 months ago
+
+   andreineculau force pushed changes to this branch [52]11 months ago
+
+   andreineculau added this to To do in [53]Public (Open Source) [54]10
+   months ago
+
+   andreineculau force pushed changes to this branch [55]8 months ago
+
+   [56]andreineculau added a commit [57]8 months ago
+   [58]@andreineculau [59]add windows support via git-bash/msys/mingw
+
+   andreineculau force pushed changes to this branch [60]8 months ago
+
+   andreineculau added the [61]enhancement label [62]8 months ago
+
+   andreineculau added the [63]wontfix label [64]8 months ago
+
+   andreineculau removed this from To do in [65]Public (Open Source) [66]8
+   months ago
+
+   Copy link
+   @alsmyr
+   [67]alsmyr
+   commented [68]about 2 months ago
+
+   Should we close this one [69]@andreineculau?
+
+   andreineculau force pushed changes to the base branch [70]about 1 month
+   ago
+
+   andreineculau closed this pull request [71]about 1 month ago
+
+   andreineculau deleted the f/anu-windows branch [72]about 1 month ago
+

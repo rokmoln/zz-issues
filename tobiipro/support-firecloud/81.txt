@@ -1,0 +1,47 @@
+
+add create-github-release script. fixes #19 #81
+
+   f/anu-github-release
+
+   master f/anu-github-release
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes: [47]#19
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   Created a script that creates a github release with assets (binaries).
+   This should allow us to reuse the GH_TOKEN env var on travis, and not
+   need to encrypt it again for the deploy step.
+
+   Managed to create release "test6" with this
+   [48]https://github.com/tobiipro/support-firecloud/releases/tag/test6
+   bin/github-create-release --repo-slug tobiipro/support-firecloud --tag
+   test6 --asset NOTICE --asset LICENSE --token ${GH_TOKEN}
+
+   [49]andreineculau added a commit [50]about 1 year ago
+   [51]@andreineculau [52]add create-github-release script. [53]fixes
+   [54]#19
+
+   andreineculau added the [55]enhancement label [56]about 1 year ago
+
+   andreineculau self-assigned this [57]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [58]about 1 year ago
+
+   @IanSavchenko
+   [59]IanSavchenko approved these changes [60]about 1 year ago
+
+   Really nice!
+
+   andreineculau referenced this pull request from commit [61]3993d13
+   [62]about 1 year ago
+
+   andreineculau merged commit 3993d13 into master [63]about 1 year ago
+
+   andreineculau deleted the f/anu-github-release branch [64]10 months ago
+

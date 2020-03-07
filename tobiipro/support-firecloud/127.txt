@@ -1,0 +1,36 @@
+
+document make targets #127
+
+   Closed
+   [57]andreineculau opened this issue Sep 2, 2019 · 0 comments
+   Closed
+
+[58]document make targets #127
+
+   [59]andreineculau opened this issue Sep 2, 2019 · 0 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Sep 2, 2019
+
+   as headers in the repo/mk/*.mk files
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Sep 2, 2019
+   [70]@andreineculau [71]andreineculau added this to To do in [72]Public
+   (Open Source) via automation [73]Sep 2, 2019
+   [74]@andreineculau [75]andreineculau moved this from To do to In
+   progress in [76]Public (Open Source) [77]Sep 2, 2019
+   [78]@andreineculau [79]andreineculau self-assigned this [80]Sep 2, 2019
+   [81]@andreineculau [82]andreineculau moved this from In progress to
+   Done in [83]Public (Open Source) [84]Sep 5, 2019
+   [85]@andreineculau [86]andreineculau closed this [87]Sep 5, 2019
+   [88]@ankitmth [89]ankitmth removed this from Done in [90]Public (Open
+   Source) [91]Feb 19, 2020

@@ -1,0 +1,73 @@
+
+performance #18
+
+   Closed
+   [57]andreineculau opened this issue May 19, 2019 · 0 comments · Fixed
+   by [58]#20
+   Closed
+
+[59]performance #18
+
+   [60]andreineculau opened this issue May 19, 2019 · 0 comments · Fixed
+   by [61]#20
+   Labels
+   [62]enhancement
+
+Comments
+
+   [63]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[64]@andreineculau [65]andreineculau commented [66]May 19, 2019 •
+
+   edited
+
+   out of curiousity I just ran the basic benchmarking available at
+   [67]https://github.com/pinojs/pino npm run bench-basic
+BASIC benchmark averages
+Bunyan average: 680.751ms
+Winston average: 496.127ms
+Bole average: 375.836ms
+Debug average: 328.526ms
+LogLevel average: 328.303ms
+MinLog average: 474.515ms
+Pino average: 240.441ms
+PinoExtreme average: 103.965ms
+PinoNodeStream average: 219.996ms
+     __________________________________________________________________
+
+   I identified some red flags, that when/if removed takes minlog to:
+BASIC benchmark averages
+Bunyan average: 707.045ms
+Winston average: 1885.363ms
+Bole average: 627.995ms
+Debug average: 416.026ms
+LogLevel average: 452.593ms
+MinLog average: 196.916ms
+Pino average: 287.970ms
+PinoExtreme average: 131.185ms
+PinoNodeStream average: 283.553ms
+
+   red flags:
+     * new Date() --- could consider Date.now() -- [68]jsperf
+     * getCallerInfo --- could be optional
+     * rawEntry --- cloneDeep is expensive, could be optional
+
+   (THUMBS_UP react) 👍 1
+   [69]@andreineculau [70]andreineculau added the [71]enhancement label
+   [72]May 19, 2019
+   [73]@andreineculau [74]andreineculau added this to To do in [75]Public
+   (Open Source) via automation [76]May 20, 2019
+   [77]@andreineculau [78]andreineculau mentioned this issue [79]Jul 9,
+   2019
+   [80]increase performance #20
+   Merged
+   [81]@andreineculau [82]andreineculau moved this from To do to In
+   progress in [83]Public (Open Source) [84]Jul 10, 2019
+   [85]@andreineculau [86]andreineculau closed this in [87]#20 [88]Jul 10,
+   2019
+   [89]Public (Open Source) automation moved this from In progress to Done
+   [90]Jul 10, 2019
+   [91]@ankitmth [92]ankitmth removed this from Done in [93]Public (Open
+   Source) [94]Feb 19, 2020

@@ -1,0 +1,40 @@
+
+add aws-iam-bootstrap&co. fix #12 #14
+
+   f/anu-aws-iam
+
+   master f/anu-aws-iam
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 2 years ago
+   No description given.
+
+   andreineculau force pushed changes to the base branch [46]about 2 years
+   ago
+
+   andreineculau force pushed changes to this branch [47]about 2 years ago
+
+   andreineculau requested a review from IanSavchenko [48]about 2 years
+   ago
+
+   [49]andreineculau referenced this pull request from another issue
+   [50]#15 Install bash 4 on bootstrap
+
+   andreineculau force pushed changes to this branch [51]almost 2 years
+   ago
+
+   [52]andreineculau added some commits [53]about 2 years ago
+   [54]@andreineculau [55]add aws-iam-bootstrap&co. [56]fix [57]#12
+   [58]@andreineculau [59]aws-sdk-js should use AWS_PROFILE now
+   [60]https://docs.aws.amazon.com/sdk…
+
+   andreineculau force pushed changes to this branch [61]almost 2 years
+   ago
+
+   andreineculau referenced this pull request from commit [62]62ee88e
+   [63]almost 2 years ago
+
+   andreineculau merged commit 62ee88e into master [64]almost 2 years ago
+
+   andreineculau deleted the f/anu-aws-iam branch [65]almost 2 years ago
+

@@ -1,0 +1,27 @@
+
+Every log line contains superfluous "in apply() " #23
+
+   Closed
+   [57]tobiiasl opened this issue Nov 4, 2019 · 0 comments
+   Closed
+
+[58]Every log line contains superfluous "in apply() " #23
+
+   [59]tobiiasl opened this issue Nov 4, 2019 · 0 comments
+
+Comments
+
+   [60]@tobiiasl
+   Copy link (BUTTON) Quote reply
+
+[61]@tobiiasl [62]tobiiasl commented [63]Nov 4, 2019
+
+   It seems like all lines logged by minlog contains the string "in
+   apply() ".
+
+   Afaics those characters don't add any value to the log output.
+
+   [64]https://user-images.githubusercontent.com/7059915/66752558-02231400
+   -ee92-11e9-9609-5b8ef48f2713.png
+   [65]@andreineculau [66]andreineculau closed this in [67]a2e26f7 [68]Nov
+   6, 2019

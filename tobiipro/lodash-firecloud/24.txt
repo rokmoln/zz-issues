@@ -1,0 +1,39 @@
+
+add throttleExp #24
+
+   throttle-exp
+
+   master throttle-exp
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request
+   10 months ago
+
+   Linked issues
+   [46]Move _.throttleExp from atex-web-ext
+     * Fixes: [47]#23
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   Code is almost as is from atex-web-ext (except for some linting
+   configs).
+   What's new:
+     * integration into lodash-firecloud
+     * TS definitions
+
+   Ian Savchenko added a commit [48]10 months ago
+   [49]add throttleExp. [50]Fixes [51]#23
+
+   IanSavchenko requested a review from andreineculau [52]10 months ago
+
+   IanSavchenko modified this pull request [53]10 months ago
+
+   @andreineculau
+   [54]andreineculau approved these changes [55]10 months ago
+
+   IanSavchenko referenced this pull request from commit [56]eca85a4
+   [57]10 months ago
+
+   IanSavchenko merged commit eca85a4 into master [58]10 months ago
+
+   IanSavchenko deleted the throttle-exp branch [59]10 months ago
+

@@ -1,0 +1,109 @@
+
+installing global npm packages might fail on ubuntu 18.04 #126
+
+   Closed
+   [57]andreineculau opened this issue Aug 30, 2019 · 1 comment
+   Closed
+
+[58]installing global npm packages might fail on ubuntu 18.04 #126
+
+   [59]andreineculau opened this issue Aug 30, 2019 · 1 comment
+   Labels
+   [60]bug [61]wontfix
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Aug 30, 2019
+
+   it doesn't on travis because of special permissions, but it does on a
+   vanilla installation
+
+   fix is described here
+   [66]https://docs.npmjs.com/resolving-eacces-permissions-errors-when-ins
+   talling-packages-globally
+   [67]@andreineculau [68]andreineculau added the [69]bug label [70]Aug
+   30, 2019
+   [71]@andreineculau [72]andreineculau added this to To do in [73]Public
+   (Open Source) via automation [74]Aug 30, 2019
+   [75]@andreineculau [76]andreineculau moved this from To do to In
+   progress in [77]Public (Open Source) [78]Aug 31, 2019
+   [79]@andreineculau
+
+This comment has been minimized.
+
+   [80]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[81]@andreineculau [82]andreineculau commented [83]Sep 1, 2019
+
+   valid possibility, but what i experienced under WSL, is actually a bug
+   like this [84]microsoft/WSL#14 so i'm closing without fixing
+npm ERR! code EACCES
+npm ERR! syscall rename
+npm ERR! path /home/linuxbrew/.linuxbrew/lib/node_modules/.staging/npm-667c6cc9/
+node_modules/yargs
+npm ERR! dest /home/linuxbrew/.linuxbrew/lib/node_modules/.staging/yargs-602fdb1
+d
+npm ERR! errno -13
+npm ERR! Error: EACCES: permission denied, rename '/home/linuxbrew/.linuxbrew/li
+b/node_modules/.staging/npm-667c6cc9/node_modules/yargs' -> '/home/linuxbrew/.li
+nuxbrew/lib/node_modules/.staging/yargs-602fdb1d'
+npm ERR!  [OperationalError: EACCES: permission denied, rename '/home/linuxbrew/
+.linuxbrew/lib/node_modules/.staging/npm-667c6cc9/node_modules/yargs' -> '/home/
+linuxbrew/.linuxbrew/lib/node_modules/.staging/yargs-602fdb1d'] {
+npm ERR!   cause: [Error: EACCES: permission denied, rename '/home/linuxbrew/.li
+nuxbrew/lib/node_modules/.staging/npm-667c6cc9/node_modules/yargs' -> '/home/lin
+uxbrew/.linuxbrew/lib/node_modules/.staging/yargs-602fdb1d'] {
+npm ERR!     errno: -13,
+npm ERR!     code: 'EACCES',
+npm ERR!     syscall: 'rename',
+npm ERR!     path: '/home/linuxbrew/.linuxbrew/lib/node_modules/.staging/npm-667
+c6cc9/node_modules/yargs',
+npm ERR!     dest: '/home/linuxbrew/.linuxbrew/lib/node_modules/.staging/yargs-6
+02fdb1d'
+npm ERR!   },
+npm ERR!   stack: "Error: EACCES: permission denied, rename '/home/linuxbrew/.li
+nuxbrew/lib/node_modules/.staging/npm-667c6cc9/node_modules/yargs' -> '/home/lin
+uxbrew/.linuxbrew/lib/node_modules/.staging/yargs-602fdb1d'",
+npm ERR!   errno: -13,
+npm ERR!   code: 'EACCES',
+npm ERR!   syscall: 'rename',
+npm ERR!   path: '/home/linuxbrew/.linuxbrew/lib/node_modules/.staging/npm-667c6
+cc9/node_modules/yargs',
+npm ERR!   dest: '/home/linuxbrew/.linuxbrew/lib/node_modules/.staging/yargs-602
+fdb1d'
+npm ERR! }
+npm ERR!
+npm ERR! The operation was rejected by your operating system.
+npm ERR! It is likely you do not have the permissions to access this file as the
+ current user
+npm ERR!
+npm ERR! If you believe this might be a permissions issue, please double-check t
+he
+npm ERR! permissions of the file and its containing directories, or try running
+npm ERR! the command again as root/Administrator.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/ubuntu/.npm/_logs/2019-09-01T09_06_14_438Z-debug.log
+
+   [85]@andreineculau [86]andreineculau closed this [87]Sep 1, 2019
+   [88]Public (Open Source) automation moved this from In progress to Done
+   [89]Sep 1, 2019
+   [90]@andreineculau [91]andreineculau added the [92]wontfix label
+   [93]Sep 1, 2019
+   [94]andreineculau added a commit that referenced this issue [95]Sep 1,
+   2019
+   [96]@andreineculau
+   [97]allow 'npm i -g npm' to fail on WSL. ref [98]#126
+   Verified
+   This commit was signed with a verified signature.
+   [99]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [100]Learn about signing commits
+   [101]5cb0ed3
+   [102]@ankitmth [103]ankitmth removed this from Done in [104]Public
+   (Open Source) [105]Feb 19, 2020

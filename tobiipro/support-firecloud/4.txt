@@ -1,0 +1,23 @@
+
+updated docs/working-with-local-npm-dependency.md #4
+
+   f/anu-local-npm
+
+   master f/anu-local-npm
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 2 years ago
+   No description given.
+
+   [46]andreineculau added some commits [47]about 2 years ago
+   [48]@andreineculau [49]updated
+   docs/working-with-local-npm-dependency.md
+   [50]@andreineculau [51]add note about devDependencies
+
+   andreineculau referenced this pull request from commit [52]7eca2aa
+   [53]about 2 years ago
+
+   andreineculau merged commit 7eca2aa into master [54]about 2 years ago
+
+   andreineculau deleted the f/anu-local-npm branch [55]about 2 years ago
+

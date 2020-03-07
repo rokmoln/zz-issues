@@ -1,0 +1,33 @@
+
+aws-iam-login requires gnu date #33
+
+   Closed
+   [57]andreineculau opened this issue Apr 17, 2018 · 0 comments
+   Closed
+
+[58]aws-iam-login requires gnu date #33
+
+   [59]andreineculau opened this issue Apr 17, 2018 · 0 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]bug
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Apr 17, 2018
+
+   but the bootstrap doesn't add it to PATH
+   e.g. PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
+
+   a another solution is required
+   [66]@andreineculau [67]andreineculau added the [68]bug label [69]Apr
+   17, 2018
+   [70]@andreineculau [71]andreineculau self-assigned this [72]Apr 17,
+   2018
+   [73]@andreineculau [74]andreineculau closed this in [75]6ae69b8 [76]Apr
+   17, 2018

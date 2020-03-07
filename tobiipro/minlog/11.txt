@@ -1,0 +1,63 @@
+
+trackTime should return value #11
+
+   fix-time-return-value
+
+   master fix-time-return-value
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request
+   about 1 year ago
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   Ian Savchenk... added some commits [46]about 1 year ago
+   [47]trackTime should return fn result
+   [48]fix constructor defaults
+
+   IanSavchenko requested a review from andreineculau [49]about 1 year ago
+
+   @andreineculau
+   [50]andreineculau approved these changes [51]about 1 year ago
+
+   👍
+   (BUTTON) Show outdated (BUTTON) Hide outdated [52]test/minlog.test.js
+   ((7 lines not shown))
+   it('should invoke last arg as fn', async function() {
+   let fn = jest.fn();
+   await logger.trackTime(fn);
+   await logger.trackTime('a', fn);
+   await logger.trackTime('a', 'b', fn);
+   await logger.trackTime('a', 'b', 'c', fn);
+   await logger.trackTime('a', 'b', 'c', 'd', fn);
+   expect(fn).toHaveBeenCalledTimes(5);
+   });
+   it('should return fn result', async function() {
+   let fn = function() {
+   return 'result';
+   [53]@andreineculau [54]andreineculau • [55]about 1 year ago
+   Copy link
+
+   you could have used a magical Symbol
+
+   @andreineculau
+   [56]andreineculau reviewed [57]about 1 year ago
+   (BUTTON) Show outdated (BUTTON) Hide outdated [58]src/minlog.js
+   @@ -36,8 +36,8 @@ export class MinLog {
+   listeners = [];
+   [59]@andreineculau [60]andreineculau • [61]about 1 year ago
+   Copy link
+
+   forgot to say that line 34 and 36 could be removed then
+
+   Ian Savchenk... added a commit [62]about 1 year ago
+   [63]review fixes
+
+   IanSavchenko referenced this pull request from commit [64]a70b39b
+   [65]about 1 year ago
+
+   IanSavchenko merged commit a70b39b into master [66]about 1 year ago
+
+   IanSavchenko deleted the fix-time-return-value branch [67]about 1 year
+   ago
+

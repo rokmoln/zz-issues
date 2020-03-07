@@ -1,0 +1,202 @@
+
+discuss current solution for #49 #75
+
+   f/anu-discuss-job-artifacts
+
+   master f/anu-discuss-job-artifacts
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   [DEL: This is a reverse PR meaning the code (a possible solution to
+   [47]#49) is already on master (for practical reasons; I couldn't test
+   end-to-end) so left and right pane are switched. Left pane = new code,
+   right pane = old code. :DEL] Reverted on master.
+
+   Example - Travis CI build
+   [48]https://travis-ci.com/tobiipro/support-firecloud/jobs/169761869
+   printed artifact links in "after_script" phase, all the way down on log
+   line 2519-2520
+     * 11:06:58 [INFO] View job artifacts on Github:
+       [49]https://github.com/tobiipro/support-firecloud/tree/2430bb57d19c
+       f0d5fba47b5905d92705ab215307
+     * 11:06:58 [INFO] View job artifacts on S3:
+       [50]https://s3.console.aws.amazon.com/s3/buckets/infra-attentionpan
+       el-com-eu-west-1/ci/169761869/
+
+Highlights
+
+     * Difference in permissions
+          + The github link is accessible to all those that have read
+            access to the repo. This also means that whoever did a "git
+            push", can just fetch the artifacts locally (see example
+            command in the NOTE below)
+          + The s3 link is accessible to all those that have list access
+            to the bucket (atexdev users).
+     * UI - way easier to browse and read on github
+     * Auth - github requires credentials (travis encrypted GH_TOKEN),
+       while S3 requires none (public-writes)
+          + what this means is that it's not possible to upload to github
+            for PRs (PR builds don't have access to secrets, and thus not
+            to GH_TOKEN either)
+     * Life cycle - artifacts have a time-bomb on S3, but not on github
+       (maybe possible via github actions?); but on the upside
+
+   NOTE: "git clone/fetch/pull" does not automatically download the job
+   artifacts. One has to either configure git to do so, or call git clone
+   fetch refs/jobs/169761869 && git checkout FETCH_HEAD if it's a one time
+   thing "check the job artifacts and get out"
+
+TODO
+
+     * [X] add docs
+     * [X] maybe set content-type: 'text/plain' for S3 uploads, so that at
+       least they can be opened in the browser, rather than downloaded
+     * [X] maybe use 'infra-tobiicloud-com-eu-west-1' instead?
+
+   andreineculau added the [51]enhancement label [52]about 1 year ago
+
+   andreineculau self-assigned this [53]about 1 year ago
+
+   andreineculau requested a review from alsmyr [54]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [55]about 1 year ago
+
+   andreineculau force pushed changes to this branch [56]about 1 year ago
+
+   Copy link
+   @IanSavchenko
+   [57]IanSavchenko
+   commented [58]about 1 year ago
+
+   Yes, GitHub solution looks very good, but it's not cool if it is not
+   available in PRs. But according to Travis docs, encrypted variables are
+   not available only for the forks (other repos). So should be fine in
+   our repo, right?
+
+   When thinking about S3, I had in mind having public links pushed in the
+   travis log, so you can in browser open file in a text format without
+   auth. Unsecure? Technically, only people with access to our Travis will
+   be able to see those files, until they expire. Needing to go through
+   AWS-auth and use AWS console looks very bad to me.
+
+   Copy link
+   @andreineculau
+   [59]andreineculau
+   commented [60]about 1 year ago
+
+     But according to Travis docs, encrypted variables are not available
+     only for the forks (other repos). So should be fine in our repo,
+     right?
+
+   hmm, pretty sure the docs were saying smth else when I wrote this
+   function
+   [61]https://github.com/tobiipro/support-firecloud/blob/9954356/repo/dot
+   .travis.sh.sf#L43-L57 cuz I wanted to mimic travis behaviour, but we
+   are more strict right now
+
+   so yeah, you're right
+
+     having public links pushed in the travis log
+
+   I remembered what is off with this setup - we turned into
+   [62]https://www.file.io :)
+   with a public-write but auth-reads, not only we have it more secure,
+   but we also remove the incentive of using this bucket for obscure
+   purposes :(
+
+   andreineculau force pushed changes to this branch [63]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [64]andreineculau
+   commented [65]about 1 year ago
+
+   One thing to keep in mind is that we have no means to restrict sizes of
+   S3 PUT requests.
+   So I could start using the bucket as my temporary netflix 😉
+
+   andreineculau force pushed changes to this branch [66]about 1 year ago
+
+   andreineculau force pushed changes to this branch [67]about 1 year ago
+
+   Copy link
+   @IanSavchenko
+   [68]IanSavchenko
+   commented [69]about 1 year ago
+
+   You can use GitHub as your Netflix ;)
+
+   Copy link
+   @andreineculau
+   [70]andreineculau
+   commented [71]about 1 year ago
+
+     You can use GitHub as your Netflix ;)
+
+   you mean the github flow in this solution? no, not really - you have
+   authenticated writes
+     __________________________________________________________________
+
+   I have pushed [72]32411c7 to go back to auth reads on S3. I personally
+   don't want to take the responsibility for having non-auth writes and
+   reads.
+
+   And actually I would even disable the S3 solution altogether and say
+   "if you want travis job artifacts, then you need a GH_TOKEN in your
+   repo" - so by default all of our big repos would just work, and the
+   smaller ones, it might be that they never need job artifacts.
+
+   If we agree on the git refs solution, but not the S3 one, I can split
+   this and we move ahead only with git refs for now (important to have
+   some solution for gs-server on github).
+
+   PS: the current diff takes care of git refs lifecycle as well.
+
+   andreineculau force pushed changes to this branch [73]about 1 year ago
+
+   Copy link
+   @IanSavchenko
+   [74]IanSavchenko
+   commented [75]about 1 year ago
+
+   I'm ok with either solution, don't think that we need both. The only
+   thing I don't like about S3 is the long auth flow, but hopefully, we
+   won't need to debug our builds that often. So I leave it up to you,
+   Andrei.
+
+   @IanSavchenko
+   [76]IanSavchenko approved these changes [77]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [78]andreineculau
+   commented [79]about 1 year ago
+
+   👍 we can go github only (only private repos) for a while, and see if
+   it's good enough
+
+   andreineculau force pushed changes to this branch [80]about 1 year ago
+
+   [81]andreineculau added some commits [82]about 1 year ago
+   [83]@andreineculau [84]upload travis artifacts to git ref and s3. ref
+   [85]#49
+           [86]@andreineculau [87]go back to authenticated reads
+           [88]@andreineculau [89]remove feature to upload artifacts to S3
+
+   andreineculau force pushed changes to this branch [90]about 1 year ago
+
+   andreineculau referenced this pull request from commit [91]a5fce1a
+   [92]about 1 year ago
+
+   andreineculau merged commit a5fce1a into master [93]about 1 year ago
+
+   [94]andreineculau referenced this pull request from another issue
+   [95]#49 util to upload CI/CD logs to a git reference
+
+   andreineculau deleted the f/anu-discuss-job-artifacts branch [96]about
+   1 year ago
+

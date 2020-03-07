@@ -1,0 +1,52 @@
+
+disallow backticks when not needed #22
+
+   f/no-need-for-backticks
+
+   master f/no-need-for-backticks
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]bug
+
+   or we do the opposite - enforce backticks over single quotes
+
+   but right now in some places I always stumble and think if it's
+   intended or if a ${} is missing somewhere
+
+   [47]andreineculau added a commit [48]about 1 year ago
+   [49]@andreineculau [50]disallow backticks when not needed
+
+   andreineculau added the [51]enhancement label [52]about 1 year ago
+
+   andreineculau self-assigned this [53]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [54]about 1 year ago
+
+   @IanSavchenko
+   [55]IanSavchenko approved these changes [56]about 1 year ago
+
+   I'm more for the current alternative since we won't need to go around
+   and change everything from single ticks.
+
+   andreineculau referenced this pull request from commit [57]316748c
+   [58]about 1 year ago
+
+   andreineculau merged commit 316748c into master [59]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [60]andreineculau
+   commented [61]about 1 year ago
+
+   it's on me
+
+   andreineculau added the [62]bug label [63]about 1 year ago
+
+   andreineculau removed the [64]enhancement label [65]about 1 year ago
+
+   andreineculau deleted the f/no-need-for-backticks branch [66]about 1
+   month ago
+

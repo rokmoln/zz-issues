@@ -1,0 +1,105 @@
+
+should a Brewfile.inc.sh be made mandatory #54
+
+   Closed
+   [57]andreineculau opened this issue Dec 9, 2018 · 2 comments
+   Closed
+
+[58]should a Brewfile.inc.sh be made mandatory #54
+
+   [59]andreineculau opened this issue Dec 9, 2018 · 2 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Dec 9, 2018 •
+
+   edited
+
+   I made a change in [65]53e1cbf
+   but it's optional now, and I'm thinking it's simpler to always require
+   a Brewfile.inc.sh
+     * which can reference specific bootstraps e.g. source
+       ${SUPPORT_FIRECLOUD_DIR}/ci/brew-install-aws.inc.sh
+     * or convenience bootstraps e.g. source
+       ${SUPPORT_FIRECLOUD_DIR}/ci/brew-install-common.inc.sh
+     * or just install specific brew packages e.g. brew_install tensorflow
+
+   I see it as a small breaking change FTW
+   wdyt [66]@IanSavchenko ?
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Dec 9, 2018
+   [71]@IanSavchenko
+
+This comment has been minimized.
+
+   [72]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[73]@IanSavchenko [74]IanSavchenko commented [75]Dec 10, 2018
+
+   I don't think I'm following it here completely, so let's take it in the
+   office.
+   (THUMBS_UP react) 👍 1
+   [76]@andreineculau
+
+This comment has been minimized.
+
+   [77]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[78]@andreineculau [79]andreineculau commented [80]Dec 10, 2018
+
+   We take it in the office, but just some numbers and context before then
+
+   Most repos were running on travis in containers (sudo: false) and
+   because of limited permissions I only bothered with installing latest
+   versions of bash, make and jq, basically saying: if you want a fast
+   travis run (in constainers), then you're limited in what you have
+   available.
+
+   Now, with removing sudo:false (Travis will run everything in VMs; no
+   containers), everything went on the full-bootstrap flow of installing
+   so much more than just bash, make and jq, thus taking many minutes
+   before doing something simple and fast like "npm install, babelify,
+   lint and run jest".
+
+   Having a Brewfile.inc.sh in the root of the repo makes it possible to
+   dictate what you actually need for this repo, rather than install
+   everything that we find as a good solid baseline.
+
+   In [81]tobiipro/lodash-firecloud#8 switching from the default
+   ci/brew-install-common.inc.sh [82]which runs if there is no
+   Brewfile.inc.sh to just ci/brew-install-minimal.inc.sh (minimal is
+   actually the equivalent of what we were installing in previous
+   container mode, just bash, make and jq) via Brewfile.inc.sh will cut
+   the build time by around 400 seconds.
+
+   What I'm suggesting is to remove the fallback to
+   ci/brew-install-common.inc.sh in support-firecloud, thus requiring a
+   Brewfile.inc.sh file in each repo.
+   [83]andreineculau added a commit that referenced this issue [84]Dec 15,
+   2018
+   [85]@andreineculau
+   [86]make Brewfile.inc.sh mandatory. [87]fixes [88]#54
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [89]Learn about signing commits
+   [90]08777ea
+   [91]andreineculau added a commit that referenced this issue [92]Dec 15,
+   2018
+   [93]@andreineculau
+   [94]make Brewfile.inc.sh mandatory. [95]fixes [96]#54
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [97]Learn about signing commits
+   [98]122d88e
+   [99]@andreineculau [100]andreineculau closed this in [101]cf36472
+   [102]Dec 20, 2018

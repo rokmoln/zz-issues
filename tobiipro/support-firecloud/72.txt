@@ -1,0 +1,40 @@
+
+remove support-firecloud symlink #72
+
+   f/anu-remove-support-firecloud-symlink
+
+   master f/anu-remove-support-firecloud-symlink
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+   No description given.
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau force pushed changes to this branch [50]about 1 year ago
+
+   [51]andreineculau added a commit [52]about 1 year ago
+   [53]@andreineculau [54]remove support-firecloud symlink
+
+   andreineculau force pushed changes to this branch [55]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [56]about 1 year ago
+
+   @IanSavchenko
+   [57]IanSavchenko approved these changes [58]about 1 year ago
+
+   That was easy!
+
+   andreineculau referenced this pull request from commit [59]208a770
+   [60]about 1 year ago
+
+   andreineculau merged commit 208a770 into master [61]about 1 year ago
+
+   andreineculau deleted the f/anu-remove-support-firecloud-symlink branch
+   [62]about 1 year ago
+

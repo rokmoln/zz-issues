@@ -1,0 +1,109 @@
+
+update on travis-ci docs. Fixes #100 #101
+
+   f/ian-travis-docs
+
+   master f/ian-travis-docs
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request
+   11 months ago
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [46]@andreineculau, feel free to do changes as necessary to make this
+   go faster. Thanks!
+
+   Ian Savchenk... added a commit [47]11 months ago
+   [48]update on travis-ci docs. [49]Fixes [50]#100
+
+   IanSavchenko requested a review from andreineculau [51]11 months ago
+
+   @andreineculau
+   [52]andreineculau reviewed [53]11 months ago
+   (BUTTON) Show outdated (BUTTON) Hide outdated [54]doc/how-to-release.md
+   @@ -139,6 +139,15 @@ deploy:
+   tags: true
+   ```
+   The secure `api_key` should contain `tobiiprotools`'s Github token
+   (can be found in the **designated safe location**) and must be
+   encrypted with Travis CLI like
+   ```shell
+   travis encrypt <GH_TOKEN>
+   [55]@andreineculau [56]andreineculau • [57]11 months ago
+   Copy link
+
+   I'm not sure if it's needed now that they have "merged" .com and .org
+   but I use the "--pro" flag too
+   [58]@IanSavchenko [59]IanSavchenko • [60]11 months ago
+   Copy link
+
+   Seems like it is still needed, can be checked with > travis endpoint.
+   Btw, travis CLI hasn't seen a single commit since November :(
+   [61]doc/travis-ci.md
+   @@ -5,16 +5,27 @@ in a continuous manner, whenever new commits are
+   pushed or on code from pull req
+   We currently use Travis CI and thus prefer it for consistency, but
+   other CIs are ok given reasonable consideration.
+   Go to https://travis-ci.com/profile/tobiipro
+   A very first step to setup an integration with Travis CI is to visit
+   https://github.com/organizations/tobiipro/settings/installations,
+   press `Configure` next to `Travis CI` and make sure that Travis
+   has access to your repo in the `Repository access` section dropdown.
+   Then go to https://travis-ci.com/profile/tobiipro
+   [62]@andreineculau [63]andreineculau • [64]11 months ago
+   Copy link
+
+   What i noticed these days is that this is automatically done with the
+   new integration described in the step above
+   [65]@IanSavchenko [66]IanSavchenko • [67]11 months ago
+   Copy link
+
+   Still need to open the settings, will rephrase.
+   (BUTTON) Show outdated (BUTTON) Hide outdated [68]doc/travis-ci.md
+   ((17 lines not shown))
+   ```yaml
+   env:
+   global:
+   # TRANSCRYPT_PASSWORD
+   - secure: "..."
+   ### Migrating secrets from existing repo
+   To make the setup faster and avoid looking for secrets all over
+   different places,
+   you can _manually_ get all the secrets in existing repo. To do so,
+   start a debugging session in Travis UI and after some minutes in Travis
+   output log
+   [69]@andreineculau [70]andreineculau • [71]11 months ago
+   Copy link
+
+   Maybe just link to the section describing how to start a debug build?
+   [72]@IanSavchenko [73]IanSavchenko • [74]11 months ago
+   Copy link
+
+   I will add that, but for a one-time thing it's fine to use Web UI, no
+   need to go and look for the token, read args for the cmd. Easier for
+   me, at least.
+   [75]@andreineculau [76]andreineculau • [77]11 months ago
+   Copy link
+
+   Oh yeah, definitely. I don't know how the docs look like now but I
+   agree that the docs around "debug build" should prio the UI. The reason
+   I changed my mind is that Travis, at least so far, just works. I guess
+   I'm on the advanced usage, and I don't debug more than once a week on
+   average. In the beginning I thought debugging would happen quite often,
+   thus the travis-debug script... 🙄
+   [78]@andreineculau [79]andreineculau • [80]11 months ago
+   Copy link
+
+   moved your debug-in-ui docs 👍 [81]2daade6
+
+   Ian Savchenk... added a commit [82]11 months ago
+   [83]review fixes
+
+   IanSavchenko referenced this pull request from commit [84]9330f51
+   [85]11 months ago
+
+   IanSavchenko merged commit 9330f51 into master [86]11 months ago
+
+   IanSavchenko deleted the f/ian-travis-docs branch [87]11 months ago
+

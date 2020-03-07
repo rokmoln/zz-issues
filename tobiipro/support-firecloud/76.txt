@@ -1,0 +1,56 @@
+
+add PR guidelines #76
+
+   f/anu-PR-rules
+
+   master f/anu-PR-rules
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   [47]@IanSavchenko and I sat down and came up with a short list of
+   guidelines for PRs (for authors and reviewers alike), and I expanded on
+   it.
+
+   Fishing for feedback 🎣
+
+   [DEL: PS: from a hands-on POV, support-firecloud could have a
+   pull-request template
+   [48]https://blog.github.com/2016-02-17-issue-and-pull-request-templates
+   / which would then be symlinked and used across all our repos. Not part
+   of this PR, but do say if you would like us to have one (smth simple,
+   maybe just listing the guidelines, and linking to this doc section for
+   further reading, as a reminder every time we open a PR) :DEL] Pull
+   request template added
+
+   andreineculau requested a review from alsmyr [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   andreineculau requested a review from tobiiasl [51]about 1 year ago
+
+   andreineculau self-assigned this [52]about 1 year ago
+
+   andreineculau added the [53]enhancement label [54]about 1 year ago
+
+   [55]andreineculau added a commit [56]about 1 year ago
+   [57]@andreineculau [58]add PR guidelines
+
+   andreineculau force pushed changes to this branch [59]about 1 year ago
+
+   @IanSavchenko
+   [60]IanSavchenko approved these changes [61]about 1 year ago
+
+   [62]andreineculau added a commit [63]about 1 year ago
+   [64]@andreineculau [65]editorial
+
+   andreineculau referenced this pull request from commit [66]e30086d
+   [67]about 1 year ago
+
+   andreineculau merged commit e30086d into master [68]about 1 year ago
+
+   andreineculau deleted the f/anu-PR-rules branch [69]about 1 year ago
+

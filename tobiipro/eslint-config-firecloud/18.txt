@@ -1,0 +1,54 @@
+
+add no-const #18
+
+   f/anu-no-const
+
+   master f/anu-no-const
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+   No description given.
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [49]about 1 year ago
+
+   @IanSavchenko
+   [50]IanSavchenko suggested changes [51]about 1 year ago
+
+   Well, that's quite opinionated PR. Even though I agree that it's ok to
+   not use const (but see no harm actually using it), I suggest that you
+   write here some argumentation for this decision. So when the next team
+   member asks me "wait, but why? Every article says you should write
+   'const'...", I will be able to direct them here :)
+
+   Also, a tiny unit test may be good? There must be examples here in the
+   repo.
+
+   andreineculau force pushed changes to this branch [52]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [53]andreineculau
+   commented [54]about 1 year ago
+
+   👍
+
+   (a bit annoying that you cannot react to a review comment)
+
+   [55]andreineculau added some commits [56]about 1 year ago
+   [57]@andreineculau [58]add no-const
+   [59]@andreineculau [60]lint
+
+   andreineculau force pushed changes to this branch [61]about 1 year ago
+
+   andreineculau referenced this pull request from commit [62]bc587b5
+   [63]about 1 year ago
+
+   andreineculau merged commit bc587b5 into master [64]about 1 year ago
+
+   andreineculau deleted the f/anu-no-const branch [65]about 1 month ago
+

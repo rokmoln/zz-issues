@@ -1,0 +1,24 @@
+
+valid-jsdoc has EOL #44
+
+   Closed
+   [57]andreineculau opened this issue Nov 1, 2019 · 0 comments
+   Closed
+
+[58]valid-jsdoc has EOL #44
+
+   [59]andreineculau opened this issue Nov 1, 2019 · 0 comments
+
+Comments
+
+   [60]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[61]@andreineculau [62]andreineculau commented [63]Nov 1, 2019
+
+   [64]https://eslint.org/blog/2018/11/jsdoc-end-of-life
+
+   replace with [65]https://github.com/gajus/eslint-plugin-jsdoc
+   [66]@andreineculau [67]andreineculau closed this in [68]2ada1a5 [69]Nov
+   5, 2019

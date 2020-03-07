@@ -1,0 +1,36 @@
+
+working-with-github.md #5
+
+   f/anu-working-with-github
+
+   master f/anu-working-with-github
+   @andreineculau
+   [45]andreineculau opened this pull request about 2 years ago • edited
+   about 2 years ago
+
+   wip
+     * [X] add license - license/notice/authors, license in readme,
+       license in package.json etc
+
+   Copy link
+   @andreineculau
+   [46]andreineculau
+   commented [47]about 2 years ago
+
+   [48]@IanSavchenko can you think of other steps/things to add? Thanks!
+
+   andreineculau force pushed changes to this branch [49]about 2 years ago
+
+   [50]andreineculau added a commit [51]about 2 years ago
+   [52]@andreineculau [53]add docs/working-with-github.md
+
+   andreineculau force pushed changes to this branch [54]about 2 years ago
+
+   andreineculau referenced this pull request from commit [55]f83fdc9
+   [56]about 2 years ago
+
+   andreineculau merged commit f83fdc9 into master [57]about 2 years ago
+
+   andreineculau deleted the f/anu-working-with-github branch [58]about 2
+   years ago
+

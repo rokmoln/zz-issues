@@ -1,0 +1,76 @@
+
+document cfn bootstraping #2
+
+   f/anu-cfn-bootstrap
+
+   master f/anu-cfn-bootstrap
+   @andreineculau
+   [45]andreineculau opened this pull request about 2 years ago • edited
+   about 2 years ago
+
+   [DEL: wip - 10% left :DEL]
+
+   andreineculau requested a review from IanSavchenko [46]about 2 years
+   ago
+
+   Copy link
+   @andreineculau
+   [47]andreineculau commented [48]about 2 years ago • edited about 2
+   years ago
+
+   food for thought: given [49]tobiipro/aws-util-firecloud#2 , it could be
+   argued that this chunk can be in that repo since tpl.stack-stem.cfn.js
+   will import aws-util-firecloud after that PR gets merged
+
+   [50]andreineculau added some commits [51]about 2 years ago
+   [52]@andreineculau [53]document cfn bootstraping
+   [54]@andreineculau [55]a python alternative to gnu's realpath
+   --relative-to (recent addition)
+   [56]@andreineculau [57]CFN_DIR in root of repo
+   [58]@andreineculau [59]generalize STACK_NAME
+   [60]@andreineculau [61]use JSON instead of JQ
+   [62]@andreineculau [63]note2self
+   [64]@andreineculau [65]refactor, reduce required vars
+   [66]@andreineculau [67]generalize S3_INFRA_BUCKET
+   [68]@andreineculau [69]improve docs
+   [70]@andreineculau [71]AWS_ACCOUNT_ID is not needed
+   [72]@andreineculau [73]redundant
+
+   andreineculau force pushed changes to this branch [74]about 2 years ago
+
+   [75]andreineculau added some commits [76]about 2 years ago
+   [77]@andreineculau [78]use aws-util-firecloud
+   [79]@andreineculau [80]SUPPORT_FIRECLOUD_DIR is set before the
+   inclusion of this makefile
+   [81]@andreineculau [82]rename repo/cfn/Makefile to repo/cfn/inc.mk for
+   clarity
+   [83]@andreineculau [84]no need to specify eslint config
+   [85]@andreineculau [86]add .gitignore template
+   [87]@andreineculau [88]fix undefined AWS
+
+   andreineculau force pushed changes to this branch [89]about 2 years ago
+
+   andreineculau force pushed changes to this branch [90]about 2 years ago
+
+   [91]andreineculau added some commits [92]about 2 years ago
+   [93]@andreineculau [94]Revert "AWS_ACCOUNT_ID is not needed"
+   [95]@andreineculau [96]generalize
+   [97]@andreineculau [98]copy instead of symlink
+   [99]@andreineculau [100]no real need for babel
+   [101]@andreineculau [102]mark as executable
+   [103]@andreineculau [104]add linting rule
+
+   andreineculau force pushed changes to this branch [105]about 2 years
+   ago
+
+   [106]andreineculau added a commit [107]about 2 years ago
+   [108]@andreineculau [109]correct call to <aws cloudformation>
+
+   andreineculau referenced this pull request from commit [110]6be944a
+   [111]about 2 years ago
+
+   andreineculau merged commit 6be944a into master [112]about 2 years ago
+
+   andreineculau deleted the f/anu-cfn-bootstrap branch [113]about 2 years
+   ago
+

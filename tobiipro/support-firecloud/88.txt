@@ -1,0 +1,37 @@
+
+nuking should also happen in submodules. fix #87 #88
+
+   f/anu-nuke-submodules
+
+   master f/anu-nuke-submodules
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]bug
+     * Fixes: [47]#87
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [48]andreineculau added a commit [49]about 1 year ago
+   [50]@andreineculau [51]nuking should also happen in submodules. [52]fix
+   [53]#87
+
+   andreineculau added the [54]bug label [55]about 1 year ago
+
+   andreineculau self-assigned this [56]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [57]about 1 year ago
+
+   @IanSavchenko
+   [58]IanSavchenko approved these changes [59]about 1 year ago
+
+   andreineculau referenced this pull request from commit [60]31ab63b
+   [61]about 1 year ago
+
+   andreineculau merged commit 31ab63b into master [62]about 1 year ago
+
+   andreineculau deleted the f/anu-nuke-submodules branch [63]10 months
+   ago
+

@@ -1,0 +1,32 @@
+
+Didn't see Slack notification from this repos Travis on new tag pushed #3
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 1, 2018 · 1 comment
+   Closed
+
+[58]Didn't see Slack notification from this repos Travis on new tag pushed #3
+
+   [59]IanSavchenko opened this issue Mar 1, 2018 · 1 comment
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Mar 1, 2018
+
+   No description provided.
+   [64]@IanSavchenko
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[66]@IanSavchenko [67]IanSavchenko commented [68]Mar 9, 2018
+
+   Seems like we fixed it. It was a regex issue.
+   [69]@IanSavchenko [70]IanSavchenko closed this [71]Mar 9, 2018

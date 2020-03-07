@@ -1,0 +1,24 @@
+
+Pulumi : alternative to repo/cfn? #148
+
+   Open
+   [57]andreineculau opened this issue Feb 11, 2020 · 0 comments
+   Open
+
+[58]Pulumi : alternative to repo/cfn? #148
+
+   [59]andreineculau opened this issue Feb 11, 2020 · 0 comments
+   Labels
+   [60]question
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Feb 11, 2020
+
+   [65]https://www.pulumi.com/
+   [66]@andreineculau [67]andreineculau added the [68]question label
+   [69]Feb 11, 2020

@@ -1,0 +1,34 @@
+
+remove timestamp from console inside aws lambda #9
+
+   Closed
+   [57]andreineculau opened this issue Feb 18, 2019 · 0 comments
+   Closed
+
+[58]remove timestamp from console inside aws lambda #9
+
+   [59]andreineculau opened this issue Feb 18, 2019 · 0 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Feb 18, 2019
+
+   aws lambda monkey-patches console functions to add timestamps
+   themselves... so log entries show up as
+
+   2019-02-18T15:30:30.203Z 9e0091ed-1e7c-4ad4-a8ea-8681870c616a
+   2019-02-18T15:30:30.182Z TRACE in the ? context:
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Feb 18, 2019
+   [70]@andreineculau [71]andreineculau self-assigned this [72]Feb 18,
+   2019
+   [73]@andreineculau [74]andreineculau closed this in [75]f4ab434 [76]Feb
+   18, 2019

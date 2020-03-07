@@ -1,0 +1,147 @@
+
+revert to make test: check first ? #20
+
+   Closed
+   [57]andreineculau opened this issue Apr 6, 2018 · 3 comments
+   Closed
+
+[58]revert to make test: check first ? #20
+
+   [59]andreineculau opened this issue Apr 6, 2018 · 3 comments
+   Assignees
+   [60]@IanSavchenko
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Apr 6, 2018
+
+   [66]7ae01d3
+
+   [67]@IanSavchenko there's one negative side-effect: running make all
+   test now runs check twice.
+
+   Before the 2nd one would have been swallowed due to make's dependency
+   graph.
+
+   Possible ways to go forward:
+     * leave as is, runs twice in one situation
+     * find a make trick to swallow the 2nd run
+     * revert
+     * don't run check as part of test
+     * ?
+
+   [68]@andreineculau [69]andreineculau added the [70]enhancement label
+   [71]Apr 6, 2018
+   [72]@andreineculau [73]andreineculau assigned [74]IanSavchenko [75]Apr
+   6, 2018
+   [76]andreineculau added a commit that referenced this issue [77]Apr 6,
+   2018
+   [78]@andreineculau
+   [79]personal fix for no running check twice on <make all test>. ref
+   [80]#20
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [81]Learn about signing commits
+   [82]9ec33a9
+   [83]andreineculau added a commit that referenced this issue [84]Apr 6,
+   2018
+   [85]@andreineculau
+   [86]build and test should follow the same process of <run and check>.
+   ref [87]#… (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [88]Learn about signing commits
+   [89]34b0502
+[90]…20
+
+   [91]@andreineculau
+
+This comment has been minimized.
+
+   [92]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[93]@andreineculau [94]andreineculau commented [95]Apr 6, 2018
+
+     find a make trick to swallow the 2nd run
+
+   now on master branch, but leaving this open as it's worth a short
+   discussion
+   [96]andreineculau added a commit that referenced this issue [97]Apr 6,
+   2018
+   [98]@andreineculau
+   [99]personal fix for no running check twice on <make all test>. ref
+   [100]#20
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [101]Learn about signing commits
+   [102]9140e1a
+   [103]andreineculau added a commit that referenced this issue [104]Apr
+   6, 2018
+   [105]@andreineculau
+   [106]build and test should follow the same process of <run and check>.
+   ref [107]#… (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [108]Learn about signing commits
+   [109]7f323e8
+[110]…20
+
+   [111]@IanSavchenko
+
+This comment has been minimized.
+
+   [112]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[113]@IanSavchenko [114]IanSavchenko commented [115]Apr 7, 2018
+
+   Let's quickly discuss in the office. All the options are more or less
+   acceptable.
+   [116]andreineculau added a commit that referenced this issue [117]Apr
+   10, 2018
+   [118]@andreineculau
+   [119]Revert "build and test should follow the same process of <run and
+   che… (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [120]Learn about signing commits
+   [121]32b082c
+…ck>. ref [122]#20"
+
+This reverts commit [123]34b0502.
+
+   [124]andreineculau added a commit that referenced this issue [125]Apr
+   10, 2018
+   [126]@andreineculau
+   [127]Revert "personal fix for no running check twice on <make all
+   test>. ref (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [128]Learn about signing commits
+   [129]e8ccf7e
+[130]#20"
+
+This reverts commit [131]9ec33a9.
+
+   [132]@andreineculau [133]andreineculau closed this in [134]926a88c
+   [135]Apr 10, 2018
+   [136]@IanSavchenko
+
+This comment has been minimized.
+
+   [137]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[138]@IanSavchenko [139]IanSavchenko commented [140]Apr 10, 2018
+
+   Keeping it simple: no dependency on check for build and test targets.

@@ -1,0 +1,47 @@
+
+document releasing a hotfix #91
+
+   Closed
+   [57]andreineculau opened this issue Mar 19, 2019 · 0 comments
+   Closed
+
+[58]document releasing a hotfix #91
+
+   [59]andreineculau opened this issue Mar 19, 2019 · 0 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Mar 19, 2019
+
+   in
+   [66]https://github.com/tobiipro/support-firecloud/blob/master/doc/how-t
+   o-release.md
+
+   in short, if v1.0.0 is on prod, and you want to release a hotfix on top
+   of it, run
+
+   make release/v1.0.0-hotfix.0 (actually anything can go after -, but
+   <key>.<index> is the semver/npm way
+
+   second hotfix, run
+
+   make release/v1.0.0-hotfix.1
+
+   PS: don't forget to merge the hotfix tag into the master branch. if you
+   get a merge conflict with package.json, let the master branch win
+
+   cc [67]@tobiiasl
+   [68]@andreineculau [69]andreineculau added the [70]enhancement label
+   [71]Mar 19, 2019
+   [72]@andreineculau [73]andreineculau self-assigned this [74]Mar 19,
+   2019
+   [75]@andreineculau [76]andreineculau closed this in [77]bfce2c1 [78]Mar
+   25, 2019

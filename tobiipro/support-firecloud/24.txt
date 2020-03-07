@@ -1,0 +1,33 @@
+
+document AWS. fixes #16 #24
+
+   f/anu-document-aws
+
+   master f/anu-document-aws
+   @andreineculau
+   [45]andreineculau opened this pull request
+   almost 2 years ago
+   No description given.
+
+   [46]andreineculau added a commit [47]almost 2 years ago
+   [48]@andreineculau [49]document AWS. [50]fixes [51]#16
+
+   andreineculau requested a review from alsmyr [52]almost 2 years ago
+
+   andreineculau requested a review from IanSavchenko [53]almost 2 years
+   ago
+
+   andreineculau requested a review from tobiiasl [54]almost 2 years ago
+
+   @IanSavchenko
+   [55]IanSavchenko approved these changes [56]almost 2 years ago
+
+   LGTM
+
+   IanSavchenko referenced this pull request from commit [57]38243f6
+   [58]almost 2 years ago
+
+   IanSavchenko merged commit 38243f6 into master [59]almost 2 years ago
+
+   andreineculau deleted the f/anu-document-aws branch [60]over 1 year ago
+

@@ -1,0 +1,134 @@
+
+MinLog crashes without `serializeTime` serializer #13
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 1, 2019 · 5 comments
+   Closed
+
+[58]MinLog crashes without `serializeTime` serializer #13
+
+   [59]IanSavchenko opened this issue Mar 1, 2019 · 5 comments
+   Labels
+   [60]question
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Mar 1, 2019
+
+   In the minimal setup like
+let {
+  MinLog,
+  logToConsole
+} = require('./src/index');
+
+let logger = new MinLog({
+  listeners: [
+    logToConsole({
+      level: 'INFO'
+    })
+  ],
+  serializers: []
+});
+
+logger.info('test');
+
+   crashes with
+(node:75745) UnhandledPromiseRejectionWarning: TypeError: (0 , _moment.default)(
+...).utcOffset(...).toISOString is not a function
+    at Object.toISOString [as serialize] (/Users/isao/code/github/TobiiPro/minlo
+g/src/listeners/log-to-console.js:56:73)
+    at /Users/isao/code/github/TobiiPro/minlog/src/listeners/log-to-console.js:2
+02:9
+    at MinLog.listener [as log] (/Users/isao/code/github/TobiiPro/minlog/src/min
+log.js:142:13)
+    at apply (/Users/isao/code/github/TobiiPro/minlog/node_modules/lodash/lodash
+.js:478:17)
+    at MinLog.wrapper [as info] (/Users/isao/code/github/TobiiPro/minlog/node_mo
+dules/lodash/lodash.js:5323:16)
+    at Object.info (/Users/isao/code/github/TobiiPro/minlog/test.js:16:8)
+    at Module._compile (internal/modules/cjs/loader.js:721:30)
+    at Module._compile (/Users/isao/code/github/TobiiPro/minlog/node_modules/pir
+ates/lib/index.js:99:24)
+    at Module._extensions..js (internal/modules/cjs/loader.js:732:10)
+    at Object.newLoader [as .js] (/Users/isao/code/github/TobiiPro/minlog/node_m
+odules/pirates/lib/index.js:104:7)
+
+   [65]@IanSavchenko [66]IanSavchenko added the [67]question label [68]Mar
+   1, 2019
+   [69]@andreineculau
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[71]@andreineculau [72]andreineculau commented [73]Mar 1, 2019 •
+
+   edited
+
+   yes, because log-to-console listener is dependent on the time
+   serializer.
+   I don't see it particularly bad that listeners need some serializers to
+   work.
+
+   suggestions?
+   [74]@IanSavchenko
+
+This comment has been minimized.
+
+   [75]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[76]@IanSavchenko [77]IanSavchenko commented [78]Mar 2, 2019
+
+   Not to use moment at all and use default Date serializer without any
+   dependencies. Related to [79]#14
+   [80]@andreineculau
+
+This comment has been minimized.
+
+   [81]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[82]@andreineculau [83]andreineculau commented [84]Mar 2, 2019
+
+   that is unrelated. the "problem" is that the listener expects time to
+   be formatted (serialized) i.e. expected entry._time.stamp
+
+   changing by what it is serialized (moment or date) is irrelevant.
+   [85]@andreineculau
+
+This comment has been minimized.
+
+   [86]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[87]@andreineculau [88]andreineculau commented [89]Mar 2, 2019
+
+   I pushed [90]075e51c - because that's how I was imagining the console
+   logger (but I forgot a 'true' argument when calling 'toISOString')
+
+   Related to [91]#14, I also introduced duration-handling with trackTime.
+   How do you suggest that to be solved, if we remove moment&similar and
+   go back to built-in Date? A. just don't B. find a replacement for human
+   durations C. ?
+   [92]@IanSavchenko
+
+This comment has been minimized.
+
+   [93]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[94]@IanSavchenko [95]IanSavchenko commented [96]Mar 4, 2019
+
+   Well, that's not immediately obvious at all.
+   [97]@IanSavchenko [98]IanSavchenko closed this [99]Mar 4, 2019

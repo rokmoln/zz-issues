@@ -1,0 +1,28 @@
+
+Should throw an intelligible error when HOOKS_MODULE and other env vars are
+missing #3
+
+   Closed
+   [57]IanSavchenko opened this issue Oct 5, 2018 · 0 comments
+   Closed
+
+[58]Should throw an intelligible error when HOOKS_MODULE and other env vars
+are missing #3
+
+   [59]IanSavchenko opened this issue Oct 5, 2018 · 0 comments
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Oct 5, 2018
+
+   Now fails badly with bluebird error.
+   [65]@IanSavchenko [66]IanSavchenko added the [67]bug label [68]Oct 5,
+   2018
+   [69]@IanSavchenko [70]IanSavchenko closed this in [71]6f38ecc [72]Oct
+   8, 2018

@@ -1,0 +1,83 @@
+
+sort keys when destructuring object #28
+
+   f/anu-sort-object-pattern
+
+   master f/anu-sort-object-pattern
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+   No description given.
+
+   [47]andreineculau added some commits [48]about 1 year ago
+   [49]@andreineculau [50]bring in vanilla sort-object-pattern
+   [51]@andreineculau [52]new: sort-object-pattern that handles
+   ObjectPattern. [53]fix [54]#23
+   [55]@andreineculau [56]breaking: sort-object-pattern
+
+   andreineculau added the [57]enhancement label [58]about 1 year ago
+
+   andreineculau self-assigned this [59]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [60]about 1 year ago
+
+   @IanSavchenko
+   [61]IanSavchenko approved these changes [62]about 1 year ago
+
+   Didn't look at the rule, too much code. We'll see if how it works in
+   life.
+   [63]Makefile
+   @@ -20,11 +20,13 @@ SF_ECLINT_FILES_IGNORE := \
+   -e "^rules/no-for\.js$$" \
+   -e "^rules/object-curly-newline\.js$$" \
+   -e "^rules/order-imports\.js$$" \
+   -e "^rules/sort-object-pattern\.js$$" \
+   [64]@IanSavchenko [65]IanSavchenko • [66]about 1 year ago
+   Copy link
+
+   Kind of don't like this practice. Anything smarter we can do? Maybe
+   just put these rules in a folder from-eslint or eslint-official?
+   [67]@andreineculau [68]andreineculau • [69]about 1 year ago
+   Copy link
+
+   we can make a deal to discuss this after 2 more imported rules ;) why
+   2? because i somehow think it's not going to happen :) 1 more imported
+   rule, maybe maybe maybe, 2 more, never :p
+
+   what would be nice was editorconfig supporting inlined config /*
+   editorconfig-disable */
+
+   Copy link
+   @andreineculau
+   [70]andreineculau commented [71]about 1 year ago • edited about 1 year
+   ago
+
+     Didn't look at the rule, too much code
+
+   Well, the imported rule sort-keys was only working on
+   ObjectExpressions. I made it work only on ObjectPatterns. Thus a tiny
+   diff [72]7ab1e02
+
+   Copy link
+   @andreineculau
+   [73]andreineculau
+   commented [74]about 1 year ago
+
+   The major downside with this rule is that it doesn't come with a fixer.
+   The original sort-keys doesn't have one, because people abuse the
+   ability to order keys in objects, thus a fixer may mess that up 🤷‍♂️
+
+   andreineculau referenced this pull request from commit [75]d481792
+   [76]about 1 year ago
+
+   andreineculau merged commit d481792 into master [77]about 1 year ago
+
+   andreineculau referenced this pull request from commit [78]d361083
+   [79]about 1 year ago
+
+   andreineculau deleted the f/anu-sort-object-pattern branch [80]about 1
+   month ago
+

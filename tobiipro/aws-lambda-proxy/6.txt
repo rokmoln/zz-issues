@@ -1,0 +1,61 @@
+
+revamp aws-lambda-proxy #6
+
+   Open
+   [57]andreineculau opened this issue Feb 7, 2020 · 0 comments
+   Open
+
+[58]revamp aws-lambda-proxy #6
+
+   [59]andreineculau opened this issue Feb 7, 2020 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Feb 7, 2020 •
+
+   edited
+
+   to be http-agnostic and allow debugging any lambda triggered by any
+   service
+
+   gist of v1 UX:
+$ aws-lambda-proxy \
+  --function-name <value> \
+  --ip <value> \
+  --port <value> \
+  [--listen | --no-listen]
+
+$ cd path/to/aws/lambda/code
+$ aws-lambda-proxy-listen \
+  --runtime <value> \
+  --ip <value> \
+  --port <value> \
+
+
+   at this point all calls to your lambda inside the AWS walls will proxy
+   everythint (event, context, process.env, smth else?) to your local
+   server started by aws-lambda-proxy-listen that will call the main
+   function on each request
+
+   v1 can be as simple as that, supporting nodejs only. future versions
+   could
+     * integrate with ngrok, in order to bypass NATs
+     * implement a unique auth token so that the local server cannot be
+       called without it
+     * assume lambda roles, in order to simulate even closer the lambda
+       runtime constraints
+     * ?
+
+   // cc [65]@tobiiasl
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Feb 7, 2020
+   [70]@andreineculau [71]andreineculau added this to To do in [72]Public
+   (Open Source) via automation [73]Feb 7, 2020
+   [74]@ankitmth [75]ankitmth removed this from To do in [76]Public (Open
+   Source) [77]Feb 19, 2020

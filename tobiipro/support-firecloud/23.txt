@@ -1,0 +1,80 @@
+
+Fixed problem with DEPS: unbound variable #23
+
+   tob-master
+
+   master tob-master
+   @tobiiasl
+   [45]tobiiasl opened this pull request
+   almost 2 years ago
+
+   Problem:
+   ~/gs-client$ make node_modules_private
+   make: Entering directory
+   '/Users/tobiaslindgren/git/firecloud/gs-client'
+   bash: DEPS: unbound variable
+   make: *** [support-firecloud/repo/mk/js.deps.private.mk:49:
+   node_modules_private] Error 1
+   👍 1
+   andreineculau reacted with thumbs up emoji
+
+   [46]tobiiasl added a commit [47]almost 2 years ago
+   [48]@tobiiasl [49]Fixed problem with DEPS: unbound variable
+
+   tobiiasl requested a review from andreineculau [50]almost 2 years ago
+
+   tobiiasl requested a review from IanSavchenko [51]almost 2 years ago
+
+   @andreineculau
+   [52]andreineculau requested changes [53]almost 2 years ago
+   (BUTTON) Show outdated (BUTTON) Hide outdated
+   [54]repo/mk/js.deps.private.mk
+   @@ -49,6 +49,7 @@ node_modules_private: ## Refresh node_modules_private
+   folder.
+   DEP_VSN=`$(CAT) "package.json" | $(JSON) "privateDependencies
+   $${DEP_NAME}"`; \
+   DEPS="$${DEPS} $${DEP_NAME}@$${DEP_VSN}"; \
+   done; \
+   $(RM) node_modules_private/etc || true
+   $(RM) node_modules_private/lib || true
+   $(NPM) install --prefix node_modules_private --global $${DEPS}
+   $(RM) node_modules_private/etc || true; \
+   $(RM) node_modules_private/lib || true; \
+   $(NPM) install --prefix node_modules_private --global $${DEPS} \
+   [55]@andreineculau [56]andreineculau • [57]almost 2 years ago
+   Copy link
+
+   i only now saw the PR - just like I told you on slack, keep the
+   trailing slashes only for line 52 and 53, nothing else
+
+   [58]tobiiasl added a commit [59]almost 2 years ago
+   [60]@tobiiasl [61]Removed superfluous trailing backslashes
+
+   @andreineculau
+   [62]andreineculau reviewed [63]almost 2 years ago
+   [64]repo/mk/js.deps.private.mk
+   ((8 lines not shown))
+   $(NPM) install --prefix node_modules_private --global $${DEPS}
+   [65]@andreineculau [66]andreineculau • [67]almost 2 years ago
+   Copy link
+
+   this is also unnecessary, but I'll take it as is
+   see [68]20b94df
+
+   @andreineculau
+   [69]andreineculau approved these changes [70]almost 2 years ago
+
+   andreineculau referenced this pull request from commit [71]3b4970d
+   [72]almost 2 years ago
+
+   andreineculau merged commit 3b4970d into master [73]almost 2 years ago
+
+   Copy link
+   @andreineculau
+   [74]andreineculau
+   commented [75]almost 2 years ago
+
+   Thanks! 🎉
+
+   andreineculau deleted the tob-master branch [76]almost 2 years ago
+

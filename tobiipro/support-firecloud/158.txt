@@ -1,0 +1,44 @@
+
+git warning around --preserve-merges #158
+
+   Closed
+   [57]andreineculau opened this issue Feb 18, 2020 · 0 comments
+   Closed
+
+[58]git warning around --preserve-merges #158
+
+   [59]andreineculau opened this issue Feb 18, 2020 · 0 comments
+   Labels
+   [60]enhancement
+   Projects
+   [61]Public (Open Source)
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Feb 18, 2020 •
+
+   edited
+
+   see
+   [66]https://github.com/git/git/blob/v2.21.0/Documentation/RelNotes/2.18
+   .0.txt#L98-L99
+
+   git 2.18 deprecated the --preserve-merges flag in favour of
+   --rebase-merges
+   and some of us see warnings when git rebase/pull
+
+   maybe use the new flag in generic/dot.gitconfig
+
+   // cc [67]@tobiiasl
+   [68]@andreineculau [69]andreineculau added the [70]enhancement label
+   [71]Feb 18, 2020
+   [72]@andreineculau [73]andreineculau added this to To do in [74]Public
+   (Open Source) via automation [75]Feb 19, 2020
+   [76]@andreineculau [77]andreineculau closed this in [78]707256f [79]Feb
+   26, 2020
+   [80]Public (Open Source) automation moved this from To do to Done
+   [81]Feb 26, 2020

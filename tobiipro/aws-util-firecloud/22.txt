@@ -1,0 +1,33 @@
+
+F/anu better inspect #22
+
+   f/anu-better-inspect
+
+   master f/anu-better-inspect
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   a bit of refactoring and adding cpu-usage
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   [49]andreineculau added a commit [50]about 1 year ago
+   [51]@andreineculau [52]refactor inspect
+
+   andreineculau force pushed changes to this branch [53]about 1 year ago
+
+   andreineculau referenced this pull request from commit [54]3f27e67
+   [55]about 1 year ago
+
+   andreineculau merged commit 3f27e67 into master [56]about 1 year ago
+
+   andreineculau deleted the f/anu-better-inspect branch [57]about 1 month
+   ago
+

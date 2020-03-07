@@ -1,0 +1,58 @@
+
+load mixins inside preval, or else tools like webpack need hints to b… #16
+
+   f/anu-webpack-fix
+
+   master f/anu-webpack-fix
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]bug
+
+   …undle the mixin modules
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   this is one way to solve it (I tested manually)
+
+   another way would be to use magic comments like webpackInclude,
+   or to make sure to use a template literal in the require calls e.g.
+   require(module) would not work, but
+   require(\../some/path/${someModule}`)would actually make webpack bundle
+   all the files under../some/path/`
+
+   both of the alternatives felt flimsy and webpack specific
+
+   [47]andreineculau added a commit [48]about 1 year ago
+   [49]@andreineculau [50]load mixins inside preval, or else tools like
+   webpack need hints to b…
+
+   andreineculau added the [51]bug label [52]about 1 year ago
+
+   andreineculau self-assigned this [53]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [54]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [55]andreineculau
+   commented [56]about 1 year ago
+
+   another alternative: remove preval, and go back to how things were
+   another alternative: remove preval, just generate lib/mixins/index.js
+   via make&bash with explicit require statements
+
+   @IanSavchenko
+   [57]IanSavchenko approved these changes [58]about 1 year ago
+
+   IanSavchenko referenced this pull request from commit [59]203412c
+   [60]about 1 year ago
+
+   IanSavchenko merged commit 203412c into master [61]about 1 year ago
+
+   andreineculau deleted the f/anu-webpack-fix branch [62]about 1 month
+   ago
+

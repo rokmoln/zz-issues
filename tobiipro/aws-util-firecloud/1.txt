@@ -1,0 +1,151 @@
+
+[ATEX-283] add test for firehose.putRecords #1
+
+   atex-283
+
+   master atex-283
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 2 years ago
+
+   A few basic tests primarily directed at [46]Firehose limitations.
+
+   andreineculau requested a review from IanSavchenko [47]about 2 years
+   ago
+
+   andreineculau force pushed changes to this branch [48]about 2 years ago
+
+   andreineculau force pushed changes to this branch [49]about 2 years ago
+
+   [50]andreineculau added a commit [51]about 2 years ago
+   [52]@andreineculau [53][ATEX-283] add test for firehose.putRecords
+
+   andreineculau force pushed changes to this branch [54]about 2 years ago
+
+   [55]andreineculau added some commits [56]about 2 years ago
+   [57]@andreineculau [58]group firehose limits
+   [59]@andreineculau [60]style
+
+   @IanSavchenko
+   [61]IanSavchenko reviewed [62]about 2 years ago
+   [63]test/firehose.test.js
+   ((8 lines not shown))
+   };
+   // + 1 for the new line character
+   let byteSizeOverhead = Buffer.byteLength(JSON.stringify({content: ''}))
+   + 1;
+   describe('firehose', function() {
+   describe('putRecords', function() {
+   test('should call _putRecordBatches', async function() {
+   let byteSize = 25 - byteSizeOverhead;
+   let records = _.times(1, function() {
+   return {
+   content: generate({byteSize})
+   };
+   });
+   let spy = jest.spyOn(firehose, '_putRecordBatches')
+   [64]@IanSavchenko [65]IanSavchenko • [66]about 2 years ago • edited
+   about 2 years ago
+   Copy link
+
+   This should work, of course, but I don't think you are supposed to
+   write unit tests based on "private" members invocations or
+   implementation details. Why not spy on aws-sdk methods? It's amazon
+   limits we are trying not to break, not ours.
+   [67]@andreineculau [68]andreineculau • [69]about 2 years ago
+   Copy link
+
+     I don't think you are supposed to write unit tests based on
+     "private"
+
+   What are you saying here? That you are of the strong opinion that
+   private functions should not be unit tested, or that you've read/heard
+   that you're not supposed to do that? The former I'm interested in
+   pursuing, the latter 🤷‍♂ 😉
+
+   Indirect testing has a conceptual flaw in the context of unit testing,
+   in that the black box boundaries become subjectively defined. Example:
+   since I'm interested in whether the public interface works or not, then
+   why mock aws-sdk rather than using it as is? Because it's external
+   code? Because someone else should have tested that? Because it requires
+   external resources? Because its functionality is dependant on
+   hardware/runtime factors? And if _putRecordBatches becomes public, then
+   what? Ok or not ok to mock it to test putRecords? And if I'm using
+   lodash utils? Should I mock those or not?
+
+   In this specific case, I mocked _putRecordBatches because
+    1. it's an easier MVP (as in mocking aws-sdk will probably end up in
+       creating an module-level mock since there is more code in this repo
+       that has aws-sdk as exitpoint, and then each function has callback
+       signature by default, etc)
+    2. _putRecordBatches could easily become putRecordBatches 🎉
+
+     It's amazon limits we are trying not to break, not ours.
+
+   Incorrect imo. I'm testing that a function (the unit) does the right
+   thing given the expectation and the constraints. I could for instance
+   have the byteSize of a batch further limited based on available memory.
+   And for lets-be-reasonable reasons, I'm mocking anything that cannot
+   run locally e.g. if some call to aws-sdk would not be influenced by
+   environment or external calls (like getting a hardcoded list of known
+   aws regions), then I wouldn't mock it.
+   [70]@andreineculau [71]andreineculau • [72]about 2 years ago
+   Copy link
+
+     Indirect testing has a conceptual flaw in the context of unit
+     testing, in that the black box boundaries become subjectively
+     defined.
+
+   For clarity, my argument is that arguing about the boundaries of
+   indirect testing is void of essence. Not that there should be no
+   indirect testing (i.e. mock everything) - on the contrary.
+   [73]@IanSavchenko [74]IanSavchenko • [75]about 2 years ago
+   Copy link
+
+   Wow-wow-wow! Easier :)
+    1. It's my opinion regarding "private" methods unit testing. I don't
+       care how it works and should feel free to remove/rename/change
+       "private" methods as I want while side-effects and the output are
+       the same.
+    2. I don't see any problem with mocking aws-sdk at all, since you pass
+       'firehose' instance in the context.
+    3. Again: it does not matter how you call internal methods in the
+       module, there are no restrictions (almost). Only 2 things are
+       important: firehose.putRecordBatch() should not receive too big
+       data and the input (if it meets the limits) should be correct. How
+       these goals are met - does not matter.
+    4. Not saying you should mock anything at all. If you can track how
+       firehose sdk is invoked, don't mock it, just wrap/proxy/do-whatever
+       with it.
+
+   I don't want to argue, we have very different views on this and starts
+   to get deep into conceptual talks. So, I step away 🚪
+
+   Copy link
+   @IanSavchenko
+   [76]IanSavchenko
+   commented [77]about 2 years ago
+
+   Nice work! 👍
+
+   IanSavchenko closed this pull request [78]about 2 years ago
+
+   IanSavchenko reopened this pull request [79]about 2 years ago
+
+   Copy link
+   @IanSavchenko
+   [80]IanSavchenko
+   commented [81]about 2 years ago
+
+   Oh, go ahead merge it 👍
+
+   @IanSavchenko
+   [82]IanSavchenko approved these changes [83]about 2 years ago
+
+   andreineculau referenced this pull request from commit [84]a3dbd8e
+   [85]about 2 years ago
+
+   andreineculau merged commit a3dbd8e into master [86]about 2 years ago
+
+   andreineculau deleted the atex-283 branch [87]about 2 years ago
+

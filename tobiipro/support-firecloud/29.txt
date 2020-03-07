@@ -1,0 +1,57 @@
+
+consider homebrew even for linux #29
+
+   Closed
+   [57]andreineculau opened this issue Apr 16, 2018 · 1 comment
+   Closed
+
+[58]consider homebrew even for linux #29
+
+   [59]andreineculau opened this issue Apr 16, 2018 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Apr 16, 2018
+
+   installing packages in travis containers is only possible via
+   travis.yml and is limited to a whitelist, or else compile and make
+   locally.
+
+   I have asked them if there is some undocumented way of installing
+   packages on containers, so that we can still have a list of necessary
+   stuff in a script (great for reuse), but the answer was negative
+
+     Our addon to install packages runs as a Ruby function that iterates
+     on the selected packages (see the lines here, if you're curious) and
+     in this case we don't use a predefined bash function as we do in
+     other cases - such as, when installing the Artifacts addon, to put
+     an example.
+     Even if this bash function existed, running it would require having
+     sudo privileges, which are deactivated before the job starts the
+     stages where it runs the user commands from the configuration.
+
+   thus, maybe give [65]http://linuxbrew.sh a try. potentially the
+   bootstrap scripts are 99% the same for linux with no sudo rights
+   (travis container), linux with sudo rights and darwin
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Apr 16, 2018
+   [70]@andreineculau [71]andreineculau assigned [72]andreineculau and
+   unassigned [73]andreineculau [74]Apr 16, 2018
+   [75]@andreineculau
+
+This comment has been minimized.
+
+   [76]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[77]@andreineculau [78]andreineculau commented [79]Nov 30, 2018
+
+   fixed via [80]#51
+   [81]@andreineculau [82]andreineculau closed this [83]Nov 30, 2018

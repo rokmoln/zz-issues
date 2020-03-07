@@ -1,0 +1,41 @@
+
+support multiValueHeaders #5
+
+   Closed
+   [57]andreineculau opened this issue Feb 20, 2019 · 0 comments
+   Closed
+
+[58]support multiValueHeaders #5
+
+   [59]andreineculau opened this issue Feb 20, 2019 · 0 comments
+   Labels
+   [60]enhancement [61]wontfix
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Feb 20, 2019 •
+
+   edited
+
+   refs
+     * [66]https://aws.amazon.com/blogs/compute/support-for-multi-value-pa
+       rameters-in-amazon-api-gateway/
+     * [67]https://docs.aws.amazon.com/apigateway/latest/developerguide/se
+       t-up-lambda-proxy-integrations.html#apigateway-multivalue-headers-a
+       nd-parameters
+
+   [68]@andreineculau [69]andreineculau added the [70]enhancement label
+   [71]Feb 20, 2019
+   [72]@andreineculau [73]andreineculau added this to To do in [74]Public
+   (Open Source) via automation [75]May 20, 2019
+   [76]@andreineculau [77]andreineculau added the [78]wontfix label
+   [79]May 20, 2019
+   [80]@andreineculau [81]andreineculau closed this [82]May 20, 2019
+   [83]Public (Open Source) automation moved this from To do to Done
+   [84]May 20, 2019
+   [85]@ankitmth [86]ankitmth removed this from Done in [87]Public (Open
+   Source) [88]Feb 19, 2020

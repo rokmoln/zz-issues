@@ -1,0 +1,106 @@
+
+prepare for publish #1
+
+   publish
+
+   master publish
+   @andreineculau
+   [45]andreineculau opened this pull request over 2 years ago • edited
+   over 2 years ago
+     * [X] cleaned up references to internal
+       [46]https://github.com/tobiipro/minlog
+     * [X] moved roundRect into browser-coords
+     * [X] consolidated throttle function
+     * [X] consolidated static values into cfg
+     * [X] added some references
+     * [X] expand into a proper README.md
+     * [X] add note about getting page zoom (guessing or web extension)
+     * [X] add note about window.devicePixelRatio
+     * [X] clarify in readme how concepts link to variable names
+     * [X] clarify purpose
+     __________________________________________________________________
+
+   Off-topic: first github.com/tobiipro review request 🎉 🎈 💬 🤗
+
+   andreineculau requested a review from IanSavchenko [47]over 2 years ago
+
+   Copy link
+   @IanSavchenko
+   [48]IanSavchenko
+   commented [49]over 2 years ago
+
+   General question: is this module supposed to be a valid easy-to-use (or
+   semi-easy-to-use) NPM package as a result? Or it's just an open-sourced
+   part of atex?
+
+   Copy link
+   @andreineculau
+   [50]andreineculau
+   commented [51]over 2 years ago
+
+   [52]@IanSavchenko I don't follow entirely, but it's definitely not the
+   latter :) (the latter just cannot be :D )
+
+   Copy link
+   @andreineculau
+   [53]andreineculau
+   commented [54]over 2 years ago
+
+   alright, I have checked all the checkboxes that I created, so now it's
+   100% up to your feedback to do more/change [55]@IanSavchenko
+
+   @IanSavchenko
+   [56]IanSavchenko reviewed [57]over 2 years ago
+   [58]README.md
+   ((87 lines not shown))
+   `actualDevicePixelRatio * displayZoom * pageZoom`.
+   ## Page zoom
+   One of them is the page zoom that the user sets via the browser.
+   It is close to impossible to get the page zoom from within the web
+   page,
+   but [priv/guess-zoom.js](priv/guess-zoom.js) is a proof of concept to
+   guess it.
+   The only way to get the real value is via a WebExtension
+   and the
+   [tabs.getZoom()](https://developer.mozilla.org/en-US/Add-ons/WebExtensi
+   ons/API/tabs/getZoom) API.
+   If you are on OSX, that might be enough, but if you're on Windows, read
+   on.
+   ## Display zoom and actual device pixel ratio
+   [59]@IanSavchenko [60]IanSavchenko • [61]over 2 years ago
+   Copy link
+
+   Can mention here that "Display zoom" is what is in code
+   "screen.osZoomFactor"
+
+   @IanSavchenko
+   [62]IanSavchenko approved these changes [63]over 2 years ago
+
+   A bit messy now, but we can have another iteration after integrating it
+   back into main code.
+
+   Copy link
+   @IanSavchenko
+   [64]IanSavchenko
+   commented [65]over 2 years ago
+
+   Also would be good to mention in README that main purpose of the module
+   is to know coordinates of browser window and client area in device
+   pixels.
+
+   IanSavchenko closed this pull request [66]over 2 years ago
+
+   IanSavchenko reopened this pull request [67]over 2 years ago
+
+   [68]andreineculau added a commit [69]over 2 years ago
+   [70]@andreineculau [71]publish
+
+   andreineculau force pushed changes to this branch [72]over 2 years ago
+
+   andreineculau referenced this pull request from commit [73]eb4cfcb
+   [74]over 2 years ago
+
+   andreineculau merged commit eb4cfcb into master [75]over 2 years ago
+
+   andreineculau deleted the publish branch [76]over 1 year ago
+

@@ -1,0 +1,56 @@
+
+investigate why rsync is v2 after homebrew install #70
+
+   Closed
+   [57]andreineculau opened this issue Jan 9, 2019 · 1 comment
+   Closed
+
+[58]investigate why rsync is v2 after homebrew install #70
+
+   [59]andreineculau opened this issue Jan 9, 2019 · 1 comment
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Jan 9, 2019
+
+   revert [65]163e267
+   [66]@andreineculau [67]andreineculau added the [68]bug label [69]Jan 9,
+   2019
+   [70]@andreineculau
+
+This comment has been minimized.
+
+   [71]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[72]@andreineculau [73]andreineculau commented [74]Jan 16, 2019 •
+
+   edited
+
+   not able to reproduce anymore. closed via [75]06e953d
+   [76]@andreineculau [77]andreineculau closed this [78]Jan 16, 2019
+   [79]andreineculau added a commit that referenced this issue [80]Jan 16,
+   2019
+   [81]@andreineculau
+   [82]clear bash hash table after brew_install. [83]fix [84]#70
+   Verified
+   This commit was signed with a verified signature.
+   [85]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [86]Learn about signing commits
+   [87]8273dd5
+   [88]andreineculau added a commit that referenced this issue [89]Jan 16,
+   2019
+   [90]@andreineculau
+   [91]clear bash hash table after bootstrap. ref [92]#70
+   Verified
+   This commit was signed with a verified signature.
+   [93]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [94]Learn about signing commits
+   [95]308106e

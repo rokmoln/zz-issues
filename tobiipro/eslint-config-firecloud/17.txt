@@ -1,0 +1,82 @@
+
+add firecloud/no-for, deprecate better/no-fors fp/no-loops #17
+
+   f/anu-no-for
+
+   master f/anu-no-for
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+   No description given.
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [49]about 1 year ago
+
+   andreineculau force pushed changes to this branch [50]about 1 year ago
+
+   [51]andreineculau added a commit [52]about 1 year ago
+   [53]@andreineculau [54]add firecloud/no-for, deprecate better/no-fors
+   fp/no-loops
+
+   andreineculau force pushed changes to this branch [55]about 1 year ago
+
+   @IanSavchenko
+   [56]IanSavchenko approved these changes [57]about 1 year ago
+
+   Feels like Christmas is coming! Can we have our advent calendar of
+   disabled linter rules? 😆
+   I want no-plusplus and operator-assignment 🙏
+   (BUTTON) Show outdated (BUTTON) Hide outdated [58]configs/better.js
+   @@ -8,7 +8,7 @@ module.exports = {
+   'better/no-deletes': 'off',
+   'better/no-exceptions': 'off',
+   'better/no-exports': 'off',
+   'better/no-fors': 'error',
+   'better/no-fors': 'off',
+   [59]@IanSavchenko [60]IanSavchenko • [61]about 1 year ago
+   Copy link
+
+   there is also better/no-whiles down there. Should it stay?
+
+   I also see that only rule that stays from better plugin is
+   better/no-nulls. Unfortunately, can't see anything like that in the
+   main ESLint ruleset.
+   ❤️ 1
+   andreineculau reacted with heart emoji
+   [62]@andreineculau [63]andreineculau • [64]about 1 year ago
+   Copy link
+
+   nice one 👏
+
+   there's a plugin just for that no-null with rule no-null/no-null, so
+   I'm removing "better". The only annoyance in removing it is that it
+   "has" to be removed manually from all the repos with a "package.json"
+   that references "eslint-plugin-firecloud"
+
+   [65]andreineculau added a commit [66]about 1 year ago
+   [67]@andreineculau [68]remove eslint-plugin-better
+
+   Copy link
+   @andreineculau
+   [69]andreineculau
+   commented [70]about 1 year ago
+
+     I want no-plusplus and operator-assignment 🙏
+
+   next year 😉
+   maybe 😉
+   the good thing is that those rules have a fixer 😄
+   😕 1
+   IanSavchenko reacted with confused emoji
+
+   andreineculau referenced this pull request from commit [71]e2f4d41
+   [72]about 1 year ago
+
+   andreineculau merged commit e2f4d41 into master [73]about 1 year ago
+
+   andreineculau deleted the f/anu-no-for branch [74]about 1 year ago
+

@@ -1,0 +1,421 @@
+
+Document the bootstrapping of a new developer macbook #43
+
+   TFC-3061--documenting-new-developer-bootstrap
+
+   master TFC-3061--documenting-new-developer-bootstrap
+   @jobackman
+   [45]jobackman opened this pull request
+   over 1 year ago
+
+   Some documentation of recent bootstrapping of a new developer.
+
+   Was suggested I put the documentation here, see comment below:
+   [46]tobiipro/gs-client#30 (comment)
+
+   @andreineculau
+   [47]andreineculau requested changes [48]over 1 year ago
+
+   👏 Thanks for contribution, Johan! Looking forward to meet you IRL
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [49]...strap-a-new-developer-macbook.md
+   @@ -0,0 +1,41 @@
+   # Bootstrapping a new developer's Macbook
+   # Ensure you have admin rights
+   [50]@andreineculau [51]andreineculau • [52]over 1 year ago
+   Copy link
+
+   This section belongs in
+   [53]https://github.com/tobiipro/support-firecloud/blob/master/doc/boots
+   trap.md#system
+
+   You should also mention how you can check if you have admin=sudo rights
+   e.g. by running sudo -v in the terminal, but since this is a command
+   that can be automated, it can just go in the dev/X/bootstrap scripts
+   and print a nice error message when the user doesn't have sudo rights.
+   And then there is less to read (contacting IT should be part of the
+   error as a possible resolution).
+   [54]@jobackman [55]jobackman • [56]over 1 year ago
+   Copy link
+
+   Running sudo -v would prompt a password, right? Wouldn't that affect
+   the remaining shell session and how all the remaining bootstrapping is
+   installed? Or does that only occur when prefixing each install command
+   with sudo i.e. sudo brew install ....?
+
+   I'm don't have a lot of bash experience here, so correct me if I'm
+   wrong, but I've heard it said before that needlessly installing thing
+   with sudo would come to haunt you down the line. So when you're
+   installing other things later which might depend on your previous
+   installs that are now sudo installed, these new will also need sudo
+   [57]@andreineculau [58]andreineculau • [59]over 1 year ago
+   Copy link
+
+   Great that you ask 😉 but no, it doesn't elevate the permissions for the
+   rest of the commands. What it does is that it asks for the password
+   upfront, and then the following sudo foo commands will not get stuck
+   asking for the password, given that the commands run within a certain
+   time period as the manpage says. That's the only read change.
+
+   From man sudo:
+       -v, --validate
+                   Update the user's cached credentials, authenticating the user
+                   if necessary.  For the sudoers plugin, this extends the sudo
+                   timeout for another 5 minutes by default, but does not run a
+                   command.  Not all security policies support cached
+                   credentials.
+
+   PS: this is a great way of doing an autopsy on a computer, because you
+   can immediately type sudo -v and then ask the owner to type in his
+   password (if they trust you :) ). From there on, if needed, you can run
+   sudo commands without running around after the owner, or even worse
+   calling them and asking for them to tell you the password 🤦‍♂️
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [60]...strap-a-new-developer-macbook.md
+   @@ -0,0 +1,41 @@
+   # Bootstrapping a new developer's Macbook
+   # Ensure you have admin rights
+   Begin with making sure you have priviledges to install new applications
+   at all. You should have it but your machine could have been set up
+   wrongly. If so contact IT and they'll help out.
+   # Generate a Github Personal Access Token for the new laptop
+   [61]@andreineculau [62]andreineculau • [63]over 1 year ago
+   Copy link
+
+   This is not really needed. The preferred way (for us) is to clone via
+   SSH, not HTTPS although I see github changed their recommendation and
+   chose HTTPS (I wonder if it's for higher acceptance among non-tech
+   users)
+   [64]https://help.github.com/articles/which-remote-url-should-i-use/ .
+
+   Anyway, we use SSH, meaning we reference the SSH url in submodules and
+   in READMEs. So even if you start with tokens and HTTPS, you also need
+   to set up your SSH key... double the work, no advantage.
+
+   How-to regarding the github SSH key could go in a new section in
+   [65]https://github.com/tobiipro/support-firecloud/blob/master/doc/boots
+   trap.md, above the git one.
+
+   You are free to mention the internal git server git.tobii.intra , but
+   there's a fine line that can be crossed with more info than that - we
+   have the support-firecloud repo as public, with the mindset that we
+   have github as our development environment, while the internal git
+   server is deprecated and used in exceptional cases only. So while you
+   had to it (as you're working with repos not yet moved to github), it
+   should be a temporary situation, and simply mentioning the git server
+   without how to setup the SSH key for git.tobii.intra is a bit redundant
+   - you will still need to ask someone for more info.
+
+   In short, new github section for setting up SSH and anything else
+   regarding to github in the bootstrap.md file, and no mention of
+   git.tobii.intra is my feedback.
+   👍 1
+   jobackman reacted with thumbs up emoji
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [66]...strap-a-new-developer-macbook.md
+   ((3 lines not shown))
+   # Ensure you have admin rights
+   Begin with making sure you have priviledges to install new applications
+   at all. You should have it but your machine could have been set up
+   wrongly. If so contact IT and they'll help out.
+   # Generate a Github Personal Access Token for the new laptop
+   In order to not need to enter username and password each time you poke
+   your repository's origin you need to generate a Github Personal Access
+   Token for your computer with repository rights
+   - [Generate a new
+   token](https://help.github.com/articles/creating-a-personal-access-toke
+   n-for-the-command-line/)
+   - When git prompts you for info during a commit/fetch/pull/push, enter
+   your new _personal access token_ as _password_.
+   # Generate an SSH Key & add it to your Github
+   Office internal git repos are accessed only via SSH so you need to set
+   up your SSH key
+   - [Generate a new SSH Key and Add it to the
+   ssh-agent](https://help.github.com/enterprise/2.15/user/articles/genera
+   ting-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+   - [Add the new SSH key to your Github
+   account](https://help.github.com/enterprise/2.15/user/articles/adding-a
+   -new-ssh-key-to-your-github-account/)
+   # Required bootstrapping steps in
+   [support-firecloud](https://github.com/tobiipro/support-firecloud)
+   [67]@andreineculau [68]andreineculau • [69]over 1 year ago
+   Copy link
+
+   maybe you can clarify instead in
+   [70]https://github.com/tobiipro/support-firecloud/blob/master/README.md
+   what the development section is meant for (it is meant just for that -
+   to get you going for local development :) ) and then
+     * mark AWS-CLI as optional
+     * move "working with a local npm dependency" into the work section
+     * add a link to
+       [71]https://github.com/tobiipro/support-firecloud/blob/master/doc/b
+       ootstrap-gpg.md in the development section, even if it exists in
+       the work section. Bootstrapping gpg is optional btw, depends on
+       what you do in a repo with secrets, and obviously if it has any
+       secrets at all. So your experience of needing it is purely
+       contextual - others will not need to do it.
+
+   [72]@jobackman [73]jobackman • [74]over 1 year ago
+   Copy link
+
+   Sounds good 👍
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [75]...strap-a-new-developer-macbook.md
+   ((10 lines not shown))
+   - When git prompts you for info during a commit/fetch/pull/push, enter
+   your new _personal access token_ as _password_.
+   # Generate an SSH Key & add it to your Github
+   Office internal git repos are accessed only via SSH so you need to set
+   up your SSH key
+   - [Generate a new SSH Key and Add it to the
+   ssh-agent](https://help.github.com/enterprise/2.15/user/articles/genera
+   ting-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+   - [Add the new SSH key to your Github
+   account](https://help.github.com/enterprise/2.15/user/articles/adding-a
+   -new-ssh-key-to-your-github-account/)
+   # Required bootstrapping steps in
+   [support-firecloud](https://github.com/tobiipro/support-firecloud)
+   Not everything in the repo is required to get a machine going for local
+   development. Some are more informational for when new repositories &
+   projects are created.
+   What I was required to do in order to start developing on an existing
+   project was:
+   - Every step in
+   [bootstrap](https://github.com/tobiipro/support-firecloud/blob/master/d
+   oc/bootstrap.md)
+   - Depending on your editor [bootstrap your
+   editor](https://github.com/tobiipro/support-firecloud/blob/master/doc/b
+   ootstrap-your-editor.md)
+   - [boostrapping your GPG
+   signature](https://github.com/tobiipro/support-firecloud/blob/master/do
+   c/bootstrap-gpg.md)
+   # Finished!
+   [76]@andreineculau [77]andreineculau • [78]over 1 year ago
+   Copy link
+
+   anything beyond this line is redundant and should not be in
+   support-firecloud.
+     * working remotely - not part of development, but part of the work
+       environment (documented in confluence).
+     * nvm - not needed, the situations to use a specific node version
+       (i.e. downgrading to one, since we try to run latest and greatest
+       usually) are rare, and in those situations we should be fine with
+       doing the switch via homebrew
+     * rvm - also not needed, we don't even have a ruby dependency afaik
+
+   It's commendable that you know about nvm and rvm, but similarly there
+   are a gazillions of tips (setting up the command line prompt with bash
+   execution codes and git status comes to mind) that are not essential to
+   development. People still need to know how to search online, talk to
+   others, observe what others do differently and get inspiration etc. We
+   cannot and we should not cover all of that through a wall of text and
+   needing to maintain it.
+   👍 1
+   jobackman reacted with thumbs up emoji
+   [79]@jobackman [80]jobackman • [81]over 1 year ago
+   Copy link
+
+   You're right, it got a bit too personal to my own tastes! 👍
+
+   jobackman self-assigned this [82]over 1 year ago
+
+   jobackman removed their assignment [83]over 1 year ago
+
+   andreineculau force pushed changes to the base branch [84]over 1 year
+   ago
+
+   Copy link
+   @andreineculau
+   [85]andreineculau
+   commented [86]over 1 year ago
+
+   poke [87]@jobackman
+   Status?
+
+   Copy link
+   @jobackman
+   [88]jobackman
+   commented [89]over 1 year ago
+
+   Right sorry, I was thinking about how to make error prints in the
+   bootstrap file if the sudo -v fails, aaand then I got distracted and
+   the PR slipped my mind for a couple weeks! 😨
+
+   I'll look into the sudo -v thing later today (having intro days atm),
+   but as far as I remember I fixed all the other points you made at least
+   👍
+   ❤️ 1
+   andreineculau reacted with heart emoji
+
+   Copy link
+   @andreineculau
+   [90]andreineculau commented [91]over 1 year ago • edited over 1 year
+   ago
+
+     how to make error prints
+
+sudo -v || {
+  >&2 echo "[ERR ] We know the Earth is flat, but you just want to trick us"
+  exit 1
+}
+
+   ref: [92]https://en.wikipedia.org/wiki/Modern_flat_Earth_societies
+   😄 1
+   jobackman reacted with laugh emoji
+
+   @andreineculau
+   [93]andreineculau approved these changes [94]over 1 year ago
+
+   👏
+   two things though:
+    1. travis failed the PR as you see, and it's because of improper
+       indentation (2 instead of 4 spaces in shell scripts). But this
+       would mean that maybe you edited this in an editor that was not
+       bootstrapped to support editorconfig --- see
+       [95]https://github.com/tobiipro/support-firecloud/blob/master/doc/b
+       ootstrap-your-editor.md
+    2. basically all branches (with some exceptions like master, etc)
+       should start with f/ --- see
+       [96]https://github.com/tobiipro/support-firecloud/blob/master/doc/w
+       orking-with-git.md#feature-branches . Otherwise this PR actually
+       ran travis twice (one time for the new branch, and one time for the
+       PR) and since the branch-based run failed, it also spammed the ci
+       slack channels
+
+   Once you fix the indentation, and Travis says 💚 , it's a go from me and
+   you can merge the pull request yourself 😉
+
+   Copy link
+   @jobackman
+   [97]jobackman
+   commented [98]over 1 year ago
+
+     ravis failed the PR as you see, and it's because of improper
+     indentation [...]
+
+   On it 👍
+
+     [...] But this would mean that maybe you edited this in an editor
+     that was not bootstrapped to support editorconfig
+
+   That is odd, I have gone through the editor bootstrapping and have
+   vscode setup to use editorconfig files, it does format in other
+   files/repos, but I can see that it isn't enforcing the indentation rule
+   to these files even when i inject a bunch of indentations 🤷‍♂️
+
+     basically all branches (with some exceptions like master, etc)
+     should start with f/ [...]
+
+   Is this something we do specifically for this repository or is it more
+   generally applied across the tobiipro repos? I haven't come across this
+   before
+
+   Copy link
+   @andreineculau
+   [99]andreineculau
+   commented [100]over 1 year ago
+
+     Is this something we do specifically for this repository or is it
+     more generally applied across the tobiipro repos? I haven't come
+     across this before
+
+   all repos basically. see gs-client for example
+   [101]https://github.com/tobiipro/gs-client/blob/master/.travis.yml#L26
+
+   PS: line lengths left to fix. in all our repos, you should be able to
+   do make; make check and you'll get the same complaints as on travis 😉
+
+   jobackman force pushed changes to this branch [102]over 1 year ago
+
+   Copy link
+   @andreineculau
+   [103]andreineculau
+   commented [104]over 1 year ago
+
+   I was going to say that regarding the travis failure
+   [105]https://travis-ci.org/tobiipro/support-firecloud/jobs/461823068#L8
+   9
+   you would want to see
+   [106]https://unix.stackexchange.com/questions/303771/prevent-sudo-from-
+   prompting-for-password-when-running-non-permitted-command
+
+   but then it hit me that this is a travis quirk
+   see [107]travis-ci/travis-ci#9608 (comment)
+
+   so try sudo true instead of sudo -v
+   🎉 1
+   jobackman reacted with hooray emoji
+
+   Copy link
+   @jobackman
+   [108]jobackman
+   commented [109]over 1 year ago
+
+   I fixed the merge conflict. Thanks for all the bash/travis help
+   [110]@andreineculau 🙌
+
+   Slowest PR ever am I right? 🤣
+
+   I'll merge if you still think it looks good 👍
+
+   Copy link
+   @andreineculau
+   [111]andreineculau
+   commented [112]over 1 year ago
+
+   can you rebase your branch on top of origin/master first? or maybe even
+   squash/fix the commits?
+   at least commits like "Merge branch 'master' into
+   TFC-3061--documenting-new-developer-bootstrap" should not be in PRs,
+   and they should not be in your regular workflow either
+
+   PS: I can make it even slower 😈
+
+   [113]jobackman added some commits [114]over 1 year ago
+   [115]@jobackman [116]Document the bootstrapping of a new developer
+   macbook
+           [117]@jobackman [118]Clarify existing documentation instead
+           [119]@jobackman [120]Include a sudo check for darwin bootstrap
+           [121]@jobackman [122]Proper indentation
+
+   jobackman force pushed changes to this branch [123]over 1 year ago
+
+   Copy link
+   @jobackman
+   [124]jobackman
+   commented [125]over 1 year ago
+
+     PS: I can make it even slower 😈
+
+   Haha, I bet!
+
+   The branch is rebased, is a Squash & merge from the PR UI good enough?
+
+   [126]screen shot 2018-12-03 at 14 35 36
+
+   Copy link
+   @andreineculau
+   [127]andreineculau
+   commented [128]over 1 year ago
+   Yes! I forget about those options /terminal-guy
+   [129]…
+   -- Andrei Neculau Software Developer @ Tobii Pro (Cloud Services) 3
+   dec. 2018 kl. 14:40 skrev Johan Bäckman
+   <notifications@github.com<mailto:notifications@github.com>>: PS: I can
+   make it even slower 😈 Haha, I bet! The branch is rebased, is a Squash &
+   merge from the PR UI good enough? [screen shot 2018-12-03 at 14 35
+   36]<[130]https://user-images.githubusercontent.com/732505/49376878-fc54
+   9200-f708-11e8-85a7-489049db0e60.png> — You are receiving this because
+   you were mentioned. Reply to this email directly, view it on
+   GitHub<[131]#43 (comment)>, or mute the
+   thread<[132]https://github.com/notifications/unsubscribe-auth/AArOQSBmj
+   0HMvTgVfIlaI_JhqUlecDjFks5u1SnngaJpZM4YWV-w>.
+
+   jobackman referenced this pull request from commit [133]d0c7076
+   [134]over 1 year ago
+
+   jobackman merged commit d0c7076 into master [135]over 1 year ago
+
+   andreineculau deleted the TFC-3061--documenting-new-developer-bootstrap
+   branch [136]about 1 year ago
+

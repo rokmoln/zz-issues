@@ -1,0 +1,38 @@
+
+Consider a possibility of removing 'lodash' dependency #1
+
+   Closed
+   [57]IanSavchenko opened this issue Feb 23, 2018 · 1 comment
+   Closed
+
+[58]Consider a possibility of removing 'lodash' dependency #1
+
+   [59]IanSavchenko opened this issue Feb 23, 2018 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Feb 23, 2018
+
+   Right now we use it for several rules, but it would be nice to remove
+   it.
+   [65]@IanSavchenko [66]IanSavchenko added the [67]enhancement label
+   [68]Feb 23, 2018
+   [69]@andreineculau
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[71]@andreineculau [72]andreineculau commented [73]Dec 3, 2018
+
+   still want to do this [74]@IanSavchenko ? as in badly? i would leave it
+   as is
+   [75]@IanSavchenko [76]IanSavchenko closed this [77]Dec 3, 2018

@@ -1,0 +1,59 @@
+
+investigate using @babel/preset-env@7.4 #14
+
+   Closed
+   [57]andreineculau opened this issue Mar 20, 2019 · 1 comment
+   Closed
+
+[58]investigate using @babel/preset-env@7.4 #14
+
+   [59]andreineculau opened this issue Mar 20, 2019 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 20, 2019
+
+   test by building schemata-firecloud, which with @babel/preset-env@7.4.1
+   fails with
+09:32:23 [INFO] Generating dts/atex-beacon-in-view-event-v1-json.d.ts...
+error SyntaxError: Unexpected token W in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at /Users/andrei/git/firecloud/schemata-firecloud/node_modules/json-schema-t
+o-typescript/dist/src/cli.js:70:33
+    at step (/Users/andrei/git/firecloud/schemata-firecloud/node_modules/json-sc
+hema-to-typescript/dist/src/cli.js:33:23)
+    at Object.next (/Users/andrei/git/firecloud/schemata-firecloud/node_modules/
+json-schema-to-typescript/dist/src/cli.js:14:53)
+    at fulfilled (/Users/andrei/git/firecloud/schemata-firecloud/node_modules/js
+on-schema-to-typescript/dist/src/cli.js:5:58)
+
+   [65]@andreineculau [66]andreineculau added the [67]enhancement label
+   [68]Mar 20, 2019
+   [69]@andreineculau
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[71]@andreineculau [72]andreineculau commented [73]May 14, 2019
+
+   upstream issue: [74]babel/babel#9977
+   [75]@andreineculau [76]andreineculau closed this in [77]015e752 [78]May
+   14, 2019
+   [79]andreineculau added a commit that referenced this issue [80]May 14,
+   2019
+   [81]@andreineculau
+   [82]fixup! specify corejs version to silence warning. [83]fixes [84]#14
+   Verified
+   This commit was signed with a verified signature.
+   [85]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [86]Learn about signing commits
+   [87]305b1a8

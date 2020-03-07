@@ -1,0 +1,51 @@
+
+notify slack on cfn drifts #115
+
+   drift-to-slack
+
+   master drift-to-slack
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]enhancement
+
+   Linked issues
+   [47]implement cloudformation drift checks
+     * Fixes: [48]#56
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   I believe this is as far as [49]#56 goes.
+
+   [50]andreineculau added a commit [51]10 months ago
+   [52]@andreineculau [53]notify slack on cfn drifts
+
+   andreineculau added the [54]enhancement label [55]10 months ago
+
+   andreineculau requested a review from IanSavchenko [56]10 months ago
+
+   andreineculau self-assigned this [57]10 months ago
+
+   IanSavchenko requested a review from tobiiasl [58]10 months ago
+
+   @IanSavchenko
+   [59]IanSavchenko approved these changes [60]10 months ago
+
+   Cool stuff.
+
+   Copy link
+   @andreineculau
+   [61]andreineculau
+   commented [62]10 months ago
+
+   cool indeed, but let's see if it also works 😉
+
+   andreineculau referenced this pull request from commit [63]a2b4ddc
+   [64]10 months ago
+
+   andreineculau merged commit a2b4ddc into master [65]10 months ago
+
+   andreineculau deleted the drift-to-slack branch [66]10 months ago
+

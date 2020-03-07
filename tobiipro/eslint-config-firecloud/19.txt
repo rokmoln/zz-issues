@@ -1,0 +1,90 @@
+
+npm-install-peer-dependencies changes package.json of the parent package #19
+
+   Closed
+   [57]IanSavchenko opened this issue Jan 9, 2019 · 0 comments · Fixed by
+   [58]#20
+   Closed
+
+[59]npm-install-peer-dependencies changes package.json of the parent package
+#19
+
+   [60]IanSavchenko opened this issue Jan 9, 2019 · 0 comments · Fixed by
+   [61]#20
+   Labels
+   [62]bug
+
+Comments
+
+   [63]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[64]@IanSavchenko [65]IanSavchenko commented [66]Jan 9, 2019
+
+   It changes peer dependency to the highest available matching version
+   [67]@IanSavchenko [68]IanSavchenko added the [69]bug label [70]Jan 9,
+   2019
+   [71]andreineculau added a commit that referenced this issue [72]Jan 9,
+   2019
+   [73]@andreineculau
+   [74]set the same semver-range when installing peer deps. [75]fix
+   [76]#19
+   Verified
+   This commit was signed with a verified signature.
+   [77]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [78]Learn about signing commits
+   [79]94d65b3
+   [80]andreineculau added a commit that referenced this issue [81]Jan 9,
+   2019
+   [82]@andreineculau
+   [83]set the same semver-range when installing peer deps. [84]fix
+   [85]#19
+   Verified
+   This commit was signed with a verified signature.
+   [86]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [87]Learn about signing commits
+   [88]f9a500f
+   [89]@andreineculau [90]andreineculau mentioned this issue [91]Jan 9,
+   2019
+   [92]set the same semver-range when installing peer deps #20
+   Merged
+   [93]andreineculau added a commit to tobiipro/babel-preset-firecloud
+   that referenced this issue [94]Jan 9, 2019
+   [95]@andreineculau
+   [96]set the same semver-range when installing peer deps. ref
+   [97]tobiipro/esl… (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [98]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [99]Learn about signing commits
+   [100]cab95b7
+[101]…int-config-firecloud#19
+
+   [102]@andreineculau [103]andreineculau mentioned this issue [104]Jan 9,
+   2019
+   [105]set the same semver-range when installing peer deps. #9
+   Merged
+   [106]@andreineculau [107]andreineculau closed this in [108]#20 [109]Jan
+   10, 2019
+   [110]andreineculau added a commit to tobiipro/babel-preset-firecloud
+   that referenced this issue [111]Jan 11, 2019
+   [112]@andreineculau
+   [113]make use of json in-place editing. ref
+   [114]tobiipro/eslint-config-fireclo… (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [115]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [116]Learn about signing commits
+   [117]ab9f5db
+[118]…ud#19
+
+   [119]andreineculau added a commit that referenced this issue [120]Jan
+   11, 2019
+   [121]@andreineculau
+   [122]make use of json in-place editing. ref [123]#19
+   Verified
+   This commit was signed with a verified signature.
+   [124]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [125]Learn about signing commits
+   [126]12310e5

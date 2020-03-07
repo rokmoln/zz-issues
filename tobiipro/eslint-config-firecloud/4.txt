@@ -1,0 +1,47 @@
+
+use built-in rule for object-curly-newline on imports #4
+
+   f/anu-import-curly-newline
+
+   master f/anu-import-curly-newline
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 2 years ago
+
+   PS: didn't check if they are on par
+
+   see https://github.com/eslint/eslint/pull/9876/files
+
+   [46]andreineculau added a commit [47]about 2 years ago
+   [48]@andreineculau [49]use built-in rule for object-curly-newline on
+   imports
+
+   andreineculau requested a review from IanSavchenko [50]about 2 years
+   ago
+
+   @IanSavchenko
+   [51]IanSavchenko approved these changes [52]about 2 years ago
+
+   Cool! They didn't have it before.
+
+   andreineculau referenced this pull request from commit [53]8495efe
+   [54]about 2 years ago
+
+   andreineculau merged commit 8495efe into master [55]about 2 years ago
+
+   andreineculau deleted the f/anu-import-curly-newline branch [56]almost
+   2 years ago
+
+   andreineculau referenced this pull request from commit [57]49a5224
+   [58]almost 2 years ago
+
+   andreineculau referenced this pull request from commit [59]dbfe98b
+   [60]almost 2 years ago
+
+   [61]andreineculau referenced this pull request from another pull
+   request
+   [62]#9 import-specifier-curly-newline was removed in #4
+
+   andreineculau referenced this pull request from commit [63]4ca7bbd
+   [64]almost 2 years ago
+

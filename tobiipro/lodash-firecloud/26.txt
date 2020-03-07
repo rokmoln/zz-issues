@@ -1,0 +1,37 @@
+
+async versions #26
+
+   Open
+   [57]andreineculau opened this issue Aug 8, 2019 · 0 comments
+   Open
+
+[58]async versions #26
+
+   [59]andreineculau opened this issue Aug 8, 2019 · 0 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Aug 8, 2019
+
+   a partial/alternative effort to [66]#3 (overloading) would be to have
+   funAsync counterparts to fun mixins
+     * forEachAsync
+     * mapAsync
+     * mapValuesAsync
+     * ...
+
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Aug 8, 2019
+   [71]@andreineculau [72]andreineculau self-assigned this [73]Aug 8, 2019
+   [74]@andreineculau [75]andreineculau added this to To do in [76]Public
+   (Open Source) via automation [77]Aug 8, 2019
+   [78]@ankitmth [79]ankitmth removed this from To do in [80]Public (Open
+   Source) [81]Feb 19, 2020

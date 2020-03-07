@@ -1,0 +1,105 @@
+
+reapply local changes on imported rules #24
+
+   f/anu-reapply
+
+   master f/anu-reapply
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   makes it easier to see real changes in upcoming PRs
+
+   nothing to see really, beyond the fact that import-specifier-newline's
+   options has a changed name
+
+   [47]andreineculau added some commits [48]about 1 year ago
+   [49]@andreineculau [50]breaking: revert to vanilla
+   import-specifier-newline
+   [51]@andreineculau [52]apply local changes to import-specifier-newline
+   [53]@andreineculau [54]revert to vanilla no-loops (no-for)
+   [55]@andreineculau [56]apply local changes to no-for
+   [57]@andreineculau [58]revert to vanilla sort-imports (order-imports)
+   [59]@andreineculau [60]apply local changes to order-imports
+   [61]@andreineculau [62]order-imports handles default imports
+   [63]@andreineculau [64]order-imports handles single/multiple as named
+   [65]@andreineculau [66]order-imports handles source. [67]fix [68]#21
+
+   andreineculau added the [69]enhancement label [70]about 1 year ago
+
+   andreineculau self-assigned this [71]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [72]about 1 year ago
+
+   [73]andreineculau added some commits [74]about 1 year ago
+   [75]@andreineculau [76]don't check imported rules/test at all
+   [77]@andreineculau [78]bring in vanilla object-curly-newline
+   [79]@andreineculau [80]new object-curly-newline that handles
+   only-param. [81]fix [82]#8
+
+   @IanSavchenko
+   [83]IanSavchenko reviewed [84]about 1 year ago
+
+   Do we really need to store the originals here? Maybe just a link on a
+   specific commit should be good enough?
+
+   [85]andreineculau added some commits [86]about 1 year ago
+   [87]@andreineculau [88]note down the intention of order-imports
+   [89]@andreineculau [90]breaking: order-imports
+   [91]@andreineculau [92]Merge pull request [93]#25 [94]from
+   tobiipro/f/anu-order-imports
+
+   Copy link
+   @andreineculau
+   [95]andreineculau
+   commented [96]about 1 year ago
+
+   I wanted a quick way to do a local diff. It was a good way to check
+   what i have actually done in comparison with the original.
+   Then if the upstream rule gets updated, you can do a patch and apply it
+   on the modified rule, or simply decide that there's no need for the
+   custom rule.
+
+   [97]andreineculau added some commits [98]about 1 year ago
+   [99]@andreineculau [100]handle function definitions
+   [101]@andreineculau [102]refactor
+   [103]@andreineculau [104]breaking: object-curly-newline
+
+   @IanSavchenko
+   [105]IanSavchenko approved these changes [106]about 1 year ago
+
+   [107]andreineculau added some commits [108]about 1 year ago
+   [109]@andreineculau [110]object-curly-newline: add tests for
+   ObjectPattern
+   [111]@andreineculau [112]Merge pull request [113]#26 [114]from
+   tobiipro/f/anu-object-curly-newline
+   [115]@andreineculau [116]bring in vanilla array-bracket-newline
+   [117]@andreineculau [118]add objectInArrays:true test
+   [119]@andreineculau [120]add objectInArrays:false test with multiple
+   items
+   [121]@andreineculau [122]array-bracket-newline: rename objectsInArrays
+   to notIfLastItemIsAnObject
+   [123]@andreineculau [124]new: array-bracket-newline that handles
+   objectsInArrays. [125]fix [126]#7
+   [127]@andreineculau [128]bring in vanilla array-element-newline
+   [129]@andreineculau [130]new: array-element-newline that handles
+   notLastItemIsAnObject. [131]fix [132]#7
+   [133]@andreineculau [134]lint
+   [135]@andreineculau [136]fixup! bring in vanilla array-element-newline
+   [137]@andreineculau [138]array-bracket-newline: rename
+   notIfLastItemIsAnObject to allowObjectC…
+   [139]@andreineculau [140]array-element-newline: rename
+   notIfLastItemIsAnObject to allowObjectC…
+   [141]@andreineculau [142]Merge pull request [143]#27 [144]from
+   tobiipro/f/anu-array-bracket-newline
+
+   andreineculau referenced this pull request from commit [145]dc11dc5
+   [146]about 1 year ago
+
+   andreineculau merged commit dc11dc5 into master [147]about 1 year ago
+
+   andreineculau deleted the f/anu-reapply branch [148]about 1 month ago
+

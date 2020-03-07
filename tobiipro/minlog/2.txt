@@ -1,0 +1,260 @@
+
+Levels separation #2
+
+   ian-levels
+
+   master ian-levels
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request
+   over 2 years ago
+
+   It all started with levelToConsoleFun moving out... But it didn't feel
+   right to split it with levelToLevelName, so it became a separate thing.
+
+   But now custom levels can be provided in the constructor of MinLog and
+   if the "interface" with levelToLevelName and levelToConoleFun is
+   implemented, default console listener will work.
+
+   Ian Savchenk... added some commits [46]over 2 years ago
+   [47]Moved out getCallerInfo
+   [48]Moved out levels from minlog.js
+   [49]Added jest
+   [50]Added tests for levels
+   [51]removed quotes in package.json
+
+   @andreineculau
+   [52]andreineculau requested changes [53]over 2 years ago
+   [54]src/levels.js
+   @@ -0,0 +1,69 @@
+   import _ from 'lodash';
+   export let levels = {
+   [55]@andreineculau [56]andreineculau • [57]over 2 years ago
+   Copy link
+
+   since these are default levels, please name the var accordingly (not
+   the module)
+   [58]src/levels.js
+   ((10 lines not shown))
+   notice: 50,
+   informational: 60,
+   debug: 70,
+   // console
+   warn: 40, // warning
+   info: 60, // informational
+   trace: 90,
+   // alias
+   fatal: 0, // emergency
+   verbose: 70, // debug
+   silly: 80,
+   levelToLevelName: function(level) {
+   [59]@andreineculau [60]andreineculau • [61]over 2 years ago
+   Copy link
+
+   is it a level? nope, so export as a separate function please and you
+   can pass the levels as an argument
+   [62]src/levels.js
+   ((29 lines not shown))
+   }
+   let levelName = _.invert(this)[level] || `lvl${level}`;
+   switch (levelName) {
+   case 'verbose':
+   levelName = 'debug';
+   break;
+   default:
+   break;
+   }
+   return levelName;
+   },
+   levelToConsoleFun: function(level) {
+   [63]@andreineculau [64]andreineculau • [65]over 2 years ago
+   Copy link
+
+   same as levelToLevelName
+   [66]src/listeners/log-to-console.js
+   @@ -23,9 +23,9 @@ export default function(cfg = {}) {
+   }
+   let now =
+   moment(entry._time.stamp).utcOffset(entry._time.utc_offset).toISOString
+   ();
+   let levelName = logger.levelToLevelName(entry._level);
+   let levelName = logger.levels.levelToLevelName(entry._level);
+   [67]@andreineculau [68]andreineculau • [69]over 2 years ago
+   Copy link
+
+   if the intention is to allow the levelToLevelName to be overwritten,
+   someone can extend the class
+   [70]src/listeners/log-to-console.js
+   ((6 lines not shown))
+   let formattedLevelName = _.padStart(_.toUpper(levelName), '5');
+   let consoleFun = logger.levelToConsoleFun(entry._level);
+   let consoleFun = logger.levels.levelToConsoleFun(entry._level);
+   [71]@andreineculau [72]andreineculau • [73]over 2 years ago
+   Copy link
+
+   similarly, if someone wants the log-to-console listener to use another
+   levelToConsoleFun, they should pass the fun in the cfg parameter. The
+   point of the PR request was that the logger doesn't care about the
+   console; it's the log-to-console that cares.
+   [74]src/minlog.js
+   @@ -1,129 +1,36 @@
+   import _ from 'lodash';
+   [75]@andreineculau [76]andreineculau • [77]over 2 years ago
+   Copy link
+
+   please do not submit PRs with content from others, when there's no
+   dependency between them
+   [78]src/minlog.js
+   ((78 lines not shown))
+   _.forEach(this.levels, (_level, levelName) => {
+   this[levelName] = _.bind(this.log, this, levelName);
+   _.forEach(this.levels, (level, levelName) => {
+   if (_.isNumber(level)) {
+   [79]@andreineculau [80]andreineculau • [81]over 2 years ago
+   Copy link
+
+   not a big-enough nudge that smth smells? :)
+   [82]test/levels.test.js
+   @@ -0,0 +1,92 @@
+   import _ from 'lodash';
+   import levels from '../src/levels';
+   describe('levels', () => {
+   it('should be defined', () => {
+   let expectedLevels = [
+   [83]@andreineculau [84]andreineculau • [85]over 2 years ago
+   Copy link
+
+   in what way are these "expected" ? I define them in another file, and
+   now we have a test that asserts that what I wrote will not change
+   unless I change this file as well? 🤔
+   [86]test/levels.test.js
+   ((15 lines not shown))
+   'notice',
+   'silly',
+   'trace',
+   'verbose',
+   'warn',
+   'warning'];
+   _.forEach(expectedLevels, (lvl) => {
+   expect(levels[lvl]).toBeDefined();
+   });
+   });
+   });
+   describe('levelToLevelName', () => {
+   it('should be defined', () => {
+   expect(levels.levelToLevelName).not.toBeUndefined();
+   [87]@andreineculau [88]andreineculau • [89]over 2 years ago
+   Copy link
+
+   no need for asserting that a function that you'll test exists.
+   you'd test that something exists when you don't actually know what it
+   should do e.g. a mandatory callback function
+   [90]test/levels.test.js
+   ((32 lines not shown))
+   it('should return as expected for defined levels', () => {
+   expect(levels.levelToLevelName(levels.alert)).toBe('alert');
+   expect(levels.levelToLevelName(levels.critical)).toBe('critical');
+   expect(levels.levelToLevelName(levels.debug)).toBe('debug');
+   expect(levels.levelToLevelName(levels.emergency)).toBe('fatal');
+   expect(levels.levelToLevelName(levels.error)).toBe('error');
+   expect(levels.levelToLevelName(levels.fatal)).toBe('fatal');
+   expect(levels.levelToLevelName(levels.info)).toBe('info');
+   expect(levels.levelToLevelName(levels.informational)).toBe('info');
+   expect(levels.levelToLevelName(levels.notice)).toBe('notice');
+   expect(levels.levelToLevelName(levels.silly)).toBe('silly');
+   expect(levels.levelToLevelName(levels.trace)).toBe('trace');
+   expect(levels.levelToLevelName(levels.verbose)).toBe('debug');
+   expect(levels.levelToLevelName(levels.warn)).toBe('warn');
+   expect(levels.levelToLevelName(levels.warning)).toBe('warn');
+   [91]@andreineculau [92]andreineculau • [93]over 2 years ago
+   Copy link
+
+   levels (or defaultLevels i.e. without the functions inside) is just a
+   key-value of name to number.
+   once that is corrected, you'd loop over and the this in a generic way
+   [94]@andreineculau [95]andreineculau • [96]over 2 years ago
+   Copy link
+
+   re:expected above
+   if you want to create regression/snapshot tests, you have jest's
+   snapshots feature for that
+   [97]https://facebook.github.io/jest/docs/en/snapshot-testing.html
+
+   just as an exercise (don't commit it :) ), now that you loop over the
+   levels, instead of having an expect inside the loop, you could record
+   the input and output of levelToLevelName in a variable and say
+   "expect(current).toMatchSnapshot()";
+
+   I'm saying don't commit it, because you'd test the wrong thing. If we
+   add another level, the snapshot test would fail, though the
+   levelToLevelName might actually do the right thing.
+   [98]test/levels.test.js
+   ((35 lines not shown))
+   expect(levels.levelToLevelName(levels.critical)).toBe('critical');
+   expect(levels.levelToLevelName(levels.debug)).toBe('debug');
+   expect(levels.levelToLevelName(levels.emergency)).toBe('fatal');
+   expect(levels.levelToLevelName(levels.error)).toBe('error');
+   expect(levels.levelToLevelName(levels.fatal)).toBe('fatal');
+   expect(levels.levelToLevelName(levels.info)).toBe('info');
+   expect(levels.levelToLevelName(levels.informational)).toBe('info');
+   expect(levels.levelToLevelName(levels.notice)).toBe('notice');
+   expect(levels.levelToLevelName(levels.silly)).toBe('silly');
+   expect(levels.levelToLevelName(levels.trace)).toBe('trace');
+   expect(levels.levelToLevelName(levels.verbose)).toBe('debug');
+   expect(levels.levelToLevelName(levels.warn)).toBe('warn');
+   expect(levels.levelToLevelName(levels.warning)).toBe('warn');
+   });
+   it('should return as expected for custom levels', () => {
+   [99]@andreineculau [100]andreineculau • [101]over 2 years ago
+   Copy link
+
+   "as expected" means that whatever you wrote on line 51 is correct, even
+   if it would say "expect(true).toBe(true)".
+
+   please be more specific e.g. a level-based string
+   [102]test/minlog.test.js
+   @@ -0,0 +1,42 @@
+   import _ from 'lodash';
+   import MinLog from '../src/minlog';
+   import defaultLevels from '../src/levels';
+   describe('MinLog', () => {
+   it('should be defined', () => {
+   expect(MinLog).toBeDefined();
+   });
+   it('should have default log levels funcs', () => {
+   let instance = new MinLog();
+   _.forEach(defaultLevels, (level, levelName) => {
+   [103]@andreineculau [104]andreineculau • [105]over 2 years ago
+   Copy link
+
+   don't assume that MinLog's default levels are what you import
+   loop over instance.levels
+   you can even create a property-testing-wannabe loop (no config, config
+   with custom levels like below, etc): given a series of MinLog
+   configuration, the following test should hold true
+   [106]test/minlog.test.js
+   ((25 lines not shown))
+   bar: 10,
+   baz: 20
+   };
+   let instance = new MinLog({levels: customLevels});
+   _.forEach(customLevels, (_level, levelName) => {
+   expect(instance).toHaveProperty(levelName);
+   });
+   });
+   it('should have levels clone in a property', () => {
+   let instance = new MinLog();
+   expect(_.isEqual(instance.levels, defaultLevels)).toBeTruthy();
+   [107]@andreineculau [108]andreineculau • [109]over 2 years ago
+   Copy link
+    1. expect(instance.levels).toEqual(defaultLevels) didn't work?
+    2. it's a redundant test i.e. an assertion which can be handled via a
+       jest snapshot
+
+   [110]andreineculau referenced this pull request from another pull
+   request
+   [111]#3 Refactor and tests
+
+   IanSavchenko closed this pull request [112]over 2 years ago
+
+   IanSavchenko deleted the ian-levels branch [113]over 2 years ago
+

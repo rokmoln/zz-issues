@@ -1,0 +1,67 @@
+
+support binary responses (maybe requests too?) #2
+
+   Closed
+   [57]andreineculau opened this issue Mar 5, 2018 · 0 comments
+   Closed
+
+[58]support binary responses (maybe requests too?) #2
+
+   [59]andreineculau opened this issue Mar 5, 2018 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 5, 2018
+
+   this revert commit [65]f04a738
+
+   happened because binary content-types need to be manually marked in API
+   gateway
+
+   Ref:
+   [66]https://docs.aws.amazon.com/apigateway/latest/developerguide/api-ga
+   teway-payload-encodings-configure-with-console.html
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Mar 5, 2018
+   [71]andreineculau added a commit that referenced this issue [72]Feb 16,
+   2019
+   [73]@andreineculau
+   [74]add support for binary (base64) req/res. [75]fix [76]#2
+   Verified
+   This commit was signed with a verified signature.
+   [77]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [78]Learn about signing commits
+   [79]df7f8b0
+   [80]andreineculau added a commit that referenced this issue [81]Feb 16,
+   2019
+   [82]@andreineculau
+   [83]add support for binary (base64) req/res. [84]fix [85]#2
+   Verified
+   This commit was signed with a verified signature.
+   [86]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [87]Learn about signing commits
+   [88]36fbd4c
+   [89]@andreineculau [90]andreineculau mentioned this issue [91]Feb 16,
+   2019
+   [92]add support for binary (base64) req/res. fix #2 #4
+   Merged
+   [93]@andreineculau [94]andreineculau closed this in [95]#4 [96]Feb 19,
+   2019
+   [97]andreineculau added a commit that referenced this issue [98]Feb 19,
+   2019
+   [99]@andreineculau
+   [100]Merge pull request [101]#4 [102]from tobiipro/f/anu-binary
+   (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [103]Learn about signing commits
+   [104]eb5f285
+add support for binary (base64) req/res. fix [105]#2
+

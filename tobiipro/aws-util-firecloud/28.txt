@@ -1,0 +1,100 @@
+
+add sqs utils #28
+
+   f/anu-sqs
+
+   master f/anu-sqs
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   andreineculau added the [47]enhancement label [48]10 months ago
+
+   andreineculau requested a review from IanSavchenko [49]10 months ago
+
+   andreineculau self-assigned this [50]10 months ago
+
+   @IanSavchenko
+   [51]IanSavchenko reviewed [52]10 months ago
+
+   Nice! I will add more stuff after you merge this.
+   (BUTTON) Show resolved (BUTTON) Hide resolved [53]src/sqs.js
+   @@ -0,0 +1,18 @@
+   import _ from 'lodash-firecloud';
+   import aws from 'aws-sdk';
+   export let getNameFromArn = _.memoize(function(queueArn) {
+   let name = /arn:aws:sqs:.*:.*:(.*)/.exec(queueArn)[1];
+   return name;
+   });
+   export let getUrl = _.memoize(async function(queueName) {
+   [54]@IanSavchenko [55]IanSavchenko • [56]10 months ago
+   Copy link
+
+   I would suggest that we pass sqs instance as a named arg together with
+   queueName. It can then have a default value of new aws.SQS(), so like
+export let getUrl = _.memoize(async function({queueName, sqs = new aws.SQS()}) {
+...
+
+   [57]@andreineculau [58]andreineculau • [59]10 months ago
+   Copy link
+
+   I actually had the thought but i couldn't come up with a reason for it.
+   Credentials maybe, now when i think about it.
+   Will do it, and i guess it is good to do it for all other funs in
+   aws-util-firecloud
+   [60]@andreineculau [61]andreineculau • [62]10 months ago
+   Copy link
+
+   I so your comment about discoverability after i pushed this. I guess
+   that can be addressed properly via typescript defs.
+
+   Anything i can do to allure you into writing defs for this repi like
+   you did for lodash-firecloud? 🤔🤗
+   [63]@andreineculau [64]andreineculau • [65]10 months ago
+   Copy link
+
+   done, except you cannot memoize now (you can, but it makes too complex.
+   the caller can take care of it
+   [66]@IanSavchenko [67]IanSavchenko • [68]10 months ago
+   Copy link
+
+     Anything i can do to allure you into writing defs for this repi like
+     you did for lodash-firecloud? 🤔🤗
+
+   I can re-write it to typescript ;)
+   [69]@IanSavchenko [70]IanSavchenko • [71]10 months ago
+   Copy link
+
+   I have to say that without memoization, it has not so much benefit
+   anymore...
+   [72]@andreineculau [73]andreineculau • [74]10 months ago
+   Copy link
+    1. memoization is an optimization, simply cannot be core functionality
+    2. one liner vs 10+, useful in generic places sounds like enough
+
+   andreineculau force pushed changes to this branch [75]10 months ago
+
+   [76]andreineculau added a commit [77]10 months ago
+   [78]@andreineculau [79]add sqs utils
+
+   andreineculau force pushed changes to this branch [80]10 months ago
+
+   andreineculau added this to Review in progress in [81]Public (Open
+   Source) [82]10 months ago
+
+   andreineculau closed this pull request [83]10 months ago
+
+   Public (Open Source) automation moved this from Review in progress to
+   Done [84]10 months ago
+
+   andreineculau deleted the f/anu-sqs branch [85]about 1 month ago
+
+   ankitmth removed this from Done in [86]Public (Open Source) [87]17 days
+   ago
+

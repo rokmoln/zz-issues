@@ -1,0 +1,36 @@
+
+add async sleep #2
+
+   Closed
+   [57]andreineculau opened this issue Mar 7, 2018 · 1 comment
+   Closed
+
+[58]add async sleep #2
+
+   [59]andreineculau opened this issue Mar 7, 2018 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 7, 2018
+
+   from internal atex-web-ext
+   [65]@andreineculau [66]andreineculau added the [67]enhancement label
+   [68]Mar 7, 2018
+   [69]@andreineculau
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[71]@andreineculau [72]andreineculau commented [73]Mar 21, 2018
+
+   added in [74]c03c9bc
+   [75]@andreineculau [76]andreineculau closed this [77]Mar 21, 2018

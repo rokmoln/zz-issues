@@ -1,0 +1,36 @@
+
+add support for binary (base64) req/res. fix #2 #4
+
+   f/anu-binary
+
+   master f/anu-binary
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes: [47]#2
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [48]andreineculau added a commit [49]about 1 year ago
+   [50]@andreineculau [51]add support for binary (base64) req/res. [52]fix
+   [53]#2
+
+   andreineculau added the [54]enhancement label [55]about 1 year ago
+
+   andreineculau self-assigned this [56]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [57]about 1 year ago
+
+   @IanSavchenko
+   [58]IanSavchenko approved these changes [59]about 1 year ago
+
+   andreineculau referenced this pull request from commit [60]eb5f285
+   [61]about 1 year ago
+
+   andreineculau merged commit eb5f285 into master [62]about 1 year ago
+
+   andreineculau deleted the f/anu-binary branch [63]about 1 month ago
+

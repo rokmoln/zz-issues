@@ -1,0 +1,165 @@
+
+"make release" should fail early if local repo is not up-to-date #26
+
+   Closed
+   [57]tobiiasl opened this issue Apr 13, 2018 · 1 comment
+   Closed
+
+[58]"make release" should fail early if local repo is not up-to-date #26
+
+   [59]tobiiasl opened this issue Apr 13, 2018 · 1 comment
+
+Comments
+
+   [60]@tobiiasl
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@tobiiasl [62]tobiiasl commented [63]Apr 13, 2018
+
+   Even when "make release" fails due to local repo not up-to-date it will
+   still trigger two builds (master and the "version tag" build).
+
+   It would be better if it failed early before updating version and
+   stuff.
+
+   `~/gs-client$ make release
+   Makefile:142: warning: overriding recipe for target 'build-ts'
+   support-firecloud/repo/mk/js.build.ts.mk:19: warning: ignoring old
+   recipe for target 'build-ts'
+   make: Entering directory
+   '/Users/tobiaslindgren/git/firecloud/gs-client'
+   [DO ] Release new patch version...
+   make[1]: Entering directory
+   '/Users/tobiaslindgren/git/firecloud/gs-client'
+   Makefile:142: warning: overriding recipe for target 'build-ts'
+   support-firecloud/repo/mk/js.build.ts.mk:19: warning: ignoring old
+   recipe for target 'build-ts'
+   [DO ] Bumping patch version...
+   v0.0.14
+   [DONE]
+
+   [DO ] Publishing version...
+   Counting objects: 7, done.
+   Delta compression using up to 4 threads.
+   Compressing objects: 100% (7/7), done.
+   Writing objects: 100% (7/7), 2.14 KiB | 1.07 MiB/s, done.
+   Total 7 (delta 4), reused 0 (delta 0)
+   remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+   To github.com:tobiipro/gs-client.git
+     * [new tag] v0.0.14 -> v0.0.14
+       [DONE]
+
+   make[1]: Leaving directory
+   '/Users/tobiaslindgren/git/firecloud/gs-client'
+   To github.com:tobiipro/gs-client.git
+   ! [rejected] master -> master (fetch first)
+   error: failed to push some refs to
+   '[64]git@github.com:tobiipro/gs-client.git'
+   hint: Updates were rejected because the remote contains work that you
+   do
+   hint: not have locally. This is usually caused by another repository
+   pushing
+   hint: to the same ref. You may want to first integrate the remote
+   changes
+   hint: (e.g., 'git pull ...') before pushing again.
+   hint: See the 'Note about fast-forwards' in 'git push --help' for
+   details.
+   make: *** [support-firecloud/repo/mk/js.publish.tag.mk:24:
+   release/patch] Error 1
+   make: Leaving directory
+   '/Users/tobiaslindgren/git/firecloud/gs-client'`
+   [65]@tobiiasl [66]tobiiasl changed the title [DEL: "make release"
+   should not create tag if local repo is not up-to-date :DEL] [INS: "make
+   release" should fail early if local repo is not up-to-date :INS]
+   [67]Apr 13, 2018
+   [68]andreineculau added a commit that referenced this issue [69]Apr 15,
+   2018
+   [70]@andreineculau
+   [71]create a merge commit when upstream diverges before/during release.
+   fix (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [72]Learn about signing commits
+   [73]b71113f
+[74]#26
+
+   [75]@andreineculau
+
+This comment has been minimized.
+
+   [76]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[77]@andreineculau [78]andreineculau commented [79]Apr 17, 2018
+
+   closing in favour of [80]#28
+   [81]@andreineculau [82]andreineculau closed this [83]Apr 17, 2018
+   [84]andreineculau added a commit that referenced this issue [85]Dec 2,
+   2018
+   [86]@andreineculau
+   [87]create a merge commit when upstream diverges before/during release.
+   fix (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [88]Learn about signing commits
+   [89]4136a38
+[90]#26
+
+   [91]andreineculau added a commit that referenced this issue [92]Dec 2,
+   2018
+   [93]@andreineculau
+   [94]create a merge commit when upstream diverges before/during release.
+   fix (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [95]Learn about signing commits
+   [96]10b7f52
+[97]#26
+
+   [98]jobackman added a commit that referenced this issue [99]Dec 3, 2018
+   [100]@jobackman
+   [101]Merge branch 'master' into
+   TFC-3061--documenting-new-developer-bootstrap (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [102]jobackman Johan Bäckman
+   GPG key ID: A265D71463F1FC4E [103]Learn about signing commits
+   [104]a931bac
+* master: (53 commits)
+  migrated to travis-ci.com
+  style
+  create a merge commit when upstream diverges before/during release. fix [105]#
+26
+  build linux vm and osx only on push and cron
+  better diff for submodules
+  update docs when initializing a repo with sf submodule
+  updated .mailmap
+  fix travis-wait outputting last line of log when it has travis_fold markers. f
+ix [106]#38
+  stdout progress when running sf_os silently
+  fix missing gmake
+  refactor sf_travis_run to allow for just sourcing the script in debug mode
+  echo all exe_and_grep_q
+  add sf_travis_run_all target; run as './.travis.sh all' when debugging
+  simplify PATH to homebrew
+  no homebrew analytics and autoupdate only in ci
+  style
+  try to use rsync --whole-file to speed things up
+  try to use rsync --inplace to speed things up
+  remove redundant. path should already be set
+  fix path for unzip
+  ...
+
+   [107]andreineculau added a commit that referenced this issue [108]Dec
+   8, 2018
+   [109]@andreineculau
+   [110]fixup! create a merge commit when upstream diverges before/during
+   rel… (BUTTON) …
+   Unverified
+   This user has not uploaded their public key yet.
+   GPG key ID: 3570C6DE977687AA [111]Learn about signing commits
+   [112]62e3914
+…ease. fix [113]#26
+

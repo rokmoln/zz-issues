@@ -1,0 +1,48 @@
+
+rule: check not-exported variables are prefixed with _ #6
+
+   Closed
+   [57]andreineculau opened this issue Mar 25, 2018 · 1 comment
+   Closed
+
+[58]rule: check not-exported variables are prefixed with _ #6
+
+   [59]andreineculau opened this issue Mar 25, 2018 · 1 comment
+   Assignees
+   [60]@IanSavchenko
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Mar 25, 2018
+
+   given [66]tobiipro/babel-preset-firecloud#2 is fixed, we need to make
+   sure that inside a module
+     * a top-level variable that is not exported is prefixed with _
+     * a top-level variable that is exported is not prefixed with _
+
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Mar 25, 2018
+   [71]@andreineculau [72]andreineculau assigned [73]IanSavchenko [74]Mar
+   25, 2018
+   [75]@andreineculau [76]andreineculau mentioned this issue [77]Mar 25,
+   2018
+   [78]consistent exports/underscore-private #3
+   Closed
+   [79]@IanSavchenko
+
+This comment has been minimized.
+
+   [80]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[81]@IanSavchenko [82]IanSavchenko commented [83]Mar 27, 2018
+
+   Fixed with [84]380a06c
+   [85]@IanSavchenko [86]IanSavchenko closed this [87]Mar 27, 2018

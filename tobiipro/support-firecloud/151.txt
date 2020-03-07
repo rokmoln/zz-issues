@@ -1,0 +1,55 @@
+
+allow awscli v2, in addition to v1 #151
+
+   awscli2
+
+   master awscli2
+   @andreineculau
+   [45]andreineculau opened this pull request
+   23 days ago
+
+   Labels
+   [46]bug
+
+   Linked issues
+   [47]aws-cli v2 was released
+     * Fixes: [48]#150
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   read through the breaking changes, and deployed successfully 1 backend
+   & 1 frontend
+
+   [49]andreineculau added a commit [50]23 days ago
+   [51]@andreineculau [52]allow awscli v2, in addition to v1. ref [53]#150
+
+   andreineculau added the [54]bug label [55]23 days ago
+
+   andreineculau requested a review from tobiiasl [56]23 days ago
+
+   andreineculau self-assigned this [57]23 days ago
+
+   andreineculau added this to In progress in [58]Public (Open Source) via
+   automation [59]23 days ago
+
+   @tobiiasl
+   [60]tobiiasl approved these changes [61]19 days ago
+
+   tobiiasl referenced this pull request from commit [62]e71601e [63]19
+   days ago
+
+   tobiiasl merged commit e71601e into master [64]19 days ago
+
+   Public (Open Source) automation moved this from In progress to Done
+   [65]19 days ago
+
+   tobiiasl deleted the awscli2 branch [66]19 days ago
+
+   ankitmth removed this from Done in [67]Public (Open Source) [68]17 days
+   ago
+
+   [69]andreineculau referenced this pull request from another pull
+   request
+   [70]#156 Install a specific version of awscli (1.17.10) instead of
+   installing the latest
+

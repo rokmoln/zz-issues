@@ -1,0 +1,43 @@
+
+add convenience functions #8
+
+   f/anu-max-level
+
+   master f/anu-max-level
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   to check if an entry should be ignored by a listener
+
+   PS: naming is unfortunate, at least levelIsBeyondGroup should maybe be
+   "shouldIgnoreEntry(entryLevel, listenerLevel)" or smth. Happy to go
+   with anything.
+
+   [47]andreineculau added some commits [48]about 1 year ago
+   [49]@andreineculau [50]add maxLevelCodeInGroup
+   [51]@andreineculau [52]add levelIsBeyondGroup
+
+   andreineculau added the [53]enhancement label [54]about 1 year ago
+
+   andreineculau self-assigned this [55]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [56]about 1 year ago
+
+   [57]andreineculau referenced this pull request from another pull
+   request
+   [58]#4 add levelToLevelCode
+
+   @IanSavchenko
+   [59]IanSavchenko approved these changes [60]about 1 year ago
+
+   andreineculau referenced this pull request from commit [61]01dd39c
+   [62]about 1 year ago
+
+   andreineculau merged commit 01dd39c into master [63]about 1 year ago
+
+   andreineculau deleted the f/anu-max-level branch [64]about 1 month ago
+

@@ -1,0 +1,131 @@
+
+consider auto-await #12
+
+   Closed
+   [57]andreineculau opened this issue Feb 25, 2019 · 6 comments
+   Closed
+
+[58]consider auto-await #12
+
+   [59]andreineculau opened this issue Feb 25, 2019 · 6 comments
+
+Comments
+
+   [60]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[61]@andreineculau [62]andreineculau commented [63]Feb 25, 2019
+
+   see [64]https://github.com/ziolko/babel-plugin-auto-await
+   [65]@IanSavchenko
+
+This comment has been minimized.
+
+   [66]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[67]@IanSavchenko [68]IanSavchenko commented [69]Feb 26, 2019
+
+   I'm against this. This plugin will make work a code which is not
+   supposed to work and will hide mistakes. Even with all the different
+   magic, we have in our babel plugins, our code should be a valid JS and
+   should behave as expected without them.
+   [70]@andreineculau
+
+This comment has been minimized.
+
+   [71]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[72]@andreineculau [73]andreineculau commented [74]Feb 26, 2019
+
+   I'm not pushing for it, quite the contrary. But it is a nice find
+   regardless, and if JS would have this pattern built-in (not too mention
+   have the async stacktraces working!), it is my honest opinion that it
+   would have made for simpler comprehension and simpler code.
+
+   I see an important drawback alone in the fact that you cannot make use
+   of static type analysis.
+
+   PS: 1. code is valid JS (it simply removes the need for you to type
+   await before every function 2. should behave as expected without them.
+   = so you'd like to have it as a rule that this repo would not do
+   anything beyond upcoming JS syntax/behaviour, right? I'm down with that
+   200%
+   [75]@IanSavchenko
+
+This comment has been minimized.
+
+   [76]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[77]@IanSavchenko [78]IanSavchenko commented [79]Feb 26, 2019
+
+    1. code is valid JS (it simply removes the need for you to type await
+       before every function
+
+   The same code without awaits behaves completely differently. Ofc, it's
+   a valid JS, but it's not a working JS.
+
+     so you'd like to have it as a rule that this repo would not do
+     anything beyond upcoming JS syntax/behaviour, right? I'm down with
+     that 200%
+
+   I'm ok with some experiments, but they have to be obvious, not implicit
+   or have a double meaning.
+   (THUMBS_UP react) 👍 1
+   [80]@tobiiasl
+
+This comment has been minimized.
+
+   [81]Sign in to view
+   Copy link (BUTTON) Quote reply
+
+[82]@tobiiasl [83]tobiiasl commented [84]Mar 14, 2019 •
+
+   edited
+
+   I would prefer an eslint rule that warns me when there is no await for
+   an async function. Perhaps babel can do that? At least for
+   simple/obvious cases.
+
+   Relevant: "New rule: enforce async/await consistency"
+   [85]eslint/eslint#9787
+   [86]@tobiiasl
+
+This comment has been minimized.
+
+   [87]Sign in to view
+   Copy link (BUTTON) Quote reply
+
+[88]@tobiiasl [89]tobiiasl commented [90]Mar 14, 2019
+
+   Perhaps this tslint rule can help out:
+   [91]https://palantir.github.io/tslint/rules/no-floating-promises/
+   [92]@tobiiasl
+
+This comment has been minimized.
+
+   [93]Sign in to view
+   Copy link (BUTTON) Quote reply
+
+[94]@tobiiasl [95]tobiiasl commented [96]Mar 15, 2019
+
+   Perhaps this is a good course of actions to avoid that devs forget to
+   add await before calls to functions returning promises.
+    1. Code style agreement that all functions returning a promise should
+       be prefixed with async_.
+    2. Implement eslint rule that enforces that all async functions are
+       prefixed with async_.
+    3. Implement eslint rule that all functions that are await:ed for are
+       prefixed with async.
+    4. Start using TypeScript which makes function return type obvious.
+    5. Implement eslint rule that enforces functions returning a promise
+       to be prefixed with async_.
+    6. Enforce the no-floating-promises tslint rule.
+
+   [97]@andreineculau [98]andreineculau closed this [99]May 14, 2019

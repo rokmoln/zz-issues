@@ -1,0 +1,61 @@
+
+git push should use --no-verify #144
+
+   Closed
+   [57]andreineculau opened this issue Jan 27, 2020 · 0 comments
+   Closed
+
+[58]git push should use --no-verify #144
+
+   [59]andreineculau opened this issue Jan 27, 2020 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Jan 27, 2020
+
+   some repositories might have a pre-push hook like
+   [65]https://github.com/tobiipro/support-firecloud/blob/master/repo/dot.
+   git/hooks/pre-push
+
+   but in makefiles/scripts that call git push we might not want to run
+   the pre-push hook.
+
+   every call to git push should be questioned if it actually need to run
+   the pre-push hook, and if not, it should use the --no-verify flag
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Jan 27, 2020
+   [70]@andreineculau [71]andreineculau added this to To do in [72]Public
+   (Open Source) via automation [73]Jan 27, 2020
+   [74]@andreineculau [75]andreineculau assigned [76]fredrikj [77]Jan 27,
+   2020
+   [78]andreineculau added a commit that referenced this issue [79]Feb 5,
+   2020
+   [80]@andreineculau
+   [81]use --no-verify on scripted calls to git pushes. [82]fix [83]#144
+   Verified
+   This commit was signed with a verified signature.
+   [84]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [85]Learn about signing commits
+   [86]0e1c363
+   [87]andreineculau added a commit that referenced this issue [88]Feb 6,
+   2020
+   [89]@andreineculau
+   [90]use --no-verify on scripted calls to git pushes. [91]fix [92]#144
+   Verified
+   This commit was signed with a verified signature.
+   [93]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [94]Learn about signing commits
+   [95]0c43955
+   [96]@andreineculau [97]andreineculau closed this in [98]795d043 [99]Feb
+   6, 2020
+   [100]Public (Open Source) automation moved this from To do to Done
+   [101]Feb 6, 2020
+   [102]@ankitmth [103]ankitmth unassigned [104]fredrikj [105]Feb 19, 2020
+   [106]@ankitmth [107]ankitmth removed this from Done in [108]Public
+   (Open Source) [109]Feb 19, 2020

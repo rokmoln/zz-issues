@@ -1,0 +1,85 @@
+
+add docker-ci target. ref #152 #157
+
+   local-docker-ci
+
+   master local-docker-ci
+   @andreineculau
+   [45]andreineculau opened this pull request
+   19 days ago
+
+   Labels
+   [46]enhancement
+
+   Linked issues
+   [47]make it easy to start a local docker-ci
+     * Fixes: [48]#152
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   with this PR, running make docker-ci will start a docker container in
+   the same fashion as we do on Travis CI, except for exposing the same
+   environment variables set via webui in Travis CI
+
+   how to test:
+     * you can check out the local-docker-ci branch in support-firecloud
+       and run make docker-ci
+     * in a repo of your choice that has support-firecloud as a submodule,
+       cd support-firecloud; git fetch: git co origin/local-docker-ci; cd
+       ..; make docker-ci
+
+   you might see many warnings, since the script tries to reproduce your
+   local env (same username, same groups) in the docker-ci and there's a
+   mismatch between your local env on MacOS and the docker-ci env (on
+   Ubuntu), but it should be good enough.
+
+   andreineculau added the [49]enhancement label [50]19 days ago
+
+   andreineculau requested a review from weetmuts [51]19 days ago
+
+   andreineculau requested a review from tobiiasl [52]19 days ago
+
+   andreineculau requested a review from spschlegel [53]19 days ago
+
+   andreineculau self-assigned this [54]19 days ago
+
+   andreineculau added this to In progress in [55]Public (Open Source) via
+   automation [56]19 days ago
+
+   andreineculau force pushed changes to this branch [57]19 days ago
+
+   ankitmth removed this from In progress in [58]Public (Open Source)
+   [59]17 days ago
+
+   Copy link
+   @andreineculau
+   [60]andreineculau
+   commented [61]16 days ago
+
+   SF_TRAVIS_DOCKER_IMAGE could maybe be sourced in Makefile from .ci.sh
+
+   andreineculau force pushed changes to this branch [62]12 days ago
+
+   [63]andreineculau added some commits [64]12 days ago
+   [65]@andreineculau [66]mark local variables
+   [67]@andreineculau [68]add docker-ci target. ref [69]#152
+   [70]@andreineculau [71]handle users/groups with whitespace
+   [72]@andreineculau [73]source SF_TRAVIS_DOCKER_IMAGE from .ci.sh for
+   'make docker-ci'
+
+   andreineculau force pushed changes to this branch [74]12 days ago
+
+   Copy link
+   @andreineculau
+   [75]andreineculau
+   commented [76]10 days ago
+
+   TODO: need to debug group names with whitespaces
+
+   andreineculau referenced this pull request from commit [77]f65b89c
+   [78]10 days ago
+
+   andreineculau merged commit f65b89c into master [79]10 days ago
+
+   andreineculau deleted the local-docker-ci branch [80]10 days ago
+

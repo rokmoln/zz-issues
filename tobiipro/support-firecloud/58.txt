@@ -1,0 +1,143 @@
+
+make Brewfile.inc.sh mandatory #58
+
+   f/anu-mandatory-brewfile
+
+   master f/anu-mandatory-brewfile
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+   No description given.
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau force pushed changes to this branch [49]about 1 year ago
+
+   [50]andreineculau added some commits [51]about 1 year ago
+   [52]@andreineculau [53]make Brewfile.inc.sh mandatory. [54]fixes
+   [55]#54
+   [56]@andreineculau [57]add error message in case there's no
+   Brewfile.inc.sh in the repo
+
+   andreineculau force pushed changes to this branch [58]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [59]about 1 year ago
+
+   andreineculau self-assigned this [60]about 1 year ago
+
+   Copy link
+   @IanSavchenko
+   [61]IanSavchenko
+   commented [62]about 1 year ago
+
+   I see that in the bin/repo-generic-bootstrap a symlink will be created
+   for Brewfile.inc.sh. So it means that
+    1. If you don't have anything custom: stay with symlinked version of
+       Brewfile.inc.sh. Ok.
+    2. If you have a custom brew setup, replace the symlink with a copy of
+       it and modify it. Right? If yes, then I would prefer not having
+       symlinked Brewfile.inc.sh in repos, thus not having it mandatory.
+       Why? Because when I sometimes see symlinked files from SF I don't
+       really know if it is ok to "unsymlink" them and if it is expected
+       of me to do that. Because you (next person changing source in SF)
+       may assume that I won't do that and can make a breaking change.
+
+   Just to clarify:
+    0. When I see symlink on SF, I don't know if I can remove it safely or
+       not, because I don't know if the author (in 99% cases you,
+       [63]@andreineculau) wants to keep it as a symlink and update just
+       the source in SF. That's a bit dangerous dependency pattern, I
+       believe.
+    1. I think it's ok to have symlinks from SF for things that we: a)
+       know they have to be in a certain location; b) know that they don't
+       change from repo to repo. Good example: ./transcrypt or ./.npmrc.
+    2. For all other boilerplate files, I think we should just create a
+       copy. For example, I think we should change this for .vscode
+       folder, where should start from some common template, but then be
+       able to modify it in every repo according to the needs.
+
+   So my suggestion: change the symlink to a copy in bootstrap. Then I
+   would feel safer changing it and I think it will be ok to make it
+   mandatory.
+
+   [64]andreineculau added a commit [65]about 1 year ago
+   [66]@andreineculau [67]copy, not symlink, Brewfile.inc.sh when
+   bootstrapping a repo
+
+   Copy link
+   @andreineculau
+   [68]andreineculau
+   commented [69]about 1 year ago
+
+     I think it's ok to have symlinks from SF for things that we: a) know
+     they have to be in a certain location; b) know that they don't
+     change from repo to repo. Good example: ./transcrypt or ./.npmrc.
+
+   that is indeed the driver for choosing symlink over copy
+
+   with regards to "safety", everything is "safe". there's no reason why
+   anyone should doubt the possibility of un-symlinking and changing the
+   contents (at the expense of not benefiting from changes upstream i.e.
+   changes that come with the support-firecloud submodule)
+
+   symlinking is merely a way to reduce manual work when smth changes.
+   example "changing the vanilla .editorconfig" becomes simpler when it
+   gets updated via upgrading support-firecloud alone (like when fixing a
+   bug with support-firecloud and wanting to bring that fix into the
+   bootstrapped repo), vs one day editing smth, ending up in a PR, and
+   then looking "why the heck didn't eclint complain because we enforced X
+   one year ago?"
+
+   would it make you feel safer if repo-*-bootstrap would clarify the
+   intention via a followup message after printing Symlinked X.?
+
+     For all other boilerplate files, I think we should just create a
+     copy. For example, I think we should change this for .vscode folder,
+     where should start from some common template, but then be able to
+     modify it in every repo according to the needs.
+
+   the problem with the driver is that it's not only subjective but that
+   we also have very few datapoints to decide on (both in terms of human
+   resources = users, and cases = repos). for instance, .vscode (folder)
+   could have stayed a symlink many years just fine if it wasn't for you
+   having a usecase where you want to add launch.json so we when with
+   symlinks for files within .vscode instead. the rest of the .vscode
+   files are still happily symlinks, although there's nothing to say that
+   in time it won't change. but now, if there's smth new in VSCode and we
+   really want to bring that setting into all repos, it's simpler with
+   symlinks.
+
+   on-topic: Brewfile.inc.sh should have never been a symlinked artifact
+   in repo-generic-bootstrap. I myself copied the file in all our repos,
+   so I can only say thanks for spotting it!
+
+   andreineculau referenced this pull request from commit [70]3e627b9
+   [71]about 1 year ago
+
+   andreineculau merged commit 3e627b9 into master [72]about 1 year ago
+
+   Copy link
+   @IanSavchenko
+   [73]IanSavchenko
+   commented [74]about 1 year ago
+
+   Thanks for the clarification!
+
+     would it make you feel safer if repo-*-bootstrap would clarify the
+     intention via a followup message after printing Symlinked X.?
+
+   Probably, yes. But now I know where to look. Will the next team members
+   know that? :)
+
+     on-topic: Brewfile.inc.sh should have never been a symlinked
+     artifact in repo-generic-bootstrap. I myself copied the file in all
+     our repos, so I can only say thanks for spotting it!
+
+   🎉
+
+   andreineculau deleted the f/anu-mandatory-brewfile branch [75]about 1
+   year ago
+

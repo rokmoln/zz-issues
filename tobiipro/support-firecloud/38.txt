@@ -1,0 +1,82 @@
+
+travis_wait ruins travis_fold logs #38
+
+   Closed
+   [57]IanSavchenko opened this issue May 24, 2018 · 1 comment
+   Closed
+
+[58]travis_wait ruins travis_fold logs #38
+
+   [59]IanSavchenko opened this issue May 24, 2018 · 1 comment
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]May 24, 2018
+
+    1. If you start a task in travis_wait, all the output will be output
+       to a file. By logic in our CI script, later this file we will
+       append, but see p.3
+    2. travis_wait will periodically tail some of the lines from output
+       file which can randomly be travis_fold sometimes
+    3. Some other logs slip through file, because they are sent to error
+       stream. This creates mess.
+
+   (THUMBS_UP react) 👍 1 (HEART react) ❤️ 1
+   [64]@andreineculau
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[66]@andreineculau [67]andreineculau commented [68]May 24, 2018
+
+   Nice find!
+
+   Random hint: monkey-patch the checked-in bin/travis-wait script to
+   replace travis-fold markers. I was about to write that i have no
+   helpers, but coffee kicked in 😂
+
+   [69]https://youtu.be/PAAkCSZUG1c ✌️
+   (THUMBS_UP react) 👍 1
+   [70]@andreineculau [71]andreineculau closed this in [72]598dfdb [73]Nov
+   30, 2018
+   [74]jobackman added a commit that referenced this issue [75]Dec 3, 2018
+   [76]@jobackman
+   [77]Merge branch 'master' into
+   TFC-3061--documenting-new-developer-bootstrap (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [78]jobackman Johan Bäckman
+   GPG key ID: A265D71463F1FC4E [79]Learn about signing commits
+   [80]a931bac
+* master: (53 commits)
+  migrated to travis-ci.com
+  style
+  create a merge commit when upstream diverges before/during release. fix [81]#2
+6
+  build linux vm and osx only on push and cron
+  better diff for submodules
+  update docs when initializing a repo with sf submodule
+  updated .mailmap
+  fix travis-wait outputting last line of log when it has travis_fold markers. f
+ix [82]#38
+  stdout progress when running sf_os silently
+  fix missing gmake
+  refactor sf_travis_run to allow for just sourcing the script in debug mode
+  echo all exe_and_grep_q
+  add sf_travis_run_all target; run as './.travis.sh all' when debugging
+  simplify PATH to homebrew
+  no homebrew analytics and autoupdate only in ci
+  style
+  try to use rsync --whole-file to speed things up
+  try to use rsync --inplace to speed things up
+  remove redundant. path should already be set
+  fix path for unzip
+  ...
+

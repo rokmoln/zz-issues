@@ -1,0 +1,37 @@
+
+Add 'has' function to env proxy and start using it in lambda bootstrap #7
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 27, 2018 · 1 comment
+   Closed
+
+[58]Add 'has' function to env proxy and start using it in lambda bootstrap #7
+
+   [59]IanSavchenko opened this issue Mar 27, 2018 · 1 comment
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Mar 27, 2018
+
+   No description provided.
+   [64]@andreineculau [65]andreineculau mentioned this issue [66]Mar 14,
+   2019
+   [67]breaking: remove overloaded _ property from safeProxy; prefer 'in'
+   ch… #17
+   Merged
+   [68]@andreineculau
+
+This comment has been minimized.
+
+   [69]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[70]@andreineculau [71]andreineculau commented [72]May 20, 2019
+
+   fixed by [73]tobiipro/lodash-firecloud#17
+   [74]@andreineculau [75]andreineculau closed this [76]May 20, 2019

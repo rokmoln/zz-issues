@@ -1,0 +1,141 @@
+
+Typescript #28
+
+   typescript
+
+   master typescript
+   @andreineculau
+   [45]andreineculau opened this pull request 4 months ago • edited 4
+   months ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   I tried to keep this PR as focused to converting from jsdoc to
+   typescript as possible.
+
+   I believe there are only a few problem areas to focus on:
+     * limitInParallel and memoizeTtl have @ts-ignore for the return
+       values, which I don't know how to address
+     * callbackify and promisify do not carry type information of the
+       original function because it would require too much typing to catch
+       patterns like (...args, cb) => any (currently typescript has no way
+       of doing that and utility types from ts-toolbelt are too complex
+       and typescript bails out because of the complexity). As far as I
+       understand though, because we use unknown, this forces the caller
+       to type the result before using it.
+
+   [47]andreineculau added a commit [48]4 months ago
+   [49]@andreineculau [50]rename .js to .ts
+
+   andreineculau added the [51]enhancement label [52]4 months ago
+
+   andreineculau requested a review from tobiiasl [53]4 months ago
+
+   andreineculau self-assigned this [54]4 months ago
+
+   andreineculau added this to In progress in [55]Public (Open Source) via
+   automation [56]4 months ago
+
+   [57]andreineculau added a commit [58]4 months ago
+   [59]@andreineculau [60]use typescript
+
+   andreineculau force pushed changes to this branch [61]4 months ago
+
+   @tobiiasl
+   [62]tobiiasl approved these changes [63]4 months ago
+
+   Can't really say I understand everything. Complex stuff going.
+   Impressive. So I just commented on some random stuff that caught my
+   eye.
+   (BUTTON) Show resolved (BUTTON) Hide resolved [64].eslintrc.js
+   @@ -7,5 +16,24 @@ module.exports = {
+   rules: {
+   'max-classes-per-file': 'off'
+   }
+   },
+   overrides: [
+   makeTsConfig({
+   files: [
+   '*.ts'
+   ],
+   extends: [
+   'firecloud/configs/typescript'
+   ],
+   rules: {
+   // FIXME gives Allocation failed - JavaScript heap out of memory
+   [65]@tobiiasl [66]tobiiasl • [67]4 months ago
+   Copy link
+
+   Use TODO instead?
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [68]src/mixins/callbackify.ts
+   ((27 lines not shown))
+   */
+   export let callbackify = function(origFn, options = {}) {
+   // eslint-disable-next-line
+   @typescript-eslint/explicit-function-return-type
+   [69]@tobiiasl [70]tobiiasl • [71]4 months ago
+   Copy link
+
+   Is this eslint-disable needed? Afaics you specify a return type.
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [72]src/mixins/limit-in-parallel.ts
+   ((39 lines not shown))
+   */
+   export let limitInParallel = function(origFn, options = {}) {
+   // eslint-disable-next-line @typescript-eslint/promise-function-async,
+   @typescript-eslint/explicit-function-return-type
+   export let limitInParallel = function<
+   [73]@tobiiasl [74]tobiiasl • [75]4 months ago
+   Copy link
+
+   I think line 59-73 can be simplified to:
+      try {
+        return await origFn(...args);
+      } finally {
+        activeCount = activeCount - 1;
+      }
+
+   Or?
+   [76]@tobiiasl [77]tobiiasl • [78]4 months ago
+   Copy link
+
+   Just a thought: If I have function foo that returns a promise and I
+   wrap it using limitInParallel the behavior in case of a rejected
+   promise will change.
+
+   If the promise returned by foo rejects, blabla() will get called in
+   this case:
+foo().catch(blabla());
+
+   But not in this case:
+limitInParallel(foo)().catch(blabla());
+
+   Makes sense?
+
+   [79]andreineculau added some commits [80]4 months ago
+   [81]@andreineculau [82]updated .eslintrc.js
+   [83]@andreineculau [84]upgrade eslint-config-firecloud and fix linting
+   [85]@andreineculau [86]type check tests and root d.ts as well
+   [87]@andreineculau [88]remove redundant
+   [89]@andreineculau [90]use stable typescript@3.7.2
+
+   andreineculau force pushed changes to this branch [91]4 months ago
+
+   andreineculau referenced this pull request from commit [92]b48f0b1
+   [93]4 months ago
+
+   andreineculau merged commit b48f0b1 into master [94]4 months ago
+
+   Public (Open Source) automation moved this from In progress to Done
+   [95]4 months ago
+
+   andreineculau deleted the typescript branch [96]4 months ago
+
+   ankitmth removed this from Done in [97]Public (Open Source) [98]17 days
+   ago
+

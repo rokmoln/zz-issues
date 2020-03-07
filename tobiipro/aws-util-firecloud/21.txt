@@ -1,0 +1,145 @@
+
+F/anu api bootstrap 2 #21
+
+   f/anu-api-bootstrap-2
+
+   master f/anu-api-bootstrap-2
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]bug
+     * Fixes:
+     * Breaking change: [x]
+     __________________________________________________________________
+
+   breaking changes:
+     * removed
+          + asyncHandler
+          + bootstrap (express-middleware.js)
+          + res.sendError [DEL: should maybe even remove res.sendError
+            mixin? since it's eclipsed by throw new ResponseError() :DEL]
+            🤔
+          + 2nd argument (type) in res.send
+     * non-http lambdas need to throw or return the response
+     * http (express) lambdas need to throw (preferably ResponseError) or
+       call res.(s)end or return the response
+     * no need to wrap middlewares anymore, just the handlers with the
+       bootstrap function from aws-util-firecloud/lib/{lambda,express}
+
+   andreineculau force pushed changes to this branch [47]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau added the [50]bug label [51]about 1 year ago
+
+   andreineculau modified this pull request [52]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [53]andreineculau
+   commented [54]about 1 year ago
+
+   [55]@IanSavchenko
+   changes since yesterday: I'm still monkey-patching the Layer's
+   handle_error and handle_request but in a simple way - just handle async
+   handlers across the board. The handlers, still need to call next or
+   res.(s)end.
+
+   andreineculau force pushed changes to this branch [56]about 1 year ago
+
+   [57]andreineculau added some commits [58]about 1 year ago
+   [59]@andreineculau [60]wrap not just app.use, but app.<method>,
+   router.all, router.<method>,…
+   [61]@andreineculau [62]use _.callbackify
+   [63]@andreineculau [64]bump minlog
+   [65]@andreineculau [66]upgrade minlog
+   [67]@andreineculau [68]fix middleware signature
+   [69]@andreineculau [70]remove old log entry
+   [71]@andreineculau [72]no need for async
+   [73]@andreineculau [74]change bootstrapping signatures to async
+   all-the-way
+   [75]@andreineculau [76]simplify
+   [77]@andreineculau [78]return response
+   [79]@andreineculau [80]no res.log anymore
+   [81]@andreineculau [82]fix await/async flow
+   [83]@andreineculau [84]regular express middlewares need to be
+   promisified first
+   [85]@andreineculau [86]ignore default export
+   [87]@andreineculau [88]moar fixes around async funs
+   [89]@andreineculau [90]bump lodash-firecloud
+   [91]@andreineculau [92]handle cases where res.sendError is not yet
+   attached
+   [93]@andreineculau [94]pass next to layer functions
+   [95]@andreineculau [96]move response error handler to an express error
+   handler
+   [97]@andreineculau [98]refactor async/callback glue
+   [99]@andreineculau [100]express error handlers need to be registered
+   last
+   [101]@andreineculau [102]remove double try-catch
+   [103]@andreineculau [104]using async-await instead of callbackify
+   [105]@andreineculau [106]if calling was next twice, throw instead of
+   giving warning
+   [107]@andreineculau [108]hide res.sendError
+   [109]@andreineculau [110]trace lambda result
+   [111]@andreineculau [112]send request id to logger
+   [113]@andreineculau [114]fix error handling
+   [115]@andreineculau [116]correct usage of express res.send
+   [117]@andreineculau [118]clarify message
+   [119]@andreineculau [120]breaking: remove type from res.send(body,
+   type)
+   [121]@andreineculau [122]fix undefined logger
+   [123]@andreineculau [124]use new minlog's aws-lambda console logging
+
+   andreineculau force pushed changes to this branch [125]about 1 year ago
+
+   [126]andreineculau added a commit [127]about 1 year ago
+   [128]@andreineculau [129]enable babelSrc
+
+   andreineculau force pushed changes to this branch [130]about 1 year ago
+
+   [131]andreineculau added some commits [132]about 1 year ago
+   [133]@andreineculau [134]Revert "remove double try-catch"
+   [135]@andreineculau [136]handle async middleware in express Layer
+   [137]@andreineculau [138]kill the lambda on not-ResponseError throws,
+   and process.exit
+   [139]@andreineculau [140]remove check for calling next twice
+   [141]@andreineculau [142]call express next with err when headersSent,
+   as per express' docs
+   [143]@andreineculau [144]clarify naming
+
+   Copy link
+   @andreineculau
+   [145]andreineculau
+   commented [146]about 1 year ago
+
+   [147]@IanSavchenko ping. pushed the new stuff as well. thanks!
+
+   [148]andreineculau added some commits [149]about 1 year ago
+   [150]@andreineculau [151]add tests
+   [152]@andreineculau [153]use babel-preset-firecloud release
+
+   andreineculau force pushed changes to this branch [154]about 1 year ago
+
+   @IanSavchenko
+   [155]IanSavchenko approved these changes [156]about 1 year ago
+
+   [157]andreineculau added some commits [158]about 1 year ago
+   [159]@andreineculau [160]make express bootstrap pass errors to lambda
+   bootstrap, which will pr…
+   [161]@andreineculau [162]remove mockReset calls
+
+   @IanSavchenko
+   [163]IanSavchenko approved these changes [164]about 1 year ago
+
+   andreineculau referenced this pull request from commit [165]6830b72
+   [166]about 1 year ago
+
+   andreineculau merged commit 6830b72 into master [167]about 1 year ago
+
+   andreineculau deleted the f/anu-api-bootstrap-2 branch [168]about 1
+   month ago
+

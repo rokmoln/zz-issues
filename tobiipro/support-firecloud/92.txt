@@ -1,0 +1,89 @@
+
+add make targets for regular transcrypt usage #92
+
+   Closed
+   [57]andreineculau opened this issue Mar 20, 2019 · 3 comments
+   Closed
+
+[58]add make targets for regular transcrypt usage #92
+
+   [59]andreineculau opened this issue Mar 20, 2019 · 3 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 20, 2019 •
+
+   edited
+
+   e.g.
+make crypt # init repo with transcrypt or if already done, then encrypt
+make crypt/allow # allow someone to decrypt
+make crypt/disallow # disallow someone to decrypt
+make decrypt # init repo with transcrypt or if already done, then decrypt
+
+   feedback welcome [65]@jobackman
+
+   NOTE: update docs with new commands
+   [66]https://github.com/tobiipro/support-firecloud/blob/master/doc/how-t
+   o-manage-secrets.md
+   (THUMBS_UP react) 👍 1
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Mar 20, 2019
+   [71]@jobackman
+
+This comment has been minimized.
+
+   [72]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[73]@jobackman [74]jobackman commented [75]Mar 20, 2019
+
+   I like it! How about also including a make encrypt <file>?
+   [76]@andreineculau
+
+This comment has been minimized.
+
+   [77]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[78]@andreineculau [79]andreineculau commented [80]Mar 20, 2019
+
+   thought about it, but it involves touching the .gitattributes file
+   automagically and... that's maybe not a good idea
+
+   now that i think about it, probably the only target that is really
+   needed is make decrypt because that's what a few will use a few times.
+   but initializing, add a new encrypted file, or flushing the credentials
+   will happen close to once a year and then it's better to read the docs
+   :)
+   [81]@jobackman
+
+This comment has been minimized.
+
+   [82]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[83]@jobackman [84]jobackman commented [85]Mar 20, 2019
+
+     thought about it, but it involves touching the .gitattributes file
+     automagically and... that's maybe not a good idea
+
+   Ah, yeah you're probably right, lets skip that then.
+
+     now that i think about it, probably the only target that is really
+     needed is make decrypt because that's what a few will use a few
+     times.
+
+   Agreed, this is where the gold lies �
+   (LAUGH react) 😄 1
+   [86]@andreineculau [87]andreineculau closed this in [88]35ed454 [89]Mar
+   25, 2019

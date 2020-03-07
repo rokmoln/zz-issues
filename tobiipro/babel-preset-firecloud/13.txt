@@ -1,0 +1,92 @@
+
+add await-trace plugin for async stacktraces #13
+
+   f/anu-await-trace
+
+   master f/anu-await-trace
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   Linked issues
+   [47]note: native async code has short stacktraces
+     * Fixes: [48]tobiipro/aws-util-firecloud#23
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   andreineculau added the [49]enhancement label [50]about 1 year ago
+
+   andreineculau self-assigned this [51]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [52]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [53]andreineculau
+   commented [54]about 1 year ago
+
+   before:
+  await ctx.log.trackTime({ _babelSrc: { file: typeof __filename === "undefined"
+ ? "src/lambda/index.js" : __filename, babelFile: "src/lambda/index.js", line: 2
+8, column: 9 } },
+  'Merging env ctx...',
+  async function () {
+    await (0, _envCtx.merge)({ e, ctx, pkg });
+  });
+
+   after
+try {
+
+    await ctx.log.trackTime({ _babelSrc: { file: typeof __filename === "undefine
+d" ? "src/lambda/index.js" : __filename, babelFile: "src/lambda/index.js", line:
+ 28, column: 9 } }, { _babelSrc: { file: typeof __filename === "undefined" ? >
+    'Merging env ctx...',
+    async function () {try {
+        await (0, _envCtx.merge)({ e, ctx, pkg });} catch (_awaitTraceErr3) {let
+ newErr = Error();_awaitTraceErr3.stack += newErr.stack;throw _awaitTraceErr3;}
+    });} catch (_awaitTraceErr2) {let newErr = Error();_awaitTraceErr2.stack +=
+newErr.stack;throw _awaitTraceErr2;}
+
+   Copy link
+   @IanSavchenko
+   [55]IanSavchenko
+   commented [56]about 1 year ago
+
+   No tests in the original code?
+
+   I guess we can try it out in our code that is running in node.
+
+   andreineculau force pushed changes to this branch [57]about 1 year ago
+
+   andreineculau force pushed changes to this branch [58]about 1 year ago
+
+   andreineculau force pushed changes to this branch [59]about 1 year ago
+
+   andreineculau modified this pull request [60]10 months ago
+
+   andreineculau force pushed changes to this branch [61]10 months ago
+
+   andreineculau force pushed changes to this branch [62]10 months ago
+
+   [63]andreineculau added a commit [64]10 months ago
+   [65]@andreineculau [66]add await-trace plugin for async stacktraces
+
+   andreineculau force pushed changes to this branch [67]10 months ago
+
+   Copy link
+   @andreineculau
+   [68]andreineculau
+   commented [69]10 months ago
+
+   since nodejs 12 is not around the corner, let's see what this gives us
+
+   andreineculau referenced this pull request from commit [70]07c4f95
+   [71]10 months ago
+
+   andreineculau merged commit 07c4f95 into master [72]10 months ago
+
+   andreineculau deleted the f/anu-await-trace branch [73]10 months ago
+

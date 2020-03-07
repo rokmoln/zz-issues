@@ -1,0 +1,50 @@
+
+review typescript rules overriding generic ones #39
+
+   Closed
+   [57]andreineculau opened this issue Sep 23, 2019 · 1 comment
+   Closed
+
+[58]review typescript rules overriding generic ones #39
+
+   [59]andreineculau opened this issue Sep 23, 2019 · 1 comment
+   Assignees
+   [60]@tobiiasl
+   Labels
+   [61]invalid
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Sep 23, 2019
+
+   because at least one @typescript-eslint/no-unused-vars is not a
+   superset of no-unused-vars, and thus we should not set no-unused-vars:
+   off
+
+   [66]https://github.com/tobiipro/eslint-config-firecloud/blob/master/con
+   figs/typescript.js#L97-L131
+   [67]@andreineculau [68]andreineculau added the [69]bug label [70]Sep
+   23, 2019
+   [71]@andreineculau [72]andreineculau assigned [73]tobiiasl [74]Sep 23,
+   2019
+   [75]@andreineculau
+
+This comment has been minimized.
+
+   [76]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[77]@andreineculau [78]andreineculau commented [79]Oct 7, 2019
+
+   on a secondary look, it is a superset
+
+   [80]https://github.com/typescript-eslint/typescript-eslint/blob/4edf0d7
+   /packages/eslint-plugin/src/rules/no-unused-vars.ts#L22
+   [81]@andreineculau [82]andreineculau closed this [83]Oct 7, 2019
+   [84]@andreineculau [85]andreineculau added [86]invalid and removed
+   [87]bug labels [88]Oct 7, 2019

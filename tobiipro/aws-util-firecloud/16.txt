@@ -1,0 +1,112 @@
+
+break up lambda module, replace bunyan with minlog #16
+
+   f/anu-minlog
+
+   f/anu-api-bootstrap f/anu-minlog
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   once again the core change is lambda/logger.js, I broke up lambda.js
+     * [X] depends on PRs in minlog
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   andreineculau force pushed changes to this branch [51]about 1 year ago
+
+   @IanSavchenko
+   [52]IanSavchenko reviewed [53]about 1 year ago
+
+   Great break up!
+   (BUTTON) Show resolved (BUTTON) Hide resolved [54]src/lambda/logger.js
+   ((54 lines not shown))
+   ctx.log.trace('Making an AWS SDK call.', {
+   aws: {
+   serviceIdentifier,
+   status,
+   delta,
+   retryCount,
+   operation,
+   params
+   }
+   });
+   }
+   };
+   };
+   let _setupLongStacktraces = function({ctx}) {
+   if (ctx.log.level() >= ctx.log.levelToLevelCode('TRACE')) {
+   [55]@IanSavchenko [56]IanSavchenko • [57]about 1 year ago
+   Copy link
+
+   Here and in other places, you expect ctx.log.level() to return a
+   number, I guess, to compare it with level code for TRACE. But I can
+   clearly see that the value it will return will be string like INFO (see
+   setup, line 101).
+   [58]@andreineculau [59]andreineculau • [60]about 1 year ago
+   Copy link
+
+   ❤️
+   (BUTTON) Show resolved (BUTTON) Hide resolved [61]src/lambda/logger.js
+   ((86 lines not shown))
+   let level = _.get(ctx, 'env.LOG_LEVEL', 'INFO');
+   let logger = new MinLog({
+   serializers: [
+   serializeTime,
+   serializeErr,
+   _makeLambdaSerializer({ctx})
+   ],
+   listeners: [
+   logToConsole({
+   level
+   })
+   ]
+   });
+   logger.level = function() {
+   [62]@IanSavchenko [63]IanSavchenko • [64]about 1 year ago
+   Copy link
+
+   I can hardly see why this function is needed. We have several places
+   with logic around if it is TRACE log level or not for some extra
+   debugging info. Why just not set a flag ctx.trace = true once and read
+   it everywhere?
+   [65]@andreineculau [66]andreineculau • [67]about 1 year ago
+   Copy link
+
+   i made a change in the spirit of of what you said, but it's on ctx.log
+   not ctx
+
+   [68]andreineculau added some commits [69]about 1 year ago
+   [70]@andreineculau [71]break up lambda module, replace bunyan with
+   minlog
+   [72]@andreineculau [73]fixup! break up lambda module, replace bunyan
+   with minlog
+
+   andreineculau force pushed changes to this branch [74]about 1 year ago
+
+   [75]andreineculau added a commit [76]about 1 year ago
+   [77]@andreineculau [78]use minlog's levelIsBeyondGroup convenience
+   function
+
+   andreineculau referenced this pull request from commit [79]3f3296f
+   [80]about 1 year ago
+
+   andreineculau merged commit 3f3296f into f/anu-api-bootstrap [81]about
+   1 year ago
+
+   andreineculau deleted the f/anu-minlog branch [82]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [83]andreineculau commented [84]about 1 year ago • edited about 1 year
+   ago
+
+   fixes [85]#13 [86]#5
+

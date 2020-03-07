@@ -1,0 +1,46 @@
+
+./node_modules/.bin in $PATH #128
+
+   Closed
+   [57]andreineculau opened this issue Sep 13, 2019 · 0 comments
+   Closed
+
+[58]./node_modules/.bin in $PATH #128
+
+   [59]andreineculau opened this issue Sep 13, 2019 · 0 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Sep 13, 2019
+
+   why?
+   because npm deps might come with executables installed in
+   ./node_modules/.bin e.g. angular-cli which developers might want to
+   access directly, not just via makefiles
+
+   note: a long time ago, this was already the case, but got removed.
+   investigate why
+   note2: this could be a change for devs only or for devs&ci. investigate
+   consequences
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Sep 13, 2019
+   [70]@andreineculau [71]andreineculau added this to To do in [72]Public
+   (Open Source) via automation [73]Sep 13, 2019
+   [74]@andreineculau [75]andreineculau moved this from To do to Next in
+   [76]Public (Open Source) [77]Sep 29, 2019
+   [78]@andreineculau [79]andreineculau closed this in [80]2869f56 [81]Oct
+   22, 2019
+   [82]Public (Open Source) automation moved this from Next to Done
+   [83]Oct 22, 2019
+   [84]@andreineculau [85]andreineculau self-assigned this [86]Oct 22,
+   2019
+   [87]@ankitmth [88]ankitmth removed this from Done in [89]Public (Open
+   Source) [90]Feb 19, 2020

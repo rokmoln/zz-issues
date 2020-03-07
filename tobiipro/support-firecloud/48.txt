@@ -1,0 +1,131 @@
+
+support python via pipenv #48
+
+   f/anu-python-mk
+
+   master f/anu-python-mk
+   @andreineculau
+   [45]andreineculau opened this pull request over 1 year ago • edited
+   over 1 year ago
+
+   WIP. TODO:
+     * [X] linux bootstrap
+     * [X] remove pyenv init
+
+   @IanSavchenko
+   [46]IanSavchenko reviewed [47]over 1 year ago
+   [48]repo/mk/js.deps.npm.mk
+   @@ -29,3 +29,8 @@ deps-npm:
+   if [[ -x
+   node_modules/eslint-config-firecloud/npm-install-peer-dependencies ]];
+   then \
+   node_modules/eslint-config-firecloud/npm-install-peer-dependencies; \
+   fi
+   .PHONY: deps-npm-prod
+   [49]@IanSavchenko [50]IanSavchenko • [51]over 1 year ago
+   Copy link
+
+   Ok, this is new. I thought it was here for a while and I missed it :D
+   [52]@andreineculau [53]andreineculau • [54]over 1 year ago
+   Copy link
+
+   new and not used, but i wanted to have it on par with the target for
+   pipenv
+   might get removed by the time I'm done (I didn't request a review yet 😝
+   just wanted to have the diffs in front of me)
+   [55]@IanSavchenko [56]IanSavchenko • [57]over 1 year ago
+   Copy link
+
+   I just did what github told me 😛
+
+     You can view, comment on, or merge this pull request online at:
+
+   😄 1
+   andreineculau reacted with laugh emoji
+   (BUTTON) Show outdated (BUTTON) Hide outdated
+   [58]repo/mk/js.deps.npm.mk
+   @@ -29,3 +29,8 @@ deps-npm:
+   if [[ -x
+   node_modules/eslint-config-firecloud/npm-install-peer-dependencies ]];
+   then \
+   node_modules/eslint-config-firecloud/npm-install-peer-dependencies; \
+   fi
+   .PHONY: deps-npm-prod
+   deps-npm-prod:
+   $(NPM) install --prod
+   [59]@IanSavchenko [60]IanSavchenko • [61]over 1 year ago
+   Copy link
+
+   Maybe --production? [62]https://docs.npmjs.com/cli/install
+   [63]@andreineculau [64]andreineculau • [65]over 1 year ago
+   Copy link
+
+   such incomplete docs :) but yes, I would have made the change myself
+   since it's stupid to go with the "shorter" long-option
+
+   ps: such bad design to allow for stuff like -v or --ver or --vsn or
+   --version, same for npm i, same for ...ranting...ranting...ranting :)
+   btw, I don't think --save-production works, or at least it didn't work
+   at some point 🙄
+
+   andreineculau force pushed changes to this branch [66]over 1 year ago
+
+   Copy link
+   @andreineculau
+   [67]andreineculau
+   commented [68]over 1 year ago
+
+   [69]@IanSavchenko have a look now 😉 🙏
+
+   andreineculau force pushed changes to this branch [70]over 1 year ago
+
+   andreineculau force pushed changes to this branch [71]over 1 year ago
+
+   andreineculau force pushed changes to this branch [72]over 1 year ago
+
+   andreineculau force pushed changes to this branch [73]over 1 year ago
+
+   andreineculau force pushed changes to this branch [74]over 1 year ago
+
+   andreineculau force pushed changes to this branch [75]over 1 year ago
+
+   andreineculau force pushed changes to this branch [76]over 1 year ago
+
+   andreineculau force pushed changes to this branch [77]over 1 year ago
+
+   andreineculau force pushed changes to this branch [78]over 1 year ago
+
+   andreineculau force pushed changes to the base branch [79]over 1 year
+   ago
+
+   @IanSavchenko
+   [80]IanSavchenko approved these changes [81]over 1 year ago
+   (BUTTON) Show outdated (BUTTON) Hide outdated [82]repo/mk/py.common.mk
+   @@ -0,0 +1,13 @@
+   SUPPORT_FIRECLOUD_DIR := $(shell dirname $(abspath $(lastword
+   $(MAKEFILE_LIST))/../..))
+   include $(SUPPORT_FIRECLOUD_DIR)/repo/mk/generic.common.mk
+   include $(SUPPORT_FIRECLOUD_DIR)/repo/mk/py.deps.pipenv.mk
+   include $(SUPPORT_FIRECLOUD_DIR)/repo/mk/py.check.flake.mk
+   [83]@IanSavchenko [84]IanSavchenko • [85]over 1 year ago
+   Copy link
+
+   why do we include py.check.flake.mk in py.common.mk? In JS check.*
+   targets are not included.
+   [86]@andreineculau [87]andreineculau • [88]over 1 year ago
+   Copy link
+
+   litmus test 😉 it was an error. fixed
+
+   [89]andreineculau added a commit [90]over 1 year ago
+   [91]@andreineculau [92]support python
+
+   andreineculau force pushed changes to this branch [93]over 1 year ago
+
+   andreineculau referenced this pull request from commit [94]590b06c
+   [95]over 1 year ago
+
+   andreineculau merged commit 590b06c into master [96]over 1 year ago
+
+   andreineculau deleted the f/anu-python-mk branch [97]over 1 year ago
+

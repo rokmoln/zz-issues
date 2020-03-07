@@ -1,0 +1,36 @@
+
+PR template is not picked up by symlink #79
+
+   Closed
+   [57]IanSavchenko opened this issue Jan 29, 2019 · 1 comment
+   Closed
+
+[58]PR template is not picked up by symlink #79
+
+   [59]IanSavchenko opened this issue Jan 29, 2019 · 1 comment
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Jan 29, 2019
+
+   Seems like GitHub is not smart enough to resolve symlink and we end up
+   with text.
+../support-firecloud/repo/dot.github/PULL_REQUEST_TEMPLATE.md
+
+   [64]@andreineculau
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[66]@andreineculau [67]andreineculau commented [68]Jan 29, 2019
+
+   😢
+   [69]@andreineculau [70]andreineculau closed this in [71]6451739 [72]Jan
+   29, 2019

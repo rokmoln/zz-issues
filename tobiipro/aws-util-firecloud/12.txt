@@ -1,0 +1,61 @@
+
+simplify src/cfn/lambda.js : add #12
+
+   Closed
+   [57]andreineculau opened this issue Dec 9, 2018 · 1 comment
+   Closed
+
+[58]simplify src/cfn/lambda.js : add #12
+
+   [59]andreineculau opened this issue Dec 9, 2018 · 1 comment
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Dec 9, 2018
+
+   no config should be needed, no assumptions about storage resources etc
+
+   basically we need to get it down to "give me the Code and the
+   Environment.Variables"
+
+   PS: breaking change, bump minor
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Dec 9, 2018
+   [70]@andreineculau [71]andreineculau self-assigned this [72]Dec 9, 2018
+   [73]@IanSavchenko
+
+This comment has been minimized.
+
+   [74]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[75]@IanSavchenko [76]IanSavchenko commented [77]Dec 9, 2018
+
+   Yes!!!!
+   (LAUGH react) 😄 1
+   [78]@andreineculau [79]andreineculau added this to To do in [80]Public
+   (Open Source) [81]May 20, 2019
+   [82]andreineculau added a commit that referenced this issue [83]Aug 15,
+   2019
+   [84]@andreineculau
+   [85]split lambda, prepping for simplifications. ref [86]#12
+   Verified
+   This commit was signed with a verified signature.
+   [87]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [88]Learn about signing commits
+   [89]addb66b
+   [90]@andreineculau [91]andreineculau closed this in [92]7cf852a [93]Aug
+   16, 2019
+   [94]Public (Open Source) automation moved this from To do to Done
+   [95]Aug 16, 2019
+   [96]@ankitmth [97]ankitmth removed this from Done in [98]Public (Open
+   Source) [99]Feb 19, 2020

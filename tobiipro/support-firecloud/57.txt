@@ -1,0 +1,32 @@
+
+try using linux xenial 16.04 #57
+
+   f/anu-xenial
+
+   master f/anu-xenial
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   theory: faster because packages should be more up-to-date
+
+   [47]andreineculau added some commits [48]about 1 year ago
+   [49]@andreineculau [50]clarify os names in job names
+   [51]@andreineculau [52]add xenial tests
+   [53]@andreineculau [54]require SF_CI_BREW_INSTALL
+   [55]@andreineculau [56]sort
+   [57]@andreineculau [58]whitespace
+   [59]@andreineculau [60]TEMP test in PR
+
+   andreineculau added the [61]enhancement label [62]about 1 year ago
+
+   andreineculau referenced this pull request from commit [63]d9e7587
+   [64]about 1 year ago
+
+   andreineculau merged commit d9e7587 into master [65]about 1 year ago
+
+   andreineculau deleted the f/anu-xenial branch [66]about 1 year ago
+

@@ -1,0 +1,59 @@
+
+throttling should be configurable #2
+
+   Closed
+   [57]andreineculau opened this issue Sep 22, 2017 · 0 comments
+   Closed
+
+[58]throttling should be configurable #2
+
+   [59]andreineculau opened this issue Sep 22, 2017 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Sep 22, 2017
+
+   No description provided.
+   [65]andreineculau added a commit that referenced this issue [66]Sep 22,
+   2017
+   [67]@andreineculau
+   [68]make throttling optional and configurable. [69]fix [70]#2
+   [71]c15faf4
+   [72]andreineculau added a commit that referenced this issue [73]Sep 22,
+   2017
+   [74]@andreineculau
+   [75]make throttling optional and configurable. [76]fix [77]#2
+   [78]b8e3b22
+   [79]@andreineculau [80]andreineculau added the [81]enhancement label
+   [82]Sep 22, 2017
+   [83]andreineculau added a commit that referenced this issue [84]Oct 10,
+   2017
+   [85]@andreineculau
+   [86]make throttling optional and configurable. [87]fix [88]#2
+   [89]715501b
+   [90]@andreineculau [91]andreineculau added this to To do in [92]Public
+   (Open Source) via automation [93]May 20, 2019
+   [94]@andreineculau [95]andreineculau added [96]wontfix and removed
+   [97]wontfix labels [98]Jul 12, 2019
+   [99]@andreineculau [100]andreineculau closed this in [101]da662ba
+   [102]Jul 12, 2019
+   [103]Public (Open Source) automation moved this from To do to Done
+   [104]Jul 12, 2019
+   [105]andreineculau added a commit that referenced this issue [106]Jul
+   12, 2019
+   [107]@andreineculau
+   [108]fixup! make throttle value configurable before calling init.
+   [109]fixes [110]#2
+   Verified
+   This commit was signed with a verified signature.
+   [111]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [112]Learn about signing commits
+   [113]7b3ed5b
+   [114]@ankitmth [115]ankitmth removed this from Done in [116]Public
+   (Open Source) [117]Feb 19, 2020

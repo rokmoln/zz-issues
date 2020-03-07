@@ -1,0 +1,32 @@
+
+update references in node project bootstrap script #139
+
+   UpdateNodeProjectBootstrap
+
+   master UpdateNodeProjectBootstrap
+   @weetmuts
+   [45]weetmuts opened this pull request
+   about 1 month ago
+
+   The generated makefile pointed to the wrong mk file in the
+   support-firecloud/repo/mk.
+
+   [46]weetmuts added a commit [47]about 1 month ago
+   [48]@weetmuts [49]update references in node project bootstrap script
+
+   andreineculau force pushed changes to the base branch [50]about 1 month
+   ago
+
+   andreineculau self-requested a review [51]about 1 month ago
+
+   @andreineculau
+   [52]andreineculau approved these changes [53]about 1 month ago
+
+   andreineculau referenced this pull request from commit [54]7f0c00e
+   [55]about 1 month ago
+
+   andreineculau merged commit 7f0c00e into master [56]about 1 month ago
+
+   andreineculau deleted the UpdateNodeProjectBootstrap branch [57]about 1
+   month ago
+

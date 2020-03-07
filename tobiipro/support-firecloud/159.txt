@@ -1,0 +1,26 @@
+
+aws-iam-login without a role #159
+
+   Closed
+   [57]andreineculau opened this issue Mar 5, 2020 · 0 comments
+   Closed
+
+[58]aws-iam-login without a role #159
+
+   [59]andreineculau opened this issue Mar 5, 2020 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 5, 2020
+
+   we should be able to assume an STS token for a user, not just a role
+   [65]@andreineculau [66]andreineculau added the [67]enhancement label
+   [68]Mar 5, 2020
+   [69]@andreineculau [70]andreineculau closed this in [71]9587da0 [72]Mar
+   5, 2020

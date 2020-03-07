@@ -1,0 +1,27 @@
+
+Make sure 'region' and 'account' don't fail without env variables defined #8
+
+   Closed
+   [57]IanSavchenko opened this issue Apr 12, 2018 · 0 comments
+   Closed
+
+[58]Make sure 'region' and 'account' don't fail without env variables defined
+#8
+
+   [59]IanSavchenko opened this issue Apr 12, 2018 · 0 comments
+   Assignees
+   [60]@IanSavchenko
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Apr 12, 2018
+
+   No description provided.
+   (HOORAY react) 🎉 1
+   [65]@IanSavchenko [66]IanSavchenko self-assigned this [67]Apr 24, 2018
+   [68]@IanSavchenko [69]IanSavchenko closed this in [70]f26d330 [71]Apr
+   24, 2018

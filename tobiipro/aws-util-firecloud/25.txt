@@ -1,0 +1,175 @@
+
+feat: log if event loop is not empty when the lambda responds #25
+
+   Closed
+   [57]andreineculau opened this issue Mar 11, 2019 · 4 comments
+   Closed
+
+[58]feat: log if event loop is not empty when the lambda responds #25
+
+   [59]andreineculau opened this issue Mar 11, 2019 · 4 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 11, 2019
+
+   we had an instance where the lambda logged a response to AWS, but then
+   it was waiting for the event loop to become empty, which never
+   happened, thus the lambda timed out (and the initial response was
+   ignored)
+
+   it would be good to at least log that "hey we are now replying to AWS.
+   but this lambda is configured to wait until the event loop is empty,
+   and there's smth on the event loop right now" - even better if we can
+   report some useful info about what is actually on the event loop
+
+   currently there are only some undocumented nodejs APIs -
+   process._getActiveRequests() and process._getActiveHandles() - and even
+   those don't work as expected. I tried in a node REPL to run a simple
+   async function that sleeps for 10 seconds then console.log-s smth and
+   process._getActiveRequests() remained empty, while I was expecting it
+   to report the async function somehow.
+   [65]@andreineculau [66]andreineculau added the [67]enhancement label
+   [68]Mar 11, 2019
+   [69]@andreineculau
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[71]@andreineculau [72]andreineculau commented [73]Mar 11, 2019
+
+   tried now also with a setTimeout - still empty array result from
+   process._getActiveRequests()
+   [74]@IanSavchenko
+
+This comment has been minimized.
+
+   [75]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[76]@IanSavchenko [77]IanSavchenko commented [78]Mar 25, 2019
+
+   This worked for me [79]https://github.com/mafintosh/why-is-node-running
+let log = require('why-is-node-running');
+
+setTimeout(function() {
+  console.log('done!');
+}, 2000);
+
+log();
+
+   Outputs
+There are 1 handle(s) keeping the process running
+
+# Timeout
+/Users/isao/code/github/TobiiPro/atex-platform/test.js:3 - setTimeout(function()
+ {
+
+   (HEART react) ❤️ 1
+   [80]@andreineculau
+
+This comment has been minimized.
+
+   [81]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[82]@andreineculau [83]andreineculau commented [84]Mar 25, 2019
+
+   👏 I thought async_hooks came in nodejs 10, but i see now it's also in
+   nodejs 8
+
+   don't know if it's in the version that aws delivers, but it's worth a
+   try
+   [85]@andreineculau [86]andreineculau added this to To do in [87]Public
+   (Open Source) [88]May 20, 2019
+   [89]andreineculau added a commit to tobiipro/lodash-firecloud that
+   referenced this issue [90]Aug 6, 2019
+   [91]@andreineculau
+   [92]wip: add mixins around stacktrace and open handles. ref
+   [93]tobiipro/aws-… (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [94]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [95]Learn about signing commits
+   [96]0bc8791
+[97]…util-firecloud#25
+
+   [98]@andreineculau [99]andreineculau moved this from To do to In
+   progress in [100]Public (Open Source) [101]Aug 6, 2019
+   [102]andreineculau added a commit to tobiipro/lodash-firecloud that
+   referenced this issue [103]Aug 7, 2019
+   [104]@andreineculau
+   [105]add mixins around stacktrace and open handles. ref
+   [106]tobiipro/aws-util-… (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [107]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [108]Learn about signing commits
+   [109]157e767
+[110]…firecloud#25
+
+   [111]andreineculau added a commit to tobiipro/lodash-firecloud that
+   referenced this issue [112]Aug 7, 2019
+   [113]@andreineculau
+   [114]add mixins around stacktrace and open handles. ref
+   [115]tobiipro/aws-util-… (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [116]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [117]Learn about signing commits
+   [118]55f6fca
+[119]…firecloud#25
+
+   [120]andreineculau added a commit to tobiipro/lodash-firecloud that
+   referenced this issue [121]Aug 7, 2019
+   [122]@andreineculau
+   [123]add mixins around stacktrace and open handles. ref
+   [124]tobiipro/aws-util-… (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [125]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [126]Learn about signing commits
+   [127]913a73b
+[128]…firecloud#25
+
+   [129]andreineculau added a commit to tobiipro/lodash-firecloud that
+   referenced this issue [130]Aug 7, 2019
+   [131]@andreineculau
+   [132]add mixins around stacktrace and open handles. ref
+   [133]tobiipro/aws-util-… (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [134]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [135]Learn about signing commits
+   [136]574caf1
+[137]…firecloud#25
+
+   [138]@andreineculau
+
+This comment has been minimized.
+
+   [139]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[140]@andreineculau [141]andreineculau commented [142]Aug 16, 2019
+
+   closing without new functionality in aws-util-firecloud. when a lambda
+   times out and needs investigation, one can wrap the lambda and diagnose
+   with the help of _.getV8OpenHandles()
+   [143]@andreineculau [144]andreineculau closed this [145]Aug 16, 2019
+   [146]Public (Open Source) automation moved this from In progress to
+   Done [147]Aug 16, 2019
+   [148]@ankitmth [149]ankitmth removed this from Done in [150]Public
+   (Open Source) [151]Feb 19, 2020

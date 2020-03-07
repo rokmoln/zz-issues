@@ -1,0 +1,21 @@
+
+upgrade osx version #40
+
+   update-travis-osx
+
+   master update-travis-osx
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request
+   over 1 year ago
+   No description given.
+
+   [46]IanSavchenko added a commit [47]over 1 year ago
+   [48]@IanSavchenko [49]upgrade osx version
+
+   IanSavchenko referenced this pull request from commit [50]b422890
+   [51]over 1 year ago
+
+   IanSavchenko merged commit b422890 into master [52]over 1 year ago
+
+   IanSavchenko deleted the update-travis-osx branch [53]over 1 year ago
+

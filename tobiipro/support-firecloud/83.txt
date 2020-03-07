@@ -1,0 +1,66 @@
+
+`make release` for tagged releases nukes and rebuilds everything #83
+
+   Closed
+   [57]IanSavchenko opened this issue Feb 13, 2019 · 3 comments
+   Closed
+
+[58]`make release` for tagged releases nukes and rebuilds everything #83
+
+   [59]IanSavchenko opened this issue Feb 13, 2019 · 3 comments
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Feb 13, 2019
+
+   This should only happen for npm-publish-git.
+   [64]@andreineculau
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[66]@andreineculau [67]andreineculau commented [68]Feb 13, 2019
+
+   My bad. OCD kicked in, i realized the mistake but i guess i forgot to
+   commit and push the correction. 😕
+   [69]@IanSavchenko
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[71]@IanSavchenko [72]IanSavchenko commented [73]Feb 13, 2019
+
+   not a big deal, it will wait for you to fix it :)
+   [74]andreineculau added a commit that referenced this issue [75]Feb 14,
+   2019
+   [76]@andreineculau
+   [77]add comment for [78]#83
+   Verified
+   This commit was signed with a verified signature.
+   [79]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [80]Learn about signing commits
+   [81]a0ea1f7
+   [82]@andreineculau
+
+This comment has been minimized.
+
+   [83]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[84]@andreineculau [85]andreineculau commented [86]Feb 14, 2019
+
+   fixed in [87]07fc002
+   I knew I don't know what I'm doing, so I had an atomic commit just for
+   this change 😉
+   [88]@andreineculau [89]andreineculau closed this [90]Feb 14, 2019

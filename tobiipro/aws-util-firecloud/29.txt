@@ -1,0 +1,42 @@
+
+Add pagination support for athena module #29
+
+   Closed
+   [57]IanSavchenko opened this issue May 13, 2019 · 0 comments · Fixed by
+   [58]#30
+   Closed
+
+[59]Add pagination support for athena module #29
+
+   [60]IanSavchenko opened this issue May 13, 2019 · 0 comments · Fixed by
+   [61]#30
+   Assignees
+   [62]@IanSavchenko
+   Labels
+   [63]enhancement
+
+Comments
+
+   [64]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[65]@IanSavchenko [66]IanSavchenko commented [67]May 13, 2019
+
+   When reading results, we should support the possibility that the data
+   has pages.
+   [68]@IanSavchenko [69]IanSavchenko added the [70]enhancement label
+   [71]May 13, 2019
+   [72]@IanSavchenko [73]IanSavchenko self-assigned this [74]May 13, 2019
+   [75]@IanSavchenko [76]IanSavchenko mentioned this issue [77]May 16,
+   2019
+   [78]Athena pagination #30
+   Merged
+   [79]@andreineculau [80]andreineculau added this to In progress in
+   [81]Public (Open Source) [82]May 20, 2019
+   [83]@IanSavchenko [84]IanSavchenko closed this in [85]#30 [86]May 27,
+   2019
+   [87]Public (Open Source) automation moved this from In progress to Done
+   [88]May 27, 2019
+   [89]@ankitmth [90]ankitmth removed this from Done in [91]Public (Open
+   Source) [92]Feb 19, 2020

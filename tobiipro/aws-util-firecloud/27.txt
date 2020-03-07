@@ -1,0 +1,81 @@
+
+remove cors() from lambda express, maybe reexport cors module #27
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 29, 2019 · 1 comment
+   Closed
+
+[58]remove cors() from lambda express, maybe reexport cors module #27
+
+   [59]IanSavchenko opened this issue Mar 29, 2019 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Mar 29, 2019
+
+   We discussed that it should be up to the API lambda itself to setup
+   CORS, so need to remove it here, mark the change as breaking and update
+   lambdas.
+
+   Regarding reexporting CORS: I wouldn't do it, because clients get to
+   decide which version to use and type-inference will probably work
+   better (if we decide to use TS in lambda at some point).
+   (THUMBS_UP react) 👍 1
+   [65]@IanSavchenko [66]IanSavchenko added the [67]enhancement label
+   [68]Mar 29, 2019
+   [69]@andreineculau [70]andreineculau added this to To do in [71]Public
+   (Open Source) [72]May 20, 2019
+   [73]andreineculau added a commit that referenced this issue [74]Aug 16,
+   2019
+   [75]@andreineculau
+   [76]allow for defaultMiddlewares to be replaced. ref [77]#27
+   Verified
+   This commit was signed with a verified signature.
+   [78]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [79]Learn about signing commits
+   [80]0a14b2b
+   [81]andreineculau added a commit that referenced this issue [82]Aug 16,
+   2019
+   [83]@andreineculau
+   [84]add convenience function to disable a default middleware. ref
+   [85]#27
+   Verified
+   This commit was signed with a verified signature.
+   [86]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [87]Learn about signing commits
+   [88]0aadea2
+   [89]@andreineculau
+
+This comment has been minimized.
+
+   [90]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[91]@andreineculau [92]andreineculau commented [93]Aug 16, 2019
+
+   closing. the expressApp (that is accessible in a express-bootstrapped
+   lambda handler) now surfaces a property defaultMiddlewares. those
+   middlewares can now be manipulated
+import cors from 'cors';
+
+import {
+  bootstrap
+} from 'aws-util-firecloud/lib/express';
+
+export let handle = bootstrap(async function(app, _e, _ctx) {
+  app.defaultMiddlewares.cors.disable();
+  app.use(cors(...));
+});
+
+   [94]@andreineculau [95]andreineculau closed this [96]Aug 16, 2019
+   [97]Public (Open Source) automation moved this from To do to Done
+   [98]Aug 16, 2019
+   [99]@ankitmth [100]ankitmth removed this from Done in [101]Public (Open
+   Source) [102]Feb 19, 2020

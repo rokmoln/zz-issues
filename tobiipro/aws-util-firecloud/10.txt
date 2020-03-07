@@ -1,0 +1,72 @@
+
+breaking: simplify cfn build function #10
+
+   f/less-cfn-magic
+
+   master f/less-cfn-magic
+   @andreineculau
+   [45]andreineculau opened this pull request
+   over 1 year ago
+
+   Labels
+   [46]enhancement
+
+   Q: we said we bump the minor version for our modules when we have
+   backward incompat, right?
+
+   andreineculau added the [47]enhancement label [48]over 1 year ago
+
+   andreineculau requested a review from IanSavchenko [49]over 1 year ago
+
+   Copy link
+   @IanSavchenko
+   [50]IanSavchenko
+   commented [51]over 1 year ago
+
+   I have a vague memory of these talks. I thought we said that we are
+   going to stick to classical semantic versioning because nothing is
+   stopping us?
+
+   @IanSavchenko
+   [52]IanSavchenko reviewed [53]over 1 year ago
+
+   Cool! Maybe you could also split into separate function(s) code under
+   if (!partial) { while you are here? :)
+
+   Copy link
+   @andreineculau
+   [54]andreineculau
+   commented [55]over 1 year ago
+
+   re: versions --- you made me check black-on-white now :) I think we
+   started with saying that (what you said), and then we reverted to what
+   I said. Reality is like I said though:
+    "babel-loader": "^7.1.3",
+    "babel-preset-firecloud": "git://github.com/tobiipro/babel-preset-firecloud.
+git#semver:~0.1.4",
+
+   re: partial --- 👍
+
+   [56]andreineculau added a commit [57]over 1 year ago
+   [58]@andreineculau [59]breaking: simplify cfn build function
+
+   andreineculau force pushed changes to this branch [60]over 1 year ago
+
+   [61]andreineculau added a commit [62]over 1 year ago
+   [63]@andreineculau [64]fix installing as a raw dep
+
+   andreineculau force pushed changes to this branch [65]over 1 year ago
+
+   @IanSavchenko
+   [66]IanSavchenko approved these changes [67]over 1 year ago
+
+   IanSavchenko referenced this pull request from commit [68]739cf26
+   [69]over 1 year ago
+
+   IanSavchenko merged commit 739cf26 into master [70]over 1 year ago
+
+   andreineculau referenced this pull request from commit [71]0cdd910
+   [72]over 1 year ago
+
+   andreineculau deleted the f/less-cfn-magic branch [73]over 1 year ago
+

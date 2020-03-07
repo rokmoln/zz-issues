@@ -1,0 +1,61 @@
+
+fix cfn #160
+
+   Open
+   [57]andreineculau opened this issue Mar 5, 2020 · 0 comments
+   Open
+
+[58]fix cfn #160
+
+   [59]andreineculau opened this issue Mar 5, 2020 · 0 comments
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 5, 2020 •
+
+   edited
+
+     * [X] CFN_INDEX_FILE doesn't work to be changed
+     * [X] assumptions around TMP_S3_URL and S3_INFRA_BUCKET --- document
+       them or do without
+     * [X] aws-cfn2dot assumes there's lodash-firecloud
+     * [ ] can it be made to work without TMP_S3_URL ?!
+
+   [65]@andreineculau [66]andreineculau added the [67]bug label [68]Mar 5,
+   2020
+   [69]andreineculau added a commit that referenced this issue [70]Mar 5,
+   2020
+   [71]@andreineculau
+   [72]fix CFN_INDEX_FILE and docs. see [73]#160
+   Verified
+   This commit was signed with a verified signature.
+   [74]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [75]Learn about signing commits
+   [76]523b034
+   [77]andreineculau added a commit that referenced this issue [78]Mar 5,
+   2020
+   [79]@andreineculau
+   [80]disable cfn2dot because bin/aws-cfn2dot script requires
+   lodash-firecl… (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [81]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [82]Learn about signing commits
+   [83]2ebd908
+…oud. see [84]#160
+
+   [85]andreineculau added a commit that referenced this issue [86]Mar 5,
+   2020
+   [87]@andreineculau
+   [88]fix mention of S3_INFRA_BUCKET. see [89]#160
+   Verified
+   This commit was signed with a verified signature.
+   [90]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [91]Learn about signing commits
+   [92]8ba6abf

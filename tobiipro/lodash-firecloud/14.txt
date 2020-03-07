@@ -1,0 +1,47 @@
+
+breaking: remove alwaysPromise mixin. await can be used on non-Promis… #14
+
+   f/anu-rm-always-promise
+
+   master f/anu-rm-always-promise
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   …e values
+     * Fixes:
+     * Breaking change: [x]
+     __________________________________________________________________
+
+let foo = await 5;
+// is as good (or even better than)
+let foo = await _.alwaysPromise(5);
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   andreineculau force pushed changes to this branch [51]about 1 year ago
+
+   @IanSavchenko
+   [52]IanSavchenko approved these changes [53]about 1 year ago
+
+   [54]andreineculau added a commit [55]about 1 year ago
+   [56]@andreineculau [57]breaking: remove alwaysPromise mixin. await can
+   be used on non-Promis…
+
+   andreineculau force pushed changes to this branch [58]10 months ago
+
+   andreineculau referenced this pull request from commit [59]0c191c3
+   [60]10 months ago
+
+   andreineculau merged commit 0c191c3 into master [61]10 months ago
+
+   andreineculau deleted the f/anu-rm-always-promise branch [62]about 1
+   month ago
+

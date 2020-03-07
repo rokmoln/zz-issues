@@ -1,0 +1,41 @@
+
+firecloud/order-imports should prio the package name/module path #21
+
+   Closed
+   [57]andreineculau opened this issue Jan 14, 2019 · 1 comment
+   Closed
+
+[58]firecloud/order-imports should prio the package name/module path #21
+
+   [59]andreineculau opened this issue Jan 14, 2019 · 1 comment
+
+Comments
+
+   [60]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[61]@andreineculau [62]andreineculau commented [63]Jan 14, 2019
+
+import {
+  foo
+} from 'package-a';
+
+import {
+  bar
+} from 'package-b';
+
+   is "correct" (as in stable and predictable)
+   [64]@andreineculau
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[66]@andreineculau [67]andreineculau commented [68]Jan 14, 2019
+
+   a comparison would be with python's from module_name import ...
+   [69]@andreineculau [70]andreineculau closed this in [71]acfc9fe [72]Jan
+   25, 2019

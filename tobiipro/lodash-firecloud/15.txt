@@ -1,0 +1,79 @@
+
+add env proxy from aws-util-firecloud (will remove it from there) #15
+
+   f/anu-env-proxy
+
+   master f/anu-env-proxy
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   andreineculau force pushed changes to this branch [51]about 1 year ago
+
+   @IanSavchenko
+   [52]IanSavchenko reviewed [53]about 1 year ago
+   (BUTTON) Show outdated (BUTTON) Hide outdated [54]src/index.d.ts
+   @@ -60,6 +60,20 @@ declare module "lodash" {
+   */
+   consoleLogTime(label: string, fn: () => any): Promise<void>;
+   /**
+   * Part of `lodash-firecloud`.
+   *
+   * A Proxy to process.env that will throw if a variable is undefined.
+   */
+   env: { [key: string]: string };
+   /**
+   * Part of `lodash-firecloud`.
+   *
+   * Create Proxy to a process.env (or similar) object that will throw if
+   a variable is undefined.
+   */
+   envProxy({ [key: string]: string }): { [key: string]: string };
+   [55]@IanSavchenko [56]IanSavchenko • [57]about 1 year ago
+   Copy link
+
+   Why do we need a public envProxy function? Can you suggest possible
+   scenarios?
+   [58]@andreineculau [59]andreineculau • [60]about 1 year ago
+   Copy link
+
+   almost all js executables would have a "safer" runtime
+
+   example:
+   [61]https://github.com/tobiipro/atex-dashboard/pull/191/files#diff-c121
+   422e89463500136d342b4b5fe60cR12
+
+   Copy link
+   @IanSavchenko
+   [62]IanSavchenko
+   commented [63]about 1 year ago
+
+   Decided IRL to rename envProxy => safeProxy and remove _.env.
+
+   andreineculau force pushed changes to this branch [64]about 1 year ago
+
+   [65]andreineculau added a commit [66]about 1 year ago
+   [67]@andreineculau [68]add env proxy from aws-util-firecloud (will
+   remove it from there)
+
+   andreineculau force pushed changes to this branch [69]about 1 year ago
+
+   andreineculau referenced this pull request from commit [70]0bf9dbf
+   [71]about 1 year ago
+
+   andreineculau merged commit 0bf9dbf into master [72]about 1 year ago
+
+   andreineculau deleted the f/anu-env-proxy branch [73]about 1 month ago
+

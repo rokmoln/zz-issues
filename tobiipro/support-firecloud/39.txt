@@ -1,0 +1,27 @@
+
+Bootstrap update #39
+
+   bootstrap_update
+
+   master bootstrap_update
+   @idaenglund
+   [45]idaenglund opened this pull request
+   over 1 year ago
+   No description given.
+
+   [46]idaenglund added some commits [47]over 1 year ago
+   [48]@idaenglund [49]Don´t fail when xcode already installed
+   [50]@idaenglund [51]Docs updated
+
+   idaenglund requested a review from IanSavchenko [52]over 1 year ago
+
+   @IanSavchenko
+   [53]IanSavchenko approved these changes [54]over 1 year ago
+
+   IanSavchenko referenced this pull request from commit [55]e786893
+   [56]over 1 year ago
+
+   IanSavchenko merged commit e786893 into master [57]over 1 year ago
+
+   IanSavchenko deleted the bootstrap_update branch [58]over 1 year ago
+

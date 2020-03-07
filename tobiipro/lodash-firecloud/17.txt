@@ -1,0 +1,51 @@
+
+breaking: remove overloaded _ property from safeProxy; prefer 'in' ch… #17
+
+   f/anu-simple-safe-proxy
+
+   master f/anu-simple-safe-proxy
+   @andreineculau
+   [45]andreineculau opened this pull request
+   12 months ago
+
+   Labels
+   [46]enhancement
+
+   …eck instead
+     * Fixes:
+     * Breaking change: [x]
+     __________________________________________________________________
+
+   see [47]tobiipro/aws-util-firecloud#7
+
+   the has method doesn't need to be customized
+
+   [48]andreineculau added a commit [49]12 months ago
+   [50]@andreineculau [51]breaking: remove overloaded _ property from
+   safeProxy; prefer 'in' ch…
+
+   andreineculau added the [52]enhancement label [53]12 months ago
+
+   andreineculau self-assigned this [54]12 months ago
+
+   [55]andreineculau added a commit [56]10 months ago
+   [57]@andreineculau [58]Merge branch 'master' into
+   f/anu-simple-safe-proxy
+
+   andreineculau requested a review from IanSavchenko [59]10 months ago
+
+   @IanSavchenko
+   [60]IanSavchenko approved these changes [61]10 months ago
+
+   andreineculau referenced this pull request from commit [62]383982d
+   [63]10 months ago
+
+   andreineculau merged commit 383982d into master [64]10 months ago
+
+   [65]andreineculau referenced this pull request from another issue
+   [66]#7 Add 'has' function to env proxy and start using it in lambda
+   bootstrap in tobiipro/aws-util-firecloud
+
+   andreineculau deleted the f/anu-simple-safe-proxy branch [67]about 1
+   month ago
+

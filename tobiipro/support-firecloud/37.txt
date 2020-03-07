@@ -1,0 +1,63 @@
+
+"make release" fails on some computers on some branches #37
+
+   Closed
+   [57]tobiiasl opened this issue May 14, 2018 · 1 comment
+   Closed
+
+[58]"make release" fails on some computers on some branches #37
+
+   [59]tobiiasl opened this issue May 14, 2018 · 1 comment
+
+Comments
+
+   [60]@tobiiasl
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@tobiiasl [62]tobiiasl commented [63]May 14, 2018
+
+   I made "make release" on the branch release_may_2018 in gs-client repo.
+   I got the error
+
+   fatal: 'v0.0.30' does not appear to be a git repository
+
+   caused by the line
+
+   $(GIT) push $(GIT_REMOTE) v$(CAT) "package.json" | $(JSON) "version"``
+
+   GIT_REMOTE seems to not be set. It gets set by
+
+   GIT_REMOTE = $(shell git config branch.$(GIT_BRANCH).remote
+   2>/dev/null)
+
+   Testing directly:
+   ~/gs-client$ git config branch.release_may_2018.remote
+   ~/gs-client$ git config branch.release_apr_2018.remote
+   ~/gs-client$ git config branch.master.remote
+   origin
+   ~/gs-client$ git config branch.tln-master.remote
+   origin
+
+   I created the release branches this way:
+   git checkout f5a16974c1adb5c0e7f6cc4ba6cfdd3c3260cae2
+   git checkout -b release_may_2018
+
+   The strange thing is that make release works fine on Srivanis computer.
+   [64]@tobiiasl
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[66]@tobiiasl [67]tobiiasl commented [68]May 14, 2018
+
+   It was again the problem with that these branches were not set up to
+   track origin. So this solved the problem:
+   git branch --set-upstream-to=origin/release_may_2018 release_may_2018
+
+   Now:
+   ~/gs-client$ git config branch.release_may_2018.remote origin
+   [69]@tobiiasl [70]tobiiasl closed this [71]May 14, 2018

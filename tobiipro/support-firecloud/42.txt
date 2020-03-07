@@ -1,0 +1,80 @@
+
+Fix Zsh support in aws-iam-login.inc.sh #42
+
+   aws-iam-login-zsh-fix
+
+   master aws-iam-login-zsh-fix
+   @morincl
+   [45]morincl opened this pull request over 1 year ago • edited over 1
+   year ago
+
+   Fix for [46]#41
+   ❤️ 1
+   andreineculau reacted with heart emoji
+
+   [47]morincl added a commit [48]over 1 year ago
+   [49]@morincl [50]Fix Zsh support in aws-iam-login.inc.sh
+
+   IanSavchenko was assigned by morincl [51]over 1 year ago
+
+   morincl self-assigned this [52]over 1 year ago
+
+   morincl requested a review from IanSavchenko [53]over 1 year ago
+
+   morincl modified this pull request [54]over 1 year ago
+
+   [55]morincl added some commits [56]over 1 year ago
+   [57]@morincl [58]Fix issues due to line breaks
+   [59]@morincl [60]Fix missing error detection on bashcompinit
+
+   @IanSavchenko
+   [61]IanSavchenko reviewed [62]over 1 year ago
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [63]bin/aws-iam-login.inc.sh
+   @@ -61,4 +67,10 @@ function _aws_profile_completer() {
+   COMPREPLY=($(compgen -W "${AWS_PROFILES}" -- "${WORD}"))
+   }
+   if [ -n "$ZSH_VERSION" ]; then
+   autoload -U compaudit compinit bashcompinit && bashcompinit || {
+   echo >&2 "Initialization of Zsh completion features has failed in
+   aws-iam-login.inc.sh."
+   return 1
+   }
+   fi
+   complete -F _aws_profile_completer aws-iam-login
+   [64]@IanSavchenko [65]IanSavchenko • [66]over 1 year ago
+   Copy link
+
+   Won't this line fail on zsh? Wasn't this a case?
+   [67]@morincl [68]morincl • [69]over 1 year ago
+   Copy link
+
+   bashcompinit enables support of Bash autocompletion builtins within Zsh
+   so that we should be able to call complete after having called
+   bashcompinit.
+
+   No problem on my terminal so far.
+   [70]@IanSavchenko [71]IanSavchenko • [72]over 1 year ago
+   Copy link
+
+   Awesome! Thanks!
+   [73]@morincl [74]morincl • [75]over 1 year ago
+   Copy link
+
+   I'm happy I was able to make this small contribution :-)
+
+   @IanSavchenko
+   [76]IanSavchenko approved these changes [77]over 1 year ago
+
+   Great work! Well done!
+
+   IanSavchenko referenced this pull request from commit [78]b7fb088
+   [79]over 1 year ago
+
+   IanSavchenko merged commit b7fb088 into master [80]over 1 year ago
+
+   IanSavchenko deleted the aws-iam-login-zsh-fix branch [81]over 1 year
+   ago
+
+   IanSavchenko was unassigned by ankitmth [82]17 days ago
+

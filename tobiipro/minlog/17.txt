@@ -1,0 +1,74 @@
+
+support sampling serializers. fix #16 #17
+
+   sampling
+
+   master sampling
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]enhancement
+
+   Linked issues
+   [47]feat: allow sampling serializers
+     * Fixes: [48]#16
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [49]andreineculau added a commit [50]10 months ago
+   [51]@andreineculau [52]support sampling serializers. [53]fix [54]#16
+
+   andreineculau added the [55]enhancement label [56]10 months ago
+
+   andreineculau requested a review from IanSavchenko [57]10 months ago
+
+   andreineculau self-assigned this [58]10 months ago
+
+   andreineculau added this to In progress in [59]Public (Open Source) via
+   automation [60]10 months ago
+
+   andreineculau moved this from In progress to Review in progress in
+   [61]Public (Open Source) [62]10 months ago
+
+   Copy link
+   @IanSavchenko
+   [63]IanSavchenko
+   commented [64]10 months ago
+
+   Can you elaborate on the use cases for this? When we have tons of
+   same/similar logs?
+   ❤️ 1
+   andreineculau reacted with heart emoji
+
+   Copy link
+   @andreineculau
+   [65]andreineculau
+   commented [66]10 months ago
+
+   I think those are two different questions :)
+
+   but the use-case for this is the logger throttling in the extension.
+   rather than wrapping the call to the logger, you can create a logger
+   with a serializer that will throttle (by returning undefined)
+
+   @IanSavchenko
+   [67]IanSavchenko approved these changes [68]10 months ago
+
+   Public (Open Source) automation moved this from Review in progress to
+   Reviewer approved [69]10 months ago
+
+   andreineculau referenced this pull request from commit [70]6644fba
+   [71]10 months ago
+
+   andreineculau merged commit 6644fba into master [72]10 months ago
+
+   Public (Open Source) automation moved this from Reviewer approved to
+   Done [73]10 months ago
+
+   andreineculau deleted the sampling branch [74]about 1 month ago
+
+   ankitmth removed this from Done in [75]Public (Open Source) [76]17 days
+   ago
+

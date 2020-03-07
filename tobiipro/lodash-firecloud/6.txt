@@ -1,0 +1,75 @@
+
+add alwaysPromise #6
+
+   f/anu-always-promise
+
+   master f/anu-always-promise
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   see description in src/index.d.ts
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   @IanSavchenko
+   [49]IanSavchenko reviewed [50]about 1 year ago
+
+   Don't see much need in this function, tbh. But it's there and with
+   tests, so don't see harm.
+   (BUTTON) Show outdated (BUTTON) Hide outdated
+   [51]test/always-promise.test.js
+   ((15 lines not shown))
+   it('returns the input Promise-like (function)', function() {
+   // eslint-disable-next-line no-empty-function, lodash/prefer-noop
+   let pIn = function() {};
+   pIn.then = _.noop;
+   let pOut = _.alwaysPromise(pIn);
+   expect(pIn).toBe(pOut);
+   });
+   it('returns a Promise for anything else that resolves to the input',
+   async function() {
+   let inputs = [
+   undefined,
+   0,
+   '',
+   true,
+   _.noop(),
+   [52]@IanSavchenko [53]IanSavchenko • [54]about 1 year ago
+   Copy link
+
+   probably, remove braces. _.noop() returns undefined
+   👍 1
+   andreineculau reacted with thumbs up emoji
+
+   [55]andreineculau added a commit [56]about 1 year ago
+   [57]@andreineculau [58]add alwaysPromise
+
+   andreineculau force pushed changes to this branch [59]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [60]andreineculau
+   commented [61]about 1 year ago
+
+   need:
+      maybeContinue = await _.alwaysPromise(onLargeRecordEntries(largeRecordEntr
+ies));
+
+   is equivalent to
+       maybeContinue = onLargeRecordEntries(largeRecordEntries);
+       if (_.isFunction((maybeContinue || {}).then)) {
+         maybeContinue = await maybeContinue;
+       }
+
+   andreineculau referenced this pull request from commit [62]63b2132
+   [63]about 1 year ago
+
+   andreineculau merged commit 63b2132 into master [64]about 1 year ago
+
+   andreineculau deleted the f/anu-always-promise branch [65]about 1 year
+   ago
+

@@ -1,0 +1,71 @@
+
+Install erlang on bootstrap? #122
+
+   Closed
+   [57]IanSavchenko opened this issue Jun 27, 2019 · 2 comments
+   Closed
+
+[58]Install erlang on bootstrap? #122
+
+   [59]IanSavchenko opened this issue Jun 27, 2019 · 2 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]bug [62]question
+
+Comments
+
+   [63]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[64]@IanSavchenko [65]IanSavchenko commented [66]Jun 27, 2019
+
+   [67]@afogelberg approached me today with katt not being able to fetch
+   deps. It appeared that he didn't have erlang on his machine. Should
+   this maybe be a part of bootstrap?
+   [68]@IanSavchenko [69]IanSavchenko added the [70]question label [71]Jun
+   27, 2019
+   [72]@andreineculau
+
+This comment has been minimized.
+
+   [73]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[74]@andreineculau [75]andreineculau commented [76]Jul 3, 2019
+
+   Thanks for bringing this up, Ian!
+   Erlang is not part of the current bootstrap because it's not a generic
+   tool (i.e. gnu tools) nor is it a tool used by most of our repos. Plus
+   it was taking a while to compile - but should be fast now with the
+   linuxbrew setup. Saying this from the CI bootstrap's perspective.
+
+   I think what should happen is that make deps should actually run
+   Brewfile.inc.sh, if one exists in the repo. It's just that it should be
+   "smart" 🤦‍♂ and skip everything that is already part of the dev
+   bootstrap.
+   [77]@andreineculau [78]andreineculau added this to To do in [79]Public
+   (Open Source) via automation [80]Jul 3, 2019
+   [81]@andreineculau [82]andreineculau added the [83]bug label [84]Jul 3,
+   2019
+   [85]@andreineculau [86]andreineculau self-assigned this [87]Jul 3, 2019
+   [88]@andreineculau
+
+This comment has been minimized.
+
+   [89]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[90]@andreineculau [91]andreineculau commented [92]Jul 8, 2019
+
+   fixed via [93]1f84db2 and update docs [94]5354492
+
+   just need to update support-firecloud everywhere now :(
+   [95]@andreineculau [96]andreineculau closed this [97]Jul 8, 2019
+   [98]Public (Open Source) automation moved this from To do to Done
+   [99]Jul 8, 2019
+   [100]@ankitmth [101]ankitmth removed this from Done in [102]Public
+   (Open Source) [103]Feb 19, 2020

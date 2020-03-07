@@ -1,0 +1,42 @@
+
+homebrew make doesn't have with-default-names anymore #69
+
+   Closed
+   [57]andreineculau opened this issue Jan 8, 2019 · 1 comment
+   Closed
+
+[58]homebrew make doesn't have with-default-names anymore #69
+
+   [59]andreineculau opened this issue Jan 8, 2019 · 1 comment
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]bug
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Jan 8, 2019
+
+   this means that we need to ignore --with-default-names argument
+   and then try to add non-g-prefix paths into our .bashrc/.zshrc/etc
+   [66]@andreineculau [67]andreineculau added the [68]bug label [69]Jan 8,
+   2019
+   [70]@andreineculau [71]andreineculau self-assigned this [72]Jan 8, 2019
+   [73]@andreineculau [74]andreineculau closed this in [75]83a1281 [76]Jan
+   8, 2019
+   [77]@andreineculau
+
+This comment has been minimized.
+
+   [78]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[79]@andreineculau [80]andreineculau commented [81]Jan 10, 2019
+
+   fixed via
+   [82]83a1281

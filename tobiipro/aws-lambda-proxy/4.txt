@@ -1,0 +1,41 @@
+
+override lambda env vars #4
+
+   Open
+   [57]andreineculau opened this issue Apr 30, 2019 · 0 comments
+   Open
+
+[58]override lambda env vars #4
+
+   [59]andreineculau opened this issue Apr 30, 2019 · 0 comments
+   Labels
+   [60]question [61]wontfix
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Apr 30, 2019
+
+   [66]https://github.com/tobiipro/aws-lambda-proxy/blob/master/src/handle
+   rs/local.js#L22 and
+   [67]https://github.com/tobiipro/aws-util-firecloud/blob/master/src/lamb
+   da/env-ctx.js#L127 makes it impossible to override lambda's env vars
+   e.g. LOG_LEVEL
+
+   for the time being, I reckon that it is by design (lambda's env vars
+   should not be overridden; otherwise the logic becomes even more
+   complicated and error prone).
+   if it's not by design, we might want to allow this
+
+   cc [68]@tobiiasl [69]@IanSavchenko
+   [70]@andreineculau [71]andreineculau added the [72]question label
+   [73]Apr 30, 2019
+   [74]@andreineculau [75]andreineculau added this to To do in [76]Public
+   (Open Source) via automation [77]May 20, 2019
+   [78]@andreineculau [79]andreineculau added the [80]wontfix label
+   [81]Jul 11, 2019
+   [82]@andreineculau [83]andreineculau removed this from To do in
+   [84]Public (Open Source) [85]Jul 11, 2019

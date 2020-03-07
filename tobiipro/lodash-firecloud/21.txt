@@ -1,0 +1,60 @@
+
+breaking: main module is commonjs, reference esm module via package.json #21
+
+   f/anu-default
+
+   master f/anu-default
+   @andreineculau
+   [45]andreineculau opened this pull request 10 months ago • edited 10
+   months ago
+
+   Labels
+   [46]bug
+
+   Linked issues
+   [47]Functions undefined when importing from commonjs
+     * Fixes: [48]#18
+     * Breaking change: [x]
+     __________________________________________________________________
+
+   went with a breaking solution, since there are a few other PRs that are
+   about to break... might just group them all
+
+   UPDATE Refs:
+     * [49]http://2ality.com/2017/04/setting-up-multi-platform-packages.ht
+       ml
+     * [50]https://babeljs.io/blog/2018/06/26/on-consuming-and-publishing-
+       es2015+-packages
+     * [51]https://github.com/rollup/rollup/wiki/pkg.module
+
+   andreineculau added the [52]bug label [53]10 months ago
+
+   andreineculau requested a review from jobackman [54]10 months ago
+
+   andreineculau requested a review from IanSavchenko [55]10 months ago
+
+   andreineculau self-assigned this [56]10 months ago
+
+   andreineculau force pushed changes to this branch [57]10 months ago
+
+   [58]andreineculau added a commit [59]10 months ago
+   [60]@andreineculau [61]breaking: main module is commonjs, reference esm
+   module via package.json
+
+   andreineculau force pushed changes to this branch [62]10 months ago
+
+   @IanSavchenko
+   [63]IanSavchenko approved these changes [64]10 months ago
+
+   I spent quite some time reading up on this issue of different module
+   types, but it would be nice to get your view on it IRL.
+   👍 1
+   andreineculau reacted with thumbs up emoji
+
+   andreineculau referenced this pull request from commit [65]2e72663
+   [66]10 months ago
+
+   andreineculau merged commit 2e72663 into master [67]10 months ago
+
+   andreineculau deleted the f/anu-default branch [68]about 1 month ago
+

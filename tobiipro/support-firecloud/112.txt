@@ -1,0 +1,40 @@
+
+recommend vscode extension for jest #112
+
+   f/anu-jest-extension
+
+   master f/anu-jest-extension
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [47]andreineculau added some commits [48]10 months ago
+   [49]@andreineculau [50]sort
+   [51]@andreineculau [52]add jest vscode extension
+
+   andreineculau added the [53]enhancement label [54]10 months ago
+
+   andreineculau requested a review from IanSavchenko [55]10 months ago
+
+   andreineculau self-assigned this [56]10 months ago
+
+   Copy link
+   @andreineculau
+   [57]andreineculau
+   commented [58]10 months ago
+
+   a bit slow by default, but great if you focus on a test
+
+   andreineculau referenced this pull request from commit [59]f877862
+   [60]10 months ago
+
+   andreineculau merged commit f877862 into master [61]10 months ago
+
+   andreineculau deleted the f/anu-jest-extension branch [62]10 months ago
+

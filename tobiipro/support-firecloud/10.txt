@@ -1,0 +1,44 @@
+
+node bootstrap #10
+
+   f/anu-node-bootstrap
+
+   master f/anu-node-bootstrap
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 2 years ago
+
+   Goals
+     * simplify node bootstrap
+     * simplify docs
+
+   andreineculau force pushed changes to this branch [46]about 2 years ago
+
+   andreineculau force pushed changes to the base branch [47]about 2 years
+   ago
+
+   [48]andreineculau added some commits [49]about 2 years ago
+   [50]@andreineculau [51]redundant
+   [52]@andreineculau [53]add repo-node-bootstrap
+   [54]@andreineculau [55]sync repo-cfn-bootstrap with repo-node-bootstrap
+   [56]@andreineculau [57]usage for .travis.sh
+
+   andreineculau force pushed changes to this branch [58]about 2 years ago
+
+   andreineculau force pushed changes to this branch [59]about 2 years ago
+
+   [60]andreineculau added some commits [61]about 2 years ago
+   [62]@andreineculau [63]typo
+   [64]@andreineculau [65]refactor docs
+   [66]@andreineculau [67]cleanup repo bootstrap and travis config
+
+   andreineculau force pushed changes to this branch [68]about 2 years ago
+
+   andreineculau referenced this pull request from commit [69]a32dc48
+   [70]about 2 years ago
+
+   andreineculau merged commit a32dc48 into master [71]about 2 years ago
+
+   andreineculau deleted the f/anu-node-bootstrap branch [72]about 2 years
+   ago
+

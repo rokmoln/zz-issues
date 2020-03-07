@@ -1,0 +1,91 @@
+
+replace eclint with editorconfig-checker #149
+
+   Closed
+   [57]andreineculau opened this issue Feb 12, 2020 · 0 comments · Fixed
+   by [58]#155
+   Closed
+
+[59]replace eclint with editorconfig-checker #149
+
+   [60]andreineculau opened this issue Feb 12, 2020 · 0 comments · Fixed
+   by [61]#155
+   Labels
+   [62]enhancement
+
+Comments
+
+   [63]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[64]@andreineculau [65]andreineculau commented [66]Feb 12, 2020
+
+   [67]https://github.com/editorconfig-checker/editorconfig-checker
+
+   reasons:
+     * eclint (npm package) is dead
+     * editorconfig-checker works without node (binary produced by go)
+     * editorconfig-checker is a wrapper to the actually editorconfig,
+       thus all rules/behaviour is consistent
+
+   [68]@andreineculau [69]andreineculau added the [70]enhancement label
+   [71]Feb 12, 2020
+   [72]@andreineculau [73]andreineculau added this to To do in [74]Public
+   (Open Source) via automation [75]Feb 12, 2020
+   [76]andreineculau added a commit that referenced this issue [77]Feb 16,
+   2020
+   [78]@andreineculau
+   [79]add editorconfig-checker. [80]fix [81]#149
+   Verified
+   This commit was signed with a verified signature.
+   [82]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [83]Learn about signing commits
+   [84]f07961b
+   [85]andreineculau added a commit that referenced this issue [86]Feb 16,
+   2020
+   [87]@andreineculau
+   [88]add editorconfig-checker. [89]fix [90]#149
+   Verified
+   This commit was signed with a verified signature.
+   [91]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [92]Learn about signing commits
+   [93]60d197d
+   [94]andreineculau added a commit that referenced this issue [95]Feb 17,
+   2020
+   [96]@andreineculau
+   [97]add editorconfig-checker. [98]fix [99]#149
+   Verified
+   This commit was signed with a verified signature.
+   [100]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [101]Learn about signing commits
+   [102]4dbd1f8
+   [103]@andreineculau [104]andreineculau mentioned this issue [105]Feb
+   17, 2020
+   [106]add editorconfig-checker. fix #149 #155
+   Merged
+   [107]andreineculau added a commit that referenced this issue [108]Feb
+   17, 2020
+   [109]@andreineculau
+   [110]add editorconfig-checker. [111]fix [112]#149
+   Verified
+   This commit was signed with a verified signature.
+   [113]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [114]Learn about signing commits
+   [115]a1536ed
+   [116]@ankitmth [117]ankitmth removed this from To do in [118]Public
+   (Open Source) [119]Feb 19, 2020
+   [120]@andreineculau [121]andreineculau closed this in [122]#155
+   [123]Feb 26, 2020
+   [124]andreineculau added a commit that referenced this issue [125]Feb
+   26, 2020
+   [126]@andreineculau
+   [127]Merge pull request [128]#155 [129]from
+   tobiipro/editorconfig-checker (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [130]Learn about signing commits
+   [131]ed0f5de
+add editorconfig-checker. fix [132]#149
+

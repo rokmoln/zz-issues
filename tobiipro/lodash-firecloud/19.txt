@@ -1,0 +1,71 @@
+
+[feat] defaultsValues #19
+
+   Closed
+   [57]andreineculau opened this issue Apr 14, 2019 · 2 comments
+   Closed
+
+[58][feat] defaultsValues #19
+
+   [59]andreineculau opened this issue Apr 14, 2019 · 2 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement [62]question
+
+Comments
+
+   [63]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[64]@andreineculau [65]andreineculau commented [66]Apr 14, 2019
+
+   [67]@IanSavchenko do you see another=simpler way of achieving this
+   [68]https://github.com/tobiipro/gs-client/blob/3376e16b4f4704f7ad2f447e
+   6420778fa3b85d31/.eslintrc.js#L95-L117 ?
+   with lodash built-ins ? it's a defaultsDeep down to 1-level only
+
+   otherwise I intend to move that in here. at least temporarily, that
+   function will need to be used in all (currently 3) repos where we use
+   typescript, because a lack of functionality in eslint's overrides
+   [69]@andreineculau [70]andreineculau added [71]enhancement [72]question
+   labels [73]Apr 14, 2019
+   [74]@andreineculau [75]andreineculau self-assigned this [76]Apr 14,
+   2019
+   [77]@IanSavchenko
+
+This comment has been minimized.
+
+   [78]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[79]@IanSavchenko [80]IanSavchenko commented [81]Apr 15, 2019
+
+   It seems to be correct, but I wouldn't move it here. Looks very
+   specific to this use case and the naming does not say much
+   (defaultsDeep down to 1-level only is a much better description than
+   defaultsValues).
+
+   Maybe SF?
+
+   Btw, in this line, the right-hand side mutates the first objsKey (which
+   I would call objsValue, probably). Don't know if it's a problem, but
+   still...
+      acc[key] = _.defaults(...objsKey);
+
+   (THUMBS_UP react) 👍 1
+   [82]@andreineculau
+
+This comment has been minimized.
+
+   [83]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[84]@andreineculau [85]andreineculau commented [86]May 8, 2019
+
+   since it's related to eslint, it could actually be moved to
+   eslint-config-firecloud
+   [87]@andreineculau [88]andreineculau closed this [89]May 8, 2019

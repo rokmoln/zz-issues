@@ -1,0 +1,54 @@
+
+aws-iam-login-ns #46
+
+   f/aws-iam-login-ns
+
+   master f/aws-iam-login-ns
+   @andreineculau
+   [45]andreineculau opened this pull request
+   over 1 year ago
+
+   Adding a function that can help with executing templates
+   which require credentials in other accounts e.g. env-route stacks
+
+   The function will take the essential AWS env vars and store them in
+   namespaced (prefixed) env vars.
+
+   [46]andreineculau added some commits [47]over 1 year ago
+   [48]@andreineculau [49]sort
+   [50]@andreineculau [51]add aws-iam-login-ns to store aws credentials in
+   namespaced env vars
+
+   andreineculau requested a review from IanSavchenko [52]over 1 year ago
+
+   andreineculau requested a review from tobiiasl [53]over 1 year ago
+
+   @IanSavchenko
+   [54]IanSavchenko approved these changes [55]over 1 year ago
+
+   Nice! But is it too hard to have it in one script with a variable
+   number of args? I mean that when you call aws-iam-login atexdev_ops
+   that just puts credentials without namespace, but if you type
+   aws-iam-login atexdev_ops DEV it will namespace them?
+
+   Copy link
+   @andreineculau
+   [56]andreineculau
+   commented [57]over 1 year ago
+
+   I see the purpose being entirely different for the two funs, plus I
+   didn't want to touch a core function that "just works" TM
+
+   optimizations to the code can always be done later i.e. have
+   aws-iam-login-ns as a wrapper fun
+
+   andreineculau force pushed changes to the base branch [58]over 1 year
+   ago
+
+   andreineculau referenced this pull request from commit [59]dc452c7
+   [60]over 1 year ago
+
+   andreineculau merged commit dc452c7 into master [61]over 1 year ago
+
+   andreineculau deleted the f/aws-iam-login-ns branch [62]over 1 year ago
+

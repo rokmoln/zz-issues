@@ -1,0 +1,50 @@
+
+Column number is sometimes "undefined" in log output #22
+
+   Closed
+   [57]tobiiasl opened this issue Oct 14, 2019 · 1 comment
+   Closed
+
+[58]Column number is sometimes "undefined" in log output #22
+
+   [59]tobiiasl opened this issue Oct 14, 2019 · 1 comment
+
+Comments
+
+   [60]@tobiiasl
+   Copy link (BUTTON) Quote reply
+
+[61]@tobiiasl [62]tobiiasl commented [63]Oct 14, 2019
+
+   Both Andreas F and I have encountered this problem. Although not a big
+   problem it can be quite confusing the first time seeing it.
+
+   So far, we have not seen any clear pattern of what is causing this.
+
+   We had a hypothesis that it something to do with deploying a lambda
+   from the terminal (vs deployed from Travis) but when tested it worked
+   also for this case.
+   [64]@tobiiasl
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Author
+
+[66]@tobiiasl [67]tobiiasl commented [68]Oct 14, 2019
+
+   Here is one example where the column number is undefined for just one
+   log entry:
+   [69]image
+   [70]@andreineculau [71]andreineculau closed this in [72]dd3e310 [73]Nov
+   4, 2019
+   [74]andreineculau added a commit that referenced this issue [75]Nov 4,
+   2019
+   [76]@andreineculau
+   [77]fixup! fix undefined column. [78]fix [79]#22
+   Verified
+   This commit was signed with a verified signature.
+   [80]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [81]Learn about signing commits
+   [82]70846c8

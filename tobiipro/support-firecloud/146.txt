@@ -1,0 +1,38 @@
+
+document shell/make coding style #146
+
+   Closed
+   [57]andreineculau opened this issue Feb 6, 2020 · 0 comments
+   Closed
+
+[58]document shell/make coding style #146
+
+   [59]andreineculau opened this issue Feb 6, 2020 · 0 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Feb 6, 2020 •
+
+   edited
+
+   and most importantly WHY this style
+     * [66]http://redsymbol.net/articles/unofficial-bash-strict-mode/
+     * [67]https://google.github.io/styleguide/shellguide.html
+
+   [68]@andreineculau [69]andreineculau added the [70]enhancement label
+   [71]Feb 6, 2020
+   [72]@andreineculau [73]andreineculau self-assigned this [74]Feb 6, 2020
+   [75]@andreineculau [76]andreineculau added this to To do in [77]Public
+   (Open Source) via automation [78]Feb 6, 2020
+   [79]@ankitmth [80]ankitmth removed this from To do in [81]Public (Open
+   Source) [82]Feb 19, 2020
+   [83]@andreineculau [84]andreineculau closed this in [85]d5c6fae [86]Feb
+   27, 2020

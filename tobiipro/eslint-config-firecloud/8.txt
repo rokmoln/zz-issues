@@ -1,0 +1,59 @@
+
+rule: require object-curly-newline outside function's arguments #8
+
+   Closed
+   [57]andreineculau opened this issue Mar 25, 2018 · 1 comment
+   Closed
+
+[58]rule: require object-curly-newline outside function's arguments #8
+
+   [59]andreineculau opened this issue Mar 25, 2018 · 1 comment
+   Assignees
+   [60]@IanSavchenko
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Mar 25, 2018 •
+
+   edited
+
+   i.e. allow sameline for "named arguments" someFun({arg: true, another:
+   false}) i.e. (function has 1 argument, of type object)
+   but don't allow let a = {arg: true, another: false}, and instead
+   require newlines
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Mar 25, 2018
+   [70]@andreineculau [71]andreineculau assigned [72]IanSavchenko [73]Mar
+   25, 2018
+   [74]@IanSavchenko
+
+This comment has been minimized.
+
+   [75]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[76]@IanSavchenko [77]IanSavchenko commented [78]Mar 27, 2018
+
+    1. Why should this be allowed for named args?
+    2. When should it be forbidden for named args (if there are such
+       cases)?
+    3. Is there an exception for 1 param in object case?
+
+   [79]andreineculau added a commit that referenced this issue [80]Jan 20,
+   2019
+   [81]@andreineculau
+   [82]new object-curly-newline that handles only-param. [83]fix [84]#8
+   Verified
+   This commit was signed with a verified signature.
+   [85]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [86]Learn about signing commits
+   [87]0a84bf4
+   [88]@andreineculau [89]andreineculau closed this in [90]d3e4e08 [91]Jan
+   25, 2019

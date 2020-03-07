@@ -1,0 +1,50 @@
+
+'make nuke': git-clean instead of git-stash #86
+
+   f/anu-simple-nuke
+
+   master f/anu-simple-nuke
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   andreineculau added the [47]enhancement label [48]about 1 year ago
+
+   andreineculau self-assigned this [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   andreineculau requested a review from tobiiasl [51]about 1 year ago
+
+   @IanSavchenko
+   [52]IanSavchenko approved these changes [53]about 1 year ago
+
+   [54]andreineculau added a commit [55]about 1 year ago
+   [56]@andreineculau [57]'make nuke': git-clean instead of git-stash
+
+   andreineculau force pushed changes to this branch [58]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [59]andreineculau
+   commented [60]about 1 year ago
+
+   [61]439b8ac surfaced an error with stash-ing node_modules (git stashes
+   files, not folders, but npm (npm install for instance) will act
+   differently if folders exist or not)
+
+   so I'm merging this without your approval [62]@tobiiasl
+
+   andreineculau referenced this pull request from commit [63]d5a07b2
+   [64]about 1 year ago
+
+   andreineculau merged commit d5a07b2 into master [65]about 1 year ago
+
+   andreineculau deleted the f/anu-simple-nuke branch [66]10 months ago
+

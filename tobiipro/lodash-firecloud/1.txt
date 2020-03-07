@@ -1,0 +1,27 @@
+
+document existing functions #1
+
+   Closed
+   [57]andreineculau opened this issue Feb 14, 2018 · 0 comments
+   Closed
+
+[58]document existing functions #1
+
+   [59]andreineculau opened this issue Feb 14, 2018 · 0 comments
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Feb 14, 2018
+
+   PS: as a bonus, a test could check that README.md has a markdown
+   section for each mixin
+   [65]@andreineculau [66]andreineculau added the [67]bug label [68]Feb
+   14, 2018
+   [69]@andreineculau [70]andreineculau closed this in [71]b37d91b [72]Mar
+   29, 2018

@@ -1,0 +1,42 @@
+
+bluebird is needed in prod #5
+
+   f/bluebird-prod
+
+   master f/bluebird-prod
+   @andreineculau
+   [45]andreineculau opened this pull request almost 2 years ago • edited
+   almost 2 years ago
+
+   Fixes [46]#4
+
+   once the babel target moves to nodejs 8.x.x (where async/await syntax
+   is available),
+   bluebird can be removed altogether
+
+   [47]andreineculau added a commit [48]almost 2 years ago
+   [49]@andreineculau [50]bluebird is needed in prod
+
+   andreineculau requested a review from IanSavchenko [51]almost 2 years
+   ago
+
+   Copy link
+   @andreineculau
+   [52]andreineculau
+   commented [53]almost 2 years ago
+
+   [54]@IanSavchenko github protip (which i discovered yesterday) - an
+   issue can be closed also via keywords in the PR description, not just
+   in the commit message. This is useful because by default the owner of a
+   repo can edit other people's PRs and just add these keywords.
+
+   @IanSavchenko
+   [55]IanSavchenko approved these changes [56]almost 2 years ago
+
+   andreineculau referenced this pull request from commit [57]4e7275a
+   [58]almost 2 years ago
+
+   andreineculau merged commit 4e7275a into master [59]almost 2 years ago
+
+   andreineculau deleted the f/bluebird-prod branch [60]over 1 year ago
+

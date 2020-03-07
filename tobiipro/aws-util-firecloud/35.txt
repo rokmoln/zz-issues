@@ -1,0 +1,64 @@
+
+Typescript #35
+
+   typescript
+
+   master typescript
+   @andreineculau
+   [45]andreineculau opened this pull request 4 months ago • edited 4
+   months ago
+
+   Labels
+   [46]enhancement
+
+   Linked issues
+   [47]add typescript definition
+     * Fixes: [48]#31
+     * Breaking change: [x]
+     __________________________________________________________________
+
+   [49]andreineculau added some commits [50]4 months ago
+   [51]@andreineculau [52]rename .js to .ts
+   [53]@andreineculau [54]enable typescript
+   [55]@andreineculau [56]typescript
+   [57]@andreineculau [58]please typescript
+   [59]@andreineculau [60]typescript: package.json is not under rootDir
+   [61]@andreineculau [62]lint
+   [63]@andreineculau [64]updated support-firecloud
+
+   andreineculau added the [65]enhancement label [66]4 months ago
+
+   andreineculau self-assigned this [67]4 months ago
+
+   andreineculau added this to In progress in [68]Public (Open Source) via
+   automation [69]4 months ago
+
+   [70]andreineculau added some commits [71]3 months ago
+   [72]@andreineculau [73]sync with minlog-flush
+   [74]@andreineculau [75]breaking: remove export default exports
+   [76]@andreineculau [77]normalize flushing the lambda logger
+   [78]@andreineculau [79]style: less chaining
+   [80]@andreineculau [81]fix imports without defaults
+   [82]@andreineculau [83]await for spy2called
+   [84]@andreineculau [85]await for spy2called
+   [86]@andreineculau [87]fix import default
+   [88]@andreineculau [89]make sure we don't log to console after test
+   case
+   [90]@andreineculau [91]use wait-for-expect
+   [92]@andreineculau [93]remove old eslint plugins
+   [94]@andreineculau [95]updated support-firecloud
+   [96]@andreineculau [97]fix tests (extra careful with spying on
+   console), deduplicate
+   [98]@andreineculau [99]fix for eslint-config-firecloud
+   [100]@andreineculau [101]lint
+
+   andreineculau merged commit 4396259 into master [102]about 2 months ago
+
+   Public (Open Source) automation moved this from In progress to Done
+   [103]about 2 months ago
+
+   andreineculau deleted the typescript branch [104]about 2 months ago
+
+   ankitmth removed this from Done in [105]Public (Open Source) [106]17
+   days ago
+

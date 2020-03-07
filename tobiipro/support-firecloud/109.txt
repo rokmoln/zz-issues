@@ -1,0 +1,172 @@
+
+run 'make check' before 'git push' #109
+
+   f/anu-pre-push-hook
+
+   master f/anu-pre-push-hook
+   @andreineculau
+   [45]andreineculau opened this pull request
+   10 months ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   goal is to have a quick feedback cycle, as opposed to pushing code that
+   will trigger a CI agent to spin up, bootstrap itself, fetch
+   dependencies, build your code and only then fail with "expected 2
+   spaces, not 3"
+
+   it is a pre-push hook, as opposed to a pre-commit because
+    1. you should be allowed to commit "wip" code, rewrite history to
+       clean it up, etc
+    2. make check is fast, but not that fast, so depending on the size of
+       the repo, you might be looking at ~1 minute waiting time
+       (atex-platform and gs-server have ~40 seconds)
+
+   I ran it with positive outcomes for a couple of weeks myself
+
+   NOTE that the PR in its current form wants to make this the default
+   with a opt-out (potentially for repos like atex-platform and
+   gs-server). The alternative would be to make it a opt-in, and then have
+   each repo add a line to their root Makefiles that includes this inc.mk
+   file. The threshold of how much is too much is subjective, but I can
+   only guess that it is a good-to-have for most of the repos thus the
+   proposition to have it on by default, and off for only those
+   "monolithic" repos.
+
+   // [47]@fredrikj [48]@jonashogstrom you were talking of doing the same,
+   thus your feedback is appreciated
+
+   [49]andreineculau added a commit [50]10 months ago
+   [51]@andreineculau [52]run 'make check' before 'git push'
+
+   andreineculau added the [53]enhancement label [54]10 months ago
+
+   andreineculau requested a review from fredrikj [55]10 months ago
+
+   andreineculau requested a review from jonashogstrom [56]10 months ago
+
+   andreineculau requested a review from IanSavchenko [57]10 months ago
+
+   andreineculau requested a review from tobiiasl [58]10 months ago
+
+   andreineculau self-assigned this [59]10 months ago
+
+   @IanSavchenko
+   [60]IanSavchenko approved these changes [61]10 months ago
+
+   Don't know much how it works, but the idea is very good I think. My
+   perception is that >50% of builds fail due to linting violation.
+
+   @fredrikj
+   [62]fredrikj approved these changes [63]10 months ago
+   [64]repo/mk/core.deps.git-hook-pre-push.mk
+   ((4 lines not shown))
+   # the hook can be not-installed by adding to the Makefile:
+   # SF_DEPS_TARGETS := $(filter-out
+   .git/hooks/pre-push,$(SF_DEPS_TARGETS))
+   ifneq ($(wildcard .git),)
+   SF_DEPS_TARGETS := \
+   $(SF_DEPS_TARGETS) \
+   .git/hooks/pre-push \
+   endif
+   #
+   -----------------------------------------------------------------------
+   -------
+   .git/hooks/pre-push:
+   $(MKDIR) $(shell dirname $@)
+   $(CP) $(SUPPORT_FIRECLOUD_DIR)/repo/dot.git/hooks/pre-push $@
+   [65]@fredrikj [66]fredrikj • [67]10 months ago
+   Copy link
+
+   Awesome! I don't understand how this works, though. I see that it
+   appends to some "SF_DEPS_TARGETS" which I assume is part of the "deps"
+   target? Then I don't understand what the "$@" in the target is. mkdir?
+   In the end, this hook need to be put in .git/hooks/pre-push? That path
+   is in $@?
+   [68]@andreineculau [69]andreineculau • [70]10 months ago
+   Copy link
+
+   [71]https://www.gnu.org/software/make/manual/html_node/Automatic-Variab
+   les.html
+
+   $@ = The file name of the target of the rule. in this case a synonym to
+   .git/hooks/pre-push
+   [72]@fredrikj [73]fredrikj • [74]10 months ago
+   Copy link
+
+   Ah, that clears it all up! Arigato gozaimashita.
+   😄 1
+   andreineculau reacted with laugh emoji
+
+   [75]andreineculau added a commit [76]10 months ago
+   [77]@andreineculau [78]update pre-push hook when it gets updated in
+   support-firecloud
+
+   Copy link
+   @jonashogstrom
+   [79]jonashogstrom
+   commented [80]10 months ago
+
+   will it run make check on the local copy of the source? So it might
+   fail if I for some reason have WiP code that doesnt pass even though it
+   is not committed yet? I guess as long as you are aware of this it
+   should be fine. +1 from me.
+
+   Copy link
+   @andreineculau
+   [81]andreineculau
+   commented [82]10 months ago
+
+     will it run make check on the local copy of the source?
+
+   👍 good that you bring that up! the answer is both yes and no.
+
+   no because we actually make check looks at "cached" files i.e. files
+   that are committed or staged.
+
+   yes because if you stage some lines, but not all, we will check the
+   whole file
+
+   my take is that partial staging is not something popular (at least not
+   in this circle). but I can add a comment (and maybe even a warning that
+   some files are partially staged)
+
+   Copy link
+   @andreineculau
+   [83]andreineculau
+   commented [84]10 months ago
+
+   PR updated with some visual info
+
+   [85]andreineculau added some commits [86]10 months ago
+   [87]@andreineculau [88]pre-push hook: warn about modified files
+   [89]@andreineculau [90]pre-push hook: add info on skipping the hook
+
+   andreineculau force pushed changes to this branch [91]10 months ago
+
+   Copy link
+   @andreineculau
+   [92]andreineculau
+   commented [93]10 months ago
+
+   [94]@jonashogstrom done (pre-commit -> pre-push)
+
+   andreineculau referenced this pull request from commit [95]1720f3a
+   [96]10 months ago
+
+   andreineculau merged commit 1720f3a into master [97]10 months ago
+
+   Copy link
+   @andreineculau
+   [98]andreineculau
+   commented [99]10 months ago
+
+   merged, I will update a few repos in atex/drive/controller with this
+   change, before leaking into all repos
+
+   andreineculau deleted the f/anu-pre-push-hook branch [100]10 months ago
+

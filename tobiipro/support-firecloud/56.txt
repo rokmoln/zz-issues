@@ -1,0 +1,223 @@
+
+implement cloudformation drift checks #56
+
+   Closed
+   [57]andreineculau opened this issue Dec 11, 2018 · 7 comments · Fixed
+   by [58]#115
+   Closed
+
+[59]implement cloudformation drift checks #56
+
+   [60]andreineculau opened this issue Dec 11, 2018 · 7 comments · Fixed
+   by [61]#115
+   Assignees
+   [62]@andreineculau
+   Labels
+   [63]enhancement
+
+Comments
+
+   [64]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[65]@andreineculau [66]andreineculau commented [67]Dec 11, 2018
+
+   in repo/cfn/inc.mk
+
+   for any team environment e.g. dev staging prod
+   provisioning should actually fail if the stack has drifted
+
+   for all environment, after we provision, we should report if the stack
+   shows as drifted (it can happen because we set maybe an empty array in
+   the template, but cfn transforms that into undefined, and then reports
+   the stack as drifted... 🤷‍♂️ )
+   [68]@andreineculau [69]andreineculau added the [70]enhancement label
+   [71]Dec 11, 2018
+   [72]@andreineculau [73]andreineculau self-assigned this [74]Dec 11,
+   2018
+   [75]andreineculau added a commit that referenced this issue [76]Mar 17,
+   2019
+   [77]@andreineculau
+   [78]a skeleton for cfn drift check. see [79]#56
+   Verified
+   This commit was signed with a verified signature.
+   [80]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [81]Learn about signing commits
+   [82]0075230
+   [83]andreineculau added a commit that referenced this issue [84]Mar 17,
+   2019
+   [85]@andreineculau
+   [86]fixup! a skeleton for cfn drift check. see [87]#56
+   Verified
+   This commit was signed with a verified signature.
+   [88]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [89]Learn about signing commits
+   [90]c47295b
+   [91]andreineculau added a commit that referenced this issue [92]Mar 24,
+   2019
+   [93]@andreineculau
+   [94]add drift check, but continue if drifted for now. see [95]#56
+   Verified
+   This commit was signed with a verified signature.
+   [96]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [97]Learn about signing commits
+   [98]a1f8af2
+   [99]@andreineculau
+
+This comment has been minimized.
+
+   [100]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[101]@andreineculau [102]andreineculau commented [103]Mar 25, 2019
+
+   uncertain how we should handle a drift.
+
+   ideally, we should not deploy to a group of stacks that has drifted,
+   and we should also report that the stacks have drifted just after
+   deployment (it shows that the template can be rewritten and avoid fake
+   drifts like cloudformation accepting [] as value, but
+   rewriting/exposing it as undefined)
+
+   but that can also simply stop you from deploying, unless you introduce
+   some way to forcefully do it.
+   [104]@alsmyr
+
+This comment has been minimized.
+
+   [105]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[106]@alsmyr [107]alsmyr commented [108]Mar 26, 2019
+
+   Is there a pattern for this that we could follow? I can send an email
+   to Gustav from AWS and start a discussion on it.
+   [109]@andreineculau
+
+This comment has been minimized.
+
+   [110]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[111]@andreineculau [112]andreineculau commented [113]Mar 26, 2019
+
+   no, no pattern. it's a new-ish thing which wasn't taken full way
+   (that's a pattern! 😉 ): they don't have the functionality to fix the
+   drifts. If they did, the pattern would be simply fixing the drifts
+   before/after updating the stack. The state would then be deterministic
+   when deploying an env.
+
+   As it is now - just checking for drifts... 🤷‍♂️ I can only do a system
+   test where i say there should be no drifts. But with these fake drifts,
+   there will be many false negatives.
+   [114]@IanSavchenko
+
+This comment has been minimized.
+
+   [115]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[116]@IanSavchenko [117]IanSavchenko commented [118]Mar 26, 2019
+
+   I think that drifts themselves are not that bad thing - sometimes you
+   experiment and try stuff and then want it to be cleaned with a fresh
+   deployment, so having a hard stop before deployment would be quite
+   annoying.
+
+   For now: I would suggest having a drift report printed in the logs or
+   somewhere, so we can have it. This can help to debug in some cases, I
+   think.
+
+   For the future: we could check for a drift right after deployment as
+   Andrei suggested above, after a couple of runs we can clear out all
+   those cases where drifts are created. Also, if we add a CFN linter, we
+   could check for those cases preemptively.
+   [119]@andreineculau
+
+This comment has been minimized.
+
+   [120]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[121]@andreineculau [122]andreineculau commented [123]Mar 26, 2019
+
+   I find it "super bad" to have drifts related to prod and staging envs.
+   And then just "not nice" related to dev and git-master. All the other
+   envs, 🤷‍♂️ should adhere to "knock yourself out".
+
+     For now: I would suggest having a drift report printed in the logs
+     or somewhere, so we can have it. This can help to debug in some
+     cases, I think.
+
+   in place, but with the code folding and so on, you really need to look
+   for them. Instead one can go int the cloudformation UI and check the
+   drift column (updated every time we deploy, since we trigger a drift
+   check).
+   [124]@IanSavchenko
+
+This comment has been minimized.
+
+   [125]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[126]@IanSavchenko [127]IanSavchenko commented [128]Mar 26, 2019
+
+     I find it "super bad" to have drifts related to prod and staging
+     envs. And then just "not nice" related to dev and git-master. All
+     the other envs, 🤷‍♂️ should adhere to "knock yourself out".
+
+   It's bad, but it is a reality sometimes, that we need to go and patch
+   prod until a proper deployment rolls out. And if we will be blocking
+   deployment just because there is a drift, it will make our "sensitive"
+   deployments even more like that. So unless we have some kind of
+   confirmation step "We have detected a drift. Want to proceed? (Y/n)", I
+   wouldn't want it the check to run in a blocking mode on the "before"
+   step.
+
+     in place, but with the code folding and so on, you really need to
+     look for them. Instead one can go int the cloudformation UI and
+     check the drift column (updated every time we deploy, since we
+     trigger a drift check).
+
+   Cool! 👏 I don't open too often either of them (Travis probably is
+   faster to look at), but we can push a slack notification when drift is
+   detected after deployment.
+   (HEART react) ❤️ 1
+   [129]@andreineculau
+
+This comment has been minimized.
+
+   [130]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[131]@andreineculau [132]andreineculau commented [133]Mar 26, 2019
+
+     we need to go and patch prod until a proper deployment rolls out.
+     And if we will be blocking deployment just because there is a drift
+
+   I know. I wasn't clear in my previous message about my preference to
+   check (and fix, if they implement a fix functionality) drifts AFTER
+   deployment, so as to let the deployment finish. Being OCD about these
+   things can lead to a worse situation that you have without any checks
+   at all.
+
+     but we can push a slack notification when drift is detected after
+     deployment.
+
+   glad to have you back, and thinking alike :) i think we still have the
+   "send slack message" script in the bin folder, so it's a matter of
+   exposing the slack webhook as a travis encrypted var
+   [134]@andreineculau [135]andreineculau mentioned this issue [136]May
+   15, 2019
+   [137]notify slack on cfn drifts #115
+   Merged
+   [138]@andreineculau [139]andreineculau closed this in [140]#115
+   [141]May 17, 2019

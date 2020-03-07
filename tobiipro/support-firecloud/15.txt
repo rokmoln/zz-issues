@@ -1,0 +1,37 @@
+
+Install bash 4 on bootstrap #15
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 9, 2018 · 1 comment
+   Closed
+
+[58]Install bash 4 on bootstrap #15
+
+   [59]IanSavchenko opened this issue Mar 9, 2018 · 1 comment
+   Assignees
+   [60]@andreineculau
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Mar 9, 2018
+
+   If it's safe to do.
+   [65]@IanSavchenko [66]IanSavchenko assigned [67]andreineculau [68]Mar
+   9, 2018
+   [69]@andreineculau
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[71]@andreineculau [72]andreineculau commented [73]Mar 9, 2018
+
+   note2self: or at least have [74]#14 work with any bash version
+   [75]@andreineculau [76]andreineculau closed this in [77]952d2c3 [78]Mar
+   9, 2018

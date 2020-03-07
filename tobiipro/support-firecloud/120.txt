@@ -1,0 +1,93 @@
+
+Editorconfig is failing svg images with line-length rules #120
+
+   Closed
+   [57]jobackman opened this issue Jun 10, 2019 · 2 comments
+   Closed
+
+[58]Editorconfig is failing svg images with line-length rules #120
+
+   [59]jobackman opened this issue Jun 10, 2019 · 2 comments
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@jobackman
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@jobackman [63]jobackman commented [64]Jun 10, 2019 •
+
+   edited by andreineculau
+
+   We were adding some svg files to the image assets when we noted that
+   our editorconfig will stop pushes because the svg files exceed the
+   allowed line-length.
+
+   I would assume images should be excluded from being linted by
+   editorconfig.
+
+   I would suggest excluding svg files from the editorconfig either
+   entirely, or at least by this rule:
+[*.svg]
+max_line_length = none
+
+   Thoughts?
+   [65]@jobackman [66]jobackman added the [67]bug label [68]Jun 10, 2019
+   [69]@andreineculau
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[71]@andreineculau [72]andreineculau commented [73]Jun 10, 2019
+
+   replying inline to separate concerns
+
+     I would assume images should be excluded from being linted by
+     editorconfig.
+
+   editorconfig per se doesn't distinguish between binary and text files,
+   so it's true that we could add definitions like
+[*.{gif,png,jpg,jpeg,zip,etc,etc,etc}]
+insert_final_newline = none
+max_line_length = none
+etc = none
+
+   on the other hand, the tool that we use to lint files based on the
+   editorconfig configuration excludes binary files starting with version
+   2.0.0 [74]https://github.com/jedmao/eclint/blob/master/CHANGELOG.md
+
+   so it is a bit redundant in that sense
+
+     I would suggest excluding svg files from the editorconfig either
+     entirely, or at least by this rule:
+
+   SVG files are not binary, they are just XML, like HTML files are. I
+   don't see why they should be special and ignored by editorconfig.
+
+   Since you're not writing these SVGs by hand, and just importing them as
+   assets, I suggest adding the src/assets (or similar) path to the
+   SF_VENDOR_FILES_IGNORE variable in Makefile.
+   [75]@jobackman
+
+This comment has been minimized.
+
+   [76]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[77]@jobackman [78]jobackman commented [79]Jun 11, 2019
+
+     Since you're not writing these SVGs by hand, and just importing them
+     as assets, I suggest adding the src/assets (or similar) path to the
+     SF_VENDOR_FILES_IGNORE variable in Makefile.
+
+   Ahaa! Didnt know about SF_VENDOR_FILES_IGNORE. It looks like it solved
+   our issues, so I'll close this!
+
+   Thanks 🙏
+   [80]@jobackman [81]jobackman closed this [82]Jun 11, 2019

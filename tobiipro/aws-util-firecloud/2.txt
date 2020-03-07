@@ -1,0 +1,55 @@
+
+surface the internal aws-cfn-util-firecloud repo #2
+
+   f/anu-merge-aws-cfn-util-firecloud
+
+   master f/anu-merge-aws-cfn-util-firecloud
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 2 years ago
+
+   Goal
+     * remove internal/project-specific constants from
+       aws-cfn-util-firecloud
+     * consolidate aws-util-firecloud with cfn-specific funs
+     * make it possible for public repos to include AWS CloudFormation
+       templates that can be executed
+
+   [46]andreineculau referenced this pull request from another pull
+   request
+   [47]#2 document cfn bootstraping in tobiipro/support-firecloud
+
+   andreineculau force pushed changes to this branch [48]about 2 years ago
+
+   andreineculau force pushed changes to this branch [49]about 2 years ago
+
+   andreineculau force pushed changes to this branch [50]about 2 years ago
+
+   andreineculau force pushed changes to this branch [51]about 2 years ago
+
+   [52]andreineculau added some commits [53]about 2 years ago
+   [54]@andreineculau [55]move bootstrap from aws-cfn-util-firecloud (no
+   history necessary)
+   [56]@andreineculau [57]move logger to its own module
+   [58]@andreineculau [59]move env proxy from aws-cfn-util-firecloud
+   [60]@andreineculau [61]move config from aws-cfn-util-firecloud
+   [62]@andreineculau [63]whitespace
+   [64]@andreineculau [65]always export all=exports
+   [66]@andreineculau [67]rename getAwsConfig to get. redundant
+   [68]@andreineculau [69]merge aws-cfn-util-firecloud's non-cfn modules
+   [70]@andreineculau [71]merge aws-cfn-util-firecloud's cfn modules
+   [72]@andreineculau [73]put lambda-related funs into authority module
+   [74]@andreineculau [75]generalize path to base template
+   [76]@andreineculau [77]base template can simply be added to incs
+   [78]@andreineculau [79]generic accounts - not just dev and prod
+
+   andreineculau force pushed changes to this branch [80]about 2 years ago
+
+   andreineculau referenced this pull request from commit [81]2bc49b4
+   [82]about 2 years ago
+
+   andreineculau merged commit 2bc49b4 into master [83]about 2 years ago
+
+   andreineculau deleted the f/anu-merge-aws-cfn-util-firecloud branch
+   [84]about 2 years ago
+

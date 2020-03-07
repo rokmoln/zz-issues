@@ -1,0 +1,67 @@
+
+correct versioning. expires 2019-12-31 #34
+
+   Closed
+   [57]andreineculau opened this issue Aug 14, 2019 · 1 comment
+   Closed
+
+[58]correct versioning. expires 2019-12-31 #34
+
+   [59]andreineculau opened this issue Aug 14, 2019 · 1 comment
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]bug
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Aug 14, 2019 •
+
+   edited
+
+     * [X] v2.1.1 -> v0.2.11
+     * [X] internal repos depending on aws-util-firecloud should switch
+       asap
+     * [X] remove v[^0].+ tags by 2019-12-31
+
+   [66]@andreineculau [67]andreineculau added the [68]bug label [69]Aug
+   14, 2019
+   [70]@andreineculau [71]andreineculau self-assigned this [72]Aug 14,
+   2019
+   [73]@andreineculau [74]andreineculau added this to To do in [75]Public
+   (Open Source) via automation [76]Aug 14, 2019
+   [77]andreineculau added a commit that referenced this issue [78]Aug 14,
+   2019
+   [79]@andreineculau
+   [80]disclaimer for upcoming commit to correct versioning v2.1.1 ->
+   v0.2.1… (BUTTON) …
+   Verified
+   This commit was signed with a verified signature.
+   [81]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [82]Learn about signing commits
+   [83]695ff07
+…1. see [84]#34
+
+   [85]@andreineculau [86]andreineculau changed the title [DEL: correct
+   versioning :DEL] [INS: correct versioning. expires 2019-12-31 :INS]
+   [87]Aug 16, 2019
+   [88]@andreineculau
+
+This comment has been minimized.
+
+   [89]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[90]@andreineculau [91]andreineculau commented [92]Feb 13, 2020
+
+   v[^0].+ tags have now been deleted
+   [93]@andreineculau [94]andreineculau closed this [95]Feb 13, 2020
+   [96]Public (Open Source) automation moved this from To do to Done
+   [97]Feb 13, 2020
+   [98]@ankitmth [99]ankitmth removed this from Done in [100]Public (Open
+   Source) [101]Feb 19, 2020

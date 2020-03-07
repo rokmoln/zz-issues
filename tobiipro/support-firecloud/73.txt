@@ -1,0 +1,48 @@
+
+show promotion log #73
+
+   f/anu-show-promotion-log
+
+   master f/anu-show-promotion-log
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   Intended flow
+     * make promote/prod/v0.0.100
+     * get presented with the 'git log' (simple, oneline per commit) of
+       changes to be promoted from v0.0.99 to v0.0.100
+     * get asked if the user wants to continue
+     * do the promoting via travis, if the user didn't say cancel at the
+       previous question
+
+   [47]andreineculau added a commit [48]about 1 year ago
+   [49]@andreineculau [50]show 'git log' before promoting release to env
+
+   andreineculau added the [51]enhancement label [52]about 1 year ago
+
+   andreineculau self-assigned this [53]about 1 year ago
+
+   andreineculau requested a review from alsmyr [54]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [55]about 1 year ago
+
+   @IanSavchenko
+   [56]IanSavchenko approved these changes [57]about 1 year ago
+
+   @alsmyr
+   [58]alsmyr approved these changes [59]about 1 year ago
+
+   Good addition!
+
+   andreineculau referenced this pull request from commit [60]2fb1723
+   [61]about 1 year ago
+
+   andreineculau merged commit 2fb1723 into master [62]about 1 year ago
+
+   andreineculau deleted the f/anu-show-promotion-log branch [63]about 1
+   year ago
+

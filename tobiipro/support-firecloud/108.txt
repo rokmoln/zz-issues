@@ -1,0 +1,103 @@
+
+Add CFN Policy Support #108
+
+   f/ian-cfn-policy
+
+   master f/ian-cfn-policy
+   @IanSavchenko
+   [45]IanSavchenko opened this pull request
+   10 months ago
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   Will need to go into atex-platform and atex-consumer-sov and remove
+   duplicate stuff from there after update.
+
+   Ian Savchenk... added some commits [46]10 months ago
+   [47]add aws-cloudformation-create-stack-policy executable
+   [48]add cfn policy support in cfn/inc.mk
+
+   IanSavchenko requested a review from andreineculau [49]10 months ago
+
+   @andreineculau
+   [50]andreineculau approved these changes [51]10 months ago
+
+   nice work 👏
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [52]bin/aws-cloudformation-create-stack-policy
+   @@ -0,0 +1,57 @@
+   #!/usr/bin/env node
+   [53]@andreineculau [54]andreineculau • [55]10 months ago
+   Copy link
+
+   i think this file needs to be added to .editorconfig as an exception
+   (BUTTON) Show resolved (BUTTON) Hide resolved
+   [56]...oudformation-create-stack-policy
+   @@ -0,0 +1,57 @@
+   #!/usr/bin/env node
+   let _ = require('lodash-firecloud').default;
+   let fs = require('fs');
+   let createStackPolicy = async function({cfnTemplatePath}) {
+   let cfnTemplate = JSON.parse(fs.readFileSync(cfnTemplatePath));
+   let resources = _.keys(cfnTemplate.Resources);
+   let retainedResources = _.filter(resources, function(resourceName) {
+   return _.get(cfnTemplate.Resources[resourceName], 'DeletionPolicy') ===
+   'Retain';
+   });
+   [57]@andreineculau [58]andreineculau • [59]10 months ago
+   Copy link
+
+   just nit-picking: doesn't this work if you ignore the "wasted" memory?
+   let retainedResources = _.keys(_.pickBy(cfnTemplate.Resources,
+   {DeletionPolicy: 'Retain'}));
+   (BUTTON) Show resolved (BUTTON) Hide resolved [60]repo/cfn/inc.mk
+   @@ -116,6 +124,11 @@ $(CFN_JSON_FILES): %.cfn.json: %/index.js %-setup
+   %.cfn.json/lint ## Generate st
+   %.cfn.json/rm: %-setup ## Remove stack.
+   $(ECHO_DO) "Removing $(STACK_NAME) stack..."
+   $(call $(STACK_STEM)-pre-rm)
+   $(ECHO_DO) "Removing $(STACK_NAME) stack policy (allowing all
+   changes)..."
+   [61]@andreineculau [62]andreineculau • [63]10 months ago
+   Copy link
+
+   maybe execute this before line 125? so that whatever in pre-rm can
+   actually be done?
+
+   Ian Savchenk... added some commits [64]10 months ago
+   [65]avoid long line
+   [66]Removing stack policy before pre-rm
+   [67]add aws-cloudformation-create-stack-policy to ec exception
+   [68]select retained resources in one line
+   [69]move IO outside func
+
+   IanSavchenko referenced this pull request from commit [70]d74bf24
+   [71]10 months ago
+
+   IanSavchenko merged commit d74bf24 into master [72]10 months ago
+
+   IanSavchenko deleted the f/ian-cfn-policy branch [73]10 months ago
+
+   Copy link
+   @andreineculau
+   [74]andreineculau
+   commented [75]10 months ago
+
+     Will need to go into atex-platform and atex-consumer-sov and remove
+     duplicate stuff from there after update.
+
+   I just did that in all repos (I hope).
+
+   [76]@IanSavchenko doesn't this close [77]#107 ?
+
+   [78]IanSavchenko referenced this pull request from another issue
+   [79]#107 Move Stack Policies for Retained resources to SF
+
+   Copy link
+   @IanSavchenko
+   [80]IanSavchenko
+   commented [81]10 months ago
+
+   True. Closed.
+

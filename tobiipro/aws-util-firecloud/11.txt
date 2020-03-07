@@ -1,0 +1,125 @@
+
+allow control over large records on kinesis/firehose #11
+
+   f/anu-control-large-records
+
+   master f/anu-control-large-records
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   from [47]#6 (comment)
+
+   andreineculau added the [48]enhancement label [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   @IanSavchenko
+   [51]IanSavchenko reviewed [52]about 1 year ago
+
+   So instead of moving out control over oversized packages from lib
+   functions, the function becomes even more complicated and takes extra
+   params. I don't understand what kind of logic you expect to be in
+   onLargeRecordEntries to happen so it can decide if we should continue
+   processing. It should either fail or ignore and a boolean flag would be
+   enough to do that.
+
+   Copy link
+   @andreineculau
+   [53]andreineculau
+   commented [54]about 1 year ago
+
+   no need for the cynicism. That's just how I interpreted your comment
+   [55]#6 (comment) . And to the point, it sounds like you understand the
+   logic of onLargeRecordEntries just fine 😉
+
+   Back to your initial suggestion, having a helper function to check a
+   record size (or record sizes of a multiple records means that you run
+   JSON.stringify twice over possibly large records). An alternative would
+   be a prep function that would return "recordBatches AND
+   tooLargeRecords". The caller could then decide what to do with the
+   tooLargeRecords, and maybe forward recordBatches to a putRecordBatches
+   function.
+
+   Copy link
+   @IanSavchenko
+   [56]IanSavchenko
+   commented [57]about 1 year ago
+
+   I wanted to (re)move out code, not add more code 😄
+
+   Yes, I wanted to run serialization twice, but make logic more simple. I
+   don't think that it will be a huge performance hit and it's not like we
+   are fighting for performance here. Also, I expect 90% of the records to
+   be small, so it won't be that critical either.
+
+   From a performance perspective, it can be optimized in a way that:
+    1. we make it in a way that function accepts only strings (stringified
+       records)
+    2. we can pre-check size in bytes only for those stringified records
+       that have bigger length (like 500k)
+
+   andreineculau force pushed changes to this branch [58]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [59]andreineculau
+   commented [60]about 1 year ago
+
+   there's performance and performance... stringifying 500 records of 1MB
+   each = 6.5 seconds in a simple local test.
+
+   If we say we don't care about backward compat, we can do like you say
+   in 2 steps. It has the added benefit that the putRecords functions
+   become agnostic of serialization. The downside is that now you'll need
+   two calls ourFirehose.recordsToJSON + ourFirehose.putRecords but you
+   can't have the cake and eat it too.
+
+   Otherwise, a middle ground would be to at least return the records that
+   were skipped. The app could decide what to do with them. (updated the
+   PR with this, not saying that I favour it, just that it was easy to do
+   it)
+
+   @IanSavchenko
+   [61]IanSavchenko approved these changes [62]about 1 year ago
+
+   Probably, the right solution would be to check the size of every record
+   in the batch and fail early (or ignore them, depending on a flag) if
+   some of them are oversized, even before attempting to send any record.
+   In this way, we would provide some integrity of operation (maybe).
+
+   But currently, it's good enough.
+
+   [63]andreineculau added a commit [64]about 1 year ago
+   [65]@andreineculau [66]allow control over large records on
+   kinesis/firehose
+
+   andreineculau force pushed changes to this branch [67]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [68]andreineculau
+   commented [69]about 1 year ago
+
+     Probably, the right solution would be to check the size of every
+     record in the batch and fail early (or ignore them, depending on a
+     flag) if some of them are oversized, even before attempting to send
+     any record. In this way, we would provide some integrity of
+     operation (maybe).
+
+   Hmm, that sounds so similar to... something... I know! my first
+   iteration 😝 the only diff: change callback to flag
+   😄 1
+   IanSavchenko reacted with laugh emoji
+
+   andreineculau referenced this pull request from commit [70]50d3c39
+   [71]about 1 year ago
+
+   andreineculau merged commit 50d3c39 into master [72]about 1 year ago
+
+   andreineculau deleted the f/anu-control-large-records branch [73]about
+   1 year ago
+

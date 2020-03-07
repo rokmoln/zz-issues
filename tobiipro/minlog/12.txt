@@ -1,0 +1,188 @@
+
+console listener mixes object arguments #12
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 1, 2019 · 4 comments
+   Closed
+
+[58]console listener mixes object arguments #12
+
+   [59]IanSavchenko opened this issue Mar 1, 2019 · 4 comments
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Mar 1, 2019
+
+   Minimal reproduce code
+let {
+  MinLog,
+  logToConsole,
+  serializeTime
+} = require('./src/index');
+
+let logger = new MinLog({
+  listeners: [
+    logToConsole({
+      level: 'INFO'
+    })
+  ],
+  serializers: [
+    serializeTime
+  ]
+});
+
+logger.info('test', {
+  obj: 'a'
+}, {
+  hej: 'b'
+}, {
+  yo: 'c'
+});
+
+   Receiving in console:
+2019-03-01T14:38:24.860Z  INFO
+test
+{
+  "hej": "b"
+}
+{
+  "obj": "a"
+}
+{
+  "yo": "c"
+}
+
+   Expected: objects to be in order like a, b, c
+   [65]@IanSavchenko [66]IanSavchenko added the [67]bug label [68]Mar 1,
+   2019
+   [69]@andreineculau
+
+This comment has been minimized.
+
+   [70]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[71]@andreineculau [72]andreineculau commented [73]Mar 1, 2019
+
+   trying to reproduce consistently devtools behaviour
+  // devTools console sorts keys when object is expanded
+  extra = _.toPairs(extra);
+  extra = _.sortBy(extra, 0);
+  extra = _.fromPairs(extra);
+
+   [74]@andreineculau
+
+This comment has been minimized.
+
+   [75]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[76]@andreineculau [77]andreineculau commented [78]Mar 1, 2019
+
+   may be important to note that minlog args are not positional. minlog
+   has object-based entries
+   e.g. myminglog.info('test', {result}) means log entry {msg: 'test',
+   result: ...}
+   [79]@IanSavchenko
+
+This comment has been minimized.
+
+   [80]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[81]@IanSavchenko [82]IanSavchenko commented [83]Mar 2, 2019
+
+   So in one aspect, you are trying to mimic devTools behavior, but in the
+   other aspect you introduce object-based entries, which are not the case
+   here. I don't understand it. Why should we care about expanding? And I
+   want the objects that I pass to be logged separately, I can merge them
+   myself if I want to.
+
+   That's what I get in devTools (without expanding) and that's what I
+   expect to get here.
+> console.log('yo', {d: 'd', a:'a'}, {c:'c'}, {b:'b'})
+yo {d: "d", a: "a"} {c: "c"} {b: "b"}
+
+   [84]@andreineculau
+
+This comment has been minimized.
+
+   [85]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[86]@andreineculau [87]andreineculau commented [88]Mar 2, 2019
+
+   I think you're overlapping some concepts. I'll do my best to explain.
+
+     So in one aspect, you are trying to mimic devTools behavior, but in
+     the other aspect you introduce object-based entries, which are not
+     the case here.
+
+   minlog (just like many other loggers) works in the browser and in
+   non-interactive contexts (CLI, text files). the common denominator is
+   text files, and that's what minlog prioritizes. In files, you can have
+   many ways to serialize, but I guess the three that stand out is a
+   just-a-bunch-of-text, columnary format (e.g. tab, comma, \0, etc
+   delimited) or a serialized-object, the last two working in a
+   one-per-line fashion.
+
+   just-a-bunch-of-text is what console.foo does. some text, on one or
+   multiple lines, formatted or not in a specific way by the first
+   argument. impossible really to parse in a uniform way later.
+
+   columnary may or may not resemble stdout formatting depending on the
+   delimiter, but you end up with tricks for nested values, etc
+
+   the serialized-object is the simplest of them all because you pass in X
+   to a serialize function, and in the best of worlds you get the same X
+   from a parse function.
+
+   if you have a look at other loggers, they all share the same concept.
+
+     Why should we care about expanding? And I want the objects that I
+     pass to be logged separately, I can merge them myself if I want to.
+
+   the concept of object-based entries is not driven by devtools and
+   expanding the args. nor is minlog an in-place replacement for
+   console.error
+
+   taking bunyan as an explample, running their getting-started example:
+var bunyan = require('bunyan');
+var log = bunyan.createLogger({name: "myapp"});
+
+log.info('hello', 'there', 'you');
+// will log the following entry
+// {"name":"myapp","hostname":"andrei-tobiipro.local","pid":6684,"level":30,"msg
+":"hello there you","time":"2019-03-02T14:09:46.272Z","v":0}
+
+// ...
+log.info('hello', 'there', 'you', new A(), {a: new A()})
+// {"name":"myapp","hostname":"andrei-tobiipro.local","pid":6684,"level":30,"msg
+":"hello there you A { test: 'test' } { a: A { test: 'test' } }","time":"2019-03
+-02T14:12:10.405Z","v":0}
+// NOTE the last two arguments are passed through util.inspect
+
+log.info({a: new A()})
+// {"name":"myapp","hostname":"andrei-tobiipro.local","pid":6684,"level":30,"a":
+{"test":"test"},"msg":"","time":"2019-03-02T14:14:38.291Z","v":0}
+// NOTE that now the arg is passed through JSON.stringify
+
+log.info(new A(), {a: new A()})
+// {"name":"myapp","hostname":"andrei-tobiipro.local","pid":6684,"level":30,"tes
+t":"test","msg":"{ a: A { test: 'test' } }","time":"2019-03-02T14:15:37.011Z","v
+":0}
+// NOTE that now the first arg seems to just pull a Bermuda-triangle on us
+
+   I hope you agree that none of the above is simple to grasp. And
+   definitely not easy to parse later on.
+   [89]@IanSavchenko [90]IanSavchenko closed this [91]Mar 4, 2019

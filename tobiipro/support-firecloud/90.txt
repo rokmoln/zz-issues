@@ -1,0 +1,58 @@
+
+add retry as a basic brew dep #90
+
+   f/anu-retry
+
+   master f/anu-retry
+   @andreineculau
+   [45]andreineculau opened this pull request
+   12 months ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [47]andreineculau added a commit [48]12 months ago
+   [49]@andreineculau [50]add retry as a basic brew dep
+
+   andreineculau added the [51]enhancement label [52]12 months ago
+
+   tobiiasl was assigned by andreineculau [53]12 months ago
+
+   andreineculau requested a review from tobiiasl [54]12 months ago
+
+   @tobiiasl
+   [55]tobiiasl approved these changes [56]12 months ago
+
+   Copy link
+   @andreineculau
+   [57]andreineculau
+   commented [58]12 months ago
+
+   [59]@tobiiasl didn't you say you don't need retry anymore, because curl
+   has it builtin functionality?
+
+   Copy link
+   @tobiiasl
+   [60]tobiiasl commented [61]11 months ago • edited 11 months ago
+
+   I did say that. But then I discovered it did not work: I checked the
+   retry options in curl but it turned out they only work with 5xx errors.
+   ([62]tobiipro/gs-server#27 (comment)).
+
+   So I still think retry is needed and is the best option.
+   👍 1
+   andreineculau reacted with thumbs up emoji
+
+   andreineculau referenced this pull request from commit [63]bc1d187
+   [64]11 months ago
+
+   andreineculau merged commit bc1d187 into master [65]11 months ago
+
+   andreineculau referenced this pull request from commit [66]5b43bc2
+   [67]11 months ago
+
+   andreineculau deleted the f/anu-retry branch [68]10 months ago
+

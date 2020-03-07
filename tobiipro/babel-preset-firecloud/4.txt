@@ -1,0 +1,32 @@
+
+lint babel-preset-firecloud with eslint-config-firecloud #4
+
+   f/anu-eslint-me
+
+   master f/anu-eslint-me
+   @andreineculau
+   [45]andreineculau opened this pull request
+   almost 2 years ago
+   No description given.
+
+   andreineculau requested a review from IanSavchenko [46]almost 2 years
+   ago
+
+   andreineculau force pushed changes to the base branch [47]almost 2
+   years ago
+
+   [48]andreineculau added some commits [49]almost 2 years ago
+   [50]@andreineculau [51]eslint me
+   [52]@andreineculau [53]lint
+
+   andreineculau force pushed changes to this branch [54]almost 2 years
+   ago
+
+   @IanSavchenko
+   [55]IanSavchenko approved these changes [56]almost 2 years ago
+
+   andreineculau referenced this pull request from commit [57]b19b84c
+   [58]almost 2 years ago
+
+   andreineculau merged commit b19b84c into master [59]almost 2 years ago
+

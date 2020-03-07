@@ -1,0 +1,29 @@
+
+add SF_TEST_TARGETS #7
+
+   Closed
+   [57]andreineculau opened this issue Feb 25, 2018 · 0 comments
+   Closed
+
+[58]add SF_TEST_TARGETS #7
+
+   [59]andreineculau opened this issue Feb 25, 2018 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Feb 25, 2018
+
+   [65]https://github.com/tobiipro/support-firecloud/blob/master/repo/mk/g
+   eneric.common.mk#L35-L39
+
+   PS: update repo/mk/js.test.js.mk
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Feb 25, 2018
+   [70]@andreineculau [71]andreineculau closed this in [72]5e4b782 [73]Feb
+   28, 2018

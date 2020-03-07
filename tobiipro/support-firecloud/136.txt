@@ -1,0 +1,63 @@
+
+document .ci.sh usage #136
+
+   Closed
+   [57]andreineculau opened this issue Jan 14, 2020 · 0 comments
+   Closed
+
+[58]document .ci.sh usage #136
+
+   [59]andreineculau opened this issue Jan 14, 2020 · 0 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Jan 14, 2020
+
+   No description provided.
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Jan 14, 2020
+   [70]@andreineculau [71]andreineculau self-assigned this [72]Jan 14,
+   2020
+   [73]@andreineculau [74]andreineculau added this to To do in [75]Public
+   (Open Source) via automation [76]Jan 14, 2020
+   [77]andreineculau added a commit that referenced this issue [78]Feb 5,
+   2020
+   [79]@andreineculau
+   [80]document .ci.sh. [81]fix [82]#136
+   Verified
+   This commit was signed with a verified signature.
+   [83]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [84]Learn about signing commits
+   [85]e882cbe
+   [86]andreineculau added a commit that referenced this issue [87]Feb 6,
+   2020
+   [88]@andreineculau
+   [89]document .ci.sh. [90]fix [91]#136
+   Verified
+   This commit was signed with a verified signature.
+   [92]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [93]Learn about signing commits
+   [94]dcae99f
+   [95]@andreineculau [96]andreineculau closed this in [97]6098d8c [98]Feb
+   6, 2020
+   [99]Public (Open Source) automation moved this from To do to Done
+   [100]Feb 6, 2020
+   [101]andreineculau added a commit that referenced this issue [102]Feb
+   6, 2020
+   [103]@andreineculau
+   [104]fixup! document .ci.sh. [105]fix [106]#136
+   Verified
+   This commit was signed with a verified signature.
+   [107]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [108]Learn about signing commits
+   [109]22bbcbf
+   [110]@ankitmth [111]ankitmth removed this from Done in [112]Public
+   (Open Source) [113]Feb 19, 2020

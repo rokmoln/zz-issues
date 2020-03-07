@@ -1,0 +1,28 @@
+
+simulate lambda timeout and early crash #2
+
+   Open
+   [57]andreineculau opened this issue Mar 24, 2018 · 0 comments
+   Open
+
+[58]simulate lambda timeout and early crash #2
+
+   [59]andreineculau opened this issue Mar 24, 2018 · 0 comments
+   Labels
+   [60]enhancement [61]help wanted [62]wontfix
+
+Comments
+
+   [63]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[64]@andreineculau [65]andreineculau commented [66]Mar 24, 2018
+
+   along with simulating the getRemainingTimeInMillis
+   github.com/tobiipro/aws-lambda-proxy/blob/bb8016e/src/express-app.js#L8
+   3
+   [67]@andreineculau [68]andreineculau added [69]enhancement [70]help
+   wanted labels [71]Mar 24, 2018
+   [72]@andreineculau [73]andreineculau added the [74]wontfix label
+   [75]Jul 11, 2019

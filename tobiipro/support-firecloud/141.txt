@@ -1,0 +1,41 @@
+
+Validate travis #141
+
+   validate-travis
+
+   master validate-travis
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 month ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [47]andreineculau added some commits [48]about 1 month ago
+   [49]@andreineculau [50]Revert "silence slack notifications"
+   [51]@andreineculau [52]validate travis.yml (beta opt-in)
+   [53]https://docs.travis-ci.com/user/bui…
+
+   andreineculau added the [54]enhancement label [55]about 1 month ago
+
+   andreineculau self-assigned this [56]about 1 month ago
+
+   andreineculau added this to In progress in [57]Public (Open Source) via
+   automation [58]about 1 month ago
+
+   andreineculau referenced this pull request from commit [59]1e7f5e4
+   [60]about 1 month ago
+
+   andreineculau merged commit 1e7f5e4 into master [61]about 1 month ago
+
+   Public (Open Source) automation moved this from In progress to Done
+   [62]about 1 month ago
+
+   andreineculau deleted the validate-travis branch [63]about 1 month ago
+
+   ankitmth removed this from Done in [64]Public (Open Source) [65]17 days
+   ago
+

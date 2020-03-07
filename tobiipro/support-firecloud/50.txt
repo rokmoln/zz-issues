@@ -1,0 +1,42 @@
+
+refactor to use brew for all OSes #50
+
+   f/anu-linuxbrew
+
+   master f/anu-linuxbrew
+   @andreineculau
+   [45]andreineculau opened this pull request
+   over 1 year ago
+
+   i.e. use linuxbrew on linux, instead of aptitude
+
+   raison d'être:
+     * hoping to spend less time debugging dependency status on linux
+       (cough python)
+     * align travis nosudo-linux (no access to aptitude install) with sudo
+       linux and sudo darwin
+
+   [46]andreineculau added a commit [47]over 1 year ago
+   [48]@andreineculau [49]support python
+
+   andreineculau force pushed changes to this branch [50]over 1 year ago
+
+   andreineculau force pushed changes to this branch [51]over 1 year ago
+
+   andreineculau force pushed changes to this branch [52]over 1 year ago
+
+   andreineculau force pushed changes to this branch [53]over 1 year ago
+
+   andreineculau force pushed changes to this branch [54]over 1 year ago
+
+   andreineculau force pushed changes to this branch [55]over 1 year ago
+
+   [56]andreineculau added some commits [57]over 1 year ago
+   [58]@andreineculau [59]refactor ci bootstrap; use linuxbrew
+   [60]@andreineculau [61]add future fixme note
+   [62]@andreineculau [63]remove forced linking to python@2
+
+   andreineculau force pushed changes to this branch [64]over 1 year ago
+
+   andreineculau closed this pull request [65]over 1 year ago
+

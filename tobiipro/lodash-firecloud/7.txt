@@ -1,0 +1,68 @@
+
+add filterOut and keep #7
+
+   f/anu-filterout-keep
+
+   master f/anu-filterout-keep
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+   No description given.
+
+   [47]andreineculau added a commit [48]about 1 year ago
+   [49]@andreineculau [50]add filterOut and keep
+
+   andreineculau added the [51]enhancement label [52]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [53]about 1 year ago
+
+   Copy link
+   @IanSavchenko
+   [54]IanSavchenko
+   commented [55]about 1 year ago
+
+   I see you are having some fun :)
+   What about existing _.reject comparing to filterOut?
+   And your keep is the same as _.remove, but with falsy predicate?
+   Never thought that you are a fan of syntax sugar :)
+
+   [56]andreineculau added a commit [57]about 1 year ago
+   [58]@andreineculau [59]refactor not to use internal lodash functions
+
+   Copy link
+   @andreineculau
+   [60]andreineculau
+   commented [61]about 1 year ago
+   Naming... Yup. No need for_.filterOut, it's the same as _.reject Maybe
+   _.keep has an equivalent too? I guess i have to search the codebase,
+   their namings and me don't blend apparently, proof is your _.reject
+   find. PS: it's not for me but i saw this coming for enforcing immutable
+   methods and we (maybe because is me not knowing about reject) use
+   filter and remove as counterparts. I needed an immutable remove so that
+   we don't start writing _.filter _.negate _.iteratee everywhere 🤦‍♂️
+   funny that the author didn't mention it in his reply 😉. I don't have a
+   drive for a mutable _.keep so i think i will close the issue. Best way
+   to end a PR "Closing, functionality exists already. You just didn't
+   read the docs (properly)" 😂
+   [62]…
+   -- Andrei Neculau Software Developer @ Tobii Pro (Cloud Services) 8
+   dec. 2018 kl. 13:12 skrev Ian Savchenko
+   <notifications@github.com<mailto:notifications@github.com>>: I see you
+   are having some fun :) What about existing _.reject comparing to
+   filterOut? And your keep is the same as _.remove, but with falsy
+   predicate? Never thought that you are a fan of syntax sugar :) — You
+   are receiving this because you authored the thread. Reply to this email
+   directly, view it on GitHub<[63]#7 (comment)>, or mute the
+   thread<[64]https://github.com/notifications/unsubscribe-auth/AArOQajkAM
+   CxBxDy_Np7IGXytB2N1npcks5u26ydgaJpZM4ZJmf6>.
+   👍 1
+   IanSavchenko reacted with thumbs up emoji
+
+   andreineculau closed this pull request [65]about 1 year ago
+
+   andreineculau deleted the f/anu-filterout-keep branch [66]about 1 year
+   ago
+

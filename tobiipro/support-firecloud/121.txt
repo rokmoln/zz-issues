@@ -1,0 +1,49 @@
+
+switch away from npm-cli #121
+
+   Open
+   [57]andreineculau opened this issue Jun 20, 2019 · 0 comments
+   Open
+
+[58]switch away from npm-cli #121
+
+   [59]andreineculau opened this issue Jun 20, 2019 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Jun 20, 2019
+
+   we've had several issues in the past few years (the most recent one
+   being that npm dedupe breaks the dependency tree, and needs an extra
+   npm install) and now this
+   [65]https://gist.github.com/aeschright/8ed09cbc2a4aee00fcb4ad35086d76a6
+
+   i've investigated a contender one year ago - pnpm
+   [66]https://github.com/pnpm/pnpm and the only issues found then were
+   around deps that were relying incorrectly on deps without specifying
+   them in package.json (but work in npm because of the flattening
+   side-effect of its installation algorithm) and around git deps. both of
+   those issues have been fixed afaik, so it should be tested again.
+
+   alternatively yarn is second in line, though disk space issues,
+   license, etc issues were flying around, so it also needs proper
+   attention.
+
+   other serious contenders?
+   (THUMBS_UP react) 👍 1
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Jun 20, 2019
+   [71]@andreineculau [72]andreineculau added this to To do in [73]Public
+   (Open Source) via automation [74]Jun 20, 2019
+   [75]@andreineculau [76]andreineculau mentioned this issue [77]Jul 12,
+   2019
+   [78]implement `npm audit` in repo/mk #55
+   Closed
+   [79]@ankitmth [80]ankitmth removed this from To do in [81]Public (Open
+   Source) [82]Feb 19, 2020

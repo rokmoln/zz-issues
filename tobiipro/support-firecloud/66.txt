@@ -1,0 +1,98 @@
+
+docs: increased protection for master branch #66
+
+   master-1
+
+   master master-1
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   [47]#61 (comment)
+   👍 1
+   IanSavchenko reacted with thumbs up emoji
+
+   andreineculau force pushed changes to this branch [48]about 1 year ago
+
+   andreineculau force pushed changes to this branch [49]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [50]about 1 year ago
+
+   andreineculau requested a review from tobiiasl [51]about 1 year ago
+
+   andreineculau self-assigned this [52]about 1 year ago
+
+   andreineculau added the [53]enhancement label [54]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [55]andreineculau
+   commented [56]about 1 year ago
+
+   I removed "include administrators" because that means nobody can "git
+   push" straight to master... 🤔
+
+   Copy link
+   @andreineculau
+   [57]andreineculau
+   commented [58]about 1 year ago
+
+   This is how it looks with some new commits on the destination branch
+
+   [59]screenshot 2018-12-19 at 15 44 58
+
+   Copy link
+   @IanSavchenko
+   [60]IanSavchenko
+   commented [61]about 1 year ago
+
+   Should we also allow only one merge strategy "Create a merge commit"
+   (Merge button section in Settings)?
+   👍 1
+   andreineculau reacted with thumbs up emoji
+
+   andreineculau referenced this pull request from commit [62]b3796ee
+   [63]about 1 year ago
+
+   [64]andreineculau referenced this pull request from another pull
+   request
+   [65]#67 change template for "travis branches" builds
+
+   andreineculau force pushed changes to this branch [66]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [67]andreineculau
+   commented [68]about 1 year ago
+
+   done. PR updated. now Luca awaits 🏃
+
+   @IanSavchenko
+   [69]IanSavchenko approved these changes [70]about 1 year ago
+
+   andreineculau referenced this pull request from commit [71]d3756ab
+   [72]about 1 year ago
+
+   [73]andreineculau added a commit [74]about 1 year ago
+   [75]@andreineculau [76]docs: increased protection for master branch
+
+   andreineculau force pushed changes to this branch [77]about 1 year ago
+
+   andreineculau referenced this pull request from commit [78]dfed978
+   [79]about 1 year ago
+
+   andreineculau merged commit dfed978 into master [80]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [81]andreineculau
+   commented [82]about 1 year ago
+
+   ping [83]@tobiiasl I leave it to you to enforce the settings on
+   gs-client
+
+   andreineculau deleted the master-1 branch [84]about 1 year ago
+

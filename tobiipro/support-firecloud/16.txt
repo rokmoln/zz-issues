@@ -1,0 +1,38 @@
+
+document working-with-aws #16
+
+   Closed
+   [57]andreineculau opened this issue Mar 9, 2018 · 0 comments
+   Closed
+
+[58]document working-with-aws #16
+
+   [59]andreineculau opened this issue Mar 9, 2018 · 0 comments
+   Assignees
+   [60]@andreineculau
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 9, 2018
+
+   and bin/aws-* utils
+   [65]@andreineculau [66]andreineculau self-assigned this [67]Mar 29,
+   2018
+   [68]@IanSavchenko [69]IanSavchenko closed this in [70]6952b57 [71]Apr
+   11, 2018
+   [72]IanSavchenko added a commit that referenced this issue [73]Apr 11,
+   2018
+   [74]@IanSavchenko
+   [75]Merge pull request [76]#24 [77]from tobiipro/f/anu-document-aws
+   (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [78]Learn about signing commits
+   [79]38243f6
+document AWS. fixes [80]#16
+

@@ -1,0 +1,38 @@
+
+reuse code for aws-sdk custom logger #33
+
+   reuse-logger
+
+   master reuse-logger
+   @andreineculau
+   [45]andreineculau opened this pull request
+   9 months ago
+
+   Labels
+   [46]enhancement
+     * Fixes:
+     * Breaking change: [ ]
+     __________________________________________________________________
+
+   [47]andreineculau added a commit [48]9 months ago
+   [49]@andreineculau [50]reuse code for aws-sdk custom logger
+
+   andreineculau added the [51]enhancement label [52]9 months ago
+
+   andreineculau requested a review from IanSavchenko [53]9 months ago
+
+   andreineculau self-assigned this [54]9 months ago
+
+   @IanSavchenko
+   [55]IanSavchenko approved these changes [56]9 months ago
+
+   IanSavchenko referenced this pull request from commit [57]8584a77 [58]9
+   months ago
+
+   IanSavchenko merged commit 8584a77 into master [59]9 months ago
+
+   andreineculau referenced this pull request from commit [60]0853afc
+   [61]7 months ago
+
+   andreineculau deleted the reuse-logger branch [62]about 1 month ago
+

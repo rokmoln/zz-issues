@@ -1,0 +1,66 @@
+
+Make sure that brew installs `--with-default-names` formulas with this option
+in `bootstrap` script #13
+
+   Closed
+   [57]IanSavchenko opened this issue Mar 2, 2018 · 1 comment
+   Closed
+
+[58]Make sure that brew installs `--with-default-names` formulas with this
+option in `bootstrap` script #13
+
+   [59]IanSavchenko opened this issue Mar 2, 2018 · 1 comment
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Mar 2, 2018
+
+   An option could be a warning, but there is a lot of output when running
+   bootstrap command, so I'm afraid it can be missed.
+   [65]@andreineculau
+
+This comment has been minimized.
+
+   [66]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[67]@andreineculau [68]andreineculau commented [69]Mar 2, 2018
+
+   smth like brew info --json=v1 gnu-sed | json
+   "[0].installed[0].used_options"
+   PS: use python, since it comes built-in to osx
+   [70]@andreineculau [71]andreineculau added the [72]bug label [73]Mar 2,
+   2018
+   [74]@andreineculau [75]andreineculau closed this in [76]30f5f26 [77]Mar
+   3, 2018
+   [78]andreineculau added a commit that referenced this issue [79]Mar 3,
+   2018
+   [80]@andreineculau
+   [81]make sure the required homebrew pkgs are installed with the
+   required … (BUTTON) …
+   [82]2b7d7c9
+…options. fix [83]#13
+
+   [84]andreineculau added a commit that referenced this issue [85]Mar 3,
+   2018
+   [86]@andreineculau
+   [87]make sure the required homebrew pkgs are installed with the
+   required … (BUTTON) …
+   [88]6ec0e28
+…options. fix [89]#13
+
+   [90]andreineculau added a commit that referenced this issue [91]Mar 3,
+   2018
+   [92]@andreineculau
+   [93]fixup! make sure the required homebrew pkgs are installed with the
+   re… (BUTTON) …
+   [94]20b2c90
+…quired options. fix [95]#13
+

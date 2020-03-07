@@ -1,0 +1,25 @@
+
+docs: make fails #95
+
+   Closed
+   [57]andreineculau opened this issue Mar 22, 2019 · 0 comments
+   Closed
+
+[58]docs: make fails #95
+
+   [59]andreineculau opened this issue Mar 22, 2019 · 0 comments
+
+Comments
+
+   [60]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[61]@andreineculau [62]andreineculau commented [63]Mar 22, 2019
+
+   with .../support-firecloud/repo/mk/core.inc.mk/Makefile: No such file
+   or directory
+
+   resolution git submodule update --init --recursive
+   [64]@andreineculau [65]andreineculau closed this in [66]d443cca [67]May
+   15, 2019

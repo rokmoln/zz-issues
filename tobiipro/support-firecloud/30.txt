@@ -1,0 +1,509 @@
+
+bootstrap goes into infinite loop of installing findutils and gnu-sed #30
+
+   Closed
+   [57]tobiiasl opened this issue Apr 16, 2018 · 2 comments
+   Closed
+
+[58]bootstrap goes into infinite loop of installing findutils and gnu-sed #30
+
+   [59]tobiiasl opened this issue Apr 16, 2018 · 2 comments
+
+Comments
+
+   [60]@tobiiasl
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@tobiiasl [62]tobiiasl commented [63]Apr 16, 2018
+
+   Summary: When I run bootstrap it complains that findutils is not
+   installed with the right options:
+   [ERR ] findutils is already installed with options '', [ERR ] but not
+   the required '--with-default-names'. [ERR ] Consider uninstalling
+   findutils with 'brew uninstall findutils' and rerun the bootstrap!
+
+   After uninstalling findutils and running bootstrap again:
+   [ERR ] gnu-sed is already installed with options '', [ERR ] but not the
+   required '--with-default-names'. [ERR ] Consider uninstalling gnu-sed
+   with 'brew uninstall gnu-sed' and rerun the bootstrap!
+
+   After uninstalling gnu-sed and running bootstrap again I get the first
+   error. And so it goes on.
+
+   Full log below:
+
+   `~/git/firecloud/support-firecloud/ci/darwin$ ./bootstrap
+   Installing/Upgrading homebrew...
+   ==> This script will install:
+   /usr/local/bin/brew
+   /usr/local/share/doc/homebrew
+   /usr/local/share/man/man1/brew.1
+   /usr/local/share/zsh/site-functions/_brew
+   /usr/local/etc/bash_completion.d/brew
+   /usr/local/Homebrew
+
+   Press RETURN to continue or any other key to abort
+   ==> /usr/bin/sudo /bin/mkdir -p /Library/Caches/Homebrew
+   Password:
+   ==> /usr/bin/sudo /bin/chmod g+rwx /Library/Caches/Homebrew
+   ==> /usr/bin/sudo /usr/sbin/chown tobiaslindgren
+   /Library/Caches/Homebrew
+   ==> Downloading and installing Homebrew...
+   remote: Counting objects: 97, done.
+   remote: Compressing objects: 100% (40/40), done.
+   remote: Total 97 (delta 73), reused 78 (delta 54), pack-reused 0
+   Unpacking objects: 100% (97/97), done.
+   From [64]https://github.com/Homebrew/brew
+   46821084..c8e81e86 master -> origin/master
+   HEAD is now at c8e81e86 Merge pull request #4077 from
+   reitermarkus/rubocop-cask
+   Updated 2 taps (homebrew/core, caskroom/cask).
+   ==> Cleaning up /Library/Caches/Homebrew...
+   ==> Migrating /Library/Caches/Homebrew to
+   /Users/tobiaslindgren/Library/Caches/Homebrew...
+   ==> Deleting /Library/Caches/Homebrew...
+   ==> New Formulae
+   gitlab-gem mkl-dnn netdata patchelf phplint util-linux
+   ==> Updated Formulae
+   gnupg ✔ docker-compose libzip rancher-cli
+   libgpg-error ✔ docker-compose-completion links recoverjpeg
+   libtiff ✔ docker2aci lmod remctl
+   sqlite ✔ dub log4cplus saltstack
+   watch ✔ duti mapnik scm-manager
+   abcmidi emscripten maxwell sdb
+   abyss fibjs mediaconch sfk
+   afsctool fig2dev metabase silk
+   amqp-cpp firebase-cli mill singular
+   annie fits mint skaffold
+   apache-geode flow modd skafos
+   apibuilder-cli fn monero softhsm
+   arangodb fobis mutt sops
+   armor freetds mypy sourcery
+   artifactory frege nanopb-generator sox
+   asio futhark ncmpcpp sparse
+   aspectj gdcm nghttp2 spigot
+   azure-cli gegl nginx sqldiff
+   babeld ghostscript nomad sqlite-analyzer
+   babl gist nss sqliteodbc
+   bazel git-sizer nuget src
+   bibtex2html git-town nvm subversion
+   binaryen globus-toolkit ocrmypdf svgcleaner
+   bit go-jira openimageio swift
+   botan groonga openvdb teleport
+   brotli grpc packmol terraform
+   byteman heroku paket testssl
+   chakra htmldoc pam_yubico timelimit
+   chronograf htop percona-server-mongodb tmux
+   cimg i2p perl@5.18 tup
+   cliclick imlib2 php txr
+   clojure influxdb php@5.6 vault
+   composer jansson php@7.0 vim
+   conan jenkins php@7.1 wildfly-as
+   consul jenkins-lts phpunit wireguard-tools
+   container-diff jhipster pick xonsh
+   convox keychain pioneers xrootd
+   coreos-ct knot pipenv xtensor
+   cython kops poco yarn
+   davmail kubernetes-cli pqiv yash
+   dbhash launch proguard yaws
+   di lcdf-typetools pstoedit yle-dl
+   discount libhttpseverywhere py2cairo you-get
+   dmd liblwgeom py3cairo youtube-dl
+   dnscrypt-proxy libqalculate pycodestyle znapzend
+   dnsdist librealsense qd
+   docker libsoxr qscintilla2
+   docker-completion libspectre qtfaststart
+   ==> Installation successful!
+
+   ==> Homebrew has enabled anonymous aggregate user behaviour analytics.
+   Read the analytics documentation (and how to opt-out) here:
+   [65]https://docs.brew.sh/Analytics.html
+
+   ==> Next steps:
+     * Run brew help to get started
+     * Further documentation:
+       [66]https://docs.brew.sh
+       Already up-to-date.
+       libtiff (4.0.7, 4.0.7_2, 4.0.9, 4.0.9_2) < 4.0.9_3
+       awscli (1.11.26, 1.11.63, 1.14.60, 1.14.70) < 1.15.0
+       sqlite (3.15.2, 3.17.0, 3.23.0) < 3.23.1
+       libgpg-error (1.27) < 1.29
+       watch (3.3.12, 3.3.13) < 3.3.14
+       node (7.2.1, 7.7.3, 8.5.0, 9.2.1, 9.10.1) < 9.11.1
+       gnupg (2.2.3, 2.2.5) < 2.2.6
+       ==> Upgrading 7 outdated packages, with result:
+       libtiff 4.0.9_2 -> 4.0.9_3, awscli 1.14.70 -> 1.15.0, sqlite 3.23.0
+       -> 3.23.1, libgpg-error 1.27 -> 1.29, watch 3.3.13 -> 3.3.14, node
+       9.10.1 -> 9.11.1, gnupg 2.2.5 -> 2.2.6
+       ==> Upgrading sqlite
+       ==> Downloading
+       [67]https://homebrew.bintray.com/bottles/sqlite-3.23.1.high_sierra.
+       bottle.tar.gz
+       ==> Downloading from
+       [68]https://akamai.bintray.com/0b/0b5f0e6d1096fbed10367e53c13c0e130
+       0841f8f47739a0874abba8cc769a6d7?__gda__=ex
+       ###################################################################
+       ##### 100.0%
+       ==> Pouring sqlite-3.23.1.high_sierra.bottle.tar.gz
+       ==> Caveats
+       This formula is keg-only, which means it was not symlinked into
+       /usr/local,
+       because macOS provides an older sqlite3.
+
+   If you need to have this software first in your PATH run:
+   echo 'export PATH="/usr/local/opt/sqlite/bin:$PATH"' >> ~/.bash_profile
+
+   For compilers to find this software you may need to set:
+   LDFLAGS: -L/usr/local/opt/sqlite/lib
+   CPPFLAGS: -I/usr/local/opt/sqlite/include
+
+   ==> Summary
+   🍺 /usr/local/Cellar/sqlite/3.23.1: 11 files, 3MB
+   ==> Upgrading libtiff
+   ==> Downloading
+   [69]https://homebrew.bintray.com/bottles/libtiff-4.0.9_3.high_sierra.bo
+   ttle.tar.gz
+   ==> Downloading from
+   [70]https://akamai.bintray.com/23/2338c777aad152907291b35f40f2767771038
+   a4812d2460e045b9ef4a7f3b565?__gda__=ex
+   #######################################################################
+   # 100.0%
+   ==> Pouring libtiff-4.0.9_3.high_sierra.bottle.tar.gz
+   🍺 /usr/local/Cellar/libtiff/4.0.9_3: 246 files, 3.5MB
+   ==> Upgrading awscli
+   ==> Downloading
+   [71]https://homebrew.bintray.com/bottles/awscli-1.15.0.high_sierra.bott
+   le.tar.gz
+   ==> Downloading from
+   [72]https://akamai.bintray.com/13/13ffeccef35d420fa9dd7b8cb34e9d86391ae
+   2dda106f1eb8c5ee36a3cf105f5?__gda__=ex
+   #######################################################################
+   # 100.0%
+   ==> Pouring awscli-1.15.0.high_sierra.bottle.tar.gz
+   ==> Caveats
+   The "examples" directory has been installed to:
+   /usr/local/share/awscli/examples
+
+   Bash completion has been installed to:
+   /usr/local/etc/bash_completion.d
+
+   zsh completions and functions have been installed to:
+   /usr/local/share/zsh/site-functions
+   ==> Summary
+   🍺 /usr/local/Cellar/awscli/1.15.0: 4,401 files, 40.3MB
+   ==> Upgrading libgpg-error
+   ==> Downloading
+   [73]https://homebrew.bintray.com/bottles/libgpg-error-1.29.high_sierra.
+   bottle.tar.gz
+   ==> Downloading from
+   [74]https://akamai.bintray.com/75/759835f6fc52907db4219d3587ea91a85b87c
+   002d5009de8eecf848016a80250?__gda__=ex
+   #######################################################################
+   # 100.0%
+   ==> Pouring libgpg-error-1.29.high_sierra.bottle.tar.gz
+   🍺 /usr/local/Cellar/libgpg-error/1.29: 25 files, 805.6KB
+   ==> Upgrading watch
+   ==> Downloading
+   [75]https://homebrew.bintray.com/bottles/watch-3.3.14.high_sierra.bottl
+   e.tar.gz
+   #######################################################################
+   # 100.0%
+   ==> Pouring watch-3.3.14.high_sierra.bottle.tar.gz
+   🍺 /usr/local/Cellar/watch/3.3.14: 9 files, 80KB
+   ==> Upgrading node
+   ==> Downloading
+   [76]https://homebrew.bintray.com/bottles/node-9.11.1.high_sierra.bottle
+   .tar.gz
+   ==> Downloading from
+   [77]https://akamai.bintray.com/a4/a4c2d90a60930aa6e2cff330a81d8cec3636c
+   dd9fc002ce79da30540499052d2?__gda__=ex
+   #######################################################################
+   # 100.0%
+   ==> Pouring node-9.11.1.high_sierra.bottle.tar.gz
+   ==> Caveats
+   Bash completion has been installed to:
+   /usr/local/etc/bash_completion.d
+   ==> Summary
+   🍺 /usr/local/Cellar/node/9.11.1: 5,125 files, 49.7MB
+   ==> Upgrading gnupg
+   ==> Downloading
+   [78]https://homebrew.bintray.com/bottles/gnupg-2.2.6.high_sierra.bottle
+   .tar.gz
+   ==> Downloading from
+   [79]https://akamai.bintray.com/38/38302b573c7a247dec8aae9645c2164071b91
+   1ad572521d0bc16df1dad1843ec?__gda__=ex
+   #######################################################################
+   # 100.0%
+   ==> Pouring gnupg-2.2.6.high_sierra.bottle.tar.gz
+   Error: The brew link step did not complete successfully
+   The formula built, but is not symlinked into /usr/local
+   Could not symlink bin/gpg
+   Target /usr/local/bin/gpg
+   already exists. You may want to remove it:
+   rm '/usr/local/bin/gpg'
+
+   To force the link and overwrite all conflicting files:
+   brew link --overwrite gnupg
+
+   To list all files that would be deleted:
+   brew link --overwrite --dry-run gnupg
+
+   Possible conflicting files are:
+   /usr/local/bin/gpg -> /usr/local/MacGPG2/bin/gpg2
+   ==> Caveats
+   Once you run this version of gpg you may find it difficult to return to
+   using
+   a prior 1.4.x or 2.0.x. Most notably the prior versions will not
+   automatically
+   know about new secret keys created or imported by this version. We
+   recommend
+   creating a backup of your ~/.gnupg prior to first use.
+
+   For full details on each change and how it could impact you please see
+   [80]https://www.gnupg.org/faq/whats-new-in-2.1.html
+   ==> Summary
+   🍺 /usr/local/Cellar/gnupg/2.2.6: 133 files, 10.4MB
+   Installing/Upgrading git...
+   [DO ] Installing basic/GNU packages...
+   ==> Downloading
+   [81]https://homebrew.bintray.com/bottles/diffutils-3.6.high_sierra.b
+   ==> Downloading from
+   [82]https://akamai.bintray.com/fd/fd411d030058f27f1ce31cdb5d8a4
+   #######################################################################
+   # 100.0%
+   ==> Pouring diffutils-3.6.high_sierra.bottle.tar.gz
+   🍺 /usr/local/Cellar/diffutils/3.6: 17 files, 671.6KB
+   Traceback (most recent call last):
+   File "", line 1, in
+   IndexError: list index out of range
+   [ERR ] findutils is already installed with options '',
+   [ERR ] but not the required '--with-default-names'.
+   [ERR ] Consider uninstalling findutils with 'brew uninstall findutils'
+   and rerun the bootstrap!
+   ~/git/firecloud/support-firecloud/ci/darwin$ brew uninstall findutils
+   Uninstalling /usr/local/Cellar/findutils/4.6.0... (33 files, 1.6MB)
+   ~/git/firecloud/support-firecloud/ci/darwin$ ./bootstrap
+   Installing/Upgrading homebrew...
+   ==> This script will install:
+   /usr/local/bin/brew
+   /usr/local/share/doc/homebrew
+   /usr/local/share/man/man1/brew.1
+   /usr/local/share/zsh/site-functions/_brew
+   /usr/local/etc/bash_completion.d/brew
+   /usr/local/Homebrew
+
+   Press RETURN to continue or any other key to abort
+   ==> /usr/bin/sudo /bin/mkdir -p /Library/Caches/Homebrew
+   Password:
+   ==> /usr/bin/sudo /bin/chmod g+rwx /Library/Caches/Homebrew
+   ==> /usr/bin/sudo /usr/sbin/chown tobiaslindgren
+   /Library/Caches/Homebrew
+   ==> Downloading and installing Homebrew...
+   HEAD is now at c8e81e86 Merge pull request #4077 from
+   reitermarkus/rubocop-cask
+   Updated 1 tap (homebrew/core).
+   ==> Cleaning up /Library/Caches/Homebrew...
+   ==> Migrating /Library/Caches/Homebrew to
+   /Users/tobiaslindgren/Library/Caches/Homebrew...
+   ==> Deleting /Library/Caches/Homebrew...
+   ==> Updated Formulae
+   file-formula libmagic
+   ==> Installation successful!
+
+   ==> Homebrew has enabled anonymous aggregate user behaviour analytics.
+   Read the analytics documentation (and how to opt-out) here:
+   [83]https://docs.brew.sh/Analytics.html
+
+   ==> Next steps:
+     * Run brew help to get started
+     * Further documentation:
+       [84]https://docs.brew.sh
+       Already up-to-date.
+       Installing/Upgrading git...
+       [DO ] Installing basic/GNU packages...
+       ==> Downloading
+       [85]https://ftp.gnu.org/gnu/findutils/findutils-4.6.0.tar.gz
+       ###################################################################
+       ##### 100.0%
+       ==> ./configure --prefix=/usr/local/Cellar/findutils/4.6.0
+       --localstatedir=/usr/
+       ==> make install
+       🍺 /usr/local/Cellar/findutils/4.6.0: 25 files, 1.6MB, built in 3
+       minutes 24 seconds
+       Traceback (most recent call last):
+       File "", line 1, in
+       IndexError: list index out of range
+       [ERR ] gnu-sed is already installed with options '',
+       [ERR ] but not the required '--with-default-names'.
+       [ERR ] Consider uninstalling gnu-sed with 'brew uninstall gnu-sed'
+       and rerun the bootstrap!
+       ~/git/firecloud/support-firecloud/ci/darwin$ brew uninstall gnu-sed
+       Uninstalling /usr/local/Cellar/gnu-sed/4.5... (12 files, 529KB)
+       gnu-sed 4.2.2, 4.4 2 are still installed.
+       Remove all versions with brew uninstall --force gnu-sed.
+       ~/git/firecloud/support-firecloud/ci/darwin$ ./bootstrap
+       Installing/Upgrading homebrew...
+       ==> This script will install:
+       /usr/local/bin/brew
+       /usr/local/share/doc/homebrew
+       /usr/local/share/man/man1/brew.1
+       /usr/local/share/zsh/site-functions/_brew
+       /usr/local/etc/bash_completion.d/brew
+       /usr/local/Homebrew
+
+   Press RETURN to continue or any other key to abort
+   ==> /usr/bin/sudo /bin/mkdir -p /Library/Caches/Homebrew
+   Password:
+   ==> /usr/bin/sudo /bin/chmod g+rwx /Library/Caches/Homebrew
+   ==> /usr/bin/sudo /usr/sbin/chown tobiaslindgren
+   /Library/Caches/Homebrew
+   ==> Downloading and installing Homebrew...
+   HEAD is now at c8e81e86 Merge pull request #4077 from
+   reitermarkus/rubocop-cask
+   Updated 1 tap (homebrew/core).
+   ==> Cleaning up /Library/Caches/Homebrew...
+   ==> Migrating /Library/Caches/Homebrew to
+   /Users/tobiaslindgren/Library/Caches/Homebrew...
+   ==> Deleting /Library/Caches/Homebrew...
+   ==> Updated Formulae
+   cockatrice dnscrypt-proxy folly hugo vala
+   convox embulk gollum tippecanoe
+   ==> Installation successful!
+
+   ==> Homebrew has enabled anonymous aggregate user behaviour analytics.
+   Read the analytics documentation (and how to opt-out) here:
+   [86]https://docs.brew.sh/Analytics.html
+
+   ==> Next steps:
+     * Run brew help to get started
+     * Further documentation:
+       [87]https://docs.brew.sh
+       Already up-to-date.
+       gnu-sed (4.2.2, 4.4) < 4.5
+       ==> Upgrading 1 outdated package, with result:
+       gnu-sed 4.5
+       ==> Upgrading gnu-sed
+       ==> Downloading
+       [88]https://homebrew.bintray.com/bottles/gnu-sed-4.5.high_sierra.bo
+       ttle.tar.gz
+       Already downloaded:
+       /Users/tobiaslindgren/Library/Caches/Homebrew/gnu-sed-4.5.high_sier
+       ra.bottle.tar.gz
+       ==> Pouring gnu-sed-4.5.high_sierra.bottle.tar.gz
+       ==> Caveats
+       The command has been installed with the prefix "g".
+       If you do not want the prefix, install using the
+       "with-default-names" option.
+
+   If you need to use these commands with their normal names, you
+   can add a "gnubin" directory to your PATH from your bashrc like:
+   PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+   Additionally, you can access their man pages with normal names if you
+   add
+   the "gnuman" directory to your MANPATH from your bashrc as well:
+   MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+   ==> Summary
+   🍺 /usr/local/Cellar/gnu-sed/4.5: 12 files, 529KB
+   Installing/Upgrading git...
+   [DO ] Installing basic/GNU packages...
+   Traceback (most recent call last):
+   File "", line 1, in
+   IndexError: list index out of range
+   [ERR ] findutils is already installed with options '',
+   [ERR ] but not the required '--with-default-names'.
+   [ERR ] Consider uninstalling findutils with 'brew uninstall findutils'
+   and rerun the bootstrap!
+   ~/git/firecloud/support-firecloud/ci/darwin$ brew uninstall findutils
+   Uninstalling /usr/local/Cellar/findutils/4.6.0... (25 files, 1.6MB)
+   ~/git/firecloud/support-firecloud/ci/darwin$ ./bootstrap
+   Installing/Upgrading homebrew...
+   ==> This script will install:
+   /usr/local/bin/brew
+   /usr/local/share/doc/homebrew
+   /usr/local/share/man/man1/brew.1
+   /usr/local/share/zsh/site-functions/_brew
+   /usr/local/etc/bash_completion.d/brew
+   /usr/local/Homebrew
+
+   Press RETURN to continue or any other key to abort
+   ==> /usr/bin/sudo /bin/mkdir -p /Library/Caches/Homebrew
+   Password:
+   ==> /usr/bin/sudo /bin/chmod g+rwx /Library/Caches/Homebrew
+   ==> /usr/bin/sudo /usr/sbin/chown tobiaslindgren
+   /Library/Caches/Homebrew
+   ==> Downloading and installing Homebrew...
+   HEAD is now at c8e81e86 Merge pull request #4077 from
+   reitermarkus/rubocop-cask
+   ==> Cleaning up /Library/Caches/Homebrew...
+   ==> Migrating /Library/Caches/Homebrew to
+   /Users/tobiaslindgren/Library/Caches/Homebrew...
+   ==> Deleting /Library/Caches/Homebrew...
+   Already up-to-date.
+   ==> Installation successful!
+
+   ==> Homebrew has enabled anonymous aggregate user behaviour analytics.
+   Read the analytics documentation (and how to opt-out) here:
+   [89]https://docs.brew.sh/Analytics.html
+
+   ==> Next steps:
+     * Run brew help to get started
+     * Further documentation:
+       [90]https://docs.brew.sh
+       Already up-to-date.
+       Installing/Upgrading git...
+       [DO ] Installing basic/GNU packages...
+       ==> Downloading
+       [91]https://ftp.gnu.org/gnu/findutils/findutils-4.6.0.tar.gz
+       Already downloaded:
+       /Users/tobiaslindgren/Library/Caches/Homebrew/findutils-4.6.0.tar.g
+       z
+       ==> ./configure --prefix=/usr/local/Cellar/findutils/4.6.0
+       --localstatedir=/usr/
+       ==> make install
+       🍺 /usr/local/Cellar/findutils/4.6.0: 25 files, 1.6MB, built in 3
+       minutes 15 seconds
+       Traceback (most recent call last):
+       File "", line 1, in
+       IndexError: list index out of range
+       [ERR ] gnu-sed is already installed with options '',
+       [ERR ] but not the required '--with-default-names'.
+       [ERR ] Consider uninstalling gnu-sed with 'brew uninstall gnu-sed'
+       and rerun the bootstrap!
+       ~/git/firecloud/support-firecloud/ci/darwin$`
+
+   [92]@tobiiasl
+
+This comment has been minimized.
+
+   [93]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[94]@tobiiasl [95]tobiiasl commented [96]Apr 16, 2018
+
+   Even after I manually install findutils with the right flags I get an
+   error:
+   brew uninstall findutils brew install findutils --with-default-names
+
+   Still gives the error:
+   [ERR ] findutils is already installed with options '', [ERR ] but not
+   the required '--with-default-names'. [ERR ] Consider uninstalling
+   findutils with 'brew uninstall findutils' and rerun the bootstrap!
+   [97]@tobiiasl
+
+This comment has been minimized.
+
+   [98]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[99]@tobiiasl [100]tobiiasl commented [101]Apr 16, 2018
+
+   Running brew info manually gives nothing:
+   ~/git/firecloud/support-firecloud/ci/darwin$ brew info --json=v1 []
+   [102]@tobiiasl [103]tobiiasl mentioned this issue [104]Apr 16, 2018
+   [105]Fixed bug in bootstrap with brew info #31
+   Merged
+   [106]@tobiiasl [107]tobiiasl closed this in [108]#31 [109]Apr 17, 2018

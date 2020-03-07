@@ -1,0 +1,44 @@
+
+remove dependency on json (npm) in favour of jq #130
+
+   Closed
+   [57]andreineculau opened this issue Sep 18, 2019 · 1 comment
+   Closed
+
+[58]remove dependency on json (npm) in favour of jq #130
+
+   [59]andreineculau opened this issue Sep 18, 2019 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Sep 18, 2019
+
+   continuation of [65]#129
+   tried that in [66]8172970, but there are plenty of scripts in the bin
+   folder that call json
+   [67]@andreineculau [68]andreineculau added the [69]enhancement label
+   [70]Sep 18, 2019
+   [71]@andreineculau [72]andreineculau added this to To do in [73]Public
+   (Open Source) via automation [74]Sep 18, 2019
+   [75]@andreineculau
+
+This comment has been minimized.
+
+   [76]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[77]@andreineculau [78]andreineculau commented [79]Sep 29, 2019
+
+   closed via [80]1c4acbf and [81]daa2c58
+   [82]@andreineculau [83]andreineculau closed this [84]Sep 29, 2019
+   [85]Public (Open Source) automation moved this from To do to Done
+   [86]Sep 29, 2019
+   [87]@ankitmth [88]ankitmth removed this from Done in [89]Public (Open
+   Source) [90]Feb 19, 2020

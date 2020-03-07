@@ -1,0 +1,69 @@
+
+stop requiring github branches to be up to date - not up to par in it… #71
+
+   f/anu-remove-ff-check
+
+   master f/anu-remove-ff-check
+   @andreineculau
+   [45]andreineculau opened this pull request
+   about 1 year ago
+
+   Labels
+   [46]bug
+
+   …s current form
+
+   annoyances:
+     * rebasing is manual
+     * rebasing may be required extremely often even in a mildly active
+       repo
+     * "Update branch" button in github gui does the "wrong" (TM) thing -
+       it merges master into the PR branches, rather than rebasing it
+     * there's no way to automatically rebase (say once a day)
+     * having this enabled across all repos is more of a "let's see errors
+       everywhere and ignore them" rather than pay attention to some
+       meaningful error
+
+   PS: to be followed by manually disabling the check in our repos
+
+   Do as you see fit in your repo/s [47]@tobiiasl since you triggered
+   this. ref [48]#60
+
+   [49]andreineculau added a commit [50]about 1 year ago
+   [51]@andreineculau [52]stop requiring github branches to be up to date
+   - not up to par in it…
+
+   andreineculau added the [53]bug label [54]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [55]about 1 year ago
+
+   @IanSavchenko
+   [56]IanSavchenko approved these changes [57]about 1 year ago
+
+   I expected this to happen.
+
+   andreineculau referenced this pull request from commit [58]26d0791
+   [59]about 1 year ago
+
+   andreineculau merged commit 26d0791 into master [60]about 1 year ago
+
+   Copy link
+   @andreineculau
+   [61]andreineculau
+   commented [62]about 1 year ago
+
+     I expected this to happen.
+
+   [63]https://i.imgflip.com/soqgy.jpg?a429072 >_<
+
+   Copy link
+   @IanSavchenko
+   [64]IanSavchenko
+   commented [65]about 1 year ago
+
+   From post-Soviet countries mems
+   [66]https://s9.stc.all.kpcdn.net/share/i/12/2374055/inx960x640.jpg
+
+   andreineculau deleted the f/anu-remove-ff-check branch [67]about 1 year
+   ago
+

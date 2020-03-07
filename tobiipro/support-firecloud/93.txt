@@ -1,0 +1,69 @@
+
+use cfn-lint #93
+
+   Closed
+   [57]andreineculau opened this issue Mar 20, 2019 · 2 comments
+   Closed
+
+[58]use cfn-lint #93
+
+   [59]andreineculau opened this issue Mar 20, 2019 · 2 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 20, 2019
+
+   see
+   [65]https://aws.amazon.com/blogs/mt/git-pre-commit-validation-of-aws-cl
+   oudformation-templates-with-cfn-lint/
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Mar 20, 2019
+   [70]@IanSavchenko
+
+This comment has been minimized.
+
+   [71]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[72]@IanSavchenko [73]IanSavchenko commented [74]Mar 25, 2019
+
+   Would be cool!
+   [75]@andreineculau
+
+This comment has been minimized.
+
+   [76]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[77]@andreineculau [78]andreineculau commented [79]May 15, 2019 •
+
+   edited
+
+   I had a look at the codebase and also at the reported issues
+   [80]https://github.com/aws-cloudformation/cfn-python-lint/issues?q=is%3
+   Aissue+is%3Aclosed .
+
+   Unfortunately I have to close this as wontfix. I will not put in the
+   effort for this because I think it will simply annoy people: false
+   positives, bugs, get stuck, etc
+
+   Just as a knowledge-note: I believe the first step in the right
+   direction would be for AWS to spit out official JSON Schemas. That
+   could take care of 80% of the checking. Assuming that they don't use
+   some sort of schema on the cloudformation backend, they could also
+   start using JSON Schema there. Once that is done, only then introduce
+   business-logic checks in a public validation tool to mimic the
+   requirements and/or backend's realities. As it is right now,
+   [81]https://github.com/aws-cloudformation/cfn-python-lint is more of a
+   poor man's linter with an official stamp.
+   [82]https://github.com/fungusakafungus/cloudformation-jsonschema is a
+   thousand times more nobel effort.
+   [83]@andreineculau [84]andreineculau closed this [85]May 15, 2019

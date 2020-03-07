@@ -1,0 +1,90 @@
+
+run 'npm update' after 'npm install' #59
+
+   f/anu-npm-update
+
+   master f/anu-npm-update
+   @andreineculau
+   [45]andreineculau opened this pull request about 1 year ago • edited
+   about 1 year ago
+
+   Labels
+   [46]enhancement
+
+   to refresh dependencies to the latest matching version. I got bit by a
+   bug in the jest ecosystem recently, a bug which wasn't seen on Travis,
+   but "only on my computer"
+
+   Downside: time. This adds another 10+ seconds to make deps/npm. In
+   theory npm install can be replaced by npm update but I don't want to
+   put my trust in npm maintaining that behaviour.
+
+   Open for suggestions or just not doing it 🤷‍♂️
+
+   [47]andreineculau added a commit [48]about 1 year ago
+   [49]@andreineculau [50]run 'npm update' after 'npm install'
+
+   andreineculau added the [51]enhancement label [52]about 1 year ago
+
+   andreineculau requested a review from IanSavchenko [53]about 1 year ago
+
+   @IanSavchenko
+   [54]IanSavchenko approved these changes [55]about 1 year ago
+
+   I would say that I'm more for package.lock file, but this change is
+   better than what we have now.
+
+   [56]andreineculau added some commits [57]about 1 year ago
+                     [58]@andreineculau [59]npm prune also in dev
+   [60]@andreineculau [61]only run npm update if there is no
+   package-lock.json
+                     [62]@andreineculau [63]style
+
+   Copy link
+   @andreineculau
+   [64]andreineculau
+   commented [65]about 1 year ago
+
+   [66]@IanSavchenko right, I didn't try to see what happens when a
+   package-lock.json exists, but I updated the PR to skip npm update when
+   it does. i also enabled npm prune on the dev env. make sense?
+
+   PS: re package-lock.json we can test it out on the "apps" and see what
+   troubles we get into 👻 (but never on the "libs" e.g. lodash-firecloud)
+
+   [67]andreineculau added a commit [68]about 1 year ago
+   [69]@andreineculau [70]remove npm update with --depth. seems broken
+
+   Copy link
+   @IanSavchenko
+   [71]IanSavchenko
+   commented [72]about 1 year ago
+
+   Maybe we should do prune after update?
+
+   Copy link
+   @andreineculau
+   [73]andreineculau
+   commented [74]about 1 year ago
+
+   hmm, my idea was to minimize the work for npm update.
+   you're thinking that npm update would add junk?
+
+   Copy link
+   @andreineculau
+   [75]andreineculau
+   commented [76]about 1 year ago
+
+   I just did a small test, and npm prune after update comes empty handed
+   (no removals)
+
+   so npm update already reorganizes the packages it touches, just doesn't
+   remove extraneous dependencies
+
+   andreineculau referenced this pull request from commit [77]fc23443
+   [78]about 1 year ago
+
+   andreineculau merged commit fc23443 into master [79]about 1 year ago
+
+   andreineculau deleted the f/anu-npm-update branch [80]about 1 year ago
+

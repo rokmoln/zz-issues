@@ -1,0 +1,36 @@
+
+Clean up and clarify S3 "get...Bucket" functions to have correct semantics #9
+
+   Closed
+   [57]IanSavchenko opened this issue Apr 26, 2018 · 1 comment
+   Closed
+
+[58]Clean up and clarify S3 "get...Bucket" functions to have correct
+semantics #9
+
+   [59]IanSavchenko opened this issue Apr 26, 2018 · 1 comment
+   Assignees
+   [60]@IanSavchenko
+
+Comments
+
+   [61]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[62]@IanSavchenko [63]IanSavchenko commented [64]Apr 26, 2018
+
+   No description provided.
+   [65]@IanSavchenko [66]IanSavchenko self-assigned this [67]May 30, 2018
+   [68]@IanSavchenko
+
+This comment has been minimized.
+
+   [69]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor Author
+
+[70]@IanSavchenko [71]IanSavchenko commented [72]May 31, 2018
+
+   Fixed with [73]8c74b49
+   [74]@IanSavchenko [75]IanSavchenko closed this [76]May 31, 2018

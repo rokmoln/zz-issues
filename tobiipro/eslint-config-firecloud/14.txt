@@ -1,0 +1,51 @@
+
+rule change: allow oneliner arrow functions #14
+
+   Closed
+   [57]semikolon opened this issue May 7, 2018 · 1 comment
+   Closed
+
+[58]rule change: allow oneliner arrow functions #14
+
+   [59]semikolon opened this issue May 7, 2018 · 1 comment
+
+Comments
+
+   [60]@semikolon
+   Copy link (BUTTON) Quote reply
+
+[61]@semikolon [62]semikolon commented [63]May 7, 2018
+
+   The rule name is arrow-body-style
+
+   I want to be able to do
+    labels: _.map(results, (r) => r[`${brand}_brand`]),
+
+   instead of
+    labels: _.map(results, (r) => {
+      return r[`${brand}_brand`];
+    }),
+
+   Kind of like being able to do oneliners like these, it's a feature of
+   the new arrow function syntax :)
+   (THUMBS_DOWN react) 👎 1
+   [64]@IanSavchenko
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[66]@IanSavchenko [67]IanSavchenko commented [68]May 8, 2018
+
+   It's a "no" from me. Visually it is easier to see args and function
+   body when they are on different lines. When you (I mean anyone who
+   writes code) know that one-liners are not allowed, you won't be trying
+   to squeeze logic into a one-liner and will keep the code readable.
+   It can be mentioned here, that usage of fat-arrow functions has to be
+   justified by using some other of their qualities (like context
+   capturing) not just syntax sugar and less typing (6 characters
+   difference?).
+   (HEART react) ❤️ 1
+   [69]@IanSavchenko [70]IanSavchenko closed this [71]May 22, 2018

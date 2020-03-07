@@ -1,0 +1,36 @@
+
+Improve feedback when running darwin/bootstrap and it errors on packages
+already installed with the wrong flags #21
+
+   Closed
+   [57]alsmyr opened this issue Apr 9, 2018 · 0 comments
+   Closed
+
+[58]Improve feedback when running darwin/bootstrap and it errors on packages
+already installed with the wrong flags #21
+
+   [59]alsmyr opened this issue Apr 9, 2018 · 0 comments
+   Assignees
+   [60]@alsmyr
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@alsmyr
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[63]@alsmyr [64]alsmyr commented [65]Apr 9, 2018
+
+   Today when running darwin/bootstrap and you already have the package
+   installed but with the wrong flags the bootstrap exits without giving
+   feedback on why and what to to in order to fix the situation.
+   [66]@alsmyr [67]alsmyr added the [68]enhancement label [69]Apr 9, 2018
+   [70]@alsmyr [71]alsmyr self-assigned this [72]Apr 9, 2018
+   [73]@alsmyr [74]alsmyr mentioned this issue [75]Apr 9, 2018
+   [76]Better feedback when bootstrapping and a package is already
+   installed… #22
+   Merged
+   [77]@andreineculau [78]andreineculau closed this in [79]#22 [80]Apr 9,
+   2018

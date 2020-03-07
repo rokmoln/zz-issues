@@ -1,0 +1,33 @@
+
+env: ‘node-esm’: No such file or directory #118
+
+   Closed
+   [57]andreineculau opened this issue May 27, 2019 · 0 comments
+   Closed
+
+[58]env: ‘node-esm’: No such file or directory #118
+
+   [59]andreineculau opened this issue May 27, 2019 · 0 comments
+   Labels
+   [60]bug
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]May 27, 2019
+
+   node-esm is set as an alias in sh/dev.inc.sh, but that means it cannot
+   be used in shebang
+   [65]@andreineculau [66]andreineculau added the [67]bug label [68]May
+   27, 2019
+   [69]@andreineculau [70]andreineculau added this to To do in [71]Public
+   (Open Source) via automation [72]May 27, 2019
+   [73]@andreineculau [74]andreineculau closed this in [75]02f8667 [76]May
+   27, 2019
+   [77]Public (Open Source) automation moved this from To do to Done
+   [78]May 27, 2019
+   [79]@ankitmth [80]ankitmth removed this from Done in [81]Public (Open
+   Source) [82]Feb 19, 2020

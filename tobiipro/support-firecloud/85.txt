@@ -1,0 +1,34 @@
+
+in atex-platofrm `make test/unit-all` fails while `make test` does not #85
+
+   Closed
+   [57]IanSavchenko opened this issue Feb 14, 2019 · 1 comment
+   Closed
+
+[58]in atex-platofrm `make test/unit-all` fails while `make test` does not
+#85
+
+   [59]IanSavchenko opened this issue Feb 14, 2019 · 1 comment
+
+Comments
+
+   [60]@IanSavchenko
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[61]@IanSavchenko [62]IanSavchenko commented [63]Feb 14, 2019
+
+   In the first case, it's Python lambda that fails this check. A goal:
+   unify and make it predictable.
+   [64]@andreineculau
+
+This comment has been minimized.
+
+   [65]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member
+
+[66]@andreineculau [67]andreineculau commented [68]Feb 16, 2019
+
+   i think this should fix it [69]tobiipro/atex-platform@3c44135
+   [70]@andreineculau [71]andreineculau closed this [72]Feb 16, 2019

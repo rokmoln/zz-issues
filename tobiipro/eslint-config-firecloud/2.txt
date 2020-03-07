@@ -1,0 +1,27 @@
+
+mention local rules in readme #2
+
+   Closed
+   [57]andreineculau opened this issue Feb 27, 2018 · 0 comments
+   Closed
+
+[58]mention local rules in readme #2
+
+   [59]andreineculau opened this issue Feb 27, 2018 · 0 comments
+   Labels
+   [60]enhancement [61]wontfix
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Feb 27, 2018
+
+   No description provided.
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Feb 27, 2018
+   [70]@andreineculau [71]andreineculau added the [72]wontfix label
+   [73]Mar 29, 2018
+   [74]@andreineculau [75]andreineculau closed this [76]Mar 29, 2018

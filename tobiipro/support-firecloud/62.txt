@@ -1,0 +1,38 @@
+
+support "one build per branch" on travis #62
+
+   Closed
+   [57]andreineculau opened this issue Dec 17, 2018 · 1 comment
+   Closed
+
+[58]support "one build per branch" on travis #62
+
+   [59]andreineculau opened this issue Dec 17, 2018 · 1 comment
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Dec 17, 2018
+
+   might be possible to implement via
+   [65]https://github.com/pulumi/travisqueue or similar
+   (THUMBS_UP react) 👍 1
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Dec 17, 2018
+   [70]@andreineculau
+
+This comment has been minimized.
+
+   [71]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[72]@andreineculau [73]andreineculau commented [74]Mar 5, 2019
+
+   closing. we're not going to invest into travis imho
+   [75]@andreineculau [76]andreineculau closed this [77]Mar 5, 2019

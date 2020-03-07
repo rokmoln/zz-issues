@@ -1,0 +1,344 @@
+
+util to upload CI/CD logs to a git reference #49
+
+   Closed
+   [57]andreineculau opened this issue Nov 23, 2018 · 5 comments
+   Closed
+
+[58]util to upload CI/CD logs to a git reference #49
+
+   [59]andreineculau opened this issue Nov 23, 2018 · 5 comments
+   Assignees
+   [60]@andreineculau
+   Labels
+   [61]enhancement
+
+Comments
+
+   [62]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[63]@andreineculau [64]andreineculau commented [65]Nov 23, 2018
+
+   it is more extreme with Travis, where we have a limit of 4MB
+   stdout/stderr log, but in general we may want to log some files for
+   post-analysis of a CI/CD event
+
+   what we need is a small util that given a FOLDER and given a dynamic
+   hidden REFERENCE, this util can be added to travis.yml in the
+   after_script or after_failure section in order to git add <FOLDER>; git
+   commit -m "logs" and git push to the reference (orphan or with the
+   CI/CD checkout as parent commit).
+
+   dynamic hidden reference =
+     * dynamic: it should support taking the BUILD_ID env var for example,
+       or the branch/tag that travis checked out
+     * hidden: because it shouldn't be a branch/tag or else it would
+       pollute the repo for everyone e.g. refs/logs/${BUILD_ID}
+
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Nov 23, 2018
+   [70]@andreineculau [71]andreineculau self-assigned this [72]Nov 23,
+   2018
+   [73]@IanSavchenko
+
+This comment has been minimized.
+
+   [74]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[75]@IanSavchenko [76]IanSavchenko commented [77]Nov 23, 2018 •
+
+   edited
+
+   Looks like some stupid limitation of Travis which requires a dirty hack
+   :(
+   Maybe it's better to push it to some (semi-public) S3 bucket with guid
+   filename? So no one can guess the filename but the link will be printed
+   in Travis log.
+   [78]@andreineculau
+
+This comment has been minimized.
+
+   [79]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[80]@andreineculau [81]andreineculau commented [82]Nov 23, 2018
+
+   no, this is not so tightly related to Travis. Example: it doesn't make
+   sense to print out the generated cloudformation templates, but you
+   might want to have access to them regardless of the provisioning
+   succeeding or failing
+
+   and if you're saying that hidden refs are hacks, they are not. all
+   sorts of system use them. even github has the refs/pulls namespace for
+   instance
+
+   about s3 - that's what you (read I) immediately think of. "I need to
+   store my files somewhere. Where can i find a file/object storage?"
+    1. yet the CI/CD already has access to the repo (in many cases RW
+       access, not just RO, because you might already need to push tags
+       etc), and you already have defined who has access to travis/repo,
+    2. while S3 needs extra setup (new tokens to be stored secretly,
+       bucket, bucket policies), and also separate permissions in terms of
+       who in the team can access the logs (I definitely do not want those
+       permissions to be broader than who can access travis or the repo)
+
+   PS: the only thing that I saw as an advantage is that on S3 you can set
+   expiry rules. Though that's nothing that can't be done for git refs
+   [83]@andreineculau
+
+This comment has been minimized.
+
+   [84]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[85]@andreineculau [86]andreineculau commented [87]Jan 10, 2019
+
+   It turns out that TravisCI should actually upload artifacts also on
+   failure, just that the docs were out-of-sync. After contacting their
+   support, there's a new PR to fix the docs
+   [88]travis-ci/docs-travis-ci-com#2219 \o/
+
+   What this means is that we could have
+     * travis.yml with artifacts uploading to S3
+     * the S3 bucket could have short expiration times where
+          + "anyone can write, but only a few authenticated users can
+            read"
+          + or "anyone can write and read, but only a few authenticated
+            users can list" so that if you have access to the travis log,
+            you could also click a link in the travis log and read the
+            contents of the artifacts, but you wouldn't be able to query
+            the S3 bucket and list all of the logs
+
+   What's nice with S3 is the short-expiry IMHO. UI wise it would be nicer
+   to browse the logs on github.
+   (THUMBS_UP react) 👍 2
+   [89]@IanSavchenko
+
+This comment has been minimized.
+
+   [90]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Contributor
+
+[91]@IanSavchenko [92]IanSavchenko commented [93]Jan 10, 2019
+
+   I like the idea with S3 and anyone writing and reading, but nobody
+   listing.
+   [94]andreineculau added a commit that referenced this issue [95]Jan 10,
+   2019
+   [96]@andreineculau
+   [97]upload travis artifacts to git ref. ref [98]#49
+   Verified
+   This commit was signed with a verified signature.
+   [99]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [100]Learn about signing commits
+   [101]5fd38ee
+   [102]andreineculau added a commit that referenced this issue [103]Jan
+   11, 2019
+   [104]@andreineculau
+   [105]upload travis artifacts to git ref. ref [106]#49
+   Verified
+   This commit was signed with a verified signature.
+   [107]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [108]Learn about signing commits
+   [109]5001f8e
+   [110]andreineculau added a commit that referenced this issue [111]Jan
+   11, 2019
+   [112]@andreineculau
+   [113]Merge pull request [114]#74 [115]from
+   tobiipro/f/anu-upload-artifacts (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [116]Learn about signing commits
+   [117]08410e9
+upload travis artifacts to git ref. ref [118]#49
+
+   [119]andreineculau added a commit that referenced this issue [120]Jan
+   11, 2019
+   [121]@andreineculau
+   [122]cleanup and fix git url for job artifacts. ref [123]#49
+   Verified
+   This commit was signed with a verified signature.
+   [124]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [125]Learn about signing commits
+   [126]9516a0b
+   [127]andreineculau added a commit that referenced this issue [128]Jan
+   11, 2019
+   [129]@andreineculau
+   [130]add upload job artifacts to s3. ref [131]#49
+   Verified
+   This commit was signed with a verified signature.
+   [132]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [133]Learn about signing commits
+   [134]5df5f69
+   [135]andreineculau added a commit that referenced this issue [136]Jan
+   11, 2019
+   [137]@andreineculau
+   [138]fixup! add upload job artifacts to s3. ref [139]#49
+   Verified
+   This commit was signed with a verified signature.
+   [140]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [141]Learn about signing commits
+   [142]cdd962e
+   [143]andreineculau added a commit that referenced this issue [144]Jan
+   11, 2019
+   [145]@andreineculau
+   [146]cleanup. ref [147]#49
+   Verified
+   This commit was signed with a verified signature.
+   [148]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [149]Learn about signing commits
+   [150]3a23cf3
+   [151]andreineculau added a commit that referenced this issue [152]Jan
+   11, 2019
+   [153]@andreineculau
+   [154]fix git url. ref [155]#49
+   Verified
+   This commit was signed with a verified signature.
+   [156]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [157]Learn about signing commits
+   [158]da21f28
+   [159]andreineculau added a commit that referenced this issue [160]Jan
+   11, 2019
+   [161]@andreineculau
+   [162]fix s3 perms. ref [163]#49
+   Verified
+   This commit was signed with a verified signature.
+   [164]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [165]Learn about signing commits
+   [166]5e0fc7c
+   [167]andreineculau added a commit that referenced this issue [168]Jan
+   11, 2019
+   [169]@andreineculau
+   [170]need to use commit hash for github's ui. ref. [171]#49
+   Verified
+   This commit was signed with a verified signature.
+   [172]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [173]Learn about signing commits
+   [174]b63c0b1
+   [175]andreineculau added a commit that referenced this issue [176]Jan
+   11, 2019
+   [177]@andreineculau
+   [178]typo. ref [179]#49
+   Verified
+   This commit was signed with a verified signature.
+   [180]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [181]Learn about signing commits
+   [182]1da4ed3
+   [183]andreineculau added a commit that referenced this issue [184]Jan
+   11, 2019
+   [185]@andreineculau
+   [186]discuss current solution for [187]#49
+   Verified
+   This commit was signed with a verified signature.
+   [188]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [189]Learn about signing commits
+   [190]2f0c015
+   [191]@andreineculau [192]andreineculau mentioned this issue [193]Jan
+   11, 2019
+   [194]discuss current solution for #49 #75
+   Merged
+   3 of 3 tasks complete
+   [195]andreineculau added a commit that referenced this issue [196]Jan
+   13, 2019
+   [197]@andreineculau
+   [198]revert work relevant to [199]#49
+   Verified
+   This commit was signed with a verified signature.
+   [200]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [201]Learn about signing commits
+   [202]b818442
+   [203]andreineculau added a commit that referenced this issue [204]Jan
+   13, 2019
+   [205]@andreineculau
+   [206]upload travis artifacts to git ref and s3. ref [207]#49
+   Verified
+   This commit was signed with a verified signature.
+   [208]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [209]Learn about signing commits
+   [210]1d1613c
+   [211]andreineculau added a commit that referenced this issue [212]Jan
+   16, 2019
+   [213]@andreineculau
+   [214]upload travis artifacts to git ref and s3. ref [215]#49
+   Verified
+   This commit was signed with a verified signature.
+   [216]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [217]Learn about signing commits
+   [218]4de0766
+   [219]andreineculau added a commit that referenced this issue [220]Jan
+   16, 2019
+   [221]@andreineculau
+   [222]upload travis artifacts to git ref and s3. ref [223]#49
+   Verified
+   This commit was signed with a verified signature.
+   [224]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [225]Learn about signing commits
+   [226]3a9c74f
+   [227]andreineculau added a commit that referenced this issue [228]Jan
+   16, 2019
+   [229]@andreineculau
+   [230]upload travis artifacts to git ref and s3. ref [231]#49
+   Verified
+   This commit was signed with a verified signature.
+   [232]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [233]Learn about signing commits
+   [234]037048d
+   [235]andreineculau added a commit that referenced this issue [236]Jan
+   17, 2019
+   [237]@andreineculau
+   [238]upload travis artifacts to git ref and s3. ref [239]#49
+   Verified
+   This commit was signed with a verified signature.
+   [240]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [241]Learn about signing commits
+   [242]ae1caa9
+   [243]andreineculau added a commit that referenced this issue [244]Jan
+   17, 2019
+   [245]@andreineculau
+   [246]upload travis artifacts to git ref and s3. ref [247]#49
+   Verified
+   This commit was signed with a verified signature.
+   [248]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [249]Learn about signing commits
+   [250]1f9c871
+   [251]andreineculau added a commit that referenced this issue [252]Jan
+   17, 2019
+   [253]@andreineculau
+   [254]upload travis artifacts to git ref and s3. ref [255]#49
+   Verified
+   This commit was signed with a verified signature.
+   [256]andreineculau Andrei Neculau
+   GPG key ID: 79FA7EE650BF9A61 [257]Learn about signing commits
+   [258]0abd406
+   [259]andreineculau added a commit that referenced this issue [260]Jan
+   17, 2019
+   [261]@andreineculau
+   [262]Merge pull request [263]#75 [264]from
+   tobiipro/f/anu-discuss-job-artifacts (BUTTON) …
+   Verified
+   This commit was created on GitHub.com and signed with a verified
+   signature using GitHub’s key.
+   GPG key ID: 4AEE18F83AFDEB23 [265]Learn about signing commits
+   [266]a5fce1a
+discuss current solution for [267]#49
+
+   [268]@andreineculau
+
+This comment has been minimized.
+
+   [269]Sign in to view
+   Copy link (BUTTON) Quote reply
+   Member Author
+
+[270]@andreineculau [271]andreineculau commented [272]Jan 17, 2019
+
+   closed via [273]#75
+   [274]@andreineculau [275]andreineculau closed this [276]Jan 17, 2019

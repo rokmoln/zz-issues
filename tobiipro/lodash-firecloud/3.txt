@@ -1,0 +1,35 @@
+
+collection methods could support promises #3
+
+   Open
+   [57]andreineculau opened this issue Mar 21, 2018 · 0 comments
+   Open
+
+[58]collection methods could support promises #3
+
+   [59]andreineculau opened this issue Mar 21, 2018 · 0 comments
+   Labels
+   [60]enhancement
+
+Comments
+
+   [61]@andreineculau
+   Copy link (BUTTON) Quote reply
+   Member
+
+[62]@andreineculau [63]andreineculau commented [64]Mar 21, 2018
+
+   e.g. await _.forEach(array, async function(item) {...})
+
+   only collection methods should need Promise-support
+   [65]https://lodash.com/docs/4.17.5#countBy
+   [66]@andreineculau [67]andreineculau added the [68]enhancement label
+   [69]Mar 21, 2018
+   [70]@andreineculau [71]andreineculau added this to To do in [72]Public
+   (Open Source) [73]May 20, 2019
+   [74]@andreineculau [75]andreineculau mentioned this issue [76]Aug 8,
+   2019
+   [77]async versions #26
+   Open
+   [78]@ankitmth [79]ankitmth removed this from To do in [80]Public (Open
+   Source) [81]Feb 19, 2020

@@ -1,0 +1,320 @@
+
+Cypress targets #137
+
+   cypress
+
+   master cypress
+   @pedrotari7
+   [45]pedrotari7 opened this pull request
+   about 2 months ago
+   No description given.
+
+   [46]jobackman and others added some commits [47]about 2 months ago
+   [48]@jobackman [49]Add a cypress mk file for inclusion
+   [50]@pedrotari7 [51]Removed echo
+
+   pedrotari7 requested a review from fredrikj [52]about 2 months ago
+
+   pedrotari7 requested a review from andreineculau [53]about 2 months ago
+
+   pedrotari7 requested a review from jobackman [54]about 2 months ago
+
+   pedrotari7 requested a review from tobiiasl [55]about 2 months ago
+
+   pedrotari7 requested a review from thomasrichtertobii [56]about 2
+   months ago
+
+   pedrotari7 requested a review from spschlegel [57]about 2 months ago
+
+   @fredrikj
+   [58]fredrikj reviewed [59]about 2 months ago
+   [60]repo/mk/js.test.cypress.mk
+   ((44 lines not shown))
+   #
+   -----------------------------------------------------------------------
+   -------
+   .PHONY: test-cypress
+   test-cypress:
+   if [[ "$(words $(SF_CYPRESS_TEST_FILES))" != "0" ]]; then \
+   if [ -z "$(WEB_BASE_URL)" ]; then \
+   $(MAKE) test-cypress-with-server; \
+   else \
+   $(MAKE) test-cypress-deployed-env; \
+   fi \
+   fi
+   .PHONY: test-cypress-deployed-env
+   test-cypress-deployed-env: guard-env-WEB_BASE_URL
+   CYPRESS_baseUrl=$(WEB_BASE_URL) $(CYPRESS) run $(CYPRESS_ARGS)
+   [61]@fredrikj [62]fredrikj • [63]about 2 months ago
+   Copy link
+
+   I guess CYPRESS_baseurl should be all capitals?
+   I don't understand what guard-env-WEB_BASE_URL is but I guess it's a
+   make target that runs before this and checks that WEB_BASE_URL is
+   defined?
+   [64]@jobackman [65]jobackman • [66]about 2 months ago
+   Copy link
+
+   CYPRESS_baseurl isnt part of the make though, its the env variable
+   cypress uses to override the default url it runs on.
+
+   guard-env-WEB_BASE_URL is just like you say- it will tell you if the
+   variable is undefined so you know why it isnt working 👍
+   [67]@fredrikj [68]fredrikj • [69]about 2 months ago
+   Copy link
+
+     CYPRESS_baseurl isnt part of the make though, its the env variable
+     cypress uses to override the default url it runs on.
+
+   Yes, I can see that. My remark is just that it has weird casing. Oh, I
+   see now that Cypress seems to expect it to look like that:
+   [70]https://docs.cypress.io/guides/guides/environment-variables.html#Se
+   tting
+   It looked a bit broken, and still looks a bit ugly. :)
+
+   @jobackman
+   [71]jobackman reviewed [72]about 2 months ago
+   [73]repo/mk/js.test.cypress.mk
+   ((69 lines not shown))
+   .PHONY: test-cypress-no-server
+   test-cypress-no-server:
+   $(CYPRESS) run $(CYPRESS_ARGS)
+   [74]@jobackman [75]jobackman • [76]about 2 months ago • edited about 2
+   months ago
+   Copy link
+
+   Since we can run cypress on the CI both with a deployed env and have it
+   spin up its own server, do we need this target?
+
+   Its use is only for when you already have your dev server running, and
+   like I said in our mob-prog yesterday, I dont think it makes much sense
+   having this target use the same CYPRESS_ARGS too.
+
+   If I was using this in my projects Makefile I would likely define the
+   CYPRESS_ARGS for my CI, for instance:
+# ...in my projects Makefile
+
+CYPRESS_ARGS = \
+    --record true \
+    --key dashboard-key \
+    --projectId asdasds \
+
+
+# I probably dont want the same args for my local run of cypress on my dev serve
+r
+
+   Either we make another variable for its arguments, or we remove it from
+   here and let each project define their own target for running cypress
+   locally. It essentially just needs to run cypress run, adding extra
+   lists of variables for a single target seems complex
+
+   Thoughts?
+
+   @spschlegel
+   [77]spschlegel reviewed [78]about 2 months ago
+   [79]repo/mk/js.test.cypress.mk
+   @@ -0,0 +1,76 @@
+   # Adds 'cypress/integration/**/*.js' targets to run jest on a specific
+   cypress/integration/**/*.js file.
+   [80]@spschlegel [81]spschlegel • [82]about 2 months ago
+   Copy link
+
+   it still says 'jest' in the comment
+   😕 1
+   tobiiasl reacted with confused emoji
+   👀 1
+   jobackman reacted with eyes emoji
+   [83]repo/mk/js.test.cypress.mk
+   ((18 lines not shown))
+   CYPRESS = $(call npm-which,CYPRESS,cypress)
+   CYPRESS_BROWSER_TARGET ?= chrome
+   CYPRESS_ARGS += \
+   --browser $(CYPRESS_BROWSER_TARGET) \
+   CYPRESS_PORT ?= 4200
+   CYPRESS_WEB_URL ?= http://localhost
+   SF_CYPRESS_TEST_FILES += \
+   $(shell $(FIND_Q_NOSYM) cypress/integration -type f -name "*.js"
+   -print) \
+   SF_VENDOR_FILES_IGNORE += \
+   [84]@spschlegel [85]spschlegel • [86]about 2 months ago
+   Copy link
+
+   Do we still need this variable?
+   [87]@tobiiasl [88]tobiiasl • [89]about 2 months ago
+   Copy link
+
+   No. And it seems like Andrei only keeps variables that has a non-empty
+   value. So remove.
+   [90]@andreineculau [91]andreineculau • [92]about 2 months ago
+   Copy link
+
+   🤦‍♂ 😂 "Andrei this, Andre that"
+
+   line 33 doesn't have a purpose, that's why it could/should be removed 😉
+
+   tobiiasl removed their request for review [93]about 2 months ago
+
+   tobiiasl self-requested a review [94]about 2 months ago
+
+   @tobiiasl
+   [95]tobiiasl approved these changes [96]about 2 months ago
+   [97]repo/mk/js.test.cypress.mk
+   ((16 lines not shown))
+   KILL_PORT = $(call npm-which,KILL_PORT,kill-port)
+   CYPRESS = $(call npm-which,CYPRESS,cypress)
+   CYPRESS_BROWSER_TARGET ?= chrome
+   CYPRESS_ARGS += \
+   --browser $(CYPRESS_BROWSER_TARGET) \
+   CYPRESS_PORT ?= 4200
+   CYPRESS_WEB_URL ?= http://localhost
+   SF_CYPRESS_TEST_FILES += \
+   $(shell $(FIND_Q_NOSYM) cypress/integration -type f -name "*.js"
+   -print) \
+   [98]@tobiiasl [99]tobiiasl • [100]about 2 months ago
+   Copy link
+
+   It would be nice if we could support writing our cypress test files in
+   TypeScript. Perhaps something for the next mob session?
+   [101]repo/mk/js.test.cypress.mk
+   ((18 lines not shown))
+   CYPRESS = $(call npm-which,CYPRESS,cypress)
+   CYPRESS_BROWSER_TARGET ?= chrome
+   CYPRESS_ARGS += \
+   --browser $(CYPRESS_BROWSER_TARGET) \
+   CYPRESS_PORT ?= 4200
+   CYPRESS_WEB_URL ?= http://localhost
+   SF_CYPRESS_TEST_FILES += \
+   $(shell $(FIND_Q_NOSYM) cypress/integration -type f -name "*.js"
+   -print) \
+   SF_VENDOR_FILES_IGNORE += \
+   [102]@spschlegel [103]spschlegel • [104]about 2 months ago
+   Copy link
+
+   Do we still need this variable?
+   [105]@tobiiasl [106]tobiiasl • [107]about 2 months ago
+   Copy link
+
+   No. And it seems like Andrei only keeps variables that has a non-empty
+   value. So remove.
+   [108]@andreineculau [109]andreineculau • [110]about 2 months ago
+   Copy link
+
+   🤦‍♂ 😂 "Andrei this, Andre that"
+
+   line 33 doesn't have a purpose, that's why it could/should be removed 😉
+   [111]repo/mk/js.test.cypress.mk
+   ((34 lines not shown))
+   SF_CLEAN_FILES += \
+   cypress/videos \
+   cypress/screenshots \
+   SF_TEST_TARGETS += \
+   test-cypress
+   WEB_BASE_URL ?=
+   #
+   -----------------------------------------------------------------------
+   -------
+   .PHONY: test-cypress
+   test-cypress:
+   if [[ "$(words $(SF_CYPRESS_TEST_FILES))" != "0" ]]; then \
+   [112]@tobiiasl [113]tobiiasl • [114]about 2 months ago
+   Copy link
+
+   I think that in this particular case we could have skipped the
+   quotation marks on line 49. But perfectly fine to have them for
+   consistency.
+
+   @spschlegel
+   [115]spschlegel approved these changes [116]about 2 months ago
+
+   @andreineculau
+   [117]andreineculau reviewed [118]about 2 months ago
+   [119]repo/mk/js.test.cypress.mk
+   ((33 lines not shown))
+   SF_VENDOR_FILES_IGNORE += \
+   SF_CLEAN_FILES += \
+   cypress/videos \
+   cypress/screenshots \
+   SF_TEST_TARGETS += \
+   test-cypress
+   WEB_BASE_URL ?=
+   #
+   -----------------------------------------------------------------------
+   -------
+   .PHONY: test-cypress
+   test-cypress:
+   [120]@andreineculau [121]andreineculau • [122]about 2 months ago •
+   edited about 2 months ago
+   Copy link
+
+   🚨
+   a test target (smth that runs automatically on make test) should have a
+   stable behaviour, but now it's dynamic based on the existence of a
+   general-purpose variable.
+   i think it's fine if the target is "smart" i.e. start a local server if
+   one doesn't exist (could use the same wait-on), but it's a different
+   thing to run tests against a different server
+
+   i think this goes very much in line with [123]@jobackman's comment
+
+   @andreineculau
+   [124]andreineculau requested changes [125]about 2 months ago
+
+   👏 nice
+
+   there's some cleanup to do imho.
+
+   I would have gone with 2 targets instead of 3
+     * test-cypress - which can check if the local server is already
+       running (start it of not), run make cypress, and maybe kill local
+       server if the target started it
+     * cypress - just run cypress --- can be nicely used from bin/test-env
+       after deploying, by calling it with
+       CYPRESS_baseurl=${WEB_BASE_URL}... make cypress so the generic
+       WEB_BASE_URL can disappear from this makefile
+
+   this takes care of Johan's comment, and simplifies quite a lot the
+   makefile, and makes the targets more consistent with one other, not the
+   least the make $(SF_CYPRESS_TEST_FILES) target
+   [126]repo/mk/js.test.cypress.mk
+   ((7 lines not shown))
+   #
+   # The arguments to the cypress executable can be changed via
+   CYPRESS_ARGS.
+   # Cypress will by default run on the url defined in its cypress.json
+   file.
+   # To run it on another url define WEB_BASE_URL before running the
+   target.
+   #
+   #
+   -----------------------------------------------------------------------
+   -------
+   WAIT_ON = $(call npm-which,WAIT_ON,wait-on)
+   KILL_PORT = $(call npm-which,KILL_PORT,kill-port)
+   CYPRESS = $(call npm-which,CYPRESS,cypress)
+   CYPRESS_BROWSER_TARGET ?= chrome
+   CYPRESS_ARGS += \
+   [127]@andreineculau [128]andreineculau • [129]about 2 months ago
+   Copy link
+
+   CYPRESS_RUN_ARGS
+   [130]repo/mk/js.test.cypress.mk
+   ((61 lines not shown))
+   .PHONY: test-cypress-with-server
+   test-cypress-with-server:
+   $(MAKE) server & $(WAIT_ON) $(CYPRESS_WEB_URL):$(CYPRESS_PORT)
+   $(CYPRESS) run $(CYPRESS_ARGS)
+   $(KILL_PORT) $(CYPRESS_PORT)
+   .PHONY: test-cypress-no-server
+   test-cypress-no-server:
+   $(CYPRESS) run $(CYPRESS_ARGS)
+   .PHONY: $(SF_CYPRESS_TEST_FILES)
+   $(SF_CYPRESS_TEST_FILES):
+   $(CYPRESS) run --spec $@ $(CYPRESS_ARGS)
+   [131]@andreineculau [132]andreineculau • [133]about 2 months ago
+   Copy link
+
+   $(CYPRESS) run $(CYPRESS_ARGS) --spec $@
+
+   andreineculau force pushed changes to the base branch [134]about 1
+   month ago
+
